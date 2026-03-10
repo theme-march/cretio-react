@@ -20,7 +20,7 @@ const MinimalStudio: React.FC = () => {
                 variant="style-2"
                 title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
             />
-            <AwardsSection variant="type-2" />
+            <AwardsSection />
             <MarketingTestimonialSection variant="style-2 type-2" />
             <TeamSection />
             <BlogSection />
