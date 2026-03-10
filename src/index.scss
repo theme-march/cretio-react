@@ -1,0 +1,77 @@
+/* Global CSS Imports derived from the template */
+@import "@assets/fonts/flaticon_cretio.css";
+@import "@assets/css/plugins/swiper.min.css";
+@import "@assets/css/plugins/bootstrap.min.css";
+@import "@assets/sass/style.scss";
+
+/* Additional layout styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Background and Transition */
+.ak-site_header {
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out !important;
+  background-color: var(--body-bg-color) !important;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* Sticky state background and shadow */
+.ak-sticky_active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .ak-sticky_active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Hide header on scroll down */
+.ak-header-hide {
+  transform: translateY(-100%);
+}
+
+/* Ensure navbar border doesn't clash with solid background */
+.nav-bar-border {
+  display: none !important;
+}
+
+/* Light/Dark specific adjustments if needed */
+.ak-site_header.ak-sticky_active {
+  background-color: var(--body-bg-color) !important;
+}
+
+/* Background Utility Classes missing from style.css */
+.ak-solidblack-bg {
+  background-color: #000000 !important;
+}
+
+.ak-black-bg {
+  background-color: #101010 !important;
+}
+
+.ak-gray-bg {
+  background-color: #f1f1f1 !important;
+}
+
+.dark .ak-gray-bg {
+  background-color: #000000 !important;
+}
+
+.ak-white-bg {
+  background-color: #ffffff !important;
+}
+
+.dark .ak-white-bg {
+  background-color: #101010 !important;
+}
+
+/* Fix for hidden images that rely on GSAP reveal animations */
+.img-anim-left-show {
+  visibility: visible !important;
+  opacity: 1 !important;
+}

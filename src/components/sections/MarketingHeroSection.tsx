@@ -1,0 +1,106 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import heroImg1 from "@assets/img/hero/marketing-agency.png";
+import heroImg2 from "@assets/img/hero/marketing-agency-2.png";
+
+const heroSlides = [
+    {
+        id: 1,
+        img: heroImg1,
+        caption: "Business Hunter",
+        subTitle: 'Driving <span class="highlight">Growth</span> Through',
+        mainTitle: '<span class="highlight">Creative</span> Marketing Strategies',
+    },
+    {
+        id: 2,
+        img: heroImg2,
+        caption: "Business Hunter",
+        subTitle: 'Driving <span class="highlight">Growth</span> Through',
+        mainTitle: '<span class="highlight">Creative</span> Marketing Strategies',
+    },
+];
+
+const MarketingHeroSection: React.FC = () => {
+    return (
+        <section className="marketing-agency-section">
+            <div className="marketing-agency-hero style-1">
+                <Swiper
+                    modules={[Autoplay, Navigation]}
+                    autoplay={{ delay: 5000 }}
+                    loop={false}
+                    className="marketing-agency-slider ak-slider"
+                >
+                    {heroSlides.map((slide) => (
+                        <SwiperSlide key={slide.id}>
+                            <div className="marketing-agency-slider-card">
+                                <img className="hero-bg-img" src={slide.img} alt="" />
+                                <div className="marketing-agency-content">
+                                    <div className="container-extent">
+                                        <div className="marketing-agency-info">
+                                            <div className="marketing-agency-caption">
+                                                <span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
+                                                        <path d="M1.33789 1.18359H221.034L209.173 10.9822" stroke="#FF4A23" strokeLinecap="round" />
+                                                    </svg>
+                                                </span>
+                                                <span> {slide.caption} </span>
+                                            </div>
+                                            <h2 className="sub-title" dangerouslySetInnerHTML={{ __html: slide.subTitle }} />
+                                            <h2 className="main-title" dangerouslySetInnerHTML={{ __html: slide.mainTitle }} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                <div className="social-links">
+                    <ul>
+                        <li><a href="#" className="social-link">Facebook</a></li>
+                        <li><a href="#" className="social-link">Twitter</a></li>
+                        <li><a href="#" className="social-link">LinkedIn</a></li>
+                        <li><a href="#" className="social-link">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="container-extent">
+                <div className="marketing-agency-cta cta-section">
+                    <div className="cta-content">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has.
+                        </p>
+                    </div>
+                    <Link to="/contact" className="circle-btn circle-btn-anim style-1">
+                        <span className="text">
+                            Start
+                            <span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                <path d="M17.5 2.60144H2.5C2.155 2.60144 1.875 2.88144 1.875 3.22644C1.875 3.57144 2.155 3.85144 2.5 3.85144H15.9909L2.05812 17.7846C1.81406 18.0286 1.81406 18.4243 2.05812 18.6683C2.18031 18.7905 2.34 18.8514 2.5 18.8514C2.66 18.8514 2.82 18.7905 2.94187 18.6683L16.875 4.73519V18.2264C16.875 18.5714 17.155 18.8514 17.5 18.8514C17.845 18.8514 18.125 18.5714 18.125 18.2264V3.22644C18.125 2.88144 17.845 2.60144 17.5 2.60144Z" fill="#FF4A23" />
+                            </svg></span>
+                            <br />
+                            Project
+                        </span>
+                    </Link>
+
+                    <div className="contact-info">
+                        <div className="email-info">
+                            <p>Say hello!</p>
+                            <a href="mailto:info@email.com">info@email.com</a>
+                        </div>
+                        <div className="phone-info">
+                            <p>Say hello!</p>
+                            <a href="tel:+14065550120">(406) 555-0120</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default MarketingHeroSection;

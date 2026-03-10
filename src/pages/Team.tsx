@@ -1,0 +1,23 @@
+import React from "react";
+import Breadcrumb from "@components/common/Breadcrumb";
+import TeamGridSection from "@components/sections/TeamGridSection";
+
+const Team: React.FC = () => {
+    return (
+        <>
+            <Breadcrumb
+                title='Our <span class="highlight-text"> Exceptional</span> Digital Industrial <span class="highlight-text">Team Member</span>'
+                highlightWords={["Exceptional", "Member"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "Team Member", path: "" },
+                ]}
+                variant="style-2"
+                strokeText="TEAM"
+            />
+            <TeamGridSection />
+        </>
+    );
+};
+
+export default Team;
