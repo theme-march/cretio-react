@@ -1,7 +1,11 @@
 import React from "react";
-import videoSrc from "@assets/videos/marketing-agency-three.mp4";
+import defaultVideoSrc from "@assets/videos/marketing-agency-three.mp4";
 
-const MarketingVideoSection: React.FC = () => {
+interface MarketingVideoSectionProps {
+    videoSrc?: string;
+}
+
+const MarketingVideoSection: React.FC<MarketingVideoSectionProps> = ({ videoSrc = defaultVideoSrc }) => {
     return (
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>

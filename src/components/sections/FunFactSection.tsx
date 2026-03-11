@@ -59,8 +59,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
             <div className="container">
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div
-                    className={`funfact-content ${variant === "type-2" ? "type-2" : ""} ${variant === "type-3" ? "type-3" : ""
-                        }`}
+                    className={`funfact-content ${variant === "type-2" ? "type-2 funfact-gap" : ""} ${variant === "type-3" ? "type-3" : ""}`}
                 >
                     {funFacts.map((fact, index) => (
                         <FunFactItem
