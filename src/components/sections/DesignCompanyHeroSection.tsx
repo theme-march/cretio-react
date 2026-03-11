@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import heroVideo from "@assets/videos/design-company.mp4";
+import heroBg from "@assets/img/bg/design-company-hero-bg.png";
+import heroBgDark from "@assets/img/bg/design-company-hero-dark-bg.png";
 
 const DesignCompanyHeroSection: React.FC = () => {
+    const [isDark, setIsDark] = useState<boolean>(() => {
+        if (typeof document === "undefined") return false;
+        return document.body.classList.contains("dark");
+    });
+
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            setIsDark(document.body.classList.contains("dark"));
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section>
-            <div className="design-company-hero-area">
+            <div
+                className="design-company-hero-area"
+                style={{
+                    backgroundImage: `url(${isDark ? heroBgDark : heroBg})`,
+                    backgroundPosition: "top center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                }}
+            >
                 <div className="container">
                     <div className="dc-hero-wrapper style-1">
                         <div className="dc-hero-title-box">
