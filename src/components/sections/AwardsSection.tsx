@@ -22,6 +22,8 @@ const awards = [
     { id: 5, title: "Microsoft Award 2024", type: "Honorable Mention", category: "Best Developer", hoverImg: awardHover5, awardImg: award5 },
 ];
 
+import MarketingTestimonialSection from "./MarketingTestimonialSection";
+
 const AwardsSection: React.FC = () => {
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverImg, setHoverImg] = useState<string>(awards[0].hoverImg);
@@ -52,37 +54,40 @@ const AwardsSection: React.FC = () => {
     };
 
     return (
-        <section className="container">
-            <div className="ak-height-150 ak-height-lg-80"></div>
-            <SectionHeading title='<span class="highlight-text">Awards</span> <br /> Achievement' caption="Awards" variant="style-2" />
-            <div className="ak-height-75 ak-height-lg-50"></div>
-            <div className="awards-box">
-                <div className="awards-hover-image" ref={hoverRef} style={{ opacity: 0, scale: 0.5, pointerEvents: "none" }}>
-                    <img src={hoverImg} alt="..." id="awardsHover" />
-                </div>
-                <div className="awards-list">
-                    {awards.map((award) => (
-                        <div
-                            className="awards-card fade-animation"
-                            data-direction="bottom"
-                            key={award.id}
-                            onMouseEnter={() => handleMouseEnter(award.hoverImg)}
-                            onMouseLeave={handleMouseLeave}
-                            onMouseMove={handleMouseMove}
-                        >
-                            <h6 className="awards-title">
-                                {award.id < 10 ? `0${award.id}` : award.id}. {award.title}
-                            </h6>
-                            <p className="awards-type">{award.type}</p>
-                            <p className="awards-category">{award.category}</p>
-                            <div className="awards-img">
-                                <img src={award.awardImg} alt="..." />
+        <>
+            <section className="container">
+                <div className="ak-height-150 ak-height-lg-80"></div>
+                <SectionHeading title='<span class="highlight-text">Awards</span> <br /> Achievement' caption="Awards" variant="style-2" />
+                <div className="ak-height-75 ak-height-lg-50"></div>
+                <div className="awards-box">
+                    <div className="awards-hover-image" ref={hoverRef} style={{ opacity: 0, scale: 0.5, pointerEvents: "none" }}>
+                        <img src={hoverImg} alt="..." id="awardsHover" />
+                    </div>
+                    <div className="awards-list">
+                        {awards.map((award) => (
+                            <div
+                                className="awards-card fade-animation"
+                                data-direction="bottom"
+                                key={award.id}
+                                onMouseEnter={() => handleMouseEnter(award.hoverImg)}
+                                onMouseLeave={handleMouseLeave}
+                                onMouseMove={handleMouseMove}
+                            >
+                                <h6 className="awards-title">
+                                    {award.id < 10 ? `0${award.id}` : award.id}. {award.title}
+                                </h6>
+                                <p className="awards-type">{award.type}</p>
+                                <p className="awards-category">{award.category}</p>
+                                <div className="awards-img">
+                                    <img src={award.awardImg} alt="..." />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <MarketingTestimonialSection variant="type-2" />
+        </>
     );
 };
 

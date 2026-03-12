@@ -1,5 +1,6 @@
 import React from "react";
 import useCountUp from "@hooks/useCountUp";
+import funfactBg from "@assets/img/bg/funfact-bg.png";
 
 interface FunFactProps {
     variant?: "style-1" | "type-2" | "type-3";
@@ -36,6 +37,7 @@ const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, varian
                 )}
                 <div
                     className={`funfact-number ${variant === "type-2" ? "img-clip-text ak-bg" : ""}`}
+                    style={variant === "type-2" ? { backgroundImage: `url(${funfactBg})` } : {}}
                 >
                     <span>{count}</span>
                     <span>{suffix}</span>
