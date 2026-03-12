@@ -40,7 +40,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                     <div className="ak-section-heading ak-style-1 justify-content-center">
                         <div className="ak-section-left">
                             <h2 className="ak-section-title text-animation text-center">
-                                Our <span className="highlight">Exceptional </span> Sucessful <br /> Industrial
+                                Our <span className="highlight">Exceptional </span> Sucessful <br /> <span>Industrial </span>
                                 <span className="highlight"> Projects </span>
                             </h2>
                         </div>

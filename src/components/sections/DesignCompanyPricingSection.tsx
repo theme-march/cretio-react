@@ -43,8 +43,6 @@ const pricingPlans = [
     },
 ];
 
-import MarketingVideoSection from "./MarketingVideoSection";
-import markagVideo from "@assets/videos/markag-video.mp4";
 import { useState } from "react";
 
 const DesignCompanyPricingSection: React.FC = () => {
@@ -99,7 +97,6 @@ const DesignCompanyPricingSection: React.FC = () => {
                     </div>
                 </div>
             </section>
-            <MarketingVideoSection videoSrc={markagVideo} />
         </>
     );
 };

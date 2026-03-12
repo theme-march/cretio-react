@@ -46,7 +46,6 @@ const pricingPlans = [
 const PricingSection: React.FC = () => {
     return (
         <section className="container">
-            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="package-content style3">
                 {pricingPlans.map((plan, index) => (
                     <div key={index} className="package-one style3">

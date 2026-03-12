@@ -29,6 +29,7 @@ interface MarketingTestimonialSectionProps {
 }
 
 const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = ({ variant = "" }) => {
+    const isStyle2 = variant.includes("style-2");
     const isType2 = variant.includes("type-2");
 
     return (
@@ -44,14 +45,14 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                                     loop={true}
                                     autoplay={{ delay: 5000 }}
                                     navigation={
-                                        isType2
+                                        isStyle2
                                             ? {
                                                   prevEl: ".ts-next-2",
                                                   nextEl: ".ts-prev-2",
                                               }
                                             : undefined
                                     }
-                                    className={`ak-slider ${isType2 ? "testmonial-slider-2" : "testmonial-slider-1"} ak-center`}
+                                    className={`ak-slider ${isStyle2 ? "testmonial-slider-2" : "testmonial-slider-1"} ak-center`}
                                 >
                                     {testimonials.map((item) => (
                                         <SwiperSlide key={item.id}>
@@ -73,8 +74,8 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                                     ))}
                                 </Swiper>
                             </div>
-                            {isType2 && (
-                                <div className="testmonial-slider-controller-2 type-2">
+                            {isStyle2 && (
+                                <div className={`testmonial-slider-controller-2 ${isType2 ? "type-2" : ""}`}>
                                     <div>
                                         <div className="testmonial-slider-btn ts-next-2 fade-animation" data-direction="right" data-offset="75">
                                             <div className="more-btn style3 arrow-left-style">

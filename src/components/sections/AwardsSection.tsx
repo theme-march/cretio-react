@@ -86,7 +86,6 @@ const AwardsSection: React.FC = () => {
                     </div>
                 </div>
             </section>
-            <MarketingTestimonialSection variant="type-2" />
         </>
     );
 };

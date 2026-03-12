@@ -27,9 +27,10 @@ const Home: React.FC = () => {
             <VideoSection />
             <TestimonialSection />
             <TeamSection />
-            <MarqueeTextSection />
+            <MarqueeTextSection variant="style2" />
             <BlogSection />
-            <NewsletterSection />
+            <NewsletterSection variant="style-3" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };
