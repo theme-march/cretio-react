@@ -12,7 +12,8 @@ const MinimalStudioHeroSection: React.FC = () => {
                             Elegant <span className="highlight"> Simplicity, </span>
                         </h1>
                         <h1 className="ms-hero-title anim-line-words">
-                            Unmatched <span className="highlight-black">Creativity</span>
+                            <span>Unmatched </span>
+                            <span className="highlight-black">Creativity</span>
                         </h1>
                     </div>
                     <div className="ms-animated-badge">

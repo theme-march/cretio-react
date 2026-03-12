@@ -62,6 +62,7 @@ const MinimalAboutSection: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </section>
     );
 };

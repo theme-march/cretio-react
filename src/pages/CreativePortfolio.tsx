@@ -25,7 +25,7 @@ const CreativePortfolio: React.FC = () => {
             <TeamSection />
             <VideoSection />
             <NewsSection variant="style-2" />
-            <ClientLogoSection />
+            <ClientLogoSection showTitle={true} />
             <NewsletterSection variant="style-2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>

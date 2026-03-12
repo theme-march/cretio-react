@@ -18,11 +18,26 @@ const clients = [
     { id: 10, img: client3, title: "Enfhess Star", subtitle: "NFT Market Star Point", delay: 0.95 },
 ];
 
-const ClientLogoSection: React.FC = () => {
+interface ClientLogoSectionProps {
+    showTitle?: boolean;
+}
+
+const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({ showTitle = false }) => {
     return (
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <section className="container">
+                {showTitle && (
+                    <>
+                        <h4 className="ak-center">
+                            <span className="me-2"> Our Trusted</span>
+                            <span className="ak-primary-color ak-secondary-font ak-font-italic ak-normal text-decoration-underline">
+                                Partner
+                            </span>
+                        </h4>
+                        <div className="ak-height-30 ak-height-lg-30"></div>
+                    </>
+                )}
                 <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
                     {clients.map((client) => (
                         <div className="col" key={client.id}>

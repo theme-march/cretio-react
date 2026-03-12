@@ -13,12 +13,13 @@ const MinimalStudio: React.FC = () => {
     return (
         <>
             <MinimalStudioHeroSection />
-            <div className="ak-height-150 ak-height-lg-80"></div>
             <SlidingTextSection />
             <MinimalAboutSection />
             <CoreFeaturesSection
                 variant="style-2"
                 title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                caption="Top Trio Services"
             />
             <AwardsSection />
             <MarketingTestimonialSection variant="style-2 type-2" />
