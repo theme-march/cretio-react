@@ -22,9 +22,11 @@ const awards = [
     { id: 5, title: "Microsoft Award 2024", type: "Honorable Mention", category: "Best Developer", hoverImg: awardHover5, awardImg: award5 },
 ];
 
-import MarketingTestimonialSection from "./MarketingTestimonialSection";
+interface AwardsSectionProps {
+    showTopGap?: boolean;
+}
 
-const AwardsSection: React.FC = () => {
+const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => {
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverImg, setHoverImg] = useState<string>(awards[0].hoverImg);
 
@@ -56,7 +58,7 @@ const AwardsSection: React.FC = () => {
     return (
         <>
             <section className="container">
-                <div className="ak-height-150 ak-height-lg-80"></div>
+                {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading title='<span class="highlight-text">Awards</span> <br /> Achievement' caption="Awards" variant="style-2" />
                 <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="awards-box">

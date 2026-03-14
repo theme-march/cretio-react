@@ -23,7 +23,7 @@ const DesignCompany: React.FC = () => {
             <DigitalMarketingServicesSection />
             <FunFactSection variant="type-2" />
             <AwardsSection />
-            <MarketingTestimonialSection variant="style-2" />
+            <MarketingTestimonialSection variant="design-company" />
             <DesignCompanyPricingSection />
             <MarketingVideoSection videoSrc={markagVideo} />
             <ClientLogoSection />

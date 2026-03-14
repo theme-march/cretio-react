@@ -11,16 +11,19 @@ import VideoSection from "@components/sections/VideoSection";
 import NewsSection from "@components/sections/NewsSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import MarketingTestimonialSection from "@components/sections/MarketingTestimonialSection";
 
 const CreativePortfolio: React.FC = () => {
     return (
         <>
             <CreativePortfolioHeroSection />
             <SlidingTextSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <PortfolioIsotopeSection />
             <GoalSection />
             <FunFactSection variant="type-3" />
             <AwardsSection />
+            <MarketingTestimonialSection variant="design-company" />
             <PricingSection />
             <TeamSection />
             <VideoSection />

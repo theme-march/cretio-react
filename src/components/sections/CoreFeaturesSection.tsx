@@ -32,6 +32,8 @@ interface CoreFeaturesProps {
     description?: string;
     caption?: string;
     isSlider?: boolean;
+    showTopGap?: boolean;
+    showBottomGap?: boolean;
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -41,12 +43,14 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     description,
     caption,
     isSlider = false,
+    showTopGap = false,
+    showBottomGap = false,
 }) => {
     return (
         <section
             className={`core-features-area ${bgClass} ${variant === "style-2" ? "ak-solidblack-bg" : ""}`}
         >
-            <div className="ak-height-150 ak-height-lg-80"></div>
+            {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
             <div className="container">
                 {title && (
                     <SectionHeading
@@ -172,7 +176,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                     </div>
                 )}
             </div>
-            <div className="ak-height-150 ak-height-lg-80"></div>
+            {showBottomGap && <div className="ak-height-150 ak-height-lg-80"></div>}
         </section>
     );
 };

@@ -19,7 +19,6 @@ const portfolioItems = [
 const PortfolioSliderSection: React.FC = () => {
     return (
         <section>
-            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className="ak-section-heading ak-style-1">
                     <div className="ak-section-left">

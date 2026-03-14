@@ -26,6 +26,7 @@ const About: React.FC = () => {
             <VideoSection isAbout={true} />
             <SlidingTextSection />
             <AboutContentSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <AwardsSection />
             <GoalSection />
             <TestimonialSection />
@@ -36,6 +37,8 @@ const About: React.FC = () => {
                 description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."}
                 caption="Services"
                 isSlider={true}
+                showTopGap={true}
+                showBottomGap={true}
             />
             <TeamSection />
             <ClientLogoSection showTitle={true} />
