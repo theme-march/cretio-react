@@ -88,6 +88,31 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                                 </div>
                             )}
                         </div>
+                        {variant === "style-2" && (
+                            <div>
+                                <div className="breadcrumb-cricle">
+                                    <div className="cricle-animated-text">
+                                        <div className="rounded-text rotating">
+                                            <svg viewBox="0 0 200 200">
+                                                <path
+                                                    id="textPath"
+                                                    d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0"
+                                                    transform="translate(100,100)"
+                                                    fill="none"
+                                                    strokeWidth="0"
+                                                ></path>
+                                                <g fontSize="22.1px">
+                                                    <text textAnchor="start">
+                                                        <textPath className="coloring" href="#textPath" startOffset="0%">{circleText || "DIGITAL PRESENCE CREATIVITY & INNOVATION I N \u00A0"}</textPath>
+                                                    </text>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div className="cricle-ceneter-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                         {variant === "style-3" && videoSrc && (
                             <div className="breadcrumb-img-box">
                                 <video ref={videoRef} autoPlay muted loop playsInline>

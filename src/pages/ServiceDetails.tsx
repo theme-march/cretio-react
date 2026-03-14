@@ -2,8 +2,9 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import ServiceDetailsContent from "@components/sections/ServiceDetailsContent";
 import ProcessSection from "@components/sections/ProcessSection";
-import ServicesSection from "@components/sections/ServicesSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import ServiceDetailsCta from "@components/sections/ServiceDetailsCta";
+import SlidingTextSection from "@components/sections/SlidingTextSection";
 
 const ServiceDetails: React.FC = () => {
     return (
@@ -20,9 +21,15 @@ const ServiceDetails: React.FC = () => {
             />
             <ServiceDetailsContent />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <ProcessSection />
-            <ServicesSection variant="style-2" />
-            <NewsletterSection />
+            <ProcessSection
+                variant="style-2"
+                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+            />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <ServiceDetailsCta />
+            <SlidingTextSection variant="style-2" />
+            <NewsletterSection variant="style-3" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

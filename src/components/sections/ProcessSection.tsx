@@ -8,13 +8,20 @@ const steps = [
     { id: "04", title: "Testing and Quality Assurance" },
 ];
 
-const ProcessSection: React.FC = () => {
+interface ProcessSectionProps {
+    variant?: "style-1" | "style-2";
+    description?: string;
+}
+
+const ProcessSection: React.FC<ProcessSectionProps> = ({ variant = "style-1", description }) => {
     return (
         <section>
             <div className="container">
                 <SectionHeading
                     title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Working Process</span>'
                     caption="Process"
+                    description={description}
+                    variant={variant}
                 />
                 <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="funfact-content">

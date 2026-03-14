@@ -26,7 +26,7 @@ const features = [
 ];
 
 interface CoreFeaturesProps {
-    variant?: "style-1" | "style-2";
+    variant?: "style-1" | "style-2" | "style-3";
     bgClass?: string;
     title?: string;
     description?: string;
@@ -133,6 +133,39 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         </Swiper>
                         <div className="core-features-swiper-pagination"></div>
                     </>
+                ) : variant === "style-3" ? (
+                    <div className="core-features">
+                        {features.map((feature, index) => (
+                            <div
+                                className={`core-feature-card type-3 fade-animation theme-border-wrap`}
+                                data-delay={0.15 + index * 0.2}
+                                key={feature.id}
+                            >
+                                <div className="b-top-left">
+                                    <div className="horizontal"></div>
+                                    <div className="verticle"></div>
+                                </div>
+                                <div className="b-top-right d-flex">
+                                    <div className="horizontal"></div>
+                                    <div className="verticle"></div>
+                                </div>
+                                <div className="b-bottom-right d-flex flex-end">
+                                    <div className="horizontal flex-end align-self-end"></div>
+                                    <div className="verticle"></div>
+                                </div>
+                                <div className="b-bottom-left">
+                                    <div className="verticle"></div>
+                                    <div className="horizontal"></div>
+                                </div>
+                                <div className="icon">
+                                    <i className={feature.icon}></i>
+                                </div>
+                                <h6 className="core-feature-title">{feature.title}</h6>
+                                <p className="core-feature-desp">{feature.description}</p>
+                                <p className="core-feature-number">{feature.id}</p>
+                            </div>
+                        ))}
+                    </div>
                 ) : (
                     <div className="core-features">
                         {features.map((feature, index) => (
