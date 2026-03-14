@@ -75,6 +75,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                     ))}
                 </div>
             </div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </section>
     );
 };

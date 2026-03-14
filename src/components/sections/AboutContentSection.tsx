@@ -28,7 +28,6 @@ const AboutContentSection: React.FC = () => {
                     <img src={line2} alt="swirl design" className="swirl" />
                 </div>
             </section>
-            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

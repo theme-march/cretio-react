@@ -6,6 +6,11 @@ import AboutContentSection from "@components/sections/AboutContentSection";
 import AwardsSection from "@components/sections/AwardsSection";
 import GoalSection from "@components/sections/GoalSection";
 import TestimonialSection from "@components/sections/TestimonialSection";
+import FunFactSection from "@components/sections/FunFactSection";
+import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import TeamSection from "@components/sections/TeamSection";
+import ClientLogoSection from "@components/sections/ClientLogoSection";
+import NewsletterSection from "@components/sections/NewsletterSection";
 
 import aboutVideo from "@assets/videos/about.mp4";
 
@@ -16,13 +21,26 @@ const About: React.FC = () => {
                 title='We thrive on <span class="highlight-text">creativity</span> & <span class="highlight-text">innovation</span> in digital presence'
                 links={[{ label: "Home", path: "/" }, { label: "About Us", path: "/about" }]}
                 videoSrc={aboutVideo}
+                variant="style-3"
             />
-            <VideoSection />
+            <VideoSection isAbout={true} />
             <SlidingTextSection />
             <AboutContentSection />
             <AwardsSection />
             <GoalSection />
             <TestimonialSection />
+            <FunFactSection />
+            <CoreFeaturesSection 
+                variant="style-2" 
+                title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."}
+                caption="Services"
+                isSlider={true}
+            />
+            <TeamSection />
+            <ClientLogoSection showTitle={true} />
+            <NewsletterSection variant="style-3" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

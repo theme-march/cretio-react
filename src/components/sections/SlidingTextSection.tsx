@@ -12,7 +12,6 @@ const SlidingTextSection: React.FC = () => {
                     Digital Design / Product Design / Brand Design
                 </p>
             </div>
-            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

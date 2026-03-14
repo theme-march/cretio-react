@@ -5,9 +5,10 @@ interface BreadcrumbProps {
     title: string;
     links?: { label: string; path: string }[];
     highlightWords?: string[];
-    variant?: "style-1" | "style-2";
+    variant?: "style-1" | "style-2" | "style-3";
     videoSrc?: string;
     strokeText?: string;
+    circleText?: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -17,6 +18,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     variant = "style-1",
     videoSrc,
     strokeText,
+    circleText,
 }) => {
     const videoRef = React.useRef<HTMLVideoElement>(null);
 
@@ -59,12 +61,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         <>
             <div className="ak-height-150 ak-height-lg-120"></div>
             <div className={`breadcrumb-area ${variant}`}>
-                {videoSrc && (
+                {videoSrc && variant !== "style-3" && (
                     <video ref={videoRef} autoPlay muted loop playsInline className="breadcrumb-video">
                         <source src={videoSrc} type="video/mp4" />
                     </video>
                 )}
-                <div className={variant === "style-1" ? "container container-customize" : "container"}>
+                <div className={variant === "style-1" || variant === "style-3" ? "container container-customize" : "container"}>
                     <div className={`breadcrumb-wapper ${variant === "style-2" ? "style-2" : ""}`}>
                         <div className="breadcrumb-title-box">
                             <h1 className="breadcrumb-title">{renderTitle()}</h1>
@@ -86,6 +88,29 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                                 </div>
                             )}
                         </div>
+                        {variant === "style-3" && videoSrc && (
+                            <div className="breadcrumb-img-box">
+                                <video ref={videoRef} autoPlay muted loop playsInline>
+                                    <source src={videoSrc} type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div className="breadcrumb-cricle">
+                                    <div className="cricle-animated-text">
+                                        <div className="rounded-text rotating">
+                                            <svg viewBox="0 0 200 200">
+                                                <path id="textPath" d="M 85,0 A 85,85 0 0 1 -85,0 A 85,85 0 0 1 85,0" transform="translate(100,100)" fill="none" strokeWidth="0"></path>
+                                                <g fontSize="22.1px">
+                                                    <text textAnchor="start">
+                                                        <textPath className="coloring" href="#textPath" startOffset="0%">{circleText || "DIGITAL PRESENCE CREATIVITY & INNOVATION I N \u00A0"}</textPath>
+                                                    </text>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div className="cricle-ceneter-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 {strokeText && <div className="breadcrumb-stroke">{strokeText}</div>}
