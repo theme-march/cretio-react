@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import featureBgMain from "@assets/img/services/feature-item-bg-1.png";
 import featureBg1 from "@assets/img/services/feature-item-bg-1.png";
 import featureBg2 from "@assets/img/services/feature-item-bg-2.png";
 import featureBg3 from "@assets/img/services/feature-item-bg-3.png";
@@ -14,12 +13,22 @@ const features = [
 ];
 
 const SeoFeatureSection: React.FC = () => {
+    const [activeFeature, setActiveFeature] = useState(features[0]);
+
     return (
-        <div className="feature-area">
-            <img className="feature-area-img" src={featureBgMain} alt="..." />
+        <div 
+            className="feature-area"
+            onMouseLeave={() => setActiveFeature(features[0])}
+        >
+            <img className="feature-area-img" src={activeFeature.img} alt="..." />
             <div className="feature-wapper row row-cols-1 row-cols-md-2 row-cols-xl-4 m-0">
                 {features.map((feature) => (
-                    <Link to="/about" className="feature-item p-0" key={feature.id}>
+                    <Link 
+                        to="/about" 
+                        className={`feature-item p-0 ${activeFeature.id === feature.id ? "active" : ""}`} 
+                        key={feature.id}
+                        onMouseEnter={() => setActiveFeature(feature)}
+                    >
                         <img className="feature-item-bg" src={feature.img} alt="..." />
                         <div className="feature-item-content">
                             <div className="feature-item-number">

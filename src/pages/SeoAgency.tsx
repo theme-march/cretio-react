@@ -4,25 +4,32 @@ import SeoAgencyAboutSection from "@components/sections/SeoAgencyAboutSection";
 import SeoServiceSection from "@components/sections/SeoServiceSection";
 import SeoFeatureSection from "@components/sections/SeoFeatureSection";
 import SlidingTextSection from "@components/sections/SlidingTextSection";
+import SeoAgencyLeadsSection from "@components/sections/SeoAgencyLeadsSection";
 import MarketingTestimonialSection from "@components/sections/MarketingTestimonialSection";
-import TeamSection from "@components/sections/TeamSection";
-import BlogSection from "@components/sections/BlogSection";
+import MethodologySection from "@components/sections/MethodologySection";
+import ClientLogoSection from "@components/sections/ClientLogoSection";
+import NewsSection from "@components/sections/NewsSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
 
 const SeoAgency: React.FC = () => {
     return (
         <>
-            <div className="ak-height-190 ak-height-lg-80"></div>
             <SeoAgencyHeroSection />
-            <SeoAgencyAboutSection />
-            <SeoServiceSection />
-            <SeoFeatureSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
+            <SeoAgencyAboutSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <SeoServiceSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <SeoFeatureSection />
             <SlidingTextSection />
+            <SeoAgencyLeadsSection />
             <MarketingTestimonialSection variant="style-2 type-2" />
-            <TeamSection />
-            <BlogSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <MethodologySection />
+            <ClientLogoSection />
+            <NewsSection />
             <NewsletterSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };
