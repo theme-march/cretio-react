@@ -1,6 +1,12 @@
 import React from "react";
 
-const MarketingContactSection: React.FC = () => {
+interface MarketingContactSectionProps {
+    variant?: "style-1" | "style-2";
+}
+
+const MarketingContactSection: React.FC<MarketingContactSectionProps> = ({ variant = "style-1" }) => {
+    const isStyle2 = variant === "style-2";
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         alert("Message sent!");
@@ -15,10 +21,10 @@ const MarketingContactSection: React.FC = () => {
                         Let’s Start Project With Leading Agency
                     </h2>
                 </div>
-                <div className="contact-form ak-black-bg">
+                <div className={`contact-form ${isStyle2 ? "ak-primary-bg" : "ak-black-bg"}`}>
                     <form onSubmit={handleSubmit}>
                         <div className="row">
-                            <div className="field-group col-12 col-md-6">
+                            <div className={`field-group col-12 col-md-6 ${isStyle2 ? "style-2" : ""}`}>
                                 <input
                                     className="input-field"
                                     type="text"
@@ -29,7 +35,7 @@ const MarketingContactSection: React.FC = () => {
                                 />
                                 <label htmlFor="firstName" className="input-label">First Name</label>
                             </div>
-                            <div className="field-group col-12 col-md-6">
+                            <div className={`field-group col-12 col-md-6 ${isStyle2 ? "style-2" : ""}`}>
                                 <input
                                     className="input-field"
                                     type="text"
@@ -42,7 +48,7 @@ const MarketingContactSection: React.FC = () => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="field-group col-12 col-md-6">
+                            <div className={`field-group col-12 col-md-6 ${isStyle2 ? "style-2" : ""}`}>
                                 <input
                                     className="input-field"
                                     type="email"
@@ -53,7 +59,7 @@ const MarketingContactSection: React.FC = () => {
                                 />
                                 <label htmlFor="email" className="input-label">Email</label>
                             </div>
-                            <div className="field-group col-12 col-md-6">
+                            <div className={`field-group col-12 col-md-6 ${isStyle2 ? "style-2" : ""}`}>
                                 <input
                                     className="input-field"
                                     type="tel"
@@ -65,7 +71,7 @@ const MarketingContactSection: React.FC = () => {
                                 <label htmlFor="phone" className="input-label">Phone</label>
                             </div>
                         </div>
-                        <div className="field-group">
+                        <div className={`field-group ${isStyle2 ? "style-2" : ""}`}>
                             <input
                                 className="input-field"
                                 type="text"
@@ -76,7 +82,7 @@ const MarketingContactSection: React.FC = () => {
                             />
                             <label htmlFor="subject" className="input-label">Subject</label>
                         </div>
-                        <div className="field-group">
+                        <div className={`field-group ${isStyle2 ? "style-2" : ""}`}>
                             <textarea
                                 className="input-field"
                                 id="message"
@@ -85,7 +91,7 @@ const MarketingContactSection: React.FC = () => {
                             ></textarea>
                             <label htmlFor="message" className="input-label">Your Message...</label>
                         </div>
-                        <button type="submit" className="circle-btn style-4 circle-btn-anim">
+                        <button type="submit" className={`circle-btn ${isStyle2 ? "style-3" : "style-4"} circle-btn-anim`}>
                             <span className="text text-uppercase">
                                 Send
                                 <i className="flaticon-up-right-arrow"></i>
