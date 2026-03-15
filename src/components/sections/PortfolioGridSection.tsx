@@ -41,7 +41,7 @@ const PortfolioGridSection: React.FC = () => {
                 </div>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="ak-center">
-                    <button className="circle-btn circle-btn-anim">
+                    <button className="circle-btn style-1 circle-btn-anim">
                         <span className="text text-uppercase">
                             Load More
                             <br />

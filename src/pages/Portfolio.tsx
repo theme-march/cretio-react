@@ -9,9 +9,12 @@ const Portfolio: React.FC = () => {
                 title='Our <span class="highlight-text">Exceptional</span> Successful Development <span class="highlight-text">Projects</span>'
                 links={[{ label: "Home", path: "/" }, { label: "Projects", path: "/portfolio" }]}
                 variant="style-2"
+                strokeText="PORTFOLIO"
+                showCircle={false}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <PortfolioGridSection />
+            <div className="ak-height-150 ak-height-lg-80"></div> 
         </>
     );
 };

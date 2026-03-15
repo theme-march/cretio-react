@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import pdImg1 from "@assets/img/portfolio/portfolio-details-1.png";
 import pdImg2 from "@assets/img/portfolio/portfolio-details-2.png";
+import show1 from "@assets/img/portfolio/portfolio-top-img-1.png";
+import show2 from "@assets/img/portfolio/portfolio-top-img-2.png";
 
 const PortfolioDetailsContent: React.FC = () => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+
+    useEffect(() => {
+        const imageScrollElements = document.querySelectorAll(".image-scroll");
+        imageScrollElements.forEach((element) => {
+            const dataHeight = element.getAttribute("data-height");
+            if (dataHeight) {
+                (element as HTMLElement) .style.height = `${dataHeight}px`;
+            }
+        });
+    }, []);
 
     const accordionData = [
         { title: "1. What platforms do you develop mobile apps for?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
         { title: "2. What is the process for developing a mobile app?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
         { title: "3. What platforms do you use for web development?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
         { title: "4. How long does it take to build a website?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+        { title: "5. How can digital marketing help my business?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+        { title: "6. What digital marketing services do you offer?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
     ];
 
     return (
@@ -26,7 +40,6 @@ const PortfolioDetailsContent: React.FC = () => {
                 <div className="pd-img image-scroll" data-height="350">
                     <img src={pdImg1} alt="..." />
                 </div>
-                <div className="ak-height-50 ak-height-lg-50"></div>
                 <p className="pd-desp">
                     It is a long established fact that a reader will be distracted by the
                     readable content of a page when looking at its layout. The point of
@@ -56,11 +69,9 @@ const PortfolioDetailsContent: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="pd-img image-scroll" data-height="400">
                     <img src={pdImg2} alt="..." />
                 </div>
-                <div className="ak-height-50 ak-height-lg-50"></div>
                 <p className="pd-desp">
                     It is a long established fact that a reader will be distracted by the
                     readable content of a page when looking at its layout. The point of

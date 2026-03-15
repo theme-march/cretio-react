@@ -9,6 +9,8 @@ interface BreadcrumbProps {
     videoSrc?: string;
     strokeText?: string;
     circleText?: string;
+    showCircle?: boolean;
+    strokeTextClass?: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -19,6 +21,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     videoSrc,
     strokeText,
     circleText,
+    showCircle = true,
+    strokeTextClass,
 }) => {
     const videoRef = React.useRef<HTMLVideoElement>(null);
 
@@ -88,7 +92,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                                 </div>
                             )}
                         </div>
-                        {variant === "style-2" && (
+                        {variant === "style-2" && showCircle && (
                             <div>
                                 <div className="breadcrumb-cricle">
                                     <div className="cricle-animated-text">
@@ -138,7 +142,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                         )}
                     </div>
                 </div>
-                {strokeText && <div className="breadcrumb-stroke">{strokeText}</div>}
+                {strokeText && <div className={`breadcrumb-stroke ${strokeTextClass || ""}`}>{strokeText}</div>}
             </div>
         </>
     );

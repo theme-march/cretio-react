@@ -21,6 +21,7 @@ const PortfolioDetails: React.FC = () => {
             <PortfolioDetailsContent />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ServiceDetailsCta />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };
