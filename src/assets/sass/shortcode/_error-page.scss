@@ -49,8 +49,17 @@
     border: 1px solid var(--border-color) !important;
     border-radius: 50px !important;
     padding: 15px 25px 15px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     .text-1 {
-      margin-top: 5px;
+      margin-top: 0;
+      line-height: 1;
+    }
+    .svg-icon {
+      svg {
+        transform: none;
+      }
     }
   }
 }

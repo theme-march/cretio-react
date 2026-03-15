@@ -15,10 +15,13 @@ const BlogDetails: React.FC = () => {
                 ]}
                 variant="style-2"
                 strokeText="ARTICLES"
+                showCircle={false}
+                strokeTextClass="text-normal"
             />
             <BlogDetailsBanner />
             <div className="ak-height-85 ak-height-lg-50"></div>
             <BlogDetailsContent />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

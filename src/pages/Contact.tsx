@@ -10,6 +10,9 @@ const Contact: React.FC = () => {
                 title='<span class="highlight-text">Get In Touch</span> With our Digital <span class="highlight-text">Professional Team</span>'
                 links={[{ label: "Home", path: "/" }, { label: "Contact Us", path: "/contact" }]}
                 variant="style-2"
+                showCircle={false}
+                strokeText="Contact"
+                strokeTextClass="text-normal"
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ContactFormSection />

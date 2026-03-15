@@ -40,9 +40,10 @@ const blogPosts = [
 
 interface BlogSectionProps {
     showHeading?: boolean;
+    showLoadMore?: boolean;
 }
 
-const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true }) => {
+const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadMore = false }) => {
     return (
         <section>
             {showHeading && (
@@ -80,6 +81,20 @@ const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true }) => {
                         </Link>
                     ))}
                 </div>
+                {showLoadMore && (
+                    <>
+                        <div className="ak-height-100 ak-height-lg-50"></div>
+                        <div className="ak-center">
+                            <a href="#" className="circle-btn circle-btn-anim">
+                                <span className="text text-uppercase">
+                                    Load More<br />
+                                    Articles
+                                    <i className="flaticon-up-right-arrow"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </>
+                )}
             </div>
         </section>
     );

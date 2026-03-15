@@ -8,19 +8,31 @@ const features = [
     {
         id: "01",
         icon: "flaticon-circle",
-        title: "Strategic Marketing",
+        title: "Web Development",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
     },
     {
         id: "02",
         icon: "flaticon-folded",
-        title: "Strategic Marketing",
+        title: "UI/UX Design",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
     },
     {
         id: "03",
         icon: "flaticon-twirl",
-        title: "Strategic Marketing",
+        title: "Web Design",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
+    },
+    {
+        id: "04",
+        icon: "flaticon-twirl",
+        title: "App Development",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
+    },
+    {
+        id: "05",
+        icon: "flaticon-twirl",
+        title: "E-commerce Solutions",
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
     },
 ];
@@ -94,10 +106,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             {[...features, ...features].map((feature, index) => (
                                 <SwiperSlide key={`${feature.id}-${index}`}>
                                     <div
-                                        className={`core-feature-card type-1 ${
-                                            variant === "style-2"
-                                                ? `style-2`
-                                                : ""
+                                        className={`core-feature-card ${
+                                            variant === "style-2" ? "type-1 style-2" : "type-2"
                                         } fade-animation`}
                                         data-delay={0.15 + (index % 3) * 0.2}
                                     >

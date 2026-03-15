@@ -54,7 +54,7 @@ const NotFound: React.FC = () => {
                         </div>
                         <h2 className="error-message">Page Not Found!</h2>
                         <p className="error-description">
-                            We're sorry, but the page you're looking for doesn't exist.
+                            {"We're sorry, but the page you're looking for doesn't exist."}
                         </p>
                         <Link to="/" className="more-btn style3 home-back-btn">
                             <span className="text-1"> Back To Home</span>
@@ -88,6 +88,7 @@ const NotFound: React.FC = () => {
                     </div>
                 </div>
             </div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };

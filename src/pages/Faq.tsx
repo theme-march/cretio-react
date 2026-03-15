@@ -2,7 +2,7 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import FaqSection from "@components/sections/FaqSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
-import SlidingTextSection from "@components/sections/SlidingTextSection";
+import MarqueeTextSection from "@/components/sections/MarqueeTextSection";
 
 const Faq: React.FC = () => {
     return (
@@ -16,12 +16,13 @@ const Faq: React.FC = () => {
                 ]}
                 variant="style-2"
                 strokeText="FAQ"
+                showCircle={false}
+                strokeTextClass="text-normal"
             />
             <FaqSection />
-            <div className="ak-height-150 ak-height-lg-80"></div>
             <NewsletterSection />
+            <MarqueeTextSection variant="style2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <SlidingTextSection />
         </>
     );
 };

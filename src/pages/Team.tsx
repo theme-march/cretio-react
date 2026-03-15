@@ -14,8 +14,11 @@ const Team: React.FC = () => {
                 ]}
                 variant="style-2"
                 strokeText="TEAM"
+                showCircle={false}
+                strokeTextClass="text-normal"
             />
             <TeamGridSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
 };
