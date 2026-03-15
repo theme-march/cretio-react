@@ -18,6 +18,7 @@ const ServiceDetails: React.FC = () => {
                 ]}
                 variant="style-2"
                 strokeText="SERVICE"
+                showCircle={false}
             /> 
             <ServiceDetailsContent />
             <div className="ak-height-150 ak-height-lg-80"></div>

@@ -71,7 +71,7 @@ const MarketingHeroSection: React.FC = () => {
             </div>
             <div className="container-extent">
                 <div className="marketing-agency-cta cta-section">
-                    <div className="cta-content">
+                    <div className="cta-content pb-2">
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has.
                         </p>
@@ -87,7 +87,7 @@ const MarketingHeroSection: React.FC = () => {
                         </span>
                     </Link>
 
-                    <div className="contact-info">
+                    <div className="contact-info py-4">
                         <div className="email-info">
                             <p>Say hello!</p>
                             <a href="mailto:info@email.com">info@email.com</a>

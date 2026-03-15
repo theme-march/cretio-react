@@ -28,6 +28,7 @@ const MinimalStudio: React.FC = () => {
             <AwardsSection showTopGap={true} />
             <MarketingTestimonialSection variant="style-2 type-2" />
             <ClientLogoSection />
+
             <NewsSection />
             <MarketingContactSection variant="style-2" />
             <NewsletterSection variant="style-3" />

@@ -45,12 +45,12 @@ const GoalSection: React.FC = () => {
                                 <span className="highlight underline-anim text-white text-underline-white">
                                     Our Goal{" "}
                                 </span>
-                                <span> Maximizing Client</span>
+                                <span> Maximizing Client </span>
                                 <span className="highlight underline-anim text-underline">
                                     {" "}
                                     ROI{" "}
                                 </span>
-                                <span> Through Data-Driven</span>
+                                <span> Through Data-Driven </span>
                                 <span className="highlight underline-anim text-white text-underline-white">
                                     Campaigns
                                 </span>

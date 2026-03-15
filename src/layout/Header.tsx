@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 import darkLogo from "@assets/img/logo/dark-logo.svg";
 import whiteLogo from "@assets/img/logo/white-logo.svg";
 import miniGallery1 from "@assets/img/gallery/mini-gallery-1.png";
@@ -15,8 +16,10 @@ const Header: React.FC = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
+    const location = useLocation();
 
     const toggleSubmenu = (e: React.MouseEvent, key: string) => {
+
         e.preventDefault();
         setOpenSubmenus(prev => ({
             ...prev,
@@ -51,6 +54,12 @@ const Header: React.FC = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
+
+    useEffect(() => {
+        setMobileMenuOpen(false);
+        setOpenSubmenus({});
+    }, [location]);
+
 
     return (
         <>

@@ -16,6 +16,7 @@ const PortfolioDetails: React.FC = () => {
                 ]}
                 variant="style-2"
                 strokeText="Project"
+                showCircle={false}
             />
             <PortfolioMainImage />
             <PortfolioDetailsContent />

@@ -177,7 +177,7 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
     );
 
     return (
-        <section className="ak-black-bg">
+        <section className="ak-black-bg overflow-hidden">
             <div className="ak-height-150 ak-height-lg-80"></div>
             {isDesignCompany ? (
                 <div className="ak-bg" style={{ backgroundImage: `url(${testimonialSvg})` }}>
