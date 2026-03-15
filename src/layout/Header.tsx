@@ -13,6 +13,17 @@ const Header: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
+
+    const toggleSubmenu = (e: React.MouseEvent, key: string) => {
+        e.preventDefault();
+        setOpenSubmenus(prev => ({
+            ...prev,
+            [key]: !prev[key]
+        }));
+    };
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -60,10 +71,14 @@ const Header: React.FC = () => {
                             </div>
                             <div className="ak-main-header-center">
                                 <div className="ak-nav ak-medium">
-                                    <ul className="ak-nav_list">
-                                        <li className="menu-item-has-children">
+                                    <ul className={`ak-nav_list ${mobileMenuOpen ? "ak-show" : ""}`}>
+                                        <li className={`menu-item-has-children ${openSubmenus['home'] ? 'active' : ''}`}>
                                             <Link to="/">Home</Link>
-                                            <ul>
+                                            <span 
+                                                className={`ak-munu_dropdown_toggle ${openSubmenus['home'] ? 'active' : ''}`}
+                                                onClick={(e) => toggleSubmenu(e, 'home')}
+                                            ></span>
+                                            <ul style={{ display: openSubmenus['home'] ? 'block' : '' }}>
                                                 <li><Link to="/">Digital Agency</Link></li>
                                                 <li><Link to="/marketing-agency">Marketing Agency</Link></li>
                                                 <li><Link to="/design-company">Design Company</Link></li>
@@ -73,23 +88,35 @@ const Header: React.FC = () => {
                                             </ul>
                                         </li>
                                         <li><Link to="/about">About</Link></li>
-                                        <li className="menu-item-has-children">
+                                        <li className={`menu-item-has-children ${openSubmenus['services'] ? 'active' : ''}`}>
                                             <Link to="/services">Services</Link>
-                                            <ul>
+                                            <span 
+                                                className={`ak-munu_dropdown_toggle ${openSubmenus['services'] ? 'active' : ''}`}
+                                                onClick={(e) => toggleSubmenu(e, 'services')}
+                                            ></span>
+                                            <ul style={{ display: openSubmenus['services'] ? 'block' : '' }}>
                                                 <li><Link to="/services">Services</Link></li>
                                                 <li><Link to="/service-details">Services Details</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="menu-item-has-children">
+                                        <li className={`menu-item-has-children ${openSubmenus['portfolio'] ? 'active' : ''}`}>
                                             <Link to="/portfolio">Portfolio</Link>
-                                            <ul>
+                                            <span 
+                                                className={`ak-munu_dropdown_toggle ${openSubmenus['portfolio'] ? 'active' : ''}`}
+                                                onClick={(e) => toggleSubmenu(e, 'portfolio')}
+                                            ></span>
+                                            <ul style={{ display: openSubmenus['portfolio'] ? 'block' : '' }}>
                                                 <li><Link to="/portfolio">Portfolio</Link></li>
                                                 <li><Link to="/portfolio-details">Portfolio Details</Link></li>
                                             </ul>
                                         </li>
-                                        <li className="menu-item-has-children">
+                                        <li className={`menu-item-has-children ${openSubmenus['pages'] ? 'active' : ''}`}>
                                             <Link to="#">Pages</Link>
-                                            <ul>
+                                            <span 
+                                                className={`ak-munu_dropdown_toggle ${openSubmenus['pages'] ? 'active' : ''}`}
+                                                onClick={(e) => toggleSubmenu(e, 'pages')}
+                                            ></span>
+                                            <ul style={{ display: openSubmenus['pages'] ? 'block' : '' }}>
                                                 <li><Link to="/blog">Blog</Link></li>
                                                 <li><Link to="/blog-details">Blog Details</Link></li>
                                                 <li><Link to="/team">Team</Link></li>
@@ -101,7 +128,14 @@ const Header: React.FC = () => {
                                         </li>
                                         <li><Link to="/contact">Contact</Link></li>
                                     </ul>
+                                    <span 
+                                        className={`ak-munu_toggle ${mobileMenuOpen ? "ak-toggle_active" : ""}`}
+                                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                    >
+                                        <span></span>
+                                    </span>
                                 </div>
+
                             </div>
                             <div className="ak-main-header-right">
                                 <div className="ak-space-between gap-3">
