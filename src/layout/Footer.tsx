@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                     <div className="footer-cta">
                         <div className="footer-cta-info ak-mask-text">
                             <h1 className="footer-cta-title">Let’s</h1>
-                            <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
+                            <h2 className="footer-cta-title-two"><span>work</span> <span>Together</span></h2>
                         </div>
                         <div className="footer-btn-email">
                             <div className="footer-btn-content">

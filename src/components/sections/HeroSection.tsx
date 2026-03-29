@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import { Navigation, Scrollbar, Autoplay } from "swiper/modules";
 import gsap from "gsap";
 
+import { splitText } from "../../utils/textSplitter";
+
 import starShape from "@assets/img/shape/star-1.png";
 import heroVideo from "@assets/videos/digital-agencye.mp4";
 import client1 from "@assets/img/client/client-1.png";
@@ -22,27 +24,44 @@ const HeroSection: React.FC = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
+            const digitalElems = document.querySelectorAll(".digital");
+            const agencyElems = document.querySelectorAll(".agency");
+
+            let digitalChars: Element[] = [];
+            digitalElems.forEach((el) => {
+                const res = splitText(el as HTMLElement, "chars");
+                if (res.chars) digitalChars.push(...res.chars);
+            });
+
+            let agencyChars: Element[] = [];
+            agencyElems.forEach((el) => {
+                const res = splitText(el as HTMLElement, "chars");
+                if (res.chars) agencyChars.push(...res.chars);
+            });
+
             // Hero Entry Animation
             const tl = gsap.timeline();
-            
-            tl.from(".digital", {
-                y: 100,
-                opacity: 0,
-                duration: 1,
-                ease: "power4.out"
+
+            tl.from(agencyChars, {
+                duration: 2.5,
+                x: -250,
+                autoAlpha: 0,
+                stagger: 0.02,
+                ease: "elastic.out(1, 0.3)"
             })
-            .from(".agency", {
-                y: 100,
-                opacity: 0,
+            .from(digitalChars, {
                 duration: 1,
-                ease: "power4.out"
-            }, "-=0.8")
+                y: -150,
+                autoAlpha: 0,
+                stagger: 0.05,
+                ease: "bounce.out"
+            }, "0.8")
             .from(".hero-btn", {
-                scale: 0,
-                opacity: 0,
-                duration: 0.8,
-                ease: "back.out(1.7)"
-            }, "-=0.5")
+                duration: 1,
+                autoAlpha: 0,
+                y: -100,
+                ease: "bounce.out"
+            }, "0.5")
             .from(".description", {
                 y: 30,
                 opacity: 0,

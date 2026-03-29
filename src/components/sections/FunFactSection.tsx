@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useCountUp from "@hooks/useCountUp";
 import funfactBg from "@assets/img/bg/funfact-bg.png";
 
@@ -56,8 +58,33 @@ const funFacts = [
 ];
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        let ctx = gsap.context(() => {
+            const funFacts = gsap.utils.toArray(".funfact.style1");
+            if (funFacts.length > 0) {
+                gsap.from(funFacts, {
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top center+=200",
+                    },
+                    scale: 0.5,
+                    opacity: 0,
+                    stagger: 0.2,
+                    duration: 2,
+                    ease: "elastic",
+                    force3D: true,
+                });
+            }
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section>
+        <section ref={sectionRef}>
             <div className="container">
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div
