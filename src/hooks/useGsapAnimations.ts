@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
+import { splitText } from "../utils/textSplitter";
 // ScrollTrigger is registered globally in main.tsx
 
 const useGsapAnimations = () => {
@@ -209,43 +210,114 @@ const useGsapAnimations = () => {
                 });
             });
 
-            // 8. textAnimation (Words or fallback)
-            const textAnimations = gsap.utils.toArray<HTMLElement>(".text-animation");
-            textAnimations.forEach((element) => {
-                const words = element.querySelectorAll<HTMLElement>(".anim-word");
-                const duration = Number(element.getAttribute("data-duration")) || 1.5;
-                const delay = Number(element.getAttribute("data-delay")) || 0.15;
-                const ease = element.getAttribute("data-ease") || "power2.out";
-
-                if (words.length > 0) {
-                    gsap.set(words, { translateY: "100%", opacity: 0 });
-                    gsap.to(words, {
-                        translateY: "0%",
-                        opacity: 1,
-                        duration: duration,
-                        stagger: 0.15,
-                        ease: ease,
-                        delay: delay,
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 85%",
-                            toggleActions: "play none none none",
-                        }
-                    });
-                } else {
-                    gsap.from(element, {
+            // 8. anim-title-2
+            const titleAnim2Containers = gsap.utils.toArray<HTMLElement>(".title-animation-content");
+            titleAnim2Containers.forEach((container) => {
+                const divs = container.querySelectorAll(".anim-title-2 div");
+                if (divs.length > 0) {
+                    gsap.from(divs, {
+                        scrollTrigger: { trigger: container, start: "top 85%" },
+                        duration: 0.75,
                         y: 40,
                         opacity: 0,
-                        duration: duration,
-                        delay: delay,
-                        ease: ease,
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top 85%",
-                            toggleActions: "play none none none",
-                        }
+                        ease: "power2.out",
+                        transformOrigin: "top center -50",
+                        delay: 0.15,
+                        rotationX: -80,
+                        stagger: 0.02,
                     });
                 }
+            });
+
+            // 9. text-color-shiption
+            const textColorShiptions = gsap.utils.toArray<HTMLElement>(".text-color-shiption");
+            textColorShiptions.forEach((elem) => {
+                const colorText = elem.getAttribute("data-color");
+                const splitRes = splitText(elem, "chars, words");
+                const isDark = document.body.classList.contains("dark");
+                
+                gsap.set(splitRes.chars, { color: isDark ? "#656565" : "#c1c1c1" });
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        end: "bottom center",
+                        scrub: true,
+                    }
+                });
+                tl.to(splitRes.chars, {
+                    color: "var(--black-color)",
+                    stagger: 0.2,
+                    ease: "power2.out",
+                    duration: 1.2,
+                });
+
+                if (colorText && colorText !== "0" && colorText !== "") {
+                    tl.to(splitRes.chars, {
+                        color: colorText,
+                        stagger: 0.2,
+                        ease: "power2.out",
+                        duration: 1.5,
+                    }, "2");
+                }
+            });
+
+            // 10. textAnimation (Words or fallback)
+            const textAnimations = gsap.utils.toArray<HTMLElement>(".text-animation");
+            textAnimations.forEach((element) => {
+                let split_text = element.getAttribute("data-split-text") || "chars";
+                let fade_direction = element.getAttribute("data-direction") || "textLeft";
+                let ease_value = element.getAttribute("data-ease") || "back.out(1.7)";
+                let fade_offset = Number(element.getAttribute("data-offset")) || 50;
+                let duration_value = Number(element.getAttribute("data-duration")) || 1;
+                let delay_value = Number(element.getAttribute("data-delay")) || 0.15;
+                let stagger = Number(element.getAttribute("data-stagger")) || 0.02;
+
+                const splitRes = splitText(element, split_text);
+                
+                gsap.set(element, { perspective: 400 });
+
+                let elementsToAnimate: HTMLElement[] = splitRes.chars;
+                if (split_text === "chars") elementsToAnimate = splitRes.chars;
+                else if (split_text === "words") elementsToAnimate = splitRes.words;
+                // If "lines", we animate words as a fallback since our textSplitter doesn't robustly split block lines yet.
+                else if (split_text === "lines") elementsToAnimate = splitRes.words;
+                
+                if (elementsToAnimate.length === 0) {
+                    elementsToAnimate = [element];
+                }
+
+                const animationProps: gsap.TweenVars = {
+                    opacity: 0,
+                    duration: duration_value,
+                    delay: delay_value,
+                    ease: ease_value,
+                    stagger: stagger,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        onEnter: () => {
+                            element.querySelectorAll(".underline-anim").forEach((line) => {
+                                line.classList.add("active");
+                            });
+                        }
+                    }
+                };
+
+                switch (fade_direction) {
+                    case "textLeft": animationProps.x = fade_offset; break;
+                    case "textRight": animationProps.x = -fade_offset; break;
+                    case "textTop": animationProps.y = fade_offset; break;
+                    case "textBottom": animationProps.y = -fade_offset; break;
+                    case "rotationX":
+                        animationProps.rotationX = fade_offset > 0 ? fade_offset : 65;
+                        animationProps.y = 60;
+                        animationProps.transformOrigin = "50% 50% 80px";
+                        break;
+                }
+
+                gsap.from(elementsToAnimate, animationProps);
             });
         });
 

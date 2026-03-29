@@ -21,25 +21,39 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 }) => {
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
-            <div className="ak-section-left fade-animation">
+            <div className="ak-section-left">
                 <h2
                     className="ak-section-title text-animation"
-                    data-direction="rotationX"
+                    data-direction="textTop"
+                    data-split-text="chars"
                     data-duration={titleDuration}
                     data-ease={titleEase}
                 >
                     {typeof title === "string" ? (
-                        <span className="anim-word" dangerouslySetInnerHTML={{ __html: title }} />
+                        <span dangerouslySetInnerHTML={{ __html: title }} />
                     ) : (
-                        <span className="anim-word">{title}</span>
+                        title
                     )}
                 </h2>
             </div>
             {(description || caption) && (
-                <div className="ak-section-right fade-animation">
-                    {description && <p className="ak-section-desp">{description}</p>}
+                <div className="ak-section-right">
+                    {description && (
+                        <p 
+                            className="ak-section-desp text-animation" 
+                            data-direction="rotationX"
+                            data-split-text="lines"
+                            data-delay="0.3"
+                        >
+                            {description}
+                        </p>
+                    )}
                     {caption && (
-                        <div className="ak-section-caption">
+                        <div 
+                            className="ak-section-caption fade-animation"
+                            data-direction="right"
+                            data-delay="0.3"
+                        >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
                                     <path d="M1.33789 1.18359H221.034L209.173 10.9822" stroke="#FF4A23" strokeLinecap="round" />

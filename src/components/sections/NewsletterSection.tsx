@@ -45,11 +45,11 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
                     <div className="newsletter-content style-2" ref={sectionRef}>
                         <div className="newsletter-title-content text-animation">
                             <h2 className="newsletter-title">
-                                <span className="anim-word">Join Our </span>
-                                <span className="highlight text-underlines anim-word"> Newsletter</span>
-                                <span className="anim-word"> for Latest </span>
-                                <span className="highlight anim-word">Exclusive</span>
-                                <span className="anim-word"> Content</span>
+                                <span>Join Our </span>
+                                <span className="highlight text-underlines"> Newsletter</span>
+                                <span> for Latest </span>
+                                <span className="highlight">Exclusive</span>
+                                <span> Content</span>
                             </h2>
                         </div>
                         <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
@@ -97,11 +97,11 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
                     <div className="newsletter-content">
                         <div className="newsletter-anim">
                             <h2 className="newsletter-title text-animation">
-                                <span className="anim-word">Join Our </span>
-                                <span className="highlight text-underlines anim-word"> Newsletter</span>
-                                <span className="anim-word"> for Latest </span>
-                                <span className="highlight anim-word">Exclusive</span>
-                                <span className="anim-word"> Content</span>
+                                <span>Join Our </span>
+                                <span className="highlight text-underlines"> Newsletter</span>
+                                <span> for Latest </span>
+                                <span className="highlight">Exclusive</span>
+                                <span> Content</span>
                             </h2>
                         </div>
                         <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>

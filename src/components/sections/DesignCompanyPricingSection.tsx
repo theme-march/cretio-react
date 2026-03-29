@@ -56,9 +56,9 @@ const DesignCompanyPricingSection: React.FC = () => {
                     <div className="ak-section-heading ak-style-1 ak-w-50 text-center">
                         <div className="ak-section-left">
                             <h2 className="ak-section-title text-animation" data-duration="1.5">
-                                <span className="highlight anim-word"> Get Start </span>
-                                <span className="anim-word"> With our Digital Affordable </span>
-                                <span className="highlight anim-word"> Pricing Plan</span>
+                                <span className="highlight"> Get Start </span>
+                                <span> With our Digital Affordable </span>
+                                <span className="highlight"> Pricing Plan</span>
                             </h2>
                         </div>
                     </div>

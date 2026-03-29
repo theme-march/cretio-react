@@ -52,7 +52,7 @@ const ServiceDetailsContent: React.FC = () => {
                 <div className="container">
                     <div className="services-details-title">
                         <h3 className="services-details-title-text text-animation">
-                            <span className="anim-word">Android & IOS App Development</span>
+                            <span>Android & IOS App Development</span>
                         </h3>
                         <p className="services-details-title-description">
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.

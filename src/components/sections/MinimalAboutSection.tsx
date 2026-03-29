@@ -9,11 +9,11 @@ const MinimalAboutSection: React.FC = () => {
                 <div className="ak-section-heading ak-style-1 type-2">
                     <div className="ak-section-left ak-w-50">
                         <h2 className="ak-section-title text-animation">
-                            <span className="anim-word">Thrive on </span>
-                            <span className="highlight anim-word"> Creativity </span>
-                            <span className="anim-word"> & </span>
-                            <span className="highlight anim-word"> Innovation </span>
-                            <span className="anim-word"> in Digital Presence</span>
+                            <span>Thrive on </span>
+                            <span className="highlight"> Creativity </span>
+                            <span> & </span>
+                            <span className="highlight"> Innovation </span>
+                            <span> in Digital Presence</span>
                         </h2>
                     </div>
                     <div className="ak-section-right w-25">

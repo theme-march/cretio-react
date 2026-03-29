@@ -49,11 +49,12 @@ const HeroSection: React.FC = () => {
                 duration: 0.8,
                 stagger: 0.2
             }, "-=0.5")
-            .from(".image-box", {
-                clipPath: "inset(0% 0% 100% 0%)",
-                duration: 1.2,
-                ease: "power4.inOut"
-            }, "-=1");
+            .to(".hero-right-image", {
+                duration: 2,
+                width: "0%",
+                ease: "expo.in",
+                delay: 0.5,
+            }, "-=3.5");
 
             // Star Rotation
             if (starRef.current) {
@@ -177,6 +178,7 @@ const HeroSection: React.FC = () => {
                         <div className="da-shape-star">
                             <img className="star-shape" src={starShape} alt="Star" ref={starRef} />
                         </div>
+                        <div className="hero-right-image"></div>
                         <video ref={videoRef} autoPlay muted loop playsInline>
                             <source src={heroVideo} type="video/mp4" />
                         </video>

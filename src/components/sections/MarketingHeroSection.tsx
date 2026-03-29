@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, EffectFade } from "swiper/modules";
+import { Swiper as SwiperType } from "swiper";
+import gsap from "gsap";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 import heroImg1 from "@assets/img/hero/marketing-agency.png";
 import heroImg2 from "@assets/img/hero/marketing-agency-2.png";
@@ -26,13 +29,85 @@ const heroSlides = [
 ];
 
 const MarketingHeroSection: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+    const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+
+    useLayoutEffect(() => {
+        if (!swiperInstance) return;
+
+        let ctx = gsap.context(() => {
+            const animateSlide = (activeSlide: HTMLElement) => {
+                let subTitle = activeSlide.querySelector(".sub-title");
+                let mainTitle = activeSlide.querySelector(".main-title");
+                let caption = activeSlide.querySelector(".marketing-agency-caption");
+                let heroImg = activeSlide.querySelector(".hero-bg-img");
+
+                if (!heroImg) return;
+
+                // Stop previous animations
+                gsap.killTweensOf([heroImg, subTitle, mainTitle, caption]);
+
+                let tl = gsap.timeline({ defaults: { duration: 1 } });
+
+                tl.fromTo(
+                    heroImg,
+                    { opacity: 0, scale: 1.5 },
+                    { opacity: 1, scale: 1, duration: 1.5, ease: "power3.out" }
+                );
+
+                if (subTitle) {
+                    tl.fromTo(
+                        subTitle,
+                        { y: 50, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" },
+                        "-=0.8"
+                    );
+                }
+
+                if (mainTitle) {
+                    tl.fromTo(
+                        mainTitle,
+                        { y: 50, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 1.5, ease: "power3.out" },
+                        "-=0.8"
+                    );
+                }
+
+                if (caption) {
+                    tl.fromTo(
+                        caption,
+                        { x: -100, opacity: 0 },
+                        { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
+                        "-=0.6"
+                    );
+                }
+            };
+
+            const handleSlideChange = () => {
+                const activeSlide = swiperInstance.slides[swiperInstance.activeIndex];
+                animateSlide(activeSlide);
+            };
+
+            swiperInstance.on('slideChangeTransitionStart', handleSlideChange);
+            handleSlideChange(); // Initial load
+
+            return () => {
+                swiperInstance.off('slideChangeTransitionStart', handleSlideChange);
+            };
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, [swiperInstance]);
+
     return (
-        <section className="marketing-agency-section">
+        <section className="marketing-agency-section" ref={sectionRef}>
             <div className="marketing-agency-hero style-1">
                 <Swiper
-                    modules={[Autoplay, Navigation]}
+                    modules={[Autoplay, Navigation, EffectFade]}
                     autoplay={{ delay: 5000 }}
                     loop={false}
+                    effect="fade"
+                    onSwiper={setSwiperInstance}
                     className="marketing-agency-slider ak-slider"
                 >
                     {heroSlides.map((slide) => (

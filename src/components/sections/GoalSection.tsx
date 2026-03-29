@@ -42,16 +42,16 @@ const GoalSection: React.FC = () => {
                     <div className="ak-section-heading ak-style-1 bg-black">
                         <div className="ak-section-left">
                             <h2 className="ak-section-title text-animation">
-                                <span className="highlight underline-anim text-white text-underline-white anim-word">
+                                <span className="highlight underline-anim text-white text-underline-white">
                                     Our Goal{" "}
                                 </span>
-                                <span className="anim-word"> Maximizing Client </span>
-                                <span className="highlight underline-anim text-underline anim-word">
+                                <span> Maximizing Client </span>
+                                <span className="highlight underline-anim text-underline">
                                     {" "}
                                     ROI{" "}
                                 </span>
-                                <span className="anim-word"> Through Data-Driven </span>
-                                <span className="highlight underline-anim text-white text-underline-white anim-word">
+                                <span> Through Data-Driven </span>
+                                <span className="highlight underline-anim text-white text-underline-white">
                                     Campaigns
                                 </span>
                             </h2>

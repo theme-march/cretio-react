@@ -18,9 +18,9 @@ const ServiceDetailsCta: React.FC = () => {
                 <div className="services-details-cta-wapper">
                     <div className="services-details-cta-content">
                         <h2 className="services-details-cta-title text-animation">
-                            <span className="anim-word">Get in Touch to Bring Your </span>
-                            <span className="highlight text-underlines underline-anim anim-word">Project</span>
-                            <span className="anim-word"> to Life!</span>
+                            <span>Get in Touch to Bring Your </span>
+                            <span className="highlight text-underlines underline-anim">Project</span>
+                            <span> to Life!</span>
                         </h2>
                     </div>
                 </div>

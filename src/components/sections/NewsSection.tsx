@@ -64,10 +64,10 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                 <div className="ak-section-heading ak-style-1">
                     <div className="ak-section-left">
                         <h2 className="ak-section-title text-animation" data-duration="1.5">
-                            <span className="anim-word">Our </span>
-                            <span className="highlight anim-word">Exceptional</span>
-                            <span className="anim-word"> Digital Industrial </span>
-                            <span className="highlight anim-word">News</span>
+                            <span>Our </span>
+                            <span className="highlight">Exceptional</span>
+                            <span> Digital Industrial </span>
+                            <span className="highlight">News</span>
                         </h2>
                     </div>
                     <div className="ak-section-right fade-animation" data-direction="left" data-delay="0.35">
