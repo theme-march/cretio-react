@@ -3,8 +3,10 @@ import Breadcrumb from "@components/common/Breadcrumb";
 import PortfolioMainImage from "@components/sections/PortfolioMainImage";
 import PortfolioDetailsContent from "@components/sections/PortfolioDetailsContent";
 import ServiceDetailsCta from "@components/sections/ServiceDetailsCta";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const PortfolioDetails: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

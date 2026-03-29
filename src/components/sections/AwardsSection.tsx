@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
@@ -27,11 +27,18 @@ interface AwardsSectionProps {
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => {
+    const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverImg, setHoverImg] = useState<string>(awards[0].hoverImg);
 
-    useEffect(() => {
-        if (hoverRef.current) gsap.to(hoverRef.current, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" });
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            if (hoverRef.current) {
+                gsap.to(hoverRef.current, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" });
+            }
+        }, sectionRef);
+
+        return () => ctx.revert();
     }, []);
 
     const handleMouseEnter = (imgSrc: string) => {
@@ -43,7 +50,9 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => 
     };
 
     const handleMouseLeave = () => {
-        if (hoverRef.current) gsap.to(hoverRef.current, { scale: 0.5, opacity: 0, duration: 0.5, ease: "power3.out" });
+        if (hoverRef.current) {
+            gsap.to(hoverRef.current, { scale: 0.5, opacity: 0, duration: 0.5, ease: "power3.out" });
+        }
     };
 
     const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -57,7 +66,7 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => 
 
     return (
         <>
-            <section className="container">
+            <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading title='<span class="highlight-text">Awards</span> <br /> Achievement' caption="Awards" variant="style-2" />
                 <div className="ak-height-75 ak-height-lg-50"></div>

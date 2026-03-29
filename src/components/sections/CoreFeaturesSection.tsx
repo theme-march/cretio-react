@@ -4,7 +4,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-const features = [
+export interface CoreFeature {
+    id: string;
+    icon: string;
+    title: string;
+    description: string;
+}
+
+export const coreFeaturesData: CoreFeature[] = [
     {
         id: "01",
         icon: "flaticon-circle",
@@ -46,6 +53,7 @@ interface CoreFeaturesProps {
     isSlider?: boolean;
     showTopGap?: boolean;
     showBottomGap?: boolean;
+    features?: CoreFeature[];
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -57,6 +65,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     isSlider = false,
     showTopGap = false,
     showBottomGap = false,
+    features = coreFeaturesData.slice(0, 3),
 }) => {
     return (
         <section

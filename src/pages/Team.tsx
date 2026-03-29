@@ -1,8 +1,10 @@
 import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import TeamGridSection from "@components/sections/TeamGridSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Team: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

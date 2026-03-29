@@ -13,8 +13,10 @@ import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsSection from "@components/sections/NewsSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
 import MarqueeTextSection from "@components/sections/MarqueeTextSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const DesignCompany: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <DesignCompanyHeroSection />

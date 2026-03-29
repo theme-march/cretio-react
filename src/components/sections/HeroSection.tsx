@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Swiper from "swiper";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
-import { Navigation, Scrollbar } from "swiper/modules";
+import { Navigation, Scrollbar, Autoplay } from "swiper/modules";
+import gsap from "gsap";
 
 import starShape from "@assets/img/shape/star-1.png";
 import heroVideo from "@assets/videos/digital-agencye.mp4";
@@ -16,12 +17,63 @@ import client4 from "@assets/img/client/client-4.png";
 const HeroSection: React.FC = () => {
     const swiperRef = useRef<Swiper | null>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+    const starRef = useRef<HTMLImageElement>(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            // Hero Entry Animation
+            const tl = gsap.timeline();
+            
+            tl.from(".digital", {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power4.out"
+            })
+            .from(".agency", {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: "power4.out"
+            }, "-=0.8")
+            .from(".hero-btn", {
+                scale: 0,
+                opacity: 0,
+                duration: 0.8,
+                ease: "back.out(1.7)"
+            }, "-=0.5")
+            .from(".description", {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2
+            }, "-=0.5")
+            .from(".image-box", {
+                clipPath: "inset(0% 0% 100% 0%)",
+                duration: 1.2,
+                ease: "power4.inOut"
+            }, "-=1");
+
+            // Star Rotation
+            if (starRef.current) {
+                gsap.to(starRef.current, {
+                    rotation: 360,
+                    duration: 15,
+                    repeat: -1,
+                    ease: "none"
+                });
+            }
+        }, sectionRef);
+
+        // Swiper Init
         swiperRef.current = new Swiper(".partners-logos-slider", {
-            modules: [Navigation, Scrollbar],
+            modules: [Navigation, Scrollbar, Autoplay],
             loop: true,
-            autoplay: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             slidesPerView: 4,
             spaceBetween: 30,
             navigation: {
@@ -41,20 +93,24 @@ const HeroSection: React.FC = () => {
 
         if (videoRef.current) {
             videoRef.current.play().catch(error => {
-                console.log("Video auto-play was prevented. This is normal if the user hasn't interacted with the page yet.", error);
+                console.log("Video auto-play prevented:", error);
             });
         }
+
+        return () => {
+            ctx.revert();
+            if (swiperRef.current) swiperRef.current.destroy();
+        };
     }, []);
 
     return (
-        <section className="container container-customize">
+        <section className="container container-customize" ref={sectionRef}>
             <div className="digital-agencye-hero style-1">
                 <div className="hero-left-column">
                     <div className="title-box">
-                        <h2 className="title">
-                            <span className="digital">DIGITAL</span>
-                            <br />
-                            <span className="agency">AGENCY</span>
+                        <h2 className="title ak-mask-text">
+                            <span className="digital d-block">DIGITAL</span>
+                            <span className="agency d-block">AGENCY</span>
                         </h2>
                     </div>
                     <div className="cta-box">
@@ -72,6 +128,7 @@ const HeroSection: React.FC = () => {
                             Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
                         </p>
                     </div>
+                    {/* ... partners-section ... */}
                     <div className="partners-section">
                         <h6 className="partners-title">Our Trusted Partner</h6>
                         <div className="ak-slider partners-logos-slider">
@@ -118,7 +175,7 @@ const HeroSection: React.FC = () => {
                     </p>
                     <div className="image-box">
                         <div className="da-shape-star">
-                            <img className="star-shape" src={starShape} alt="Star" />
+                            <img className="star-shape" src={starShape} alt="Star" ref={starRef} />
                         </div>
                         <video ref={videoRef} autoPlay muted loop playsInline>
                             <source src={heroVideo} type="video/mp4" />

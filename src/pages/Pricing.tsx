@@ -2,10 +2,14 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PricingSection from "@components/sections/PricingSection";
 import GoalSection from "@components/sections/GoalSection";
-import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection, {
+    coreFeaturesData,
+} from "@components/sections/CoreFeaturesSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Pricing: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb
@@ -29,6 +33,7 @@ const Pricing: React.FC = () => {
                 caption="Services"
                 isSlider={true}
                 showTopGap={true}
+                features={coreFeaturesData}
             />
             <ClientLogoSection showTitle={true} />
             <div className="ak-height-150 ak-height-lg-80"></div>

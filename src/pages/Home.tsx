@@ -12,8 +12,10 @@ import TeamSection from "@components/sections/TeamSection";
 import MarqueeTextSection from "@components/sections/MarqueeTextSection";
 import BlogSection from "@components/sections/BlogSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Home: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <div className="ak-height-190 ak-height-lg-80"></div>

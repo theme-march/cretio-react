@@ -12,8 +12,10 @@ import MarketingVideoSection from "@components/sections/MarketingVideoSection";
 import MarketingContactSection from "@components/sections/MarketingContactSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import MarqueeTextSection from "@components/sections/MarqueeTextSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const MarketingAgency: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <MarketingHeroSection />

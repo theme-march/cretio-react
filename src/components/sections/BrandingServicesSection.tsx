@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
@@ -17,6 +17,19 @@ const services = [
 ];
 
 const BrandingServicesSection: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const imgs = gsap.utils.toArray<HTMLElement>(".sb-card img");
+            imgs.forEach((img) => {
+                gsap.set(img, { scale: 0.5, opacity: 0 });
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     const handleMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
         const img = e.currentTarget.querySelector("img");
         if (img) {
@@ -52,7 +65,7 @@ const BrandingServicesSection: React.FC = () => {
     };
 
     return (
-        <section className="container">
+        <section className="container" ref={sectionRef}>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SectionHeading
                 title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'

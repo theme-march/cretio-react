@@ -5,8 +5,10 @@ import ServicesSection from "@components/sections/ServicesSection";
 import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
 import TestimonialSection from "@components/sections/TestimonialSection";
 import NewsletterSection from "@/components/sections/NewsletterSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Services: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

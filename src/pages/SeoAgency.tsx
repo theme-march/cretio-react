@@ -10,8 +10,10 @@ import MethodologySection from "@components/sections/MethodologySection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsSection from "@components/sections/NewsSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const SeoAgency: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <SeoAgencyHeroSection />

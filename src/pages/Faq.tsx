@@ -3,8 +3,10 @@ import Breadcrumb from "@components/common/Breadcrumb";
 import FaqSection from "@components/sections/FaqSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
 import MarqueeTextSection from "@/components/sections/MarqueeTextSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Faq: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

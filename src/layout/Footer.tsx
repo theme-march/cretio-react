@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 import footerLogo from "@assets/img/logo/footer-logo.svg";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
 
 const Footer: React.FC = () => {
+    const footerRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.from(".footer-cta-title, .footer-cta-title-two span", {
+                y: "100%",
+                duration: 1.5,
+                stagger: 0.3,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: ".footer-cta",
+                    start: "top 90%",
+                },
+            });
+        }, footerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <footer
+            ref={footerRef}
             className="ak-footer style-1 ak-bg"
             style={{ backgroundImage: `url(${footerBg})` }}
         >
@@ -19,7 +40,7 @@ const Footer: React.FC = () => {
             <div className="container">
                 <div className="ak-footer-container">
                     <div className="footer-cta">
-                        <div className="footer-cta-info">
+                        <div className="footer-cta-info ak-mask-text">
                             <h1 className="footer-cta-title">Let’s</h1>
                             <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
                         </div>

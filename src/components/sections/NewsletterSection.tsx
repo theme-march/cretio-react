@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 import testimonialBg from "@assets/img/shape/testimonial.svg";
 
@@ -7,27 +8,28 @@ interface NewsletterSectionProps {
 }
 
 const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-1" }) => {
-    const isStyle2 = variant === "style-2";
     const isStyle3 = variant === "style-3";
+    const isStyle2 = variant === "style-2";
     const sectionRef = useRef<HTMLDivElement>(null);
-    const [isActive, setIsActive] = useState(false);
 
-    useEffect(() => {
-        const element = sectionRef.current;
-        if (!element) return;
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            if (sectionRef.current) {
+                gsap.from(sectionRef.current, {
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            }
+        }, sectionRef);
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsActive(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.25 }
-        );
-
-        observer.observe(element);
-        return () => observer.disconnect();
+        return () => ctx.revert();
     }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -40,12 +42,14 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
             <>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <section className="container">
-                    <div className={`newsletter-content style-2${isActive ? " active" : ""}`} ref={sectionRef}>
+                    <div className="newsletter-content style-2" ref={sectionRef}>
                         <div className="newsletter-title-content text-animation">
                             <h2 className="newsletter-title">
-                                Join Our 
-                                <span className="highlight text-underlines"> Newsletter</span> for
-                                Latest <span className="highlight">Exclusive</span> Content
+                                <span className="anim-word">Join Our </span>
+                                <span className="highlight text-underlines anim-word"> Newsletter</span>
+                                <span className="anim-word"> for Latest </span>
+                                <span className="highlight anim-word">Exclusive</span>
+                                <span className="anim-word"> Content</span>
                             </h2>
                         </div>
                         <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
@@ -70,7 +74,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
     }
 
     const content = (
-        <div className={`ak-center ${isStyle2 ? "ms-xxl-3 " : ""}newsletter-wapper${isActive ? " active" : ""}`} ref={sectionRef}>
+        <div className={`ak-center ${isStyle2 ? "ms-xxl-3 " : ""}newsletter-wapper`} ref={sectionRef}>
             <div className="theme-border-wrap cta-form-border hover-animation">
                 <div className="b-top-left">
                     <div className="horizontal"></div>
@@ -92,10 +96,12 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
                 <div className="container">
                     <div className="newsletter-content">
                         <div className="newsletter-anim">
-                            <h2 className="newsletter-title anim-line-words">
-                                Join Our 
-                                <span className="highlight text-underlines">  Newsletter</span> for
-                                Latest <span className="highlight">Exclusive</span> Content
+                            <h2 className="newsletter-title text-animation">
+                                <span className="anim-word">Join Our </span>
+                                <span className="highlight text-underlines anim-word"> Newsletter</span>
+                                <span className="anim-word"> for Latest </span>
+                                <span className="highlight anim-word">Exclusive</span>
+                                <span className="anim-word"> Content</span>
                             </h2>
                         </div>
                         <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>

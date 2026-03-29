@@ -7,14 +7,18 @@ import AwardsSection from "@components/sections/AwardsSection";
 import GoalSection from "@components/sections/GoalSection";
 import TestimonialSection from "@components/sections/TestimonialSection";
 import FunFactSection from "@components/sections/FunFactSection";
-import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection, {
+    coreFeaturesData,
+} from "@components/sections/CoreFeaturesSection";
 import TeamSection from "@components/sections/TeamSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 import aboutVideo from "@assets/videos/about.mp4";
 
 const About: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb
@@ -39,6 +43,7 @@ const About: React.FC = () => {
                 isSlider={true}
                 showTopGap={true}
                 showBottomGap={true}
+                features={coreFeaturesData}
             />
             <TeamSection />
             <ClientLogoSection showTitle={true} />

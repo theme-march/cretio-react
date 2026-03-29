@@ -25,12 +25,14 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                 <h2
                     className="ak-section-title text-animation"
                     data-direction="rotationX"
-                    data-split-text="lines"
                     data-duration={titleDuration}
                     data-ease={titleEase}
-                    dangerouslySetInnerHTML={typeof title === "string" ? { __html: title } : undefined}
                 >
-                    {typeof title !== "string" ? title : null}
+                    {typeof title === "string" ? (
+                        <span className="anim-word" dangerouslySetInnerHTML={{ __html: title }} />
+                    ) : (
+                        <span className="anim-word">{title}</span>
+                    )}
                 </h2>
             </div>
             {(description || caption) && (

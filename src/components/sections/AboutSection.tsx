@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 import star2 from "@assets/img/shape/star-2.png";
 import line2 from "@assets/img/shape/line-2.png";
 
 const AboutSection: React.FC = () => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            gsap.to(".star-1, .star-2", {
+                rotation: 360,
+                duration: 10,
+                repeat: -1,
+                ease: "none"
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <>
             <div className="ak-height-95 ak-height-lg-80"></div>
-            <section className="about-content container">
+            <section className="about-content container" ref={sectionRef}>
                 <div className="star-content">
                     <img src={star2} alt="star" className="star-1" />
                     <img src={star2} alt="star" className="star-2" />

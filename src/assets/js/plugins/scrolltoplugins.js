@@ -7,9 +7,9 @@
  * @author: Jack Doyle, jack@greensock.com
  */
 
-! function(e, t) {
+! function (e, t) {
     "object" == typeof exports && "undefined" != typeof module ? t(exports) : "function" == typeof define && define.amd ? define(["exports"], t) : t((e = e || self).window = e.window || {})
-}(this, function(e) {
+}(this, function (e) {
     "use strict";
 
     function l() {
@@ -38,7 +38,7 @@
     function q(e, t) {
         var o = "scroll" + ("x" === t ? "Left" : "Top");
         return e === T && (null != e.pageXOffset ? o = "page" + t.toUpperCase() + "Offset" : e = null != i[o] ? i : c),
-            function() {
+            function () {
                 return e[o]
             }
     }
@@ -109,7 +109,7 @@
         }
     };
     r.max = p, r.getOffset = s, r.buildGetter = q, m() && f.registerPlugin(r), e.ScrollToPlugin = r, e.default = r;
-    if (typeof(window) === "undefined" || window !== e) {
+    if (typeof (window) === "undefined" || window !== e) {
         Object.defineProperty(e, "__esModule", {
             value: !0
         })

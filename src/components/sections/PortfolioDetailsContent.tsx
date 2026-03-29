@@ -1,20 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 import pdImg1 from "@assets/img/portfolio/portfolio-details-1.png";
 import pdImg2 from "@assets/img/portfolio/portfolio-details-2.png";
-import show1 from "@assets/img/portfolio/portfolio-top-img-1.png";
-import show2 from "@assets/img/portfolio/portfolio-top-img-2.png";
 
 const PortfolioDetailsContent: React.FC = () => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
+    const sectionRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const imageScrollElements = document.querySelectorAll(".image-scroll");
-        imageScrollElements.forEach((element) => {
-            const dataHeight = element.getAttribute("data-height");
-            if (dataHeight) {
-                (element as HTMLElement) .style.height = `${dataHeight}px`;
-            }
-        });
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const imageScrollElements = gsap.utils.toArray<HTMLElement>(".image-scroll");
+            imageScrollElements.forEach((element) => {
+                const dataHeight = element.getAttribute("data-height");
+                if (dataHeight) {
+                    element.style.height = `${dataHeight}px`;
+                }
+                
+                const img = element.querySelector("img");
+                if (img) {
+                    gsap.to(img, {
+                        y: () => -(img.offsetHeight - element.offsetHeight),
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top center",
+                            end: "bottom center",
+                            scrub: true,
+                        },
+                    });
+                }
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
     }, []);
 
     const accordionData = [

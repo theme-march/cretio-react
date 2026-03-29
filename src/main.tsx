@@ -5,6 +5,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "@/index.scss";
 import App from "@/App.tsx";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const rootElement = document.getElementById("root");
 

@@ -5,8 +5,10 @@ import ProcessSection from "@components/sections/ProcessSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
 import ServiceDetailsCta from "@components/sections/ServiceDetailsCta";
 import SlidingTextSection from "@components/sections/SlidingTextSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const ServiceDetails: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

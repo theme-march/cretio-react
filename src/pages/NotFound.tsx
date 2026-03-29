@@ -1,7 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const NotFound: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>

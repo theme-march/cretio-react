@@ -2,8 +2,10 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import ContactFormSection from "@components/sections/ContactFormSection";
 import ContactCardSection from "@components/sections/ContactCardSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Contact: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

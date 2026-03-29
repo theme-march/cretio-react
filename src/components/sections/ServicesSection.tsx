@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
@@ -44,6 +44,19 @@ interface ServicesProps {
 }
 
 const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const hoverImgs = gsap.utils.toArray<HTMLElement>(".service-hover-img");
+            hoverImgs.forEach((img) => {
+                gsap.set(img, { scale: 0.8, opacity: 0 });
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
         const img = e.currentTarget.querySelector(".service-hover-img");
         if (img) {
@@ -79,7 +92,7 @@ const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
     };
 
     return (
-        <section className={`service-bg ${variant}`}>
+        <section className={`service-bg ${variant}`} ref={sectionRef}>
             <div className="container">
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="service-content">

@@ -1,8 +1,10 @@
 import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PortfolioGridSection from "@components/sections/PortfolioGridSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Portfolio: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

@@ -2,8 +2,10 @@ import React from "react";
 import logoDark from "@assets/img/logo/dark-logo.svg";
 import logoWhite from "@assets/img/logo/white-logo.svg";
 import { Link } from "react-router-dom";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const ComingSoon: React.FC = () => {
+    useGsapAnimations();
     return (
         <div className="upcomming-soon-container">
             <div className="ak-height-150 ak-height-lg-80"></div>

@@ -70,11 +70,6 @@ body {
   background-color: #101010 !important;
 }
 
-/* Fix for hidden images that rely on GSAP reveal animations */
-.img-anim-left-show {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
 
 /* Fix for sidebar appearing behind navbar */
 .offcanvas {

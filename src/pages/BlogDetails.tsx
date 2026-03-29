@@ -2,8 +2,10 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import BlogDetailsBanner from "@components/sections/BlogDetailsBanner";
 import BlogDetailsContent from "@components/sections/BlogDetailsContent";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const BlogDetails: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <Breadcrumb

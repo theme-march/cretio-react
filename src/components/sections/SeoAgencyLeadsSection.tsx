@@ -7,8 +7,10 @@ const SeoAgencyLeadsSection: React.FC = () => {
             <div className="container">
                 <div className="ak-section-heading ak-style-1 type-2">
                     <div className="ak-section-left ak-w-70">
-                        <h2 className="ak-section-title text-animation" data-direction="rotationX" data-split-text="lines">
-                            <span className="highlight"> Increase </span> our Website Traffic, Generate More <span className="highlight"> Leads </span>
+                        <h2 className="ak-section-title text-animation" data-direction="rotationX">
+                            <span className="highlight anim-word"> Increase </span>
+                            <span className="anim-word"> our Website Traffic, Generate More </span>
+                            <span className="highlight anim-word"> Leads </span>
                         </h2>
                     </div>
                     <div className="ak-section-right w-25">

@@ -9,8 +9,10 @@ import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsSection from "@components/sections/NewsSection";
 import MarketingContactSection from "@components/sections/MarketingContactSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
+import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const MinimalStudio: React.FC = () => {
+    useGsapAnimations();
     return (
         <>
             <MinimalStudioHeroSection />
