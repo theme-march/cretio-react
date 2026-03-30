@@ -1,7 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useCountUp from "@hooks/useCountUp";
+import React, { useRef } from "react";
 import funfactBg from "@assets/img/bg/funfact-bg.png";
 
 interface FunFactProps {
@@ -17,8 +14,6 @@ interface FunFactItemProps {
 }
 
 const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, variant, index }) => {
-    const count = useCountUp(number);
-
     return (
         <div className="funfact style1">
             <div
@@ -41,7 +36,7 @@ const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, varian
                     className={`funfact-number ${variant === "type-2" ? "img-clip-text ak-bg" : ""}`}
                     style={variant === "type-2" ? { backgroundImage: `url(${funfactBg})` } : {}}
                 >
-                    <span>{count}</span>
+                    <span className="amin_auto_count">{number}</span>
                     <span>{suffix}</span>
                 </div>
                 {variant !== "type-3" && <p className="funfact-text">{label}</p>}
@@ -59,29 +54,6 @@ const funFacts = [
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLElement>(null);
-
-    useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        let ctx = gsap.context(() => {
-            const funFacts = gsap.utils.toArray(".funfact.style1");
-            if (funFacts.length > 0) {
-                gsap.from(funFacts, {
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top center+=200",
-                    },
-                    scale: 0.5,
-                    opacity: 0,
-                    stagger: 0.2,
-                    duration: 2,
-                    ease: "elastic",
-                    force3D: true,
-                });
-            }
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
 
     return (
         <section ref={sectionRef}>
