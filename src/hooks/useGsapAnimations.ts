@@ -319,6 +319,74 @@ const useGsapAnimations = () => {
 
                 gsap.from(elementsToAnimate, animationProps);
             });
+
+            // 11. titleAnimation (anim-line-words)
+            const titleAnims = gsap.utils.toArray<HTMLElement>(".title-anim");
+            titleAnims.forEach((title) => {
+                const delay_value = Number(title.getAttribute("data-delay")) || 0;
+                const duration_value = Number(title.getAttribute("data-duration")) || 1;
+                const wordsTargets = title.querySelectorAll(".anim-line-words");
+
+                const anim = gsap.timeline({
+                    delay: delay_value,
+                    scrollTrigger: {
+                        trigger: title,
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                });
+
+                wordsTargets.forEach((wordElement, wordIndex) => {
+                    const word = wordElement as HTMLElement;
+                    const splitRes = splitText(word, "chars,words");
+                    const wordDelay = wordIndex * 0.15;
+
+                    splitRes.chars.forEach((char, charIndex) => {
+                        anim.fromTo(
+                            char,
+                            { yPercent: 100 },
+                            {
+                                yPercent: 0,
+                                duration: duration_value,
+                                ease: "power2.inOut",
+                            },
+                            charIndex * 0.02 + wordDelay
+                        );
+                    });
+                });
+            });
+
+            // 12. funFactAnimation (amin_auto_count)
+            const funfactStyles = gsap.utils.toArray<HTMLElement>(".funfact.style1");
+            funfactStyles.forEach((item) => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top center+=200",
+                    },
+                    scale: 0.5,
+                    opacity: 0,
+                    duration: 2,
+                    ease: "elastic",
+                    force3D: true,
+                });
+
+                const autoCounts = item.querySelectorAll(".amin_auto_count");
+                autoCounts.forEach((num) => {
+                    gsap.from(num, {
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top center+=200",
+                        },
+                        delay: 0.3,
+                        innerText: 0,
+                        duration: 3,
+                        snap: {
+                            innerText: 1,
+                        },
+                    });
+                });
+            });
         });
 
         const videoBlocks = document.querySelectorAll(".ak-video-block");

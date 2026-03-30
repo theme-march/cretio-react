@@ -48,6 +48,7 @@ const TeamSection: React.FC = () => {
                     title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>'
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="426+ Team Members"
+                    variant="style-1"
                 />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>
@@ -56,7 +57,7 @@ const TeamSection: React.FC = () => {
                 {isMarketingAgency ? (
                     <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 gy-4 justify-content-center">
                         {teamMembers.map((member, index) => (
-                            <div key={index} className="fade-animation">
+                            <div key={index} className="fade-animation" data-direction="bottom" data-delay={index * 0.1}>
                                 <div className="border-0 team-card h-100">
                                     <div className="team-img-top" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
                                         <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />

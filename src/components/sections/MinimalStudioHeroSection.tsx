@@ -7,7 +7,7 @@ const MinimalStudioHeroSection: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-115"></div>
             <div className="container container-customize">
                 <div className="minimal-studio-hero-area">
-                    <div className="ms-hero-title-content title-anim" data-delay="2.5">
+                    <div className="ms-hero-title-content title-anim" data-delay="0.5">
                         <h1 className="ms-hero-title anim-line-words">
                             Elegant <span className="highlight"> Simplicity, </span>
                         </h1>

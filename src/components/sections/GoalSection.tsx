@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 import goalCircleOverlay from "@assets/img/bg/goal-circle-overlay.png";
-import useCountUp from "@hooks/useCountUp";
 
 const skills = [
     { title: "UI/UX Design", percentage: 95 },
@@ -15,17 +15,51 @@ interface SkillBarProps {
 }
 
 const SkillBar: React.FC<SkillBarProps> = ({ title, percentage }) => {
-    const count = useCountUp(percentage);
+    const barRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLParagraphElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            const counter = { value: 0 };
+            gsap.to(barRef.current, {
+                width: `${percentage}%`,
+                duration: 2,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: barRef.current,
+                    start: "top 90%",
+                },
+            });
+
+            gsap.to(counter, {
+                value: percentage,
+                duration: 2,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: barRef.current,
+                    start: "top 90%",
+                },
+                onUpdate: () => {
+                    if (textRef.current) {
+                        textRef.current.innerText = `${Math.floor(counter.value)}%`;
+                    }
+                },
+            });
+        });
+        return () => ctx.revert();
+    }, [percentage]);
+
     return (
         <div className="ak-skill-box type-2">
             <div className="ak-skill-text">
                 <p className="ak-skill-title">{title}</p>
-                <p className="ak-skill-per">{count}%</p>
+                <p className="ak-skill-per" ref={textRef}>0%</p>
             </div>
             <div className="ak-skill-bar">
                 <div
                     className="ak-skill-fill"
-                    style={{ width: `${count}%` }}
+                    ref={barRef}
+                    style={{ width: "0%" }}
                 ></div>
             </div>
         </div>

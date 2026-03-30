@@ -4,13 +4,14 @@ import gsap from "gsap";
 import footerLogo from "@assets/img/logo/footer-logo.svg";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
+import { splitText } from "../utils/textSplitter";
 
 const Footer: React.FC = () => {
     const footerRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.from(".footer-cta-title, .footer-cta-title-two span", {
+            gsap.from(".footer-cta-title, .footer-cta-title-two", {
                 y: "100%",
                 duration: 1.5,
                 stagger: 0.3,
@@ -20,6 +21,20 @@ const Footer: React.FC = () => {
                     start: "top 90%",
                 },
             });
+
+            // Character level repeating animation for "work Together"
+            const footerTitleTwo = footerRef.current?.querySelector(".footer-cta-title-two") as HTMLElement;
+            if (footerTitleTwo) {
+                const splitRes = splitText(footerTitleTwo, "chars");
+                const footerTimeline = gsap.timeline({ delay: 1.5, repeat: -1, yoyo: true });
+                footerTimeline.from(splitRes.chars, {
+                    duration: 2.5,
+                    x: -20,
+                    autoAlpha: 0,
+                    stagger: 0.05,
+                    ease: "elastic.out(1, 0.3)",
+                });
+            }
         }, footerRef);
 
         return () => ctx.revert();
@@ -42,7 +57,7 @@ const Footer: React.FC = () => {
                     <div className="footer-cta">
                         <div className="footer-cta-info ak-mask-text">
                             <h1 className="footer-cta-title">Let’s</h1>
-                            <h2 className="footer-cta-title-two"><span>work</span> <span>Together</span></h2>
+                            <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
                         </div>
                         <div className="footer-btn-email">
                             <div className="footer-btn-content">

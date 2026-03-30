@@ -8,13 +8,13 @@ const SeoAgencyHeroSection: React.FC = () => {
             <div className="container">
                 <div className="seo-agency-wrapper">
                     <div className="sa-title-box">
-                        <div className="title-anim" data-delay="2.4">
+                        <div className="title-anim" data-delay="0.5">
                             <h1 className="sa-title anim-line-words">
                                 <span className="highlight">Skyrocket Your</span>
                             </h1>
                             <h1 className="sa-title anim-line-words">Website Traffic</h1>
                         </div>
-                        <div className="sa-animated-rounded-badge fade-animation" data-ease="bounce.out" data-delay="4" data-direction="top">
+                        <div className="sa-animated-rounded-badge fade-animation" data-ease="bounce.out" data-delay="0.7" data-direction="top">
                             <div className="rounded-text rotating">
                                 <svg viewBox="0 0 200 200">
                                     <path
@@ -36,7 +36,7 @@ const SeoAgencyHeroSection: React.FC = () => {
                             <div className="ms-ceneter-text"></div>
                         </div>
                     </div>
-                    <div className="sa-contact-info fade-animation" data-delay="3.5">
+                    <div className="sa-contact-info fade-animation" data-delay="0.6">
                         <div className="sa-email">
                             <p>Say hello!</p>
                             <a href="mailto:info@email.com">info@email.com</a>

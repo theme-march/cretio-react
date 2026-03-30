@@ -22,17 +22,31 @@ const PortfolioSliderSection: React.FC = () => {
             <div className="container">
                 <div className="ak-section-heading ak-style-1">
                     <div className="ak-section-left">
-                        <h2 className="ak-section-title">
+                        <h2 
+                            className="ak-section-title text-animation"
+                            data-direction="textTop"
+                            data-split-text="chars"
+                            data-duration="0.7"
+                        >
                             Our <span className="highlight">Exceptional</span> Digital Marketing <span className="highlight">Projects</span>
                         </h2>
                     </div>
                     <div className="ak-section-right">
-                        <p className="ak-section-desp">
+                        <p 
+                            className="ak-section-desp text-animation"
+                            data-direction="rotationX"
+                            data-split-text="lines"
+                            data-delay="0.3"
+                        >
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and
                             typesetting of the printing .
                         </p>
                         <div className="d-flex justify-content-between align-items-center flex-wrap">
-                            <div className="ak-section-caption">
+                            <div 
+                                className="ak-section-caption fade-animation"
+                                data-direction="right"
+                                data-delay="0.3"
+                            >
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
                                         <path d="M1.33789 1.18359H221.034L209.173 10.9822" stroke="#FF4A23" strokeLinecap="round" />
@@ -40,7 +54,7 @@ const PortfolioSliderSection: React.FC = () => {
                                 </span>
                                 <span> 426+ Projects </span>
                             </div>
-                            <div className="team-swiper-controller">
+                            <div className="team-swiper-controller fade-animation" data-delay="0.4">
                                 <div className="team-logs-navigation">
                                     <div className="team-logs-button-prev">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="10" viewBox="0 0 28 10" fill="none">
@@ -82,7 +96,7 @@ const PortfolioSliderSection: React.FC = () => {
                 >
                     {portfolioItems.map((item) => (
                         <SwiperSlide key={item.id}>
-                            <Link to="/portfolio-details" className="team-card border-0">
+                            <Link to="/portfolio-details" className="team-card border-0 fade-animation" data-direction="bottom">
                                 <div className="team-img-top">
                                     <img src={item.img} alt={item.title} />
                                 </div>

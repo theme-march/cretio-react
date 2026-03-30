@@ -35,7 +35,7 @@ const testimonials = [
 
 const TestimonialSection: React.FC = () => {
     return (
-        <section>
+        <section className="fade-animation">
             <div className="container">
                 <Swiper
                     modules={[Navigation]}

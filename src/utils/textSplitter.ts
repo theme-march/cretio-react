@@ -22,13 +22,11 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
                     fragment.appendChild(document.createTextNode(token));
                 } else {
                     // It's a word
-                    const wordWrapper = document.createElement("span");
+                    const wordWrapper = document.createElement("div");
                     wordWrapper.className = "split-word-wrapper";
                     wordWrapper.style.display = "inline-block";
-                    wordWrapper.style.overflow = "hidden";
-                    wordWrapper.style.verticalAlign = "top";
 
-                    const wordInner = document.createElement("span");
+                    const wordInner = document.createElement("div");
                     wordInner.className = "split-word";
                     wordInner.style.display = "inline-block";
                     // GSAP will animate this
@@ -36,13 +34,11 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
                     if (type === "chars" || type.includes("chars")) {
                         const chars = token.split("");
                         chars.forEach((char) => {
-                            const charWrapper = document.createElement("span");
+                            const charWrapper = document.createElement("div");
                             charWrapper.className = "split-char-wrapper";
                             charWrapper.style.display = "inline-block";
-                            charWrapper.style.overflow = "hidden";
-                            charWrapper.style.verticalAlign = "top";
 
-                            const charInner = document.createElement("span");
+                            const charInner = document.createElement("div");
                             charInner.className = "split-char";
                             charInner.style.display = "inline-block";
                             charInner.textContent = char;

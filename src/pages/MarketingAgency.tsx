@@ -23,6 +23,7 @@ const MarketingAgency: React.FC = () => {
             <BrandingServicesSection />
             <FunFactSection />
             <PortfolioSliderSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <AwardsSection />
             <MarketingVideoSection />
             <TestimonialSection />

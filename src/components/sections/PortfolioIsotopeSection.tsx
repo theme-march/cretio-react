@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 import { Link } from "react-router-dom";
 
 import port1 from "@assets/img/portfolio/portfolio-1.png";
@@ -19,6 +20,30 @@ const portfolioItems = [
 
 const PortfolioIsotopeSection: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState("All");
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                ".isotop-items-portfolio > div",
+                {
+                    opacity: 0,
+                    scale: 0.9,
+                    y: 20,
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    clearProps: "all"
+                }
+            );
+        }, containerRef);
+        return () => ctx.revert();
+    }, [activeFilter]);
 
     const filteredItems = portfolioItems.filter((item) => {
         if (activeFilter === "All") return true;
@@ -64,7 +89,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                     </ul>
                 </div>
             </div>
-            <div className="row justify-content-between g-5 isotop-items-portfolio">
+            <div className="row justify-content-between g-5 isotop-items-portfolio" ref={containerRef}>
                 {filteredItems.map((item) => (
                     <div className={`col-12 ${item.colClass}`} key={item.id}>
                         {item.isServiceStyle ? (
