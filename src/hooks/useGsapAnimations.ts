@@ -387,28 +387,27 @@ const useGsapAnimations = () => {
                     });
                 });
             });
-        });
-
-        const videoBlocks = document.querySelectorAll(".ak-video-block");
-        videoBlocks.forEach((element) => {
-            const image = element.querySelector(".video-img");
-            if (image) {
-                gsap.fromTo(
-                    image,
-                    { yPercent: -20, scale: 1 },
-                    {
-                        yPercent: 20,
-                        scale: 1.2,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: element,
-                            scrub: true,
-                            start: "top bottom",
-                            end: "bottom top",
-                        },
-                    }
-                );
-            }
+            // 13. parallaxAnimation (ak-parallax)
+            const parallaxContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
+            parallaxContainers.forEach((container) => {
+                const image = container.querySelector("img");
+                if (image) {
+                    gsap.set(container, { overflow: "hidden" });
+                    gsap.fromTo(image, 
+                        { yPercent: -20 },
+                        {
+                            yPercent: 20,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: container,
+                                scrub: true,
+                                start: "top bottom",
+                                end: "bottom top",
+                            }
+                        }
+                    );
+                }
+            });
         });
 
         return () => ctx.revert();

@@ -59,7 +59,7 @@ const TeamSection: React.FC = () => {
                         {teamMembers.map((member, index) => (
                             <div key={index} className="fade-animation" data-direction="bottom" data-delay={index * 0.1}>
                                 <div className="border-0 team-card h-100">
-                                    <div className="team-img-top" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
+                                    <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
                                         <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                         <div className="team-social-icon">
                                             <span className="icon"><i className="flaticon-facebook-logo"></i></span>
@@ -121,7 +121,7 @@ const TeamSection: React.FC = () => {
                                 {teamMembers.map((member, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="border-0 team-card">
-                                            <div className="team-img-top" style={{ aspectRatio: "370 / 450", overflow: "hidden" }}>
+                                            <div className="team-img-top ak-parallax" style={{ aspectRatio: "370 / 450", overflow: "hidden" }}>
                                                 <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                                 <div className="team-social-icon">
                                                     <span className="icon"><i className="flaticon-facebook-logo"></i></span>

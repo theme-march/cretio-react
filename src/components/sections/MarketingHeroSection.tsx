@@ -112,7 +112,7 @@ const MarketingHeroSection: React.FC = () => {
                 >
                     {heroSlides.map((slide) => (
                         <SwiperSlide key={slide.id}>
-                            <div className="marketing-agency-slider-card">
+                            <div className="marketing-agency-slider-card ak-parallax">
                                 <img className="hero-bg-img" src={slide.img} alt="" />
                                 <div className="marketing-agency-content">
                                     <div className="container-extent">

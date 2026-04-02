@@ -97,7 +97,7 @@ const PortfolioSliderSection: React.FC = () => {
                     {portfolioItems.map((item) => (
                         <SwiperSlide key={item.id}>
                             <Link to="/portfolio-details" className="team-card border-0 fade-animation" data-direction="bottom">
-                                <div className="team-img-top">
+                                <div className="team-img-top ak-parallax">
                                     <img src={item.img} alt={item.title} />
                                 </div>
                                 <div className="team-body">

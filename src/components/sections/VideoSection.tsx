@@ -12,16 +12,13 @@ const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false }) => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <a
                 href="https://www.youtube.com/watch?v=VcaAVWtP48A"
-                className={`ak-center ak-video-block ak-style1 ak-video-open ak-bg ${isAbout ? "about-video-block" : ""}`}
-                style={!isAbout ? { backgroundImage: `url(${videoBg})` } : {}}
+                className={`ak-center ak-video-block ak-style1 ak-video-open ak-parallax ak-bg ${isAbout ? "about-video-block" : ""}`}
             >
-                {isAbout && (
-                    <img
-                        src={aboutVideoBg}
-                        className="video-img ak-bg"
-                        alt="..."
-                    />
-                )}
+                <img
+                    src={isAbout ? aboutVideoBg : videoBg}
+                    className="video-img ak-bg"
+                    alt="..."
+                />
                 <span className="video-player-btn circle-btn-anim ak-center">
                     <span className="text">Play Now</span>
                 </span>
