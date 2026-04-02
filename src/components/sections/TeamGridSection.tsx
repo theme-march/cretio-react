@@ -30,18 +30,18 @@ const TeamGridSection: React.FC = () => {
                             <div className="team-img-top">
                                 <img src={member.image} alt={member.name} />
                                 <div className="team-social-icon">
-                                    <span className="icon">
+                                    <a href="#" className="icon">
                                         <i className="flaticon-facebook-logo"></i>
-                                    </span>
-                                    <span className="icon">
+                                    </a>
+                                    <a href="#" className="icon">
                                         <i className="flaticon-instagram-logo"></i>
-                                    </span>
-                                    <span className="icon">
+                                    </a>
+                                    <a href="#" className="icon">
                                         <i className="flaticon-twitter"></i>
-                                    </span>
-                                    <span className="icon">
+                                    </a>
+                                    <a href="#" className="icon">
                                         <i className="flaticon-linkedin"></i>
-                                    </span>
+                                    </a>
                                 </div>
                             </div>
                             <div className="team-body">

@@ -62,9 +62,9 @@ const TeamSection: React.FC = () => {
                                     <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
                                         <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                         <div className="team-social-icon">
-                                            <span className="icon"><i className="flaticon-facebook-logo"></i></span>
-                                            <span className="icon"><i className="flaticon-instagram-logo"></i></span>
-                                            <span className="icon"><i className="flaticon-twitter"></i></span>
+                                            <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
+                                            <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
+                                            <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
                                         </div>
                                     </div>
                                     <div className="team-body" style={{ width: "306px", margin: "0 auto" }}>
@@ -124,10 +124,10 @@ const TeamSection: React.FC = () => {
                                             <div className="team-img-top ak-parallax" style={{ aspectRatio: "370 / 450", overflow: "hidden" }}>
                                                 <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                                                 <div className="team-social-icon">
-                                                    <span className="icon"><i className="flaticon-facebook-logo"></i></span>
-                                                    <span className="icon"><i className="flaticon-instagram-logo"></i></span>
-                                                    <span className="icon"><i className="flaticon-twitter"></i></span>
-                                                    <span className="icon"><i className="flaticon-linkedin"></i></span>
+                                                    <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
+                                                    <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
+                                                    <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
+                                                    <a href="#" className="icon"><i className="flaticon-linkedin"></i></a>
                                                 </div>
                                             </div>
                                             <div className="team-body">
