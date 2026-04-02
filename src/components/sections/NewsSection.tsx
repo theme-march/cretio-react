@@ -145,7 +145,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                 <Link to="/blog-details" className={isStyle2 ? "news-blog-card" : "news-card"}>
                                     {isStyle2 ? (
                                         <>
-                                            <img src={item.image} alt={item.title} className="news-blog-bg-img" />
+                                                <img src={item.image} alt={item.title} className="news-blog-bg-img" />
                                             <div className="overlay"></div>
                                             <h6 className="news-blog-title">{item.title}</h6>
                                             <p className="news-blog-desp">{item.description}</p>

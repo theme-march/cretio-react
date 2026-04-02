@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
+import { ReactLenis } from "lenis/react";
 import Header from "@layout/Header";
 import Footer from "@layout/Footer";
 import ThemeToggle from "@components/common/ThemeToggle";
@@ -9,7 +10,7 @@ import LoadingFallback from "@components/common/LoadingFallback";
 
 const MainLayout: React.FC = () => {
     return (
-        <>
+        <ReactLenis root>
             <ScrollRestoration />
             <Preloader />
             <ThemeToggle />
@@ -21,7 +22,7 @@ const MainLayout: React.FC = () => {
                 </Suspense>
             </main>
             <Footer />
-        </>
+        </ReactLenis>
     );
 };
 

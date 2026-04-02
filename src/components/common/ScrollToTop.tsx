@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useLenis } from "lenis/react";
 
 const ScrollToTop: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const lenis = useLenis();
 
     useEffect(() => {
         const toggleVisibility = () => {
@@ -19,10 +21,14 @@ const ScrollToTop: React.FC = () => {
 
     const scrollToTop = (e: React.MouseEvent) => {
         e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        if (lenis) {
+            lenis.scrollTo(0, { lerp: 0.1 });
+        } else {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
     };
 
     return (

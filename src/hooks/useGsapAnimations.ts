@@ -75,9 +75,10 @@ const useGsapAnimations = () => {
                     });
 
                     gsap.fromTo(image, 
-                        { yPercent: -20 },
+                        { yPercent: -20, scale: 1.3 },
                         {
                             yPercent: 20,
+                            scale: 1.3,
                             scrollTrigger: {
                                 trigger: $imgReveal,
                                 scrub: true,
@@ -126,61 +127,29 @@ const useGsapAnimations = () => {
                 btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
             });
 
-            // 4. blogCardAnim
-            const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card");
-            blogCards.forEach((card) => {
-                const image = card.querySelector("img");
-                if (image) {
-                    gsap.fromTo(image, 
-                        { yPercent: -20 },
-                        {
-                            yPercent: 20,
-                            scrollTrigger: {
-                                trigger: card,
-                                scrub: true,
-                                start: "top bottom",
-                                end: "bottom top",
-                            }
-                        }
-                    );
+            // 4. Parallax Animations (Consolidated)
+            // This covers various card types and utility classes
+            const parallaxSelectors = ".ak-parallax, .blog-card, .news-card, .news-blog-card, .image-scroll, .ak-video-block";
+            const parallaxContainers = gsap.utils.toArray<HTMLElement>(parallaxSelectors);
+            
+            parallaxContainers.forEach((container) => {
+                // Special handling for image-scroll height
+                if (container.classList.contains("image-scroll")) {
+                    let data_height = Number(container.getAttribute("data-height")) || 250;
+                    gsap.set(container, { height: `${data_height}px` });
                 }
-            });
 
-            // 5. imageScroll
-            const imageScrolls = gsap.utils.toArray<HTMLElement>(".image-scroll");
-            imageScrolls.forEach((container) => {
-                let data_height = Number(container.getAttribute("data-height")) || 250;
-                gsap.set(container, { height: `${data_height}px` });
-
-                const image = container.querySelector("img");
+                const image = container.querySelector("img") || container.querySelector(".video-img");
                 if (image) {
+                    gsap.set(container, { overflow: "hidden" });
                     gsap.fromTo(image, 
-                        { yPercent: -20 },
+                        { yPercent: -20, scale: 1.3 },
                         {
                             yPercent: 20,
+                            scale: 1.3,
+                            ease: "none",
                             scrollTrigger: {
                                 trigger: container,
-                                scrub: true,
-                                start: "top bottom",
-                                end: "bottom top",
-                            }
-                        }
-                    );
-                }
-            });
-
-            // 6. playVideoBlockAnim
-            const videoBlocks = gsap.utils.toArray<HTMLElement>(".ak-video-block");
-            videoBlocks.forEach((block) => {
-                const image = block.querySelector(".video-img") || block.querySelector("img");
-                if (image) {
-                    gsap.fromTo(image, 
-                        { yPercent: -20, scale: 1 },
-                        {
-                            yPercent: 20,
-                            scale: 1.2,
-                            scrollTrigger: {
-                                trigger: block,
                                 scrub: true,
                                 start: "top bottom",
                                 end: "bottom top",
@@ -386,27 +355,6 @@ const useGsapAnimations = () => {
                         },
                     });
                 });
-            });
-            // 13. parallaxAnimation (ak-parallax)
-            const parallaxContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
-            parallaxContainers.forEach((container) => {
-                const image = container.querySelector("img");
-                if (image) {
-                    gsap.set(container, { overflow: "hidden" });
-                    gsap.fromTo(image, 
-                        { yPercent: -20 },
-                        {
-                            yPercent: 20,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: container,
-                                scrub: true,
-                                start: "top bottom",
-                                end: "bottom top",
-                            }
-                        }
-                    );
-                }
             });
         });
 
