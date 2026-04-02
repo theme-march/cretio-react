@@ -79,7 +79,7 @@ const BrandingServicesSection: React.FC = () => {
             <div className="services-branding">
                 {services.map((service) => (
                     <Link
-                        to="/service-details"
+                        to={`/services/${service.id}`}
                         className="sb-card fade-animation"
                         key={service.id}
                         onMouseEnter={handleMouseEnter}

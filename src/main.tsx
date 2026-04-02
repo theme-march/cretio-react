@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+// Removed BrowserRouter for Data API compatibility
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "@/index.scss";
@@ -16,9 +16,7 @@ if (rootElement) {
   const root = createRoot(rootElement);
   root.render(
     <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </StrictMode>
   );
 } else {

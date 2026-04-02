@@ -1,21 +1,24 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "@layout/Header";
 import Footer from "@layout/Footer";
 import ThemeToggle from "@components/common/ThemeToggle";
 import Preloader from "@components/common/Preloader";
 import ScrollToTop from "@components/common/ScrollToTop";
+import LoadingFallback from "@components/common/LoadingFallback";
 
 const MainLayout: React.FC = () => {
-
     return (
         <>
+            <ScrollRestoration />
             <Preloader />
             <ThemeToggle />
             <ScrollToTop />
             <Header />
             <main>
-                <Outlet />
+                <Suspense fallback={<LoadingFallback />}>
+                    <Outlet />
+                </Suspense>
             </main>
             <Footer />
         </>

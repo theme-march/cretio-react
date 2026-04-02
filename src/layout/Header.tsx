@@ -105,7 +105,7 @@ const Header: React.FC = () => {
                                             ></span>
                                             <ul style={{ display: openSubmenus['services'] ? 'block' : '' }}>
                                                 <li><Link to="/services">Services</Link></li>
-                                                <li><Link to="/service-details">Services Details</Link></li>
+                                                <li><Link to="/services/android-app-development">Services Details</Link></li>
                                             </ul>
                                         </li>
                                         <li className={`menu-item-has-children ${openSubmenus['portfolio'] ? 'active' : ''}`}>
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
                                             ></span>
                                             <ul style={{ display: openSubmenus['portfolio'] ? 'block' : '' }}>
                                                 <li><Link to="/portfolio">Portfolio</Link></li>
-                                                <li><Link to="/portfolio-details">Portfolio Details</Link></li>
+                                                <li><Link to="/portfolio/creative-work">Portfolio Details</Link></li>
                                             </ul>
                                         </li>
                                         <li className={`menu-item-has-children ${openSubmenus['pages'] ? 'active' : ''}`}>
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                                             ></span>
                                             <ul style={{ display: openSubmenus['pages'] ? 'block' : '' }}>
                                                 <li><Link to="/blog">Blog</Link></li>
-                                                <li><Link to="/blog-details">Blog Details</Link></li>
+                                                <li><Link to="/blog/how-to-grow-your-business">Blog Details</Link></li>
                                                 <li><Link to="/team">Team</Link></li>
                                                 <li><Link to="/pricing">Pricing</Link></li>
                                                 <li><Link to="/faq">Faq</Link></li>

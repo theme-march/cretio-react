@@ -1,51 +1,79 @@
-import { Routes, Route } from "react-router-dom";
+import { lazy } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "@layout/MainLayout";
-import Home from "@pages/Home";
-import About from "@pages/About";
-import Services from "@pages/Services";
-import ServiceDetails from "@pages/ServiceDetails";
-import Portfolio from "@pages/Portfolio";
-import PortfolioDetails from "@pages/PortfolioDetails";
-import Blog from "@pages/Blog";
-import BlogDetails from "@pages/BlogDetails";
-import Contact from "@pages/Contact";
-import MarketingAgency from "@pages/MarketingAgency";
-import DesignCompany from "@pages/DesignCompany";
-import CreativePortfolio from "@pages/CreativePortfolio";
-import MinimalStudio from "@pages/MinimalStudio";
-import SeoAgency from "@pages/SeoAgency";
-import Team from "@pages/Team";
-import Pricing from "@pages/Pricing";
-import Faq from "@pages/Faq";
-import NotFound from "@pages/NotFound";
-import ComingSoon from "@pages/ComingSoon";
+import BlankLayout from "@layout/BlankLayout";
+
+const Home = lazy(() => import("@pages/Home"));
+const About = lazy(() => import("@pages/About"));
+const Services = lazy(() => import("@pages/Services"));
+const ServiceDetails = lazy(() => import("@pages/ServiceDetails"));
+const Portfolio = lazy(() => import("@pages/Portfolio"));
+const PortfolioDetails = lazy(() => import("@pages/PortfolioDetails"));
+const Blog = lazy(() => import("@pages/Blog"));
+const BlogDetails = lazy(() => import("@pages/BlogDetails"));
+const Contact = lazy(() => import("@pages/Contact"));
+const MarketingAgency = lazy(() => import("@pages/MarketingAgency"));
+const DesignCompany = lazy(() => import("@pages/DesignCompany"));
+const CreativePortfolio = lazy(() => import("@pages/CreativePortfolio"));
+const MinimalStudio = lazy(() => import("@pages/MinimalStudio"));
+const SeoAgency = lazy(() => import("@pages/SeoAgency"));
+const Team = lazy(() => import("@pages/Team"));
+const Pricing = lazy(() => import("@pages/Pricing"));
+const Faq = lazy(() => import("@pages/Faq"));
+const NotFound = lazy(() => import("@pages/NotFound"));
+const ComingSoon = lazy(() => import("@pages/ComingSoon"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      {
+        path: "services",
+        children: [
+          { index: true, element: <Services /> },
+          { path: ":id", element: <ServiceDetails /> },
+        ],
+      },
+      {
+        path: "portfolio",
+        children: [
+          { index: true, element: <Portfolio /> },
+          { path: ":id", element: <PortfolioDetails /> },
+        ],
+      },
+      {
+        path: "blog",
+        children: [
+          { index: true, element: <Blog /> },
+          { path: ":id", element: <BlogDetails /> },
+        ],
+      },
+      { path: "team", element: <Team /> },
+      { path: "pricing", element: <Pricing /> },
+      { path: "faq", element: <Faq /> },
+      { path: "contact", element: <Contact /> },
+      { path: "marketing-agency", element: <MarketingAgency /> },
+      { path: "design-company", element: <DesignCompany /> },
+      { path: "creative-portfolio", element: <CreativePortfolio /> },
+      { path: "minimal-studio", element: <MinimalStudio /> },
+      { path: "seo-agency", element: <SeoAgency /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+  {
+    path: "coming-soon",
+    element: <BlankLayout />,
+    errorElement: <NotFound />,
+    children: [{ index: true, element: <ComingSoon /> }],
+  },
+]);
 
 const AppRouter = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<MainLayout />}>
-                <Route index element={<Home />} />
-                <Route path="about" element={<About />} />
-                <Route path="services" element={<Services />} />
-                <Route path="service-details" element={<ServiceDetails />} />
-                <Route path="portfolio" element={<Portfolio />} />
-                <Route path="portfolio-details" element={<PortfolioDetails />} />
-                <Route path="blog" element={<Blog />} />
-                <Route path="blog-details" element={<BlogDetails />} />
-                <Route path="team" element={<Team />} />
-                <Route path="pricing" element={<Pricing />} />
-                <Route path="faq" element={<Faq />} />
-                <Route path="contact" element={<Contact />} />
-                <Route path="marketing-agency" element={<MarketingAgency />} />
-                <Route path="design-company" element={<DesignCompany />} />
-                <Route path="creative-portfolio" element={<CreativePortfolio />} />
-                <Route path="minimal-studio" element={<MinimalStudio />} />
-                <Route path="seo-agency" element={<SeoAgency />} />
-                <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route path="coming-soon" element={<ComingSoon />} />
-        </Routes>
-    );
+  return <RouterProvider router={router} />;
 };
 
 export default AppRouter;

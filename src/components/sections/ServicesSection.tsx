@@ -126,7 +126,7 @@ const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
                                 <div className="service-left-right">
                                     <p className="service-desp">{service.description}</p>
                                     <div className="service-btn-content">
-                                        <Link to="/service-details" className="more-btn">
+                                        <Link to={`/services/${service.id}`} className="more-btn">
                                             <span className="morebtn-text"> Learn More </span>
                                             <span className="primary-icon-anim">
                                                 <i className="flaticon-up-right-arrow"></i>
