@@ -55,7 +55,7 @@ const PortfolioDetailsContent: React.FC = () => {
                     using Lorem Ipsum is that it has a more-or-less normal distribution of
                     letters, as opposed to using 'Content here, content here.
                 </p>
-                <div className="pd-img image-scroll" data-height="350">
+                <div className="pd-img image-scroll ak-parallax" data-height="350">
                     <img src={pdImg1} alt="..." />
                 </div>
                 <p className="pd-desp">
@@ -87,7 +87,7 @@ const PortfolioDetailsContent: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <div className="pd-img image-scroll" data-height="400">
+                <div className="pd-img image-scroll ak-parallax" data-height="400">
                     <img src={pdImg2} alt="..." />
                 </div>
                 <p className="pd-desp">

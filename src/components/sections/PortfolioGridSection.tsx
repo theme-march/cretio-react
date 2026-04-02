@@ -26,7 +26,7 @@ const PortfolioGridSection: React.FC = () => {
                     {portfolioItems.map((item) => (
                         <div className={item.col} key={item.id}>
                             <Link to={`/portfolio-details/${item.id}`} className="portfolio-card overflow-hidden">
-                                <div className="portfolio-top-img img-anim-left-show">
+                                <div className="portfolio-top-img img-anim-left-show ak-parallax">
                                     <img src={item.img} alt={item.title} className="w-100" />
                                 </div>
                                 <div className="portfolio-content">

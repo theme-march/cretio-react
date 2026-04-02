@@ -20,7 +20,7 @@ const ServiceDetailsContent: React.FC = () => {
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
-                <div className="services-main-img">
+                <div className="services-main-img ak-parallax">
                     <img src={mainImg} className="img-fluid" alt="..." />
                 </div>
             </div>
@@ -69,7 +69,7 @@ const ServiceDetailsContent: React.FC = () => {
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row align-items-center">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
-                                <div className="image-hov-one">
+                                <div className="image-hov-one ak-parallax">
                                     <img src={accordionImg} className="img-fluid" alt="..." />
                                 </div>
                             </div>

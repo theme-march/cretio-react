@@ -79,3 +79,9 @@ body {
 .offcanvas-backdrop {
   z-index: 1000010 !important;
 }
+
+/* Fix for parallax image speed/jumping by disabling CSS transitions */
+.ak-parallax img, 
+.ak-parallax video {
+  transition: none !important;
+}

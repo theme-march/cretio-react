@@ -22,15 +22,15 @@ const BlogDetailsContent: React.FC = () => {
                 </p>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 ak-parallax">
                         <img src={blog1} className="blogs-details-img h-100 w-100 pb-md-0 pb-4" alt="..." />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 ak-parallax">
                         <img src={blog2} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
-                <div className="blogs-details-quote-text">
+                <div className="blogs-details-quote-text ak-parallax">
                     <img src={quoteBg} alt="..." />
                     <p>
                         <span className="dot-text"></span>
@@ -42,10 +42,10 @@ const BlogDetailsContent: React.FC = () => {
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-4 ak-parallax">
                         <img src={blog3} className="blogs-details-img h-100 w-100 pb-md-0 pb-4" alt="..." />
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-8 ak-parallax">
                         <img src={blog4} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                 </div>

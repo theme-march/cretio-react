@@ -52,7 +52,7 @@ const FaqSection: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="faq-wapper">
                 <div className="faq-img-content">
-                    <div className="image-hov-one">
+                    <div className="image-hov-one ak-parallax">
                         <img src={faqBg} alt="..." />
                     </div>
                 </div>

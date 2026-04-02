@@ -26,8 +26,8 @@ const TeamGridSection: React.FC = () => {
             <div className="container-customize">
                 <div className="row row-cols-1 row-cols-md-4 g-4 align-items-center">
                     {teamData.map((member) => (
-                        <div key={member.id} className="border-0 team-card">
-                            <div className="team-img-top ak-parallax">
+                        <div key={member.id} className="border-0 team-card ak-parallax">
+                            <div className="team-img-top">
                                 <img src={member.image} alt={member.name} />
                                 <div className="team-social-icon">
                                     <span className="icon">

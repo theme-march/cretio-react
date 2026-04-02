@@ -20,20 +20,18 @@ const DesignCompanyHeroSection: React.FC = () => {
 
     return (
         <section>
-            <div
-                className="design-company-hero-area"
-                style={{
-                    backgroundImage: `url(${isDark ? heroBgDark : heroBg})`,
-                    backgroundPosition: "top center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                }}
-            >
+            <div className="design-company-hero-area ak-parallax">
+                <img 
+                    src={isDark ? heroBgDark : heroBg} 
+                    className="ak-bg" 
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "120%", objectFit: "cover" }} 
+                    alt="" 
+                />
                 <div className="container">
                     <div className="dc-hero-wrapper style-1">
                         <div className="dc-hero-title-box">
                             <div className="dc-hero-top-content">
-                                <h1 className="dc-hero-title text-1 fade-animation" data-direction="left" data-delay="2.8">
+                                <h1 className="dc-hero-title text-1 fade-animation" data-direction="left" data-delay="0.4">
                                     Design
                                 </h1>
                                 <div className="dc-hero-title-img">
@@ -45,12 +43,12 @@ const DesignCompanyHeroSection: React.FC = () => {
                             </div>
                             <div className="dc-hero-bottom-content">
                                 <div className="dc-hero-desp">
-                                    <p className="fade-animation" data-delay="2.8">
+                                    <p className="fade-animation" data-delay="0.6">
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                                         industry's standard dummy text.
                                     </p>
                                 </div>
-                                <h2 className="dc-hero-title text-2 fade-animation" data-direction="right" data-delay="2.8">
+                                <h2 className="dc-hero-title text-2 fade-animation" data-direction="right" data-delay="0.8">
                                     Studio
                                 </h2>
                             </div>
