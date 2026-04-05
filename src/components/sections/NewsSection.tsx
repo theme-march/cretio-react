@@ -142,7 +142,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                 >
                         {newsItems.map((item) => (
                             <SwiperSlide key={item.id} className="p-0">
-                                <Link to="/blog-details" className={isStyle2 ? "news-blog-card" : "news-card"}>
+                                <Link to="/blog/blog-details" className={isStyle2 ? "news-blog-card" : "news-card"}>
                                     {isStyle2 ? (
                                         <>
                                                 <img src={item.image} alt={item.title} className="news-blog-bg-img" />

@@ -115,7 +115,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                     <div className={`col-12 ${item.colClass}`} key={item.id}>
                         {item.isServiceStyle ? (
                             <div className="dm-service-items style2 m-0 h-100">
-                                <Link to="/portfolio-details" className="width-2 service-item h-100 ak-parallax">
+                                <Link to="/portfolio/portfolio-details" className="width-2 service-item h-100 ak-parallax">
                                     <img src={item.img} alt={item.title} />
                                     <div className="service-hover-info">
                                         <div className="left-content">
@@ -133,7 +133,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                                 </Link>
                             </div>
                         ) : (
-                            <Link to="/portfolio-details" className="portfolio-card style-1 w-100">
+                            <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 w-100">
                                 <div className="portfolio-img ak-parallax">
                                     <img src={item.img} alt={item.title} />
                                 </div>

@@ -60,7 +60,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadM
             <div className="container">
                 <div className="blogs-content fade-animation">
                     {blogPosts.map((post, index) => (
-                        <Link to="/blog-details" className="blog-card" key={index}>
+                        <Link to="/blog/blog-details" className="blog-card" key={index}>
                             <div className="blog-image">
                                 <img src={post.image} alt={post.title} />
                             </div>

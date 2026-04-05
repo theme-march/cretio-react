@@ -12,7 +12,7 @@ const PortfolioSection: React.FC = () => {
             <div className="portfolio-content">
                 <div className="d-flex flex-lg-column flex-column-reverse">
                     <div className="portfolio-content-top">
-                        <Link to="/portfolio-details" className="portfolio-card style-1">
+                        <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
                             <div className="portfolio-img img-anim-left-show">
                                 <img src={portfolio1} alt="Portfolio 1" />
                             </div>
@@ -26,7 +26,7 @@ const PortfolioSection: React.FC = () => {
                                 </div>
                             </div>
                         </Link>
-                        <Link to="/portfolio-details" className="portfolio-card style-1">
+                        <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
                             <div className="portfolio-img img-anim-left-show">
                                 <img src={portfolio2} alt="Portfolio 2" />
                             </div>
@@ -50,7 +50,7 @@ const PortfolioSection: React.FC = () => {
                     <div className="ak-height-lg-80"></div>
                 </div>
                 <div className="portfolio-content-bottom">
-                    <Link to="/portfolio-details" className="portfolio-card style-1 mb-0 mb-md-5">
+                    <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 mb-0 mb-md-5">
                         <div className="portfolio-img img-anim-left-show">
                             <img src={portfolio3} alt="Portfolio 3" />
                         </div>
@@ -64,7 +64,7 @@ const PortfolioSection: React.FC = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/portfolio-details" className="portfolio-card style-1">
+                    <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
                         <div className="portfolio-img img-anim-left-show">
                             <img src={portfolio4} alt="Portfolio 4" />
                         </div>

@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { splitText } from "../utils/textSplitter";
 // ScrollTrigger is registered globally in main.tsx
 
@@ -358,7 +359,15 @@ const useGsapAnimations = () => {
             });
         });
 
-        return () => ctx.revert();
+        // Add a small delay for DOM calculations then refresh
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 100);
+
+        return () => {
+            ctx.revert();
+            clearTimeout(timer);
+        };
     }, []);
 };
 

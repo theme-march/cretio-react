@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 
-const Preloader: React.FC = () => {
+interface PreloaderProps {
+    onLoadingComplete?: () => void;
+}
+
+const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const preloaderRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<SVGTextElement>(null);
@@ -27,6 +31,9 @@ const Preloader: React.FC = () => {
                         opacity: 0,
                         onComplete: () => {
                             setIsLoaded(true);
+                            if (onLoadingComplete) {
+                                onLoadingComplete();
+                            }
                         },
                     });
                 },

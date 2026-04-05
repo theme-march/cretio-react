@@ -25,7 +25,7 @@ const PortfolioGridSection: React.FC = () => {
                 <div className="row justify-content-between align-items-center g-5 overflow-hidden">
                     {portfolioItems.map((item) => (
                         <div className={item.col} key={item.id}>
-                            <Link to={`/portfolio/${item.id}`} className="portfolio-card overflow-hidden">
+                            <Link to="/portfolio/portfolio-details" className="portfolio-card overflow-hidden">
                                 <div className="portfolio-top-img img-anim-left-show ak-parallax">
                                     <img src={item.img} alt={item.title} className="w-100" />
                                 </div>
