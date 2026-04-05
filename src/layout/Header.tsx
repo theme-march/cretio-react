@@ -105,7 +105,7 @@ const Header: React.FC = () => {
                                             ></span>
                                             <ul style={{ display: openSubmenus['services'] ? 'block' : '' }}>
                                                 <li><Link to="/services">Services</Link></li>
-                                                <li><Link to="/services/android-app-development">Services Details</Link></li>
+                                                <li><Link to="/services/service-details">Services Details</Link></li>
                                             </ul>
                                         </li>
                                         <li className={`menu-item-has-children ${openSubmenus['portfolio'] ? 'active' : ''}`}>

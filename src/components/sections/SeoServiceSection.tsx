@@ -26,10 +26,10 @@ const SeoServiceSection: React.FC = () => {
                     <ul>
                         {services.map((service, index) => (
                             <li className="service-list-item fade-animation" data-direction="bottom" key={index}>
-                                <Link to={`/services/${service.id}`} className="service-list-title btn-flip-text">
+                                <Link to="/services/service-details" className="service-list-title btn-flip-text">
                                     <span data-text={service.title}>{service.title}</span>
                                 </Link>
-                                <Link to={`/services/${service.id}`} className="more-btn">
+                                <Link to="/services/service-details" className="more-btn">
                                     <span className="morebtn-text"> View More </span>
                                     <span className="primary-icon-anim">
                                         <i className="flaticon-up-right-arrow"></i>

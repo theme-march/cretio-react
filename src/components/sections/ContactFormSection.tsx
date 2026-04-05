@@ -1,33 +1,12 @@
-import React, { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import React, { useRef } from "react";
 
 const ContactFormSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
-    const strokeRef = useRef<HTMLDivElement>(null);
-
-    useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            if (strokeRef.current) {
-                gsap.to(strokeRef.current, {
-                    xPercent: -30,
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top bottom",
-                        end: "bottom top",
-                        scrub: 1,
-                    },
-                });
-            }
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
 
     return (
         <section ref={sectionRef}>
             <div className="ak-center">
                 <div className="theme-border-wrap contact-form-border hover-animation">
-                    {/* ... border elements ... */}
                     <div className="b-top-left">
                         <div className="horizontal"></div>
                         <div className="verticle"></div>
@@ -45,10 +24,7 @@ const ContactFormSection: React.FC = () => {
                         <div className="horizontal"></div>
                     </div>
 
-                    <div className="container p-0">
-                        <div className="contact-form-stroke-title ak-stroke-number" ref={strokeRef}>
-                            CONTACT
-                        </div>
+                    <div className="container p-3">
                         <div className="ak-center p-0">
                             <div className="contact-form-box">
                                 <div className="contact-form-wapper style-2">

@@ -6913,6 +6913,11 @@ kbd {
 @media screen and (max-width: 767px) {
   .team-card {
     max-width: 380px;
+    margin: 0 auto;
+  }
+  .team-card .team-body {
+    margin: 20px 0 0 0;
+    text-align: center;
   }
 }
 /*--------------------------------------------------------------

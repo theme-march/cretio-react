@@ -58,7 +58,7 @@ const ServiceDetailsContent: React.FC = () => {
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
-                        <div className="row">
+                        <div className="row gy-4">
                             <div className="col-md-4 ak-parallax">
                                 <img src={show1} className="h-100 w-100" alt="..." />
                             </div>
@@ -98,7 +98,7 @@ const ServiceDetailsContent: React.FC = () => {
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
-                        <div className="row">
+                        <div className="row gy-4">
                             <div className="col-md-8 ak-parallax">
                                 <img src={show2} className="h-100 w-100" alt="..." />
                             </div>

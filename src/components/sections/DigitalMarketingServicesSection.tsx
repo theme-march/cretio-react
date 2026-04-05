@@ -49,7 +49,7 @@ const DigitalMarketingServicesSection: React.FC = () => {
                 <div className="dm-service-items">
                     {services.map((service, index) => (
                         <Link
-                            to={`/services/${service.id}`}
+                            to="/services/service-details"
                             className={`${service.widthClass} service-item ak-parallax`}
                             data-offset="40"
                             data-direction="left"

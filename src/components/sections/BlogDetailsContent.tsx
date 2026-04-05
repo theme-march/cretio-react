@@ -21,9 +21,9 @@ const BlogDetailsContent: React.FC = () => {
                     letters, as opposed to using 'Content here, content here.
                 </p>
                 <div className="ak-height-50 ak-height-lg-50"></div>
-                <div className="row">
+                <div className="row gy-4">
                     <div className="col-md-6 ak-parallax">
-                        <img src={blog1} className="blogs-details-img h-100 w-100 pb-md-0 pb-4" alt="..." />
+                        <img src={blog1} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                     <div className="col-md-6 ak-parallax">
                         <img src={blog2} className="blogs-details-img h-100 w-100" alt="..." />
@@ -41,9 +41,9 @@ const BlogDetailsContent: React.FC = () => {
                     </p>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
-                <div className="row">
+                <div className="row gy-4">
                     <div className="col-md-4 ak-parallax">
-                        <img src={blog3} className="blogs-details-img h-100 w-100 pb-md-0 pb-4" alt="..." />
+                        <img src={blog3} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                     <div className="col-md-8 ak-parallax">
                         <img src={blog4} className="blogs-details-img h-100 w-100" alt="..." />
