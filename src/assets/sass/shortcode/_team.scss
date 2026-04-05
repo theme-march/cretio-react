@@ -99,6 +99,11 @@
     background-color: var(--border-color);
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
+    bottom: auto !important;
+    left: 0;
+    margin: 0;
+    opacity: 1 !important;
   }
   .team-logs-navigation {
     display: flex;

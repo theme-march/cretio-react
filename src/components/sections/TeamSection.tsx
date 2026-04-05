@@ -60,7 +60,7 @@ const TeamSection: React.FC = () => {
                             <div key={index} className="fade-animation" data-direction="bottom" data-delay={index * 0.1}>
                                 <div className="border-0 team-card h-100">
                                     <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
-                                        <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                        <a href="#"><img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
                                         <div className="team-social-icon">
                                             <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
                                             <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
@@ -68,7 +68,7 @@ const TeamSection: React.FC = () => {
                                         </div>
                                     </div>
                                     <div className="team-body" style={{ width: "306px", margin: "0 auto" }}>
-                                        <h6 className="team-title">{member.name}</h6>
+                                        <h6 className="team-title"><a href="#">{member.name}</a></h6>
                                         <p className="team-title text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@ const TeamSection: React.FC = () => {
                                     <SwiperSlide key={index}>
                                         <div className="border-0 team-card">
                                             <div className="team-img-top ak-parallax" style={{ aspectRatio: "370 / 450", overflow: "hidden" }}>
-                                                <img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                                <a href="#"><img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
                                                 <div className="team-social-icon">
                                                     <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
                                                     <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
@@ -131,7 +131,7 @@ const TeamSection: React.FC = () => {
                                                 </div>
                                             </div>
                                             <div className="team-body">
-                                                <h6 className="team-title">{member.name}</h6>
+                                                <h6 className="team-title"><a href="#">{member.name}</a></h6>
                                                 <p className="team-title text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
                                             </div>
                                         </div>

@@ -28,7 +28,7 @@ const TeamGridSection: React.FC = () => {
                     {teamData.map((member) => (
                         <div key={member.id} className="border-0 team-card ak-parallax">
                             <div className="team-img-top">
-                                <img src={member.image} alt={member.name} />
+                                <a href="#"><img src={member.image} alt={member.name} /></a>
                                 <div className="team-social-icon">
                                     <a href="#" className="icon">
                                         <i className="flaticon-facebook-logo"></i>
@@ -45,7 +45,7 @@ const TeamGridSection: React.FC = () => {
                                 </div>
                             </div>
                             <div className="team-body">
-                                <h6 className="team-title">{member.name}</h6>
+                                <h6 className="team-title"><a href="#">{member.name}</a></h6>
                                 <p className="team-text">{member.role}</p>
                             </div>
                         </div>

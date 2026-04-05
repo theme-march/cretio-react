@@ -41,6 +41,7 @@ const PortfolioSection: React.FC = () => {
                             </div>
                         </Link>
                     </div>
+                    <div className="ak-height-lg-60"></div>
 
                     <h2 className="portfolio-title-content">
                         Our <span className="highlight">Exceptional</span> Sucessfull
@@ -49,6 +50,7 @@ const PortfolioSection: React.FC = () => {
                     </h2>
                     <div className="ak-height-lg-80"></div>
                 </div>
+                <div className="ak-height-lg-60"></div>
                 <div className="portfolio-content-bottom">
                     <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 mb-0 mb-md-5">
                         <div className="portfolio-img img-anim-left-show">
