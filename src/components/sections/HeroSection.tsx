@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
     const swiperRef = useRef<Swiper | null>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const sectionRef = useRef<HTMLElement>(null);
-    const starRef = useRef<HTMLImageElement>(null);
+
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -75,15 +75,7 @@ const HeroSection: React.FC = () => {
                 delay: 0.5,
             }, "-=3.5");
 
-            // Star Rotation
-            if (starRef.current) {
-                gsap.to(starRef.current, {
-                    rotation: 360,
-                    duration: 15,
-                    repeat: -1,
-                    ease: "none"
-                });
-            }
+
         }, sectionRef);
 
         // Swiper Init
@@ -195,7 +187,7 @@ const HeroSection: React.FC = () => {
                     </p>
                     <div className="image-box">
                         <div className="da-shape-star">
-                            <img className="star-shape" src={starShape} alt="Star" ref={starRef} />
+                            <img className="star-shape" src={starShape} alt="Star" />
                         </div>
                         <div className="hero-right-image"></div>
                         <video ref={videoRef} autoPlay muted loop playsInline>
