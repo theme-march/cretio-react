@@ -110,7 +110,7 @@ const HeroSection: React.FC = () => {
     }, []);
 
     return (
-        <section className="container container-customize" ref={sectionRef}>
+        <section className="container container-customize" style={{ overflow: "visible" }} ref={sectionRef}>
             <div className="digital-agencye-hero style-1">
                 <div className="hero-left-column">
                     <div className="title-box">
@@ -123,7 +123,7 @@ const HeroSection: React.FC = () => {
                         <div className="hero-btn">
                             <Link to="/contact" className="circle-btn circle-btn-anim">
                                 <span className="text text-uppercase">
-                                    Start
+                                    <span>Start </span>
                                     <i className="flaticon-up-right-arrow"></i>
                                     <br />
                                     Project

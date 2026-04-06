@@ -288,6 +288,10 @@ const useGsapAnimations = () => {
                     elementsToAnimate = [element];
                 }
 
+                if (fade_direction === "textTop" || fade_direction === "textBottom") {
+                    gsap.set(splitRes.words, { overflow: "hidden" });
+                }
+
                 const animationProps: gsap.TweenVars = {
                     opacity: 0,
                     duration: duration_value,

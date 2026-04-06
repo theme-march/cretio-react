@@ -10,6 +10,8 @@ interface SectionHeadingProps {
     variant?: "style-1" | "style-2";
     disableDespAnimation?: boolean;
     disableCaptionAnimation?: boolean;
+    titleOffset?: string;
+    titleDirection?: string;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -22,16 +24,19 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     titleDuration = 1.5,
     disableDespAnimation = false,
     disableCaptionAnimation = false,
+    titleOffset,
+    titleDirection = "textTop",
 }) => {
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
             <div className="ak-section-left">
                 <h2
                     className="ak-section-title text-animation"
-                    data-direction="textTop"
+                    data-direction={titleDirection}
                     data-split-text="chars"
                     data-duration={titleDuration}
                     data-ease={titleEase}
+                    {...(titleOffset && { "data-offset": titleOffset })}
                 >
                     {typeof title === "string" ? (
                         <span dangerouslySetInnerHTML={{ __html: title }} />
@@ -43,8 +48,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
             {(description || caption) && (
                 <div className="ak-section-right">
                     {description && (
-                        <p 
-                            className={`ak-section-desp ${!disableDespAnimation ? "text-animation" : ""}`} 
+                        <p
+                            className={`ak-section-desp ${!disableDespAnimation ? "text-animation" : ""}`}
 
                             data-direction="rotationX"
                             data-split-text="lines"
@@ -54,7 +59,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                         </p>
                     )}
                     {caption && (
-                        <div 
+                        <div
                             className={`ak-section-caption ${!disableCaptionAnimation ? "fade-animation" : ""}`}
                             data-direction="right"
                             data-delay="0.3"

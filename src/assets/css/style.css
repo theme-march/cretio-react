@@ -4083,6 +4083,12 @@ kbd {
   margin: 0 auto;
   font-size: 18px;
 }
+@media (min-width: 992px) {
+  .digital-agencye-hero.style-1 .hero-right-column {
+    margin-right: calc((100% - 100vw) / 2);
+    max-width: none;
+  }
+}
 @media (min-width: 1720px) {
   .digital-agencye-hero.style-1 {
     width: calc(100vw - 100px);

@@ -100,7 +100,8 @@ const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
                         title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
                         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                         caption="Services"
-                        disableDespAnimation={true}
+                        titleDuration={0.7}
+                        titleOffset="100%"
                     />
                     {services.map((service, index) => (
                         <div

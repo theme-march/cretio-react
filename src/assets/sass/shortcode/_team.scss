@@ -10,11 +10,13 @@
 
   .team-img-top {
     position: relative;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .team-social-icon {
       position: absolute;
       bottom: 25px;
@@ -33,32 +35,39 @@
         flex-shrink: 0;
         background-color: rgba($white, 70%);
         transition: background-color 0.3s;
+
         i {
           font-size: 20px;
           color: $black;
           display: contents;
         }
+
         &:hover {
           i {
             color: $white;
           }
+
           background-color: rgba($primary, 100%);
         }
       }
     }
   }
+
   .team-body {
     flex: 1 1 auto;
     margin: 20px 0px 0px 30px;
+
     .team-title,
     .team-text {
       transition: all 0.3s;
       line-height: 165%;
     }
+
     .team-text {
       font-size: 16px;
     }
   }
+
   &:hover {
     .team-img-top {
       .team-social-icon {
@@ -66,6 +75,7 @@
         left: 50%;
       }
     }
+
     .team-body {
       .team-title {
         color: $primary;
@@ -73,12 +83,15 @@
     }
   }
 }
+
 .dark {
   .team-swiper-controller {
     .team-logs-navigation {
+
       .team-logs-button-prev,
       .team-logs-button-next {
         border: 1px solid $white;
+
         svg {
           path {
             fill: $white;
@@ -88,11 +101,13 @@
     }
   }
 }
+
 .team-swiper-controller {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
   .team-logs-scrollbar {
     width: 100%;
     height: 1px;
@@ -105,6 +120,7 @@
     margin: 0;
     opacity: 1 !important;
   }
+
   .team-logs-navigation {
     display: flex;
     gap: 25px;
@@ -112,6 +128,7 @@
     z-index: 111;
     background-color: var(--white-color);
     transition: all 0.5s;
+
     .team-logs-button-prev,
     .team-logs-button-next {
       display: flex;
@@ -123,34 +140,43 @@
       border-radius: 50%;
       border: 1px solid var(--border-color);
       transition: border 0.2s ease-in-out;
+
       svg {
         transition: all 0.2s ease-in-out;
+
         path {
           transition: fill 0.2s ease-in-out;
         }
       }
+
       i {
         line-height: normal;
         font-size: 25px;
         transition: all 0.3s ease-in-out;
       }
     }
+
     .team-logs-button-prev {
       &:hover {
         border: 1px solid var(--primary-color);
+
         svg {
           margin-right: 10px;
+
           path {
             fill: var(--primary-color);
           }
         }
       }
     }
+
     .team-logs-button-next {
       &:hover {
         border: 1px solid var(--primary-color);
+
         svg {
           margin-left: 10px;
+
           path {
             fill: var(--primary-color);
           }
