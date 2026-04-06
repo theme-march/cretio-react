@@ -102,6 +102,7 @@ const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
                         caption="Services"
                         titleDuration={0.7}
                         titleOffset="100%"
+                        disableDespAnimation={true}
                     />
                     {services.map((service, index) => (
                         <div

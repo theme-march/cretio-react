@@ -53,6 +53,7 @@ interface CoreFeaturesProps {
     isSlider?: boolean;
     showTopGap?: boolean;
     showBottomGap?: boolean;
+    hideHeadingGap?: boolean;
     features?: CoreFeature[];
 }
 
@@ -65,6 +66,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     isSlider = false,
     showTopGap = false,
     showBottomGap = false,
+    hideHeadingGap = false,
     features = coreFeaturesData.slice(0, 3),
 }) => {
     return (
@@ -82,7 +84,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         caption={caption}
                     />
                 )}
-                <div className="ak-height-75 ak-height-lg-50"></div>
+                {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}
                 {isSlider ? (
                     <>
                         <Swiper

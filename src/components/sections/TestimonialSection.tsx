@@ -41,7 +41,7 @@ const TestimonialSection: React.FC = () => {
                     modules={[Navigation]}
                     loop={false}
                     speed={500}
-                    spaceBetween={30}
+                    spaceBetween={0}
                     slidesPerView={1}
                     breakpoints={{
                         991: {

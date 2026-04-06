@@ -22,7 +22,8 @@ const Home: React.FC = () => {
             <HeroSection />
             <AboutSection />
             <ServicesSection />
-            <CoreFeaturesSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <CoreFeaturesSection hideHeadingGap={true} />
             <PortfolioSection />
             <FunFactSection />
             <AwardsSection />

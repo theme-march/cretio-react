@@ -57,6 +57,12 @@
     flex: 1 1 auto;
     margin: 20px 0px 0px 30px;
 
+    .team-title {
+      font-size: 22px;
+      a {
+        font-size: 22px;
+      }
+    }
     .team-title,
     .team-text {
       transition: all 0.3s;

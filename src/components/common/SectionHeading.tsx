@@ -50,10 +50,11 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {description && (
                         <p
                             className={`ak-section-desp ${!disableDespAnimation ? "text-animation" : ""}`}
-
-                            data-direction="rotationX"
-                            data-split-text="lines"
-                            data-delay="0.3"
+                            {...(!disableDespAnimation ? {
+                                "data-direction": "rotationX",
+                                "data-split-text": "lines",
+                                "data-delay": "0.3"
+                            } : {})}
                         >
                             {description}
                         </p>
