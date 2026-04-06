@@ -52,7 +52,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
                                 <span> Content</span>
                             </h2>
                         </div>
-                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                        <form className="newsletter-form fade-animation" data-direction="right" onSubmit={handleSubmit}>
                             <input
                                 type="email"
                                 className="newsletter-input style-2"
@@ -104,7 +104,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
                                 <span> Content</span>
                             </h2>
                         </div>
-                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                        <form className="newsletter-form fade-animation" data-direction="right" onSubmit={handleSubmit}>
                             <input
                                 type="email"
                                 className="newsletter-input"

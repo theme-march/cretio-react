@@ -76,10 +76,9 @@ const useGsapAnimations = () => {
                     });
 
                     gsap.fromTo(image, 
-                        { yPercent: -20, scale: 1.3 },
+                        { yPercent: -20 },
                         {
                             yPercent: 20,
-                            scale: 1.3,
                             scrollTrigger: {
                                 trigger: $imgReveal,
                                 scrub: true,
@@ -128,34 +127,65 @@ const useGsapAnimations = () => {
                 btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
             });
 
-            // 4. Parallax Animations (Consolidated)
-            // This covers various card types and utility classes
-            const parallaxSelectors = ".ak-parallax, .blog-card, .news-card, .news-blog-card, .image-scroll, .ak-video-block";
-            const parallaxContainers = gsap.utils.toArray<HTMLElement>(parallaxSelectors);
-            
-            parallaxContainers.forEach((container) => {
-                // Special handling for image-scroll height
-                if (container.classList.contains("image-scroll")) {
-                    let data_height = Number(container.getAttribute("data-height")) || 250;
-                    gsap.set(container, { height: `${data_height}px` });
-                }
+            // 4. Parallax Animations explicitly matched to HTML template
+            const parallaxBgContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
+            parallaxBgContainers.forEach((element) => {
+                let img = element.querySelector("img") || element;
+                gsap.set(element, { overflow: 'hidden' });
+                gsap.fromTo(img, 
+                    { yPercent: -20 },
+                    { yPercent: 20, ease: 'none', scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                );
+            });
 
-                const image = container.querySelector("img") || container.querySelector(".video-img");
-                if (image) {
-                    gsap.set(container, { overflow: "hidden" });
-                    gsap.fromTo(image, 
-                        { yPercent: -20, scale: 1.3 },
-                        {
-                            yPercent: 20,
-                            scale: 1.3,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: container,
-                                scrub: true,
-                                start: "top bottom",
-                                end: "bottom top",
-                            }
-                        }
+            const teamNameParallax = gsap.utils.toArray<HTMLElement>(".team-name-parallax");
+            teamNameParallax.forEach((element) => {
+                gsap.fromTo(element, 
+                    { y: 0 },
+                    { 
+                        y: -30, 
+                        ease: 'none', 
+                        scrollTrigger: { 
+                            trigger: element, 
+                            scrub: true, 
+                            start: "top bottom", 
+                            end: "bottom top" 
+                        } 
+                    }
+                );
+            });
+
+            const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card, .news-card, .news-blog-card");
+            blogCards.forEach((element) => {
+                let img = element.querySelector("img");
+                if (img) {
+                    gsap.fromTo(img, 
+                        { yPercent: -20, ease: 'none' },
+                        { yPercent: 20, ease: "power2.out", scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                    );
+                }
+            });
+
+            const scrollImages = gsap.utils.toArray<HTMLElement>(".image-scroll");
+            scrollImages.forEach((element) => {
+                let data_height = Number(element.getAttribute("data-height")) || 250;
+                gsap.set(element, { height: `${data_height}px` });
+                let img = element.querySelector("img");
+                if (img) {
+                    gsap.fromTo(img, 
+                        { yPercent: -20, ease: 'none' },
+                        { yPercent: 20, ease: "power2.out", scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                    );
+                }
+            });
+
+            const videoBlocks = gsap.utils.toArray<HTMLElement>(".ak-video-block");
+            videoBlocks.forEach((element) => {
+                let img = element.querySelector(".video-img");
+                if (img) {
+                    gsap.fromTo(img, 
+                        { yPercent: -20, scale: 1, ease: 'none' },
+                        { yPercent: 20, scale: 1.2, ease: 'none', scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
                     );
                 }
             });

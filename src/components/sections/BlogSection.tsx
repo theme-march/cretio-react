@@ -53,6 +53,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadM
                         title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">News</span>'
                         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                         caption="Recent News"
+                        disableDespAnimation={true}
                     />
                     <div className="ak-height-75 ak-height-lg-50"></div>
                 </div>

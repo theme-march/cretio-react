@@ -8,6 +8,8 @@ interface SectionHeadingProps {
     titleEase?: string;
     titleDuration?: number;
     variant?: "style-1" | "style-2";
+    disableDespAnimation?: boolean;
+    disableCaptionAnimation?: boolean;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -18,6 +20,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     variant = "style-1",
     titleEase = "power2.out",
     titleDuration = 1.5,
+    disableDespAnimation = false,
+    disableCaptionAnimation = false,
 }) => {
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
@@ -40,7 +44,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                 <div className="ak-section-right">
                     {description && (
                         <p 
-                            className="ak-section-desp text-animation" 
+                            className={`ak-section-desp ${!disableDespAnimation ? "text-animation" : ""}`} 
+
                             data-direction="rotationX"
                             data-split-text="lines"
                             data-delay="0.3"
@@ -50,7 +55,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     )}
                     {caption && (
                         <div 
-                            className="ak-section-caption fade-animation"
+                            className={`ak-section-caption ${!disableCaptionAnimation ? "fade-animation" : ""}`}
                             data-direction="right"
                             data-delay="0.3"
                         >

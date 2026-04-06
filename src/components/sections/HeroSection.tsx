@@ -39,8 +39,8 @@ const HeroSection: React.FC = () => {
                 if (res.chars) agencyChars.push(...res.chars);
             });
 
-            // Hero Entry Animation
-            const tl = gsap.timeline();
+            // Hero Entry Animation 
+            const tl = gsap.timeline({ delay: 1.0 });
 
             tl.from(agencyChars, {
                 duration: 2.5,
@@ -49,31 +49,25 @@ const HeroSection: React.FC = () => {
                 stagger: 0.02,
                 ease: "elastic.out(1, 0.3)"
             })
-            .from(digitalChars, {
-                duration: 1,
-                y: -150,
-                autoAlpha: 0,
-                stagger: 0.05,
-                ease: "bounce.out"
-            }, "0.8")
-            .from(".hero-btn", {
-                duration: 1,
-                autoAlpha: 0,
-                y: -100,
-                ease: "bounce.out"
-            }, "0.5")
-            .from(".description", {
-                y: 30,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2
-            }, "-=0.5")
-            .to(".hero-right-image", {
-                duration: 2,
-                width: "0%",
-                ease: "expo.in",
-                delay: 0.5,
-            }, "-=3.5");
+                .from(digitalChars, {
+                    duration: 1,
+                    y: -150,
+                    autoAlpha: 0,
+                    stagger: 0.05,
+                    ease: "bounce.out"
+                }, "0.8")
+                .from(".hero-btn", {
+                    duration: 1,
+                    autoAlpha: 0,
+                    y: -100,
+                    ease: "bounce.out"
+                }, "0.5")
+                .to(".hero-right-image", {
+                    duration: 2,
+                    width: "0%",
+                    ease: "expo.in",
+                    delay: 0.5,
+                }, "-=3.5");
 
 
         }, sectionRef);

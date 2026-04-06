@@ -1,6 +1,9 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 import star2 from "@assets/img/shape/star-2.png";
 import line2 from "@assets/img/shape/line-2.png";
 
@@ -9,11 +12,25 @@ const AboutSection: React.FC = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.to(".star-1, .star-2", {
+            gsap.to(".star-1", {
+                scrollTrigger: {
+                    trigger: ".star-content",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                },
                 rotation: 360,
-                duration: 10,
-                repeat: -1,
-                ease: "none"
+                ease: "none",
+            });
+            gsap.to(".star-2", {
+                scrollTrigger: {
+                    trigger: ".star-content",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                },
+                rotation: -360,
+                ease: "none",
             });
         }, sectionRef);
 
