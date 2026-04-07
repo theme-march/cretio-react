@@ -33,9 +33,13 @@ const testimonials = [
     },
 ];
 
-const TestimonialSection: React.FC = () => {
+interface TestimonialSectionProps {
+    fadeAnimation?: boolean;
+}
+
+const TestimonialSection: React.FC<TestimonialSectionProps> = ({ fadeAnimation = false }) => {
     return (
-        <section>
+        <section className={fadeAnimation ? "fade-animation" : ""}>
             <div className="container">
                 <Swiper
                     modules={[Navigation]}

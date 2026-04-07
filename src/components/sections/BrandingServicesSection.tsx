@@ -72,6 +72,11 @@ const BrandingServicesSection: React.FC = () => {
                 caption="Services"
                 variant="style-2"
                 className="mini-section-title"
+                titleAnimation="fade-animation"
+                titleDirection="right"
+                titleOffset="55"
+                captionDirection="left"
+                captionOffset="55"
             />
             <div className="ak-height-50 ak-height-lg-30"></div>
             <div className="ak-border-width"></div>

@@ -337,11 +337,23 @@ const useGsapAnimations = () => {
                         start: "top 85%",
                         toggleActions: "play none none none",
                     },
+                    onComplete: () => {
+                        const newsletterWrapper = document.querySelectorAll(".newsletter-wapper");
+                        newsletterWrapper.forEach((wrapper) => {
+                            wrapper.classList.add("active");
+                        });
+                    }
                 });
 
                 wordsTargets.forEach((wordElement, wordIndex) => {
                     const word = wordElement as HTMLElement;
                     const splitRes = splitText(word, "chars,words");
+                    
+                    gsap.set(splitRes.words, {
+                        position: "relative",
+                        overflow: "hidden"
+                    });
+
                     const wordDelay = wordIndex * 0.15;
 
                     splitRes.chars.forEach((char, charIndex) => {

@@ -24,10 +24,24 @@ const MarketingAgency: React.FC = () => {
             <FunFactSection />
             <PortfolioSliderSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <AwardsSection />
+            <AwardsSection 
+                titleAnimation="fade-animation"
+                titleDirection="right"
+                titleOffset="55"
+                captionDirection="left"
+                captionOffset="55"
+            />
             <MarketingVideoSection />
-            <TestimonialSection />
-            <TeamSection />
+            <TestimonialSection fadeAnimation={true} />
+            <TeamSection 
+                titleAnimation="fade-animation"
+                titleDirection="right"
+                titleOffset="55"
+                descriptionDirection="left"
+                descriptionOffset="55"
+                captionDirection="left"
+                captionOffset="55"
+            />
             <MarketingContactSection />
             <ClientLogoSection />
             <NewsletterSection />

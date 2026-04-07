@@ -35,7 +35,25 @@ const marketingTeam = [
     { name: "William Anthony", role: "Social Manager", image: markagTeam4 },
 ];
 
-const TeamSection: React.FC = () => {
+interface TeamSectionProps {
+    titleAnimation?: "text-animation" | "fade-animation";
+    titleDirection?: string;
+    titleOffset?: string;
+    descriptionDirection?: string;
+    descriptionOffset?: string;
+    captionDirection?: string;
+    captionOffset?: string;
+}
+
+const TeamSection: React.FC<TeamSectionProps> = ({
+    titleAnimation,
+    titleDirection,
+    titleOffset,
+    descriptionDirection,
+    descriptionOffset,
+    captionDirection,
+    captionOffset
+}) => {
     const location = useLocation();
     const isMarketingAgency = location.pathname === "/marketing-agency";
     const teamMembers = isMarketingAgency ? marketingTeam : standardTeam;
@@ -49,7 +67,14 @@ const TeamSection: React.FC = () => {
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="426+ Team Members"
                     variant="style-1"
-                    disableDespAnimation={true}
+                    disableDespAnimation={false}
+                    titleAnimation={titleAnimation}
+                    titleDirection={titleDirection}
+                    titleOffset={titleOffset}
+                    descriptionDirection={descriptionDirection}
+                    descriptionOffset={descriptionOffset}
+                    captionDirection={captionDirection}
+                    captionOffset={captionOffset}
                 />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>
@@ -58,20 +83,23 @@ const TeamSection: React.FC = () => {
                 {isMarketingAgency && (
                     <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 gy-4 justify-content-center">
                         {teamMembers.map((member, index) => (
-                            <div key={index} className="fade-animation" data-direction="bottom" data-delay={index * 0.1}>
-                                <div className="border-0 team-card h-100">
-                                    <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
-                                        <a href="#"><img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
-                                        <div className="team-social-icon">
-                                            <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
-                                            <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
-                                            <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
-                                        </div>
+                            <div key={index} 
+                                className="team-card fade-animation h-100" 
+                                data-direction="bottom" 
+                                data-delay={0.15 + (index * 0.2)}
+                                data-offset="55"
+                            >
+                                <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
+                                    <a href="#"><img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
+                                    <div className="team-social-icon">
+                                        <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
+                                        <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
+                                        <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
                                     </div>
-                                    <div className="team-body" style={{ width: "306px", margin: "30px auto 0" }}>
-                                        <h6 className="team-title"><a href="#">{member.name}</a></h6>
-                                        <p className="team-text text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
-                                    </div>
+                                </div>
+                                <div className="team-body" style={{ width: "306px", margin: "30px auto 0" }}>
+                                    <h6 className="team-title"><a href="#">{member.name}</a></h6>
+                                    <p className="team-text text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
                                 </div>
                             </div>
                         ))}

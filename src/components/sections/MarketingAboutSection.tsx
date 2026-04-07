@@ -9,8 +9,8 @@ const MarketingAboutSection: React.FC = () => {
             <div className="about-content-style2 ak-bg">
                 <div 
                     className="about-title text-animation"
-                    data-direction="rotationX"
-                    data-split-text="lines"
+                    data-direction="none"
+                    data-split-text="none"
                     data-duration="1.5"
                 >
                     About Us
@@ -20,8 +20,8 @@ const MarketingAboutSection: React.FC = () => {
 
                     <h5 
                         className="about-desp text-animation"
-                        data-direction="rotationX"
-                        data-split-text="lines"
+                        data-direction="none"
+                        data-split-text="none"
                         data-duration="1.5"
                     >
                         We thrive on creativity and <span className="highlight">innovation</span>. Our team is constantly

@@ -24,9 +24,21 @@ const awards = [
 
 interface AwardsSectionProps {
     showTopGap?: boolean;
+    titleAnimation?: "text-animation" | "fade-animation";
+    titleDirection?: string;
+    captionDirection?: string;
+    titleOffset?: string;
+    captionOffset?: string;
 }
 
-const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => {
+const AwardsSection: React.FC<AwardsSectionProps> = ({ 
+    showTopGap = false,
+    titleAnimation,
+    titleDirection,
+    captionDirection,
+    titleOffset,
+    captionOffset
+}) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverImg, setHoverImg] = useState<string>(awards[0].hoverImg);
@@ -68,7 +80,16 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({ showTopGap = false }) => 
         <>
             <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
-                <SectionHeading title='<span class="highlight-text">Awards</span> <br /> Achievement' caption="Awards" variant="style-2" />
+                <SectionHeading 
+                    title='<span class="highlight-text">Awards</span> <br /> Achievement' 
+                    caption="Awards" 
+                    variant="style-2"
+                    titleAnimation={titleAnimation}
+                    titleDirection={titleDirection}
+                    captionDirection={captionDirection}
+                    titleOffset={titleOffset}
+                    captionOffset={captionOffset}
+                />
                 <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="awards-box">
                     <div className="awards-hover-image" ref={hoverRef} style={{ opacity: 0, scale: 0.5, pointerEvents: "none" }}>

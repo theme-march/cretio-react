@@ -9,9 +9,9 @@ const MarketingVideoSection: React.FC<MarketingVideoSectionProps> = ({ videoSrc 
     return (
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <div className="fade-animation">
-                <div className="ak-center ak-video-block ak-style1 ak-bg">
-                    <video autoPlay muted loop playsInline className="video-img ak-bg h-100">
+            <div className="fade-animation" data-direction="none" data-split-text="none">
+                <div className="ak-center ak-video-block ak-style1 ak-bg" style={{ overflow: "hidden" }}>
+                    <video autoPlay muted loop playsInline className="video-img ak-bg h-100 w-100">
                         <source src={videoSrc} type="video/mp4" />
                         Your browser does not support the video.
                     </video>

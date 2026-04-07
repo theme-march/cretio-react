@@ -12,6 +12,12 @@ interface SectionHeadingProps {
     disableCaptionAnimation?: boolean;
     titleOffset?: string;
     titleDirection?: string;
+    titleAnimation?: "text-animation" | "fade-animation";
+    descriptionDirection?: string;
+    descriptionOffset?: string;
+    captionDirection?: string;
+    captionOffset?: string;
+    captionDelay?: string;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -26,14 +32,22 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     disableCaptionAnimation = false,
     titleOffset,
     titleDirection = "textTop",
+    titleAnimation = "text-animation",
+    descriptionDirection = "none",
+    descriptionOffset,
+    captionDirection = "right",
+    captionOffset,
+    captionDelay = "0.3",
 }) => {
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
             <div className="ak-section-left">
                 <h2
-                    className="ak-section-title text-animation"
+                    className={`ak-section-title ${titleAnimation}`}
                     data-direction={titleDirection}
-                    data-split-text="chars"
+                    {...(titleAnimation === "text-animation" && {
+                        "data-split-text": "chars",
+                    })}
                     data-duration={titleDuration}
                     data-ease={titleEase}
                     {...(titleOffset && { "data-offset": titleOffset })}
@@ -49,11 +63,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                 <div className="ak-section-right">
                     {description && (
                         <p
-                            className={`ak-section-desp ${!disableDespAnimation ? "text-animation" : ""}`}
+                            className={`ak-section-desp ${!disableDespAnimation ? (descriptionDirection === "none" ? "text-animation" : "fade-animation") : ""}`}
                             {...(!disableDespAnimation ? {
-                                "data-direction": "rotationX",
-                                "data-split-text": "lines",
-                                "data-delay": "0.3"
+                                "data-direction": descriptionDirection,
+                                "data-split-text": descriptionDirection === "none" ? "none" : undefined,
+                                "data-delay": "0.3",
+                                ...(descriptionOffset && { "data-offset": descriptionOffset })
                             } : {})}
                         >
                             {description}
@@ -62,8 +77,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {caption && (
                         <div
                             className={`ak-section-caption ${!disableCaptionAnimation ? "fade-animation" : ""}`}
-                            data-direction="right"
-                            data-delay="0.3"
+                            data-direction={captionDirection}
+                            data-delay={captionDelay}
+                            {...(captionOffset && { "data-offset": captionOffset })}
                         >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
