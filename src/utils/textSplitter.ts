@@ -1,11 +1,14 @@
 export interface SplitResult {
     words: HTMLElement[];
     chars: HTMLElement[];
+    lines: HTMLElement[];
 }
 
 export function splitText(element: HTMLElement, type: string = "chars"): SplitResult {
     const wordsArray: HTMLElement[] = [];
     const charsArray: HTMLElement[] = [];
+    const linesArray: HTMLElement[] = [];
+    const shouldSplitLines = type.includes("lines");
 
     function processNode(node: Node) {
         if (node.nodeType === Node.TEXT_NODE) {
@@ -84,5 +87,65 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
         element.querySelectorAll(".split-char").forEach(el => charsArray.push(el as HTMLElement));
     }
 
-    return { words: wordsArray, chars: charsArray };
+    if (shouldSplitLines) {
+        const existingLines = element.querySelectorAll<HTMLElement>(".split-line");
+        if (existingLines.length) {
+            existingLines.forEach((line) => linesArray.push(line));
+        } else {
+            linesArray.push(...wrapLines(element));
+        }
+    }
+
+    return { words: wordsArray, chars: charsArray, lines: linesArray };
+}
+
+function wrapLines(element: HTMLElement): HTMLElement[] {
+    const lineElements: HTMLElement[] = [];
+    const wordWrappers = Array.from(element.querySelectorAll<HTMLElement>(".split-word-wrapper"));
+
+    if (!wordWrappers.length) return lineElements;
+
+    const threshold = 4;
+    let currentTop: number | null = null;
+    let currentLine: HTMLElement[] = [];
+
+    const flushLine = () => {
+        if (!currentLine.length) return;
+        const range = document.createRange();
+        range.setStartBefore(currentLine[0]);
+        range.setEndAfter(currentLine[currentLine.length - 1]);
+
+        const lineWrapper = document.createElement("span");
+        lineWrapper.className = "split-line";
+        lineWrapper.style.display = "block";
+        lineWrapper.style.overflow = "hidden";
+        lineWrapper.style.lineHeight = "inherit";
+        lineWrapper.style.width = "100%";
+
+        range.surroundContents(lineWrapper);
+        range.detach();
+        lineElements.push(lineWrapper);
+        currentLine = [];
+    };
+
+    wordWrappers.forEach((wrapper) => {
+        const rect = wrapper.getBoundingClientRect();
+        const top = Math.round(rect.top);
+
+        if (currentTop === null) {
+            currentTop = top;
+        }
+
+        if (Math.abs(top - currentTop) <= threshold) {
+            currentLine.push(wrapper);
+        } else {
+            flushLine();
+            currentTop = top;
+            currentLine.push(wrapper);
+        }
+    });
+
+    flushLine();
+
+    return lineElements;
 }

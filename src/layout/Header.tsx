@@ -40,7 +40,9 @@ const Header: React.FC = () => {
             }
 
             // Hide/Show logic
-            if (currentScrollY > lastScrollY && currentScrollY > 300) {
+            if (window.innerWidth <= 991) {
+                setIsVisible(true);
+            } else if (currentScrollY > lastScrollY && currentScrollY > 300) {
                 // Scrolling down
                 setIsVisible(false);
             } else {

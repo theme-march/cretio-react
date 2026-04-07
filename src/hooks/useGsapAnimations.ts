@@ -281,8 +281,7 @@ const useGsapAnimations = () => {
                 let elementsToAnimate: HTMLElement[] = splitRes.chars;
                 if (split_text === "chars") elementsToAnimate = splitRes.chars;
                 else if (split_text === "words") elementsToAnimate = splitRes.words;
-                // If "lines", we animate words as a fallback since our textSplitter doesn't robustly split block lines yet.
-                else if (split_text === "lines") elementsToAnimate = splitRes.words;
+                else if (split_text === "lines") elementsToAnimate = splitRes.lines.length ? splitRes.lines : splitRes.words;
                 
                 if (elementsToAnimate.length === 0) {
                     elementsToAnimate = [element];
