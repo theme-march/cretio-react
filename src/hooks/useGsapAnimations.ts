@@ -402,6 +402,38 @@ const useGsapAnimations = () => {
                     });
                 });
             });
+
+            // 13. Contact Stroke Title Animation
+            const contactStrokeTitles = gsap.utils.toArray<HTMLElement>(".contact-title-stroke");
+            contactStrokeTitles.forEach((title) => {
+                gsap.set(title, { perspective: 600 });
+
+                const splitRes = splitText(title, "chars,words,lines");
+                const targets = splitRes.lines.length ? splitRes.lines : [title];
+
+                gsap.fromTo(targets, 
+                    {
+                        y: 60,
+                        rotationY: 65,
+                        opacity: 0,
+                        transformOrigin: "50% 50% 80px"
+                    },
+                    {
+                        y: 0,
+                        rotationY: 0,
+                        opacity: 1,
+                        duration: 1.5,
+                        ease: "power4.out",
+                        transformOrigin: "50% 50% 0px",
+                        stagger: 0.2,
+                        scrollTrigger: {
+                            trigger: title,
+                            start: "top bottom",
+                            scrub: false,
+                        }
+                    }
+                );
+            });
         });
 
         // Add a small delay for DOM calculations then refresh

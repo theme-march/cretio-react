@@ -33,6 +33,48 @@ const MarketingHeroSection: React.FC = () => {
     const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
     useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const circleButtons = gsap.utils.toArray<HTMLElement>(".circle-btn-anim");
+            circleButtons.forEach((btn) => {
+                const strength = 40;
+                const text = btn.querySelector(".text");
+
+                const handleMouseMove = (event: MouseEvent) => {
+                    const bounding = btn.getBoundingClientRect();
+                    const newX = ((event.clientX - bounding.left) / btn.offsetWidth) - 0.5;
+                    const newY = ((event.clientY - bounding.top) / btn.offsetHeight) - 0.5;
+                    
+                    gsap.to(btn, {
+                        x: newX * strength,
+                        y: newY * strength,
+                        ease: "power4.out",
+                    });
+
+                    if (text) {
+                        gsap.to(text, {
+                            x: newX * (strength / 2),
+                            y: newY * (strength / 2),
+                            ease: "power4.out",
+                        });
+                    }
+                };
+
+                const handleMouseLeave = () => {
+                    gsap.to(btn, { x: 0, y: 0, ease: "power2.out" });
+                    if (text) {
+                        gsap.to(text, { x: 0, y: 0, ease: "power2.out" });
+                    }
+                };
+
+                btn.addEventListener("mousemove", handleMouseMove as EventListener);
+                btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    useLayoutEffect(() => {
         if (!swiperInstance) return;
 
         let ctx = gsap.context(() => {
@@ -147,20 +189,22 @@ const MarketingHeroSection: React.FC = () => {
             <div className="container-extent">
                 <div className="marketing-agency-cta cta-section">
                     <div className="cta-content pb-2">
-                        <p>
+                        <p className="cta-desp">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has.
                         </p>
                     </div>
-                    <Link to="/contact" className="circle-btn circle-btn-anim style-1">
-                        <span className="text">
-                            Start
-                            <span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                <path d="M17.5 2.60144H2.5C2.155 2.60144 1.875 2.88144 1.875 3.22644C1.875 3.57144 2.155 3.85144 2.5 3.85144H15.9909L2.05812 17.7846C1.81406 18.0286 1.81406 18.4243 2.05812 18.6683C2.18031 18.7905 2.34 18.8514 2.5 18.8514C2.66 18.8514 2.82 18.7905 2.94187 18.6683L16.875 4.73519V18.2264C16.875 18.5714 17.155 18.8514 17.5 18.8514C17.845 18.8514 18.125 18.5714 18.125 18.2264V3.22644C18.125 2.88144 17.845 2.60144 17.5 2.60144Z" fill="#FF4A23" />
-                            </svg></span>
-                            <br />
-                            Project
-                        </span>
-                    </Link>
+                    <div className="cta-circle">
+                        <Link to="/contact" className="circle-btn circle-btn-anim style-1">
+                            <span className="text">
+                                Start
+                                <span> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                    <path d="M17.5 2.60144H2.5C2.155 2.60144 1.875 2.88144 1.875 3.22644C1.875 3.57144 2.155 3.85144 2.5 3.85144H15.9909L2.05812 17.7846C1.81406 18.0286 1.81406 18.4243 2.05812 18.6683C2.18031 18.7905 2.34 18.8514 2.5 18.8514C2.66 18.8514 2.82 18.7905 2.94187 18.6683L16.875 4.73519V18.2264C16.875 18.5714 17.155 18.8514 17.5 18.8514C17.845 18.8514 18.125 18.5714 18.125 18.2264V3.22644C18.125 2.88144 17.845 2.60144 17.5 2.60144Z" fill="#FF4A23" />
+                                </svg></span>
+                                <br />
+                                Project
+                            </span>
+                        </Link>
+                    </div>
 
                     <div className="contact-info py-4">
                         <div className="email-info">
