@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { gsap } from "gsap";
 import "swiper/css";
 
 import port1 from "@assets/img/project/markag-project-1.png";
@@ -17,6 +18,30 @@ const portfolioItems = [
 ];
  
 const PortfolioSliderSection: React.FC = () => {
+    const swiperContainerRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const cards = gsap.utils.toArray<HTMLElement>(".team-card");
+            if (cards.length > 0) {
+                gsap.from(cards, {
+                    scrollTrigger: {
+                        trigger: swiperContainerRef.current,
+                        start: "top 85%",
+                        toggleActions: "play none none none",
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                    stagger: 0.1,
+                });
+            }
+        }, swiperContainerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section>
             <div className="container">
@@ -69,7 +94,7 @@ const PortfolioSliderSection: React.FC = () => {
                 </div>
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>
-            <div style={{ height: "544px", overflow: "hidden" }}>
+            <div style={{ height: "544px", overflow: "hidden" }} ref={swiperContainerRef}>
                 <Swiper
                     modules={[Navigation]}
                     navigation={{
@@ -90,16 +115,13 @@ const PortfolioSliderSection: React.FC = () => {
                         <SwiperSlide key={item.id} style={{ padding: "0 12px" }}>
                             <Link 
                                 to="/portfolio/portfolio-details" 
-                                className="team-card border-0 fade-animation" 
-                                data-direction="bottom"
+                                className="team-card border-0" 
                             >
                                 <div className="team-img-top ak-parallax" style={{ maxHeight: "450px", overflow: "hidden" }}>
                                     <img src={item.img} alt={item.title} className="w-100" />
                                 </div>
                                 <div
-                                    className="team-body fade-animation"
-                                    data-direction="bottom"
-                                    data-delay="0.15"
+                                    className="team-body"
                                     style={{ marginTop: "30px", paddingBottom: "10px" }}
                                 >
                                     <p className="team-text text-uppercase ak-font-16 mb-1">{item.category}</p>
