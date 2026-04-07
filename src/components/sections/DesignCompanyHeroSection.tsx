@@ -20,13 +20,10 @@ const DesignCompanyHeroSection: React.FC = () => {
 
     return (
         <section>
-            <div className="design-company-hero-area ak-parallax">
-                <img 
-                    src={isDark ? heroBgDark : heroBg} 
-                    className="ak-bg" 
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "120%", objectFit: "cover" }} 
-                    alt="" 
-                />
+            <div 
+                className="design-company-hero-area"
+                style={{ backgroundImage: `url(${isDark ? heroBgDark : heroBg})` }}
+            >
                 <div className="container">
                     <div className="dc-hero-wrapper style-1">
                         <div className="dc-hero-title-box">

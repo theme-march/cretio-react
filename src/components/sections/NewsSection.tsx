@@ -159,10 +159,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                         </>
                                     ) : (
                                         <>
-                                            <div className="news-img-content">
-                                                <div className="news-img-top">
-                                                    <img src={item.image} alt={item.title} />
-                                                </div>
+                                            <div className="news-img-top">
+                                                <img src={item.image} alt={item.title} />
                                             </div>
                                             <div className="news-body">
                                                 <h6 className="news-title">{item.title}</h6>

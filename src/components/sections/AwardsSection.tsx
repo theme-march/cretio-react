@@ -29,6 +29,7 @@ interface AwardsSectionProps {
     captionDirection?: string;
     titleOffset?: string;
     captionOffset?: string;
+    variant?: "default" | "design-company";
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
@@ -37,7 +38,8 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
     titleDirection,
     captionDirection,
     titleOffset,
-    captionOffset
+    captionOffset,
+    variant = "default"
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
@@ -81,14 +83,22 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
             <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading 
-                    title='<span class="highlight-text">Awards</span> <br /> Achievement' 
+                    title={variant === "design-company" ? '<span class="highlight">Awards</span> <br /> Achievement' : '<span class="highlight-text">Awards</span> <br /> Achievement'}
                     caption="Awards" 
                     variant="style-2"
-                    titleAnimation={titleAnimation}
-                    titleDirection={titleDirection}
+                    titleAnimation={variant === "design-company" ? "text-animation" : titleAnimation}
+                    titleDuration={variant === "design-company" ? 1.5 : undefined}
+                    titleDirection={variant === "design-company" ? "textLeft" : titleDirection}
                     captionDirection={captionDirection}
                     titleOffset={titleOffset}
                     captionOffset={captionOffset}
+                    {...(variant === "design-company" && {
+                        rightAnimation: "fade-animation",
+                        rightDirection: "left",
+                        rightOffset: "55",
+                        rightDelay: "0.35",
+                        disableCaptionAnimation: true
+                    })}
                 />
                 <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="awards-box">

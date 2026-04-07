@@ -36,7 +36,7 @@ const BrandingServicesSection: React.FC = () => {
             gsap.to(img, {
                 scale: 1,
                 opacity: 1,
-                duration: 0.5,
+                duration: 0.1,
                 ease: "power3.out"
             });
         }
@@ -48,7 +48,7 @@ const BrandingServicesSection: React.FC = () => {
             gsap.to(img, {
                 scale: 0.5,
                 opacity: 0,
-                duration: 0.5,
+                duration: 0.1,
                 ease: "power3.out"
             });
         }
@@ -58,9 +58,9 @@ const BrandingServicesSection: React.FC = () => {
         const img = e.currentTarget.querySelector("img");
         if (img) {
             const rect = e.currentTarget.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) / 10;
-            const y = (e.clientY - rect.top - rect.height / 2) / 10;
-            gsap.to(img, { x, y, duration: 0.3 });
+            const x = (e.clientX - rect.left - rect.width / 2) / 2;
+            const y = (e.clientY - rect.top - rect.height / 2) / 2;
+            gsap.to(img, { x, y, duration: 0.1 });
         }
     };
 
@@ -72,11 +72,15 @@ const BrandingServicesSection: React.FC = () => {
                 caption="Services"
                 variant="style-2"
                 className="mini-section-title"
-                titleAnimation="fade-animation"
-                titleDirection="right"
-                titleOffset="55"
-                captionDirection="left"
-                captionOffset="55"
+                titleTag="h6"
+                leftAnimation="fade-animation"
+                leftDirection="left"
+                leftDelay="0"
+                rightAnimation="fade-animation"
+                rightDirection="left"
+                rightOffset="55"
+                rightDelay="0"
+                disableCaptionAnimation={true}
             />
             <div className="ak-height-50 ak-height-lg-30"></div>
             <div className="ak-border-width"></div>
@@ -92,7 +96,7 @@ const BrandingServicesSection: React.FC = () => {
                         onMouseMove={handleMouseMove}
                     >
                         <h2>
-                            {service.title} {service.hasSlash && <span className="no-hover-color">/</span>}
+                            {service.title} {service.hasSlash && <span className="no-hover-color"> / </span>}
                         </h2>
                         <img src={service.img} alt={service.title} style={{ opacity: 0, scale: 0.5 }} />
                     </Link>

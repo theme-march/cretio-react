@@ -18,6 +18,17 @@ interface SectionHeadingProps {
     captionDirection?: string;
     captionOffset?: string;
     captionDelay?: string;
+    /** Renders an h6 instead of h2 for the title */
+    titleTag?: "h2" | "h6";
+    /** If true, puts fade-animation and data-direction on the left wrapper div (not the title element) */
+    leftAnimation?: string;
+    leftDirection?: string;
+    leftOffset?: string;
+    leftDelay?: string;
+    rightAnimation?: string;
+    rightDirection?: string;
+    rightOffset?: string;
+    rightDelay?: string;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -38,29 +49,52 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     captionDirection = "right",
     captionOffset,
     captionDelay = "0.3",
+    titleTag = "h2",
+    leftAnimation,
+    leftDirection,
+    leftOffset,
+    leftDelay,
+    rightAnimation,
+    rightDirection,
+    rightOffset,
+    rightDelay,
 }) => {
+    const TitleTag = titleTag;
+    // If leftAnimation is provided, put the animation on the wrapper div
+    const leftWrapperClass = leftAnimation ? `ak-section-left ${leftAnimation}` : "ak-section-left";
+    const rightWrapperClass = rightAnimation ? `ak-section-right ${rightAnimation}` : "ak-section-right";
+
+    // If leftAnimation is on wrapper, don't add animation class to the title itself
+    const resolvedTitleAnimation = leftAnimation ? "" : titleAnimation;
+
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
-            <div className="ak-section-left">
-                <h2
-                    className={`ak-section-title ${titleAnimation}`}
-                    data-direction={titleDirection}
-                    {...(titleAnimation === "text-animation" && {
-                        "data-split-text": "chars",
-                    })}
-                    data-duration={titleDuration}
-                    data-ease={titleEase}
-                    {...(titleOffset && { "data-offset": titleOffset })}
+            <div
+                className={leftWrapperClass}
+                {...(leftAnimation && leftDirection ? { "data-direction": leftDirection } : {})}
+                {...(leftAnimation && leftOffset ? { "data-offset": leftOffset } : {})}
+                {...(leftAnimation && leftDelay ? { "data-delay": leftDelay } : {})}
+            >
+                <TitleTag
+                    className={`ak-section-title ${resolvedTitleAnimation}`.trim()}
+                    {...(!leftAnimation && { "data-direction": titleDirection })}
+                    {...(!leftAnimation && { "data-duration": titleDuration })}
+                    {...(!leftAnimation && { "data-ease": titleEase })}
+                    {...(!leftAnimation && titleOffset && { "data-offset": titleOffset })}
+                    {...(typeof title === "string" ? { dangerouslySetInnerHTML: { __html: title } } : { children: title })}
                 >
-                    {typeof title === "string" ? (
-                        <span dangerouslySetInnerHTML={{ __html: title }} />
-                    ) : (
-                        title
-                    )}
-                </h2>
+                </TitleTag>
             </div>
             {(description || caption) && (
-                <div className="ak-section-right">
+                <div
+                    className={rightWrapperClass}
+                    {...(rightAnimation && rightDirection ? { "data-direction": rightDirection } : {})}
+                    {...(rightAnimation && rightOffset ? { "data-offset": rightOffset } : {})}
+                    {...(rightAnimation && rightDelay ? { "data-delay": rightDelay } : {})}
+                    {...(!rightAnimation ? {
+                        // legacy: if no rightAnimation, keep the old behaviour (no animation on wrapper)
+                    } : {})}
+                >
                     {description && (
                         <p
                             className={`ak-section-desp ${!disableDespAnimation ? (descriptionDirection === "none" ? "text-animation" : "fade-animation") : ""}`}

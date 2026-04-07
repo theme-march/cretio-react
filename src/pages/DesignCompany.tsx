@@ -20,11 +20,11 @@ const DesignCompany: React.FC = () => {
     return (
         <>
             <DesignCompanyHeroSection />
-            <MarketingAboutSection />
+            <MarketingAboutSection variant="design-company" />
             <BrandingServicesSection />
             <DigitalMarketingServicesSection />
             <FunFactSection variant="type-2" />
-            <AwardsSection />
+            <AwardsSection variant="design-company" />
             <MarketingTestimonialSection variant="design-company" />
             <DesignCompanyPricingSection />
             <MarketingVideoSection videoSrc={markagVideo} />

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import SectionHeading from "@components/common/SectionHeading";
+
 import service1 from "@assets/img/services/dc-services-1.png";
 import service2 from "@assets/img/services/dc-services-2.png";
 import service3 from "@assets/img/services/dc-services-3.png";
@@ -19,32 +21,28 @@ const services = [
 
 const DigitalMarketingServicesSection: React.FC = () => {
     return (
-        <section className="container">
-            <div className="ak-height-150 ak-height-lg-80"></div>
-            <div className="ak-section-heading ak-style-1 type-2">
-                <div className="ak-section-left fade-animation" data-direction="left">
-                    <h6 className="mini-section-title ak-section-title">
-                        Our <span className="highlight">Exceptional</span> Digital Marketing <span className="highlight">Services</span>
-                    </h6>
-                </div>
-                <div className="ak-section-right fade-animation" data-direction="left" data-offset="55" data-delay="0.35">
-                    <div className="ak-section-caption">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
-                                <path
-                                    d="M1.33789 1.18359H221.034L209.173 10.9822"
-                                    stroke="#FF4A23"
-                                    strokeLinecap="round"
-                                />
-                            </svg>
-                        </span>
-                        <span> Services </span>
-                    </div>
-                </div>
+        <section>
+            <div className="container">
+                <div className="ak-height-150 ak-height-lg-80"></div>
+                <SectionHeading
+                    title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'
+                    caption="Services"
+                    variant="style-2"
+                    className="mini-section-title"
+                    titleTag="h6"
+                    leftAnimation="fade-animation"
+                    leftDirection="left"
+                    leftDelay="0"
+                    rightAnimation="fade-animation"
+                    rightDirection="left"
+                    rightOffset="55"
+                    rightDelay="0"
+                    disableCaptionAnimation={true}
+                />
+                <div className="ak-height-50 ak-height-lg-30"></div>
+                <div className="ak-border-width"></div>
+                <div className="ak-height-75 ak-height-lg-50"></div>
             </div>
-            <div className="ak-height-50 ak-height-lg-30"></div>
-            <div className="ak-border-width"></div>
-            <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="container-fluid">
                 <div className="dm-service-items">
                     {services.map((service, index) => (

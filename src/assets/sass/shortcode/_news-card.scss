@@ -26,6 +26,17 @@
       }
     }
   }
+  > .news-img-top {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 250px;
+    max-height: 350px;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
   .news-body {
     flex: 1 1 auto;
     margin: 45px 0px 0px 20px;

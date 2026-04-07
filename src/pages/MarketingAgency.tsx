@@ -19,7 +19,7 @@ const MarketingAgency: React.FC = () => {
     return (
         <>
             <MarketingHeroSection />
-            <MarketingAboutSection />
+            <MarketingAboutSection variant="marketing-agency" />
             <BrandingServicesSection />
             <FunFactSection />
             <PortfolioSliderSection />
