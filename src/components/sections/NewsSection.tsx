@@ -147,8 +147,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                         <>
                                                 <img src={item.image} alt={item.title} className="news-blog-bg-img" />
                                             <div className="overlay"></div>
-                                            <h6 className="news-blog-title">{item.title}</h6>
-                                            <p className="news-blog-desp">{item.description}</p>
+                                            <h6 className="news-blog-title team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">{item.title}</h6>
+                                            <p className="news-blog-desp team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">{item.description}</p>
                                             <div className="more-btn">
                                                 <span className="morebtn-text"> Read More </span>
                                                 <span className="primary-icon-anim">
@@ -162,7 +162,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                             <div className="news-img-top">
                                                 <img src={item.image} alt={item.title} />
                                             </div>
-                                            <div className="news-body">
+                                            <div className="news-body team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">
                                                 <h6 className="news-title">{item.title}</h6>
                                                 <p className="news-text">{item.description}</p>
                                                 <div className="more-btn">

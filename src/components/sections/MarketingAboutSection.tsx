@@ -14,10 +14,10 @@ const MarketingAboutSection: React.FC<MarketingAboutSectionProps> = ({ variant =
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="about-content-style2 ak-bg">
                 <div 
-                    className={isDesignCompany ? "about-title" : "about-title text-animation"}
-                    data-direction={isDesignCompany ? "" : "rotationX"}
-                    data-split-text={isDesignCompany ? "" : "lines"}
-                    data-duration="1.5"
+                    className={isDesignCompany ? "about-title" : "about-title fade-animation"}
+                    data-direction={isDesignCompany ? "" : "none"}
+                    data-duration="1"
+                    data-delay="0.2"
                 >
                     About Us
                 </div>
@@ -25,10 +25,10 @@ const MarketingAboutSection: React.FC<MarketingAboutSectionProps> = ({ variant =
                     <img className="position-absolute top-0 h-75 w-100" src={aboutLine} alt="" />
 
                     <h5 
-                        className={isDesignCompany ? "about-desp text-color-shiption" : "about-desp text-animation"}
-                        data-direction={isDesignCompany ? "" : "rotationX"}
-                        data-split-text={isDesignCompany ? "" : "lines"}
-                        data-duration="1.5"
+                        className={isDesignCompany ? "about-desp text-color-shiption" : "about-desp fade-animation"}
+                        data-direction={isDesignCompany ? "" : "none"}
+                        data-duration="1.2"
+                        data-delay="0.3"
                     >
                         We thrive on creativity and <span className="highlight">innovation</span>. Our team is constantly
                         exploring new ideas and approaches to ensure your <span className="highlight">digital presence</span> is

@@ -125,7 +125,7 @@ const PortfolioSliderSection: React.FC = () => {
                                     style={{ marginTop: "30px", paddingBottom: "10px" }}
                                 >
                                     <p className="team-text text-uppercase ak-font-16 mb-1">{item.category}</p>
-                                    <h6 className="team-title m-0"><a href="#">{item.title}</a></h6>
+                                    <h6 className="team-title m-0">{item.title}</h6>
                                 </div>
                             </Link>
                         </SwiperSlide>

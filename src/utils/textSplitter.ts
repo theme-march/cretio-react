@@ -16,15 +16,12 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
             if (!text || text.trim() === "") return;
 
             const fragment = document.createDocumentFragment();
-            // Match whitespace or non-whitespace sequences
             const tokens = text.match(/(\s+|\S+)/g) || [];
 
             tokens.forEach((token) => {
                 if (/^\s+$/.test(token)) {
-                    // It's just whitespace, keep it as text node to preserve spacing
                     fragment.appendChild(document.createTextNode(token));
                 } else {
-                    // It's a word
                     const wordWrapper = document.createElement("div");
                     wordWrapper.className = "split-word-wrapper";
                     wordWrapper.style.display = "inline-block";
@@ -32,7 +29,6 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
                     const wordInner = document.createElement("div");
                     wordInner.className = "split-word";
                     wordInner.style.display = "inline-block";
-                    // GSAP will animate this
 
                     if (type === "chars" || type.includes("chars")) {
                         const chars = token.split("");
@@ -63,17 +59,15 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
             node.parentNode?.replaceChild(fragment, node);
         } else if (node.nodeType === Node.ELEMENT_NODE) {
             const el = node as HTMLElement;
-            // Avoid double splitting or splitting elements that should remain intact
             if (
-                el.classList.contains("split-word-wrapper") || 
+                el.classList.contains("split-word-wrapper") ||
                 el.classList.contains("no-split") ||
-                el.tagName === "BR" || 
-                el.tagName === "SCRIPT" || 
+                el.tagName === "BR" ||
+                el.tagName === "SCRIPT" ||
                 el.tagName === "STYLE"
             ) {
                 return;
             }
-            // recursively process children
             Array.from(node.childNodes).forEach(processNode);
         }
     }
@@ -82,7 +76,6 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
         Array.from(element.childNodes).forEach(processNode);
         element.classList.add("is-split");
     } else {
-        // Collect existing
         element.querySelectorAll(".split-word").forEach(el => wordsArray.push(el as HTMLElement));
         element.querySelectorAll(".split-char").forEach(el => charsArray.push(el as HTMLElement));
     }
@@ -106,14 +99,39 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
     if (!wordWrappers.length) return lineElements;
 
     const threshold = 4;
-    let currentTop: number | null = null;
-    let currentLine: HTMLElement[] = [];
 
-    const flushLine = () => {
-        if (!currentLine.length) return;
-        const range = document.createRange();
-        range.setStartBefore(currentLine[0]);
-        range.setEndAfter(currentLine[currentLine.length - 1]);
+    // Step 1: Pre-calculate ALL positions BEFORE any DOM mutations
+    // This prevents the "one word per line" reflow bug
+    const wrappersWithTops = wordWrappers.map((wrapper) => ({
+        wrapper,
+        top: Math.round(wrapper.getBoundingClientRect().top),
+    }));
+
+    // Step 2: Group wrappers into visual lines
+    const lineGroups: HTMLElement[][] = [];
+    let currentTop: number | null = null;
+    let currentGroup: HTMLElement[] = [];
+
+    wrappersWithTops.forEach(({ wrapper, top }) => {
+        if (currentTop === null) {
+            currentTop = top;
+        }
+        if (Math.abs(top - currentTop) <= threshold) {
+            currentGroup.push(wrapper);
+        } else {
+            lineGroups.push(currentGroup);
+            currentGroup = [wrapper];
+            currentTop = top;
+        }
+    });
+    if (currentGroup.length) lineGroups.push(currentGroup);
+
+    // Step 3: Wrap each line safely
+    // Strategy: flatten all direct children of `element` into an ordered array,
+    // find the range of nodes belonging to each line group, and move them into a wrapper.
+    // This avoids range.surroundContents() which crashes when spans cross line boundaries.
+    lineGroups.forEach((group) => {
+        if (!group.length) return;
 
         const lineWrapper = document.createElement("span");
         lineWrapper.className = "split-line";
@@ -122,30 +140,38 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
         lineWrapper.style.lineHeight = "inherit";
         lineWrapper.style.width = "100%";
 
-        range.surroundContents(lineWrapper);
-        range.detach();
+        const firstWord = group[0];
+        const lastWord = group[group.length - 1];
+
+        // Walk up to find the direct child of `element` for each boundary word
+        const getDirectChild = (node: Node): ChildNode | null => {
+            let n = node;
+            while (n.parentNode && n.parentNode !== element) {
+                n = n.parentNode;
+            }
+            return n.parentNode === element ? (n as ChildNode) : null;
+        };
+
+        const firstAncestor = getDirectChild(firstWord);
+        const lastAncestor = getDirectChild(lastWord);
+
+        if (!firstAncestor || !lastAncestor) return;
+
+        // Collect all direct children of `element` between firstAncestor and lastAncestor inclusive
+        const children = Array.from(element.childNodes);
+        const startIdx = children.indexOf(firstAncestor);
+        const endIdx = children.indexOf(lastAncestor);
+
+        if (startIdx === -1 || endIdx === -1 || startIdx > endIdx) return;
+
+        const nodesToMove = children.slice(startIdx, endIdx + 1);
+
+        // Insert the lineWrapper before the first node, then move nodes into it
+        element.insertBefore(lineWrapper, firstAncestor);
+        nodesToMove.forEach((n) => lineWrapper.appendChild(n));
+
         lineElements.push(lineWrapper);
-        currentLine = [];
-    };
-
-    wordWrappers.forEach((wrapper) => {
-        const rect = wrapper.getBoundingClientRect();
-        const top = Math.round(rect.top);
-
-        if (currentTop === null) {
-            currentTop = top;
-        }
-
-        if (Math.abs(top - currentTop) <= threshold) {
-            currentLine.push(wrapper);
-        } else {
-            flushLine();
-            currentTop = top;
-            currentLine.push(wrapper);
-        }
     });
-
-    flushLine();
 
     return lineElements;
 }

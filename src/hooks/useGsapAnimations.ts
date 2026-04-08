@@ -29,6 +29,7 @@ const useGsapAnimations = () => {
                     case "left": animationProps.x = -fade_offset; break;
                     case "right": animationProps.x = fade_offset; break;
                     case "bottom": animationProps.y = fade_offset; break;
+                    case "none": break; // pure opacity fade, no movement
                     default: animationProps.y = fade_offset;
                 }
 
@@ -140,10 +141,12 @@ const useGsapAnimations = () => {
 
             const teamNameParallax = gsap.utils.toArray<HTMLElement>(".team-name-parallax");
             teamNameParallax.forEach((element) => {
+                let y_start = Number(element.getAttribute("data-parallax-y-start")) || 0;
+                let y_end = Number(element.getAttribute("data-parallax-y-end")) || -30;
                 gsap.fromTo(element, 
-                    { y: 0 },
+                    { y: y_start },
                     { 
-                        y: -30, 
+                        y: y_end, 
                         ease: 'none', 
                         scrollTrigger: { 
                             trigger: element, 
@@ -155,7 +158,7 @@ const useGsapAnimations = () => {
                 );
             });
 
-            const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card, .news-card, .news-blog-card");
+            const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card");
             blogCards.forEach((element) => {
                 let img = element.querySelector("img");
                 if (img) {
