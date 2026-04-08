@@ -27,9 +27,11 @@ const testimonials = [
 
 interface MarketingTestimonialSectionProps {
     variant?: string;
+    bgClass?: string;
+    sectionStyle?: React.CSSProperties;
 }
 
-const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = ({ variant = "" }) => {
+const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = ({ variant = "", bgClass = "ak-black-bg", sectionStyle }) => {
     const isStyle2 = variant.includes("style-2");
     const isType2 = variant.includes("type-2");
     const isDesignCompany = variant.includes("design-company");
@@ -177,8 +179,7 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
     );
 
     return (
-        <section className="ak-black-bg overflow-hidden">
-            <div className="ak-height-150 ak-height-lg-80"></div>
+        <section className={`${bgClass} overflow-hidden`} style={sectionStyle}>
             {isDesignCompany ? (
                 <div className="ak-bg" style={{ backgroundImage: `url(${testimonialSvg})` }}>
                     <div className="testmonial-wrapper">

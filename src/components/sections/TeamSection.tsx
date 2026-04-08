@@ -43,6 +43,7 @@ interface TeamSectionProps {
     descriptionOffset?: string;
     captionDirection?: string;
     captionOffset?: string;
+    variant?: "default" | "creative-portfolio";
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({
@@ -52,7 +53,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     descriptionDirection,
     descriptionOffset,
     captionDirection,
-    captionOffset
+    captionOffset,
+    variant = "default"
 }) => {
     const location = useLocation();
     const isMarketingAgency = location.pathname === "/marketing-agency";
@@ -67,14 +69,16 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="426+ Team Members"
                     variant="style-1"
-                    disableDespAnimation={false}
+
                     titleAnimation={titleAnimation}
-                    titleDirection={titleDirection}
+                    titleDirection={variant === "creative-portfolio" ? "textLeft" : titleDirection}
                     titleOffset={titleOffset}
-                    descriptionDirection={descriptionDirection}
+                    descriptionDirection={variant === "creative-portfolio" ? "none" : descriptionDirection}
                     descriptionOffset={descriptionOffset}
+                    disableDespAnimation={variant === "creative-portfolio"}
                     captionDirection={captionDirection}
                     captionOffset={captionOffset}
+                    disableCaptionAnimation={variant === "creative-portfolio"}
                 />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>

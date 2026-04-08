@@ -48,51 +48,53 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
     }
 
     const content = (
-        <section className={`ak-center ${isStyle2 ? "ms-xxl-3 " : ""}newsletter-wapper`}>
-            <div className="theme-border-wrap cta-form-border hover-animation">
-                <div className="b-top-left">
-                    <div className="horizontal"></div>
-                    <div className="verticle"></div>
-                </div>
-                <div className="b-top-right d-flex">
-                    <div className="horizontal"></div>
-                    <div className="verticle"></div>
-                </div>
-                <div className="b-bottom-right d-flex flex-end">
-                    <div className="horizontal flex-end align-self-end"></div>
-                    <div className="verticle"></div>
-                </div>
-                <div className="b-bottom-left">
-                    <div className="verticle"></div>
-                    <div className="horizontal"></div>
-                </div>
+        <div className={`ak-center ${isStyle2 ? "ms-xxl-3 " : ""}`}>
+            <section className="newsletter-wapper">
+                <div className="theme-border-wrap cta-form-border hover-animation">
+                    <div className="b-top-left">
+                        <div className="horizontal"></div>
+                        <div className="verticle"></div>
+                    </div>
+                    <div className="b-top-right d-flex">
+                        <div className="horizontal"></div>
+                        <div className="verticle"></div>
+                    </div>
+                    <div className="b-bottom-right d-flex flex-end">
+                        <div className="horizontal flex-end align-self-end"></div>
+                        <div className="verticle"></div>
+                    </div>
+                    <div className="b-bottom-left">
+                        <div className="verticle"></div>
+                        <div className="horizontal"></div>
+                    </div>
 
-                <div className="container">
-                    <div className="newsletter-content">
-                        <div className="newsletter-anim title-anim">
-                            <h2 className="newsletter-title anim-line-words">
-                                Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
-                            </h2>
+                    <div className="container">
+                        <div className="newsletter-content">
+                            <div className="newsletter-anim title-anim">
+                                <h2 className="newsletter-title anim-line-words">
+                                    Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
+                                </h2>
+                            </div>
+                            <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                                <input
+                                    type="email"
+                                    className="newsletter-input"
+                                    placeholder="Enter your email..."
+                                    required
+                                />
+                                <button type="submit" className="newsletter-btn">
+                                    <span className="newbtn-text"> Newsletter </span>
+                                    <span className="primary-icon-anim">
+                                        <i className="flaticon-up-right-arrow"></i>
+                                        <i className="flaticon-up-right-arrow"></i>
+                                    </span>
+                                </button>
+                            </form>
                         </div>
-                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
-                            <input
-                                type="email"
-                                className="newsletter-input"
-                                placeholder="Enter your email..."
-                                required
-                            />
-                            <button type="submit" className="newsletter-btn">
-                                <span className="newbtn-text"> Newsletter </span>
-                                <span className="primary-icon-anim">
-                                    <i className="flaticon-up-right-arrow"></i>
-                                    <i className="flaticon-up-right-arrow"></i>
-                                </span>
-                            </button>
-                        </form>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 
     if (isStyle2) {

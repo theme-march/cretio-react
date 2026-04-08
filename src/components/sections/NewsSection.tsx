@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import SectionHeading from "@components/common/SectionHeading";
 
 import news1 from "@assets/img/news/news-1.png";
 import news2 from "@assets/img/news/news-2.png";
@@ -50,9 +51,10 @@ const newsItems = [
 
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
+    headingVariant?: "default" | "creative-portfolio";
 }
 
-const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
+const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingVariant = "default" }) => {
     const isStyle2 = variant === "style-2";
     const prefix = isStyle2 ? "news-blog" : "news-logs";
     const sliderClass = isStyle2 ? "ak-news-blog-slider" : "ak-news-slider";
@@ -61,29 +63,22 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
         <section>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
-                <div className="ak-section-heading ak-style-1">
-                    <div className="ak-section-left">
-                        <h2 className="ak-section-title text-animation" data-duration="1.5">
-                            <span>Our </span>
-                            <span className="highlight">Exceptional</span>
-                            <span> Digital Industrial </span>
-                            <span className="highlight">News</span>
-                        </h2>
-                    </div>
-                    <div className="ak-section-right fade-animation" data-direction="left" data-delay="0.35">
-                        <p className="ak-section-desp">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing .
-                        </p>
-                        <div className="ak-section-caption">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
-                                    <path d="M1.33789 1.18359H221.034L209.173 10.9822" stroke="#FF4A23" strokeLinecap="round" />
-                                </svg>
-                            </span>
-                            <span> Recent News</span>
-                        </div>
-                    </div>
-                </div>
+                <SectionHeading
+                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">News</span>'
+                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                    caption="Recent News"
+                    variant="style-1"
+                    titleAnimation="text-animation"
+                    titleDirection={headingVariant === "creative-portfolio" ? "textLeft" : "textTop"}
+                    titleDuration={headingVariant === "creative-portfolio" ? 1.0 : 1.5}
+                    disableDespAnimation={headingVariant === "creative-portfolio"}
+                    disableCaptionAnimation={headingVariant === "creative-portfolio"}
+                    {...(headingVariant !== "creative-portfolio" && {
+                        rightAnimation: "fade-animation",
+                        rightDirection: "left",
+                        rightDelay: "0.35"
+                    })}
+                />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className={`${isStyle2 ? "news-blog" : "news"}-swiper-controller`}>
@@ -121,7 +116,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                     </div>
                 </div>
             </div>
-            <div className="container fade-animation" data-delay="0.35">
+            <div className={`container ${headingVariant === "creative-portfolio" ? "" : "fade-animation"}`} {...(headingVariant !== "creative-portfolio" && { "data-delay": "0.35" })}>
                 <Swiper
                     modules={[Navigation, Scrollbar]}
                     loop={true}
@@ -147,8 +142,16 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                         <>
                                                 <img src={item.image} alt={item.title} className="news-blog-bg-img" />
                                             <div className="overlay"></div>
-                                            <h6 className="news-blog-title team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">{item.title}</h6>
-                                            <p className="news-blog-desp team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">{item.description}</p>
+                                            <h6 className={`news-blog-title ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
+                                                {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}
+                                            >
+                                                {item.title}
+                                            </h6>
+                                            <p className={`news-blog-desp ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
+                                                {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}
+                                            >
+                                                {item.description}
+                                            </p>
                                             <div className="more-btn">
                                                 <span className="morebtn-text"> Read More </span>
                                                 <span className="primary-icon-anim">
@@ -162,9 +165,11 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1" }) => {
                                             <div className="news-img-top">
                                                 <img src={item.image} alt={item.title} />
                                             </div>
-                                            <div className="news-body team-name-parallax" data-parallax-y-start="20" data-parallax-y-end="-50">
+                                            <div className={`news-body ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
+                                                {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}
+                                            >
                                                 <h6 className="news-title">{item.title}</h6>
-                                                <p className="news-text">{item.description}</p>
+                                                <p className="news-text">{item.description} </p>
                                                 <div className="more-btn">
                                                     <span className="morebtn-text"> Read More </span>
                                                     <span className="primary-icon-anim">

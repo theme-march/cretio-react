@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import videoBg from "@assets/img/bg/video-section-bg.png";
 import aboutVideoBg from "@assets/img/bg/about-video-bg.png";
+import creativeAgencyVideoBg from "@assets/img/bg/creative-agency-video-bg.png";
 import VideoModal from "@components/common/VideoModal";
 
 interface VideoSectionProps {
     isAbout?: boolean;
+    variant?: "default" | "creative-portfolio";
 }
 
-const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false }) => {
+const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false, variant = "default" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const videoUrl = "https://www.youtube.com/watch?v=VcaAVWtP48A";
 
@@ -20,7 +22,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false }) => {
                 style={{ cursor: "pointer" }}
             >
                 <img
-                    src={isAbout ? aboutVideoBg : videoBg}
+                    src={variant === "creative-portfolio" ? creativeAgencyVideoBg : (isAbout ? aboutVideoBg : videoBg)}
                     className="video-img ak-bg"
                     alt="..."
                 />

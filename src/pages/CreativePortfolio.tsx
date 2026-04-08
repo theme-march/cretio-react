@@ -24,12 +24,17 @@ const CreativePortfolio: React.FC = () => {
             <PortfolioIsotopeSection />
             <GoalSection />
             <FunFactSection variant="type-3" />
-            <AwardsSection />
-            <MarketingTestimonialSection variant="design-company" />
+            <AwardsSection variant="design-company" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <MarketingTestimonialSection 
+                variant="design-company" 
+                bgClass="ak-gray-bg" 
+                sectionStyle={{ height: "686.285px" }} 
+            />
             <PricingSection />
-            <TeamSection />
-            <VideoSection />
-            <NewsSection variant="style-2" />
+            <TeamSection variant="creative-portfolio" />
+            <VideoSection variant="creative-portfolio" />
+            <NewsSection variant="style-2" headingVariant="creative-portfolio" />
             <ClientLogoSection showTitle={true} />
             <NewsletterSection variant="style-2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
