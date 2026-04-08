@@ -374,37 +374,7 @@ const useGsapAnimations = () => {
                 });
             });
 
-            // 12. funFactAnimation (amin_auto_count)
-            const funfactStyles = gsap.utils.toArray<HTMLElement>(".funfact.style1");
-            funfactStyles.forEach((item) => {
-                gsap.from(item, {
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top center+=200",
-                    },
-                    scale: 0.5,
-                    opacity: 0,
-                    duration: 2,
-                    ease: "elastic",
-                    force3D: true,
-                });
 
-                const autoCounts = item.querySelectorAll(".amin_auto_count");
-                autoCounts.forEach((num) => {
-                    gsap.from(num, {
-                        scrollTrigger: {
-                            trigger: item,
-                            start: "top center+=200",
-                        },
-                        delay: 0.3,
-                        innerText: 0,
-                        duration: 3,
-                        snap: {
-                            innerText: 1,
-                        },
-                    });
-                });
-            });
 
             // 13. Contact Stroke Title Animation
             const contactStrokeTitles = gsap.utils.toArray<HTMLElement>(".contact-title-stroke");

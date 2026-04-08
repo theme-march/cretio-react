@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
 
 import port1 from "@assets/img/portfolio/portfolio-1.png";
 import port2 from "@assets/img/portfolio/portfolio-2.png";
@@ -8,66 +8,56 @@ import port3 from "@assets/img/portfolio/portfolio-3.png";
 import port4 from "@assets/img/portfolio/portfolio-4.png";
 import service2 from "@assets/img/services/dc-services-2.png";
 
-const categories = ["All", "UI/UX", "Design", "Web App", "Branding"];
+const categories = [
+    { name: "All", filter: "*" },
+    { name: "UI/UX", filter: ".isf-uiux" },
+    { name: "Design", filter: ".isf-design" },
+    { name: "Web App", filter: ".isf-webapp" },
+    { name: "Branding", filter: ".isf-branding" },
+];
 
 const portfolioItems = [
-    { id: 1, title: "Product Launch Campaign", category: "Design", img: port3, tags: ["Design", "Web App"], colClass: "col-md-5" },
-    { id: 2, title: "Product Launch Campaign for EcoHome Products", category: "Design", img: port4, tags: ["Design"], colClass: "col-md-7" },
-    { id: 3, title: "Exceptional Android App Development", category: "Branding", img: service2, tags: ["Branding"], isServiceStyle: true, colClass: "col-md-12" },
-    { id: 4, title: "Campaign for EcoHome Products", category: "Web App", img: port1, tags: ["UI/UX", "Web App"], colClass: "col-md-6" },
-    { id: 5, title: "Product Launch", category: "UI/UX", img: port2, tags: ["UI/UX"], colClass: "col-md-6" },
+    { id: 1, title: "Product Launch Campaign", category: "Design", img: port3, tags: "isf-design isf-webapp", colClass: "col-md-5" },
+    { id: 2, title: "Product Launch Campaign for EcoHome Products", category: "Design", img: port4, tags: "isf-design", colClass: "col-md-7" },
+    { id: 3, title: "Exceptional Android App Development", category: "Branding", img: service2, tags: "isf-branding", isServiceStyle: true, colClass: "col-md-12" },
+    { id: 4, title: "Campaign for EcoHome Products", category: "Web App", img: port1, tags: "isf-uiux isf-webapp", colClass: "col-md-6" },
+    { id: 5, title: "Product Launch", category: "UI/UX", img: port2, tags: "isf-uiux", colClass: "col-md-6" },
 ];
 
 const PortfolioIsotopeSection: React.FC = () => {
-    const [activeFilter, setActiveFilter] = useState("All");
+    const [activeFilter, setActiveFilter] = useState("*");
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Filter items based on active filter
+    const filteredItems = portfolioItems.filter(item => {
+        if (activeFilter === "*") return true;
+        const filterClass = activeFilter.replace(".", "");
+        return item.tags.includes(filterClass);
+    });
+
     useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo(
-                ".isotop-items-portfolio > div",
-                {
-                    opacity: 0,
-                    scale: 0.95,
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.05,
-                    ease: "power2.inOut",
-                    clearProps: "all"
-                }
-            );
-            
-            // Re-initialize parallax for filtered items
-            const parallaxContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
-            parallaxContainers.forEach((container) => {
-                const image = container.querySelector("img");
-                if (image) {
-                    gsap.set(container, { overflow: "hidden" });
-                    gsap.fromTo(image, 
-                        { yPercent: -20 },
-                        {
-                            yPercent: 20,
-                            scrollTrigger: {
-                                trigger: container,
-                                scrub: true,
-                                start: "top bottom",
-                                end: "bottom top",
-                            }
-                        }
-                    );
-                }
+        const ctx = gsap.context(() => {});
+        if (containerRef.current) {
+            ctx.add(() => {
+                gsap.fromTo(
+                    ".isotope-item",
+                    {
+                        opacity: 0,
+                        scale: 0.3, // Deep "inside the screen" scale
+                    },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.35, // Fast animation
+                        stagger: 0.05,
+                        ease: "power2.out",
+                        clearProps: "all"
+                    }
+                );
             });
-        }, containerRef);
+        }
         return () => ctx.revert();
     }, [activeFilter]);
-
-    const filteredItems = portfolioItems.filter((item) => {
-        if (activeFilter === "All") return true;
-        return item.tags.includes(activeFilter);
-    });
 
     return (
         <section className="container">
@@ -84,12 +74,8 @@ const PortfolioIsotopeSection: React.FC = () => {
                     <div className="ak-section-heading ak-style-1 justify-content-center">
                         <div className="ak-section-left">
                             <h2 className="ak-section-title text-animation text-center">
-                                <span>Our </span>
-                                <span className="highlight">Exceptional </span>
-                                <span> Sucessful </span>
-                                <br />
-                                <span>Industrial </span>
-                                <span className="highlight"> Projects </span>
+                                Our <span className="highlight">Exceptional</span> Sucessful <br />
+                                Industrial <span className="highlight">Projects</span>
                             </h2>
                         </div>
                     </div>
@@ -98,11 +84,11 @@ const PortfolioIsotopeSection: React.FC = () => {
                     <ul className="isotop-item-menu">
                         {categories.map((cat) => (
                             <li
-                                key={cat}
-                                className={`item-title ${activeFilter === cat ? "is-clicked" : ""}`}
-                                onClick={() => setActiveFilter(cat)}
+                                key={cat.name}
+                                className={`item-title ${activeFilter === cat.filter ? "is-clicked" : ""}`}
+                                onClick={() => setActiveFilter(cat.filter)}
                             >
-                                {cat}
+                                {cat.name}
                             </li>
                         ))}
                     </ul>
@@ -110,10 +96,10 @@ const PortfolioIsotopeSection: React.FC = () => {
             </div>
             <div className="row justify-content-between g-5 isotop-items-portfolio" ref={containerRef}>
                 {filteredItems.map((item) => (
-                    <div className={`col-12 ${item.colClass}`} key={item.id}>
+                    <div className={`col-12 isotope-item ${item.colClass} ${item.tags}`} key={item.id}>
                         {item.isServiceStyle ? (
                             <div className="dm-service-items style2 m-0 h-100">
-                                <Link to="/portfolio/portfolio-details" className="width-2 service-item h-100 ak-parallax">
+                                <Link to="/portfolio/portfolio-details" className="width-2 service-item h-100">
                                     <img src={item.img} alt={item.title} />
                                     <div className="service-hover-info">
                                         <div className="left-content">
@@ -132,7 +118,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                             </div>
                         ) : (
                             <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 w-100">
-                                <div className="portfolio-img ak-parallax">
+                                <div className="portfolio-img">
                                     <img src={item.img} alt={item.title} />
                                 </div>
                                 <div className="portfolio-info">

@@ -1,5 +1,9 @@
-import React, { useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import funfactBg from "@assets/img/bg/funfact-bg.png";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface FunFactProps {
     variant?: "style-1" | "type-2" | "type-3";
@@ -54,6 +58,59 @@ const funFacts = [
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Cards Animation - Refined for smoothness (duration 1.8s)
+            gsap.fromTo(".funfact", 
+                { 
+                    opacity: 0, 
+                    scale: 0.5 
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.8,
+                    stagger: 0.2, // Sequenced left-to-right
+                    ease: "elastic.out(1, 0.5)",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top center+=200",
+                        toggleActions: "play none none none",
+                    },
+                }
+            );
+
+            // Numeric Count-up Animation
+            const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
+            countElements?.forEach((el) => {
+                const target = parseInt(el.textContent || "0", 10);
+                gsap.fromTo(el, 
+                    { innerText: 0 },
+                    {
+                        innerText: target,
+                        duration: 1.5,
+                        snap: { innerText: 1 },
+                        ease: "power1.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top center+=200",
+                        }
+                    }
+                );
+            });
+        }, sectionRef);
+
+        // Keep a light refresh to ensure ScrollTrigger stability
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 500);
+
+        return () => {
+            ctx.revert();
+            clearTimeout(timer);
+        };
+    }, []);
 
     return (
         <section ref={sectionRef}>
