@@ -55,6 +55,13 @@ interface CoreFeaturesProps {
     showBottomGap?: boolean;
     hideHeadingGap?: boolean;
     features?: CoreFeature[];
+    descriptionDirection?: string;
+    descriptionDelay?: string;
+    captionDirection?: string;
+    captionDelay?: string;
+    titleDirection?: string;
+    titleEase?: string;
+    titleDuration?: number;
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -68,6 +75,13 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     showBottomGap = false,
     hideHeadingGap = false,
     features = coreFeaturesData.slice(0, 3),
+    descriptionDirection,
+    descriptionDelay,
+    captionDirection,
+    captionDelay,
+    titleDirection,
+    titleEase,
+    titleDuration,
 }) => {
     return (
         <section
@@ -82,6 +96,13 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         className={variant === "style-2" ? "bg-black" : ""}
                         description={description}
                         caption={caption}
+                        descriptionDirection={descriptionDirection}
+                        descriptionDelay={descriptionDelay}
+                        captionDirection={captionDirection}
+                        captionDelay={captionDelay}
+                        titleDirection={titleDirection}
+                        titleEase={titleEase}
+                        titleDuration={titleDuration}
                     />
                 )}
                 {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}

@@ -18,6 +18,7 @@ interface SectionHeadingProps {
     captionDirection?: string;
     captionOffset?: string;
     captionDelay?: string;
+    descriptionDelay?: string;
     /** Renders an h6 instead of h2 for the title */
     titleTag?: "h2" | "h6";
     /** If true, puts fade-animation and data-direction on the left wrapper div (not the title element) */
@@ -49,6 +50,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     captionDirection = "right",
     captionOffset,
     captionDelay = "0.3",
+    descriptionDelay = "0.3",
     titleTag = "h2",
     leftAnimation,
     leftDirection,
@@ -101,7 +103,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                             {...(!disableDespAnimation ? {
                                 "data-direction": descriptionDirection,
                                 "data-split-text": descriptionDirection === "none" ? "none" : undefined,
-                                "data-delay": "0.3",
+                                "data-delay": descriptionDelay,
                                 ...(descriptionOffset && { "data-offset": descriptionOffset })
                             } : {})}
                         >

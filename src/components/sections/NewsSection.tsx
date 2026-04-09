@@ -162,7 +162,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                                         </>
                                     ) : (
                                         <>
-                                            <div className="news-img-top">
+                                            <div className="news-img-top ak-parallax">
                                                 <img src={item.image} alt={item.title} />
                                             </div>
                                             <div className={`news-body ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 

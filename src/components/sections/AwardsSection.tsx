@@ -27,16 +27,22 @@ interface AwardsSectionProps {
     titleAnimation?: "text-animation" | "fade-animation";
     titleDirection?: string;
     captionDirection?: string;
+    captionDelay?: string;
     titleOffset?: string;
+    titleEase?: string;
+    titleDuration?: number;
     captionOffset?: string;
-    variant?: "default" | "design-company";
+    variant?: "default" | "design-company" | "minimal-studio";
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
     showTopGap = false,
     titleAnimation,
     titleDirection,
+    titleEase,
+    titleDuration,
     captionDirection,
+    captionDelay,
     titleOffset,
     captionOffset,
     variant = "default"
@@ -83,13 +89,15 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
             <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading 
-                    title={variant === "design-company" ? '<span class="highlight">Awards</span> <br /> Achievement' : '<span class="highlight-text">Awards</span> <br /> Achievement'}
+                    title={variant === "design-company" || variant === "minimal-studio" ? '<span class="highlight">Awards</span> <br /> Achievement' : '<span class="highlight-text">Awards</span> <br /> Achievement'}
                     caption="Awards" 
                     variant="style-2"
                     titleAnimation={variant === "design-company" ? "text-animation" : titleAnimation}
-                    titleDuration={variant === "design-company" ? 1.5 : undefined}
+                    titleDuration={variant === "design-company" ? 1.5 : titleDuration}
                     titleDirection={variant === "design-company" ? "textLeft" : titleDirection}
+                    titleEase={titleEase}
                     captionDirection={captionDirection}
+                    captionDelay={captionDelay}
                     titleOffset={titleOffset}
                     captionOffset={captionOffset}
                     {...(variant === "design-company" && {

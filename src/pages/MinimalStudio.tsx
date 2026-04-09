@@ -22,18 +22,39 @@ const MinimalStudio: React.FC = () => {
             <CoreFeaturesSection
                 variant="style-2"
                 title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                titleDirection="textLeft"
+                titleEase="back.out(1.7)"
+                titleDuration={1}
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                descriptionDirection="right"
+                descriptionDelay="0.35"
                 caption="Top Trio Services"
+                captionDirection="right"
+                captionDelay="0.55"
                 showTopGap={true}
                 showBottomGap={true}
             />
-            <AwardsSection showTopGap={true} />
+            <AwardsSection 
+                showTopGap={true} 
+                variant="minimal-studio"
+                titleDirection="textLeft"
+                titleEase="back.out(1.7)"
+                titleDuration={1}
+                captionDirection="right"
+                captionDelay="0.35"
+            />
             <MarketingTestimonialSection variant="style-2 type-2" />
             <ClientLogoSection />
 
             <NewsSection />
             <MarketingContactSection variant="style-2" />
-            <NewsletterSection variant="style-3" />
+            <NewsletterSection 
+                variant="style-3"
+                titleAnimation="text-animation"
+                underlineReveal={true}
+                formDirection="right"
+                formDelay="0.35"
+            />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

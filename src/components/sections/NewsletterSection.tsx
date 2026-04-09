@@ -4,9 +4,19 @@ import testimonialBg from "@assets/img/shape/testimonial.svg";
 
 interface NewsletterSectionProps {
     variant?: "style-1" | "style-2" | "style-3";
+    titleAnimation?: string;
+    underlineReveal?: boolean;
+    formDirection?: string;
+    formDelay?: string;
 }
 
-const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-1" }) => {
+const NewsletterSection: React.FC<NewsletterSectionProps> = ({ 
+    variant = "style-1",
+    titleAnimation,
+    underlineReveal = false,
+    formDirection,
+    formDelay
+}) => {
     const isStyle3 = variant === "style-3";
     const isStyle2 = variant === "style-2";
 
@@ -19,14 +29,19 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({ variant = "style-
         return (
             <>
                 <div className="ak-height-150 ak-height-lg-80"></div>
-                <section className="container">
+                <section className={`container ${underlineReveal ? "newsletter-wapper" : ""}`}>
                     <div className="newsletter-content style-2">
-                        <div className="newsletter-title-content title-anim">
-                            <h2 className="newsletter-title anim-line-words">
-                                Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
+                        <div className={`newsletter-title-content ${titleAnimation ? "" : "title-anim"}`}>
+                            <h2 className={`newsletter-title ${titleAnimation || "anim-line-words"}`}>
+                                Join Our <span className={`highlight text-underlines ${underlineReveal ? "underline-anim" : ""}`}>Newsletter</span> for the Latest <span className="highlight">Exclusive</span> Content
                             </h2>
                         </div>
-                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                        <form 
+                            className="newsletter-form fade-animation" 
+                            data-direction={formDirection}
+                            data-delay={formDelay}
+                            onSubmit={handleSubmit}
+                        >
                             <input
                                 type="email"
                                 className="newsletter-input style-2"
