@@ -198,6 +198,7 @@
           .highlight {
             &.text-underlines {
               &::after {
+                transition-delay: 2.0s;
                 transform: scaleX(1);
                 opacity: 1;
               }

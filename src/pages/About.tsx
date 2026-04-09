@@ -28,7 +28,7 @@ const About: React.FC = () => {
                 variant="style-3"
             />
             <VideoSection isAbout={true} />
-            <SlidingTextSection />
+            <SlidingTextSection variant="style-2" />
             <AboutContentSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <AwardsSection />
@@ -44,10 +44,23 @@ const About: React.FC = () => {
                 showTopGap={true}
                 showBottomGap={true}
                 features={coreFeaturesData}
+                disableDescriptionAnimation={true}
+                disableCaptionAnimation={true}
+                cardAnimation=""
+                titleDirection="textRight"
             />
-            <TeamSection />
+            <TeamSection 
+                titleDirection="textRight"
+                disableDescriptionAnimation={true}
+                disableCaptionAnimation={true}
+            />
             <ClientLogoSection showTitle={true} />
-            <NewsletterSection variant="style-3" />
+            <NewsletterSection 
+                variant="style-3" 
+                titleAnimation="text-animation"
+                titleDirection="textRight"
+                disableFormAnimation={true}
+            />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

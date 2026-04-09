@@ -62,6 +62,9 @@ interface CoreFeaturesProps {
     titleDirection?: string;
     titleEase?: string;
     titleDuration?: number;
+    disableDescriptionAnimation?: boolean;
+    disableCaptionAnimation?: boolean;
+    cardAnimation?: string;
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -82,6 +85,9 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     titleDirection,
     titleEase,
     titleDuration,
+    disableDescriptionAnimation = false,
+    disableCaptionAnimation = false,
+    cardAnimation = "fade-animation",
 }) => {
     return (
         <section
@@ -103,6 +109,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         titleDirection={titleDirection}
                         titleEase={titleEase}
                         titleDuration={titleDuration}
+                        disableDespAnimation={disableDescriptionAnimation}
+                        disableCaptionAnimation={disableCaptionAnimation}
                     />
                 )}
                 {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}
@@ -140,8 +148,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                     <div
                                         className={`core-feature-card ${
                                             variant === "style-2" ? "type-1 style-2" : "type-2"
-                                        } fade-animation`}
-                                        data-delay={0.15 + (index % 3) * 0.2}
+                                        } ${cardAnimation}`}
+                                        data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
                                     >
                                         {variant === "style-2" && (
                                             <>
@@ -179,8 +187,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                     <div className="core-features">
                         {features.map((feature, index) => (
                             <div
-                                className={`core-feature-card type-3 fade-animation theme-border-wrap`}
-                                data-delay={0.15 + index * 0.2}
+                                className={`core-feature-card type-3 ${cardAnimation} theme-border-wrap`}
+                                data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
                                 key={feature.id}
                             >
                                 <div className="b-top-left">
@@ -216,8 +224,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                     variant === "style-2"
                                         ? `style-2 ${index % 2 === 0 ? "color-2" : "color-3"}`
                                         : ""
-                                } fade-animation`}
-                                data-delay={0.15 + index * 0.2}
+                                } ${cardAnimation}`}
+                                data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
                                 key={feature.id}
                             >
                                 {variant === "style-2" && (

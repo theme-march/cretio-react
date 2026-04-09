@@ -51,16 +51,17 @@ const newsItems = [
 
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
-    headingVariant?: "default" | "creative-portfolio";
+    headingVariant?: "default" | "creative-portfolio" | "seo-agency";
 }
 
 const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingVariant = "default" }) => {
     const isStyle2 = variant === "style-2";
+    const isSeoAgency = headingVariant === "seo-agency";
     const prefix = isStyle2 ? "news-blog" : "news-logs";
     const sliderClass = isStyle2 ? "ak-news-blog-slider" : "ak-news-slider";
 
     return (
-        <section>
+        <section className={isSeoAgency ? "seo-news" : ""}>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <SectionHeading
@@ -68,15 +69,21 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="Recent News"
                     variant="style-1"
-                    titleAnimation="text-animation"
-                    titleDirection={headingVariant === "creative-portfolio" ? "textLeft" : "textTop"}
+                    titleAnimation={isSeoAgency ? "fade-animation" : "text-animation"}
+                    titleDirection={isSeoAgency ? "none" : (headingVariant === "creative-portfolio" ? "textLeft" : "textTop")}
                     titleDuration={headingVariant === "creative-portfolio" ? 1.0 : 1.5}
                     disableDespAnimation={headingVariant === "creative-portfolio"}
                     disableCaptionAnimation={headingVariant === "creative-portfolio"}
-                    {...(headingVariant !== "creative-portfolio" && {
+                    {...(isSeoAgency && {
+                        descriptionDirection: "bottom",
+                        descriptionDelay: "0.35",
+                        captionDelay: "0.55"
+                    })}
+                    {...(!isSeoAgency && headingVariant !== "creative-portfolio" && {
                         rightAnimation: "fade-animation",
-                        rightDirection: "left",
-                        rightDelay: "0.35"
+                        rightDirection: "bottom",
+                        rightDelay: "0.3",
+                        captionDelay: "0.3"
                     })}
                 />
             </div>
@@ -162,8 +169,10 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                                         </>
                                     ) : (
                                         <>
-                                            <div className="news-img-top ak-parallax">
-                                                <img src={item.image} alt={item.title} />
+                                            <div className="news-img-content">
+                                                <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
+                                                    <img src={item.image} alt={item.title} />
+                                                </div>
                                             </div>
                                             <div className={`news-body ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
                                                 {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}

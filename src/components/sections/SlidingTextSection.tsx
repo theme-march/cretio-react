@@ -2,11 +2,12 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface SlidingTextSectionProps {
-    variant?: "style-1" | "style-2";
+    variant?: "style-1" | "style-2" | "seo";
 }
 
 const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const isSeo = variant === "seo";
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -41,6 +42,19 @@ const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "styl
 
         return () => ctx.revert();
     }, []);
+    
+    if (isSeo) {
+        return (
+            <div ref={sectionRef}>
+                <div className="ak-height-150 ak-height-lg-80"></div>
+                <div className="slideing-text-content">
+                    <p className="slideing-text text-color-one">SEO Strategy / On-Page SEO / Link Building</p>
+                    <p className="slideing-text text-color-two">Content / Keyword Research / Local SEO</p>
+                </div>
+            </div>
+        );
+    }
+
     if (variant === "style-2") {
         return (
             <div ref={sectionRef}>

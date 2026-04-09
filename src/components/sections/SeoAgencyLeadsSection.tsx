@@ -7,13 +7,14 @@ const SeoAgencyLeadsSection: React.FC = () => {
             <div className="container">
                 <div className="ak-section-heading ak-style-1 type-2">
                     <div className="ak-section-left ak-w-70">
-                        <h2 className="ak-section-title text-animation" data-direction="rotationX">
+                        <h2 className="ak-section-title fade-animation">
                             <span className="highlight"> Increase </span>
                             <span> our Website Traffic, Generate More </span>
                             <span className="highlight"> Leads </span>
                         </h2>
                     </div>
                     <div className="ak-section-right w-25">
+                        {/* Template: fade-animation with right direction, delay 0.35 */}
                         <div className="ak-section-caption fade-animation">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
@@ -25,7 +26,9 @@ const SeoAgencyLeadsSection: React.FC = () => {
                     </div>
                 </div>
                 <div className="about-circle-area">
+                    {/* Template: about-circle-content fade-animation direction="right" */}
                     <div className="about-circle-content justify-content-start fade-animation" data-direction="right">
+                        {/* Template: p.desp is also fade-animation inside that wrapper */}
                         <p className="desp fade-animation">
                             Increase Your Website Traffic, Generate More Leads, and Boost
                             Revenue with Effective SEO Strategies
@@ -45,6 +48,7 @@ const SeoAgencyLeadsSection: React.FC = () => {
                             </li>
                         </ul>
                     </div>
+                    {/* Template: fade-animation direction="left" for the circle image */}
                     <div className="fade-animation" data-direction="left">
                         <div className="about-circle-img ak-bg" style={{ backgroundImage: `url(${aboutCircleBg})` }}>
                             <div className="about-circle-img-info">

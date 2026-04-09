@@ -45,7 +45,8 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({ showTitle = false
                                 className={`client-logo fade-animation`}
                                 data-offset="40"
                                 data-delay={client.delay}
-                                data-direction="left"
+                                data-direction="bottom"
+                                data-duration="0.75"
                             >
                                 <img src={client.img} alt={client.title} />
                                 <div className="client-info">

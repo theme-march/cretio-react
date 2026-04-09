@@ -44,6 +44,8 @@ interface TeamSectionProps {
     captionDirection?: string;
     captionOffset?: string;
     variant?: "default" | "creative-portfolio";
+    disableDescriptionAnimation?: boolean;
+    disableCaptionAnimation?: boolean;
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({
@@ -54,7 +56,9 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     descriptionOffset,
     captionDirection,
     captionOffset,
-    variant = "default"
+    variant = "default",
+    disableDescriptionAnimation = false,
+    disableCaptionAnimation = false,
 }) => {
     const location = useLocation();
     const isMarketingAgency = location.pathname === "/marketing-agency";
@@ -75,10 +79,10 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                     titleOffset={titleOffset}
                     descriptionDirection={variant === "creative-portfolio" ? "none" : descriptionDirection}
                     descriptionOffset={descriptionOffset}
-                    disableDespAnimation={variant === "creative-portfolio"}
+                    disableDespAnimation={variant === "creative-portfolio" || disableDescriptionAnimation}
                     captionDirection={captionDirection}
                     captionOffset={captionOffset}
-                    disableCaptionAnimation={variant === "creative-portfolio"}
+                    disableCaptionAnimation={variant === "creative-portfolio" || disableCaptionAnimation}
                 />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>

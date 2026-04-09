@@ -8,6 +8,8 @@ interface NewsletterSectionProps {
     underlineReveal?: boolean;
     formDirection?: string;
     formDelay?: string;
+    titleDirection?: string;
+    disableFormAnimation?: boolean;
 }
 
 const NewsletterSection: React.FC<NewsletterSectionProps> = ({ 
@@ -15,7 +17,9 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
     titleAnimation,
     underlineReveal = false,
     formDirection,
-    formDelay
+    formDelay,
+    titleDirection,
+    disableFormAnimation = false
 }) => {
     const isStyle3 = variant === "style-3";
     const isStyle2 = variant === "style-2";
@@ -32,12 +36,15 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                 <section className={`container ${underlineReveal ? "newsletter-wapper" : ""}`}>
                     <div className="newsletter-content style-2">
                         <div className={`newsletter-title-content ${titleAnimation ? "" : "title-anim"}`}>
-                            <h2 className={`newsletter-title ${titleAnimation || "anim-line-words"}`}>
+                            <h2 
+                                className={`newsletter-title ${titleAnimation || "anim-line-words"}`}
+                                {...(titleAnimation ? { "data-direction": titleDirection } : {})}
+                            >
                                 Join Our <span className={`highlight text-underlines ${underlineReveal ? "underline-anim" : ""}`}>Newsletter</span> for the Latest <span className="highlight">Exclusive</span> Content
                             </h2>
                         </div>
                         <form 
-                            className="newsletter-form fade-animation" 
+                            className={`newsletter-form ${disableFormAnimation ? "" : "fade-animation"}`} 
                             data-direction={formDirection}
                             data-delay={formDelay}
                             onSubmit={handleSubmit}

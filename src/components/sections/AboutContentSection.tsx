@@ -11,9 +11,12 @@ const AboutContentSection: React.FC = () => {
         let ctx = gsap.context(() => {
             gsap.to(".star-1, .star-2", {
                 rotation: 360,
-                duration: 10,
-                repeat: -1,
-                ease: "none"
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1,
+                },
             });
         }, sectionRef);
 
