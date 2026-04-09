@@ -12,7 +12,8 @@ interface SectionHeadingProps {
     disableCaptionAnimation?: boolean;
     titleOffset?: string;
     titleDirection?: string;
-    titleAnimation?: "text-animation" | "fade-animation";
+    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2";
+    titleSplitText?: string;
     descriptionDirection?: string;
     descriptionOffset?: string;
     captionDirection?: string;
@@ -45,6 +46,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     titleOffset,
     titleDirection = "textTop",
     titleAnimation = "text-animation",
+    titleSplitText,
     descriptionDirection = "none",
     descriptionOffset,
     captionDirection = "right",
@@ -83,6 +85,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {...(!leftAnimation && { "data-duration": titleDuration })}
                     {...(!leftAnimation && { "data-ease": titleEase })}
                     {...(!leftAnimation && titleOffset && { "data-offset": titleOffset })}
+                    {...(titleSplitText ? { "data-split-text": titleSplitText } : {})}
                     {...(typeof title === "string" ? { dangerouslySetInnerHTML: { __html: title } } : { children: title })}
                 >
                 </TitleTag>

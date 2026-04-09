@@ -20,7 +20,7 @@ const SeoAgency: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SeoAgencyAboutSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <SeoServiceSection />
+            <SeoServiceSection variant="seo-agency" />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SeoFeatureSection />
             <SlidingTextSection />

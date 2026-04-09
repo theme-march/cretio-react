@@ -1,9 +1,84 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import funfactBg from "@assets/img/bg/funfact-bg.png";
 
-const SeoAgencyAboutSection: React.FC = () => {
+interface SeoAgencyAboutSectionProps {
+    animateCircles?: boolean;
+    circleDelay?: number;
+    circleStagger?: number;
+    circleDuration?: number;
+}
+
+const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
+    animateCircles = true,
+    circleDelay = 0,
+    circleStagger = 0.2,
+    circleDuration = 2,
+}) => {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useLayoutEffect(() => {
+        if (!animateCircles) return;
+
+        const ctx = gsap.context(() => {
+            const circles = gsap.utils.toArray<HTMLElement>(".number-circle");
+            const countElements = Array.from(sectionRef.current?.querySelectorAll(".amin_auto_count") || []);
+
+            // Parse counter data upfront
+            const counterData = countElements.map((el) => {
+                const text = el.textContent || "";
+                const numericPart = parseFloat(text);
+                const suffix = text.replace(/[0-9.]/g, "");
+                return { el, numericPart, suffix };
+            });
+
+            // Single shared ScrollTrigger - Values reverted to template standards
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: "top center+=200",
+                once: true,
+                onEnter: () => {
+                    // Circles pop one-by-one with elastic ease
+                    if (circles.length > 0) {
+                        gsap.from(circles, {
+                            scale: 0.5,
+                            opacity: 0,
+                            duration: circleDuration,
+                            stagger: circleStagger,
+                            delay: circleDelay,
+                            ease: "elastic.out(1, 0.3)",
+                            force3D: true,
+                        });
+                    }
+
+                    // Counters start at the template-defined delay of 0.3s
+                    counterData.forEach(({ el, numericPart, suffix }) => {
+                        if (!isNaN(numericPart)) {
+                            gsap.fromTo(el,
+                                { innerText: 0 },
+                                {
+                                    innerText: numericPart,
+                                    duration: 3, // Template duration
+                                    delay: 0.3,  // Template delay
+                                    snap: { innerText: 1 },
+                                    ease: "power1.out",
+                                    onUpdate: function () {
+                                        el.textContent = Math.floor(Number(el.textContent)) + suffix;
+                                    }
+                                }
+                            );
+                        }
+                    });
+                }
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, [animateCircles, circleDelay, circleStagger, circleDuration]);
+
     return (
-        <section>
+        <section ref={sectionRef}>
             <div className="container">
                 <div className="seo-agency-about-wrapper fade-animation">
                     <div className="seo-agency-about-content fade-animation">
