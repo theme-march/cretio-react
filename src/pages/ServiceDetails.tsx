@@ -27,11 +27,21 @@ const ServiceDetails: React.FC = () => {
             <ProcessSection
                 variant="style-2"
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                titleAnimation="text-animation"
+                titleDirection="textLeft"
+                titleDuration={1.2}
+                disableDescriptionAnimation={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ServiceDetailsCta />
             <SlidingTextSection variant="style-2" />
-            <NewsletterSection variant="style-3" />
+            <NewsletterSection 
+                variant="style-3" 
+                titleAnimation="text-animation"
+                titleDirection="textLeft"
+                titleDuration={1.2}
+                disableFormAnimation={true}
+            />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

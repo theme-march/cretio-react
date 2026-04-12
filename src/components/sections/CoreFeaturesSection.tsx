@@ -65,6 +65,8 @@ interface CoreFeaturesProps {
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
     cardAnimation?: string;
+    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
+    titleSplitText?: string;
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -88,6 +90,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
     cardAnimation = "fade-animation",
+    titleAnimation = "text-animation",
+    titleSplitText,
 }) => {
     return (
         <section
@@ -109,6 +113,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         titleDirection={titleDirection}
                         titleEase={titleEase}
                         titleDuration={titleDuration}
+                        titleAnimation={titleAnimation}
+                        titleSplitText={titleSplitText}
                         disableDespAnimation={disableDescriptionAnimation}
                         disableCaptionAnimation={disableCaptionAnimation}
                     />

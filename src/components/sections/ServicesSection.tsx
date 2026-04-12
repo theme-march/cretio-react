@@ -41,9 +41,15 @@ const services = [
 
 interface ServicesProps {
     variant?: "style-1" | "style-2";
+    showHeading?: boolean;
+    topGapClass?: string;
 }
 
-const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
+const ServicesSection: React.FC<ServicesProps> = ({ 
+    variant = "style-1",
+    showHeading = true,
+    topGapClass = "ak-height-150 ak-height-lg-80"
+}) => {
     const sectionRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
@@ -94,16 +100,18 @@ const ServicesSection: React.FC<ServicesProps> = ({ variant = "style-1" }) => {
     return (
         <section className={`service-bg ${variant}`} ref={sectionRef}>
             <div className="container">
-                <div className="ak-height-150 ak-height-lg-80"></div>
+                <div className={topGapClass}></div>
                 <div className="service-content">
-                    <SectionHeading
-                        title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
-                        caption="Services"
-                        titleDuration={0.7}
-                        titleOffset="100%"
-                        disableDespAnimation={true}
-                    />
+                    {showHeading && (
+                        <SectionHeading
+                            title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                            caption="Services"
+                            titleDuration={0.7}
+                            titleOffset="100%"
+                            disableDespAnimation={true}
+                        />
+                    )}
                     {services.map((service, index) => (
                         <div
                             className="service-card fade-animation"

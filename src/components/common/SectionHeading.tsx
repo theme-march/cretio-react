@@ -12,7 +12,7 @@ interface SectionHeadingProps {
     disableCaptionAnimation?: boolean;
     titleOffset?: string;
     titleDirection?: string;
-    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2";
+    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
     titleSplitText?: string;
     descriptionDirection?: string;
     descriptionOffset?: string;

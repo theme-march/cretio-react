@@ -316,6 +316,11 @@ const useGsapAnimations = () => {
                     case "textRight": animationProps.x = -fade_offset; break;
                     case "textTop": animationProps.y = fade_offset; break;
                     case "textBottom": animationProps.y = -fade_offset; break;
+                    case "textRotate":
+                        animationProps.rotationX = fade_offset > 0 ? fade_offset : 65;
+                        animationProps.y = 60;
+                        animationProps.transformOrigin = "50% 50% -80px";
+                        break;
                     case "rotationX":
                         animationProps.rotationX = fade_offset > 0 ? fade_offset : 65;
                         animationProps.y = 60;

@@ -9,6 +9,9 @@ interface NewsletterSectionProps {
     formDirection?: string;
     formDelay?: string;
     titleDirection?: string;
+    titleSplitText?: string;
+    titleDuration?: number;
+    titleEase?: string;
     disableFormAnimation?: boolean;
 }
 
@@ -19,6 +22,9 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
     formDirection,
     formDelay,
     titleDirection,
+    titleSplitText,
+    titleDuration,
+    titleEase,
     disableFormAnimation = false
 }) => {
     const isStyle3 = variant === "style-3";
@@ -38,7 +44,10 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                         <div className={`newsletter-title-content ${titleAnimation ? "" : "title-anim"}`}>
                             <h2 
                                 className={`newsletter-title ${titleAnimation || "anim-line-words"}`}
-                                {...(titleAnimation ? { "data-direction": titleDirection } : {})}
+                                {...(titleAnimation && titleDirection ? { "data-direction": titleDirection } : {})}
+                                {...(titleAnimation && titleSplitText ? { "data-split-text": titleSplitText } : {})}
+                                {...(titleAnimation && titleDuration ? { "data-duration": titleDuration } : {})}
+                                {...(titleAnimation && titleEase ? { "data-ease": titleEase } : {})}
                             >
                                 Join Our <span className={`highlight text-underlines ${underlineReveal ? "underline-anim" : ""}`}>Newsletter</span> for the Latest <span className="highlight">Exclusive</span> Content
                             </h2>
