@@ -15,7 +15,7 @@ const PortfolioDetailsContent: React.FC = () => {
                 if (dataHeight) {
                     element.style.height = `${dataHeight}px`;
                 }
-                
+
                 const img = element.querySelector("img");
                 if (img) {
                     gsap.to(img, {
@@ -55,14 +55,31 @@ const PortfolioDetailsContent: React.FC = () => {
                     using Lorem Ipsum is that it has a more-or-less normal distribution of
                     letters, as opposed to using 'Content here, content here.
                 </p>
+                <p className="pd-desp">
+                    Making it look like readable web 'lorem ipsum' will uncover many web
+                    sites still in their infancy. Various versions have evolved over the
+                    years, sometimes by accident, sometimes on purpose (injected humour
+                    and the like) web page editors now.
+                </p>
+
                 <div className="pd-img image-scroll ak-parallax" data-height="350">
                     <img src={pdImg1} alt="..." />
                 </div>
+                <div>
+                    <p className="pd-desp">
+                        It is a long established fact that a reader will be distracted by
+                        the readable content of a page when looking at its layout. The point
+                        of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution of letters, as opposed to using 'Content here, content
+                        here.
+                    </p>
+                </div>
+
                 <p className="pd-desp">
-                    It is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here.
+                    Making it look like readable web 'lorem ipsum' will uncover many web
+                    sites still in their infancy. Various versions have evolved over the
+                    years, sometimes by accident, sometimes on purpose (injected humour
+                    and the like) web page editors now.
                 </p>
                 <div className="p-md-5">
                     <div className="ak-accordion">
@@ -87,6 +104,14 @@ const PortfolioDetailsContent: React.FC = () => {
                         ))}
                     </div>
                 </div>
+                <p className="pd-desp">
+                    it is a long established fact that a reader will be distracted by the
+                    readable content of a page when looking at its layout. The point of
+                    using Lorem Ipsum is that it has a more-or-less normal distribution of
+                    letters, as opposed to using 'Content here, content here', making it
+                    look like readable web page editors nowEnglish. Many desktop
+                    publishing packages and web page editors now use.
+                </p>
                 <div className="pd-img image-scroll ak-parallax" data-height="400">
                     <img src={pdImg2} alt="..." />
                 </div>
@@ -94,7 +119,9 @@ const PortfolioDetailsContent: React.FC = () => {
                     It is a long established fact that a reader will be distracted by the
                     readable content of a page when looking at its layout. The point of
                     using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here.
+                    letters, as opposed to using 'Content here, content here', making it
+                    look like readable web page editors nowEnglish. Many desktop
+                    publishing packages and web page editors now use.
                 </p>
             </div>
         </div>

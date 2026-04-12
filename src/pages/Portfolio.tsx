@@ -15,7 +15,7 @@ const Portfolio: React.FC = () => {
                 showCircle={false}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <PortfolioGridSection />
+            <PortfolioGridSection disableAnimationCount={2} />
             <div className="ak-height-150 ak-height-lg-80"></div> 
         </>
     );

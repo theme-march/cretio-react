@@ -22,7 +22,10 @@ const ServiceDetails: React.FC = () => {
                 strokeText="SERVICE"
                 showCircle={false}
             /> 
-            <ServiceDetailsContent />
+            <ServiceDetailsContent 
+                disableMainImgAnimation={true}
+                enableZoomInAnimation={true}
+            />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ProcessSection
                 variant="style-2"
@@ -31,6 +34,8 @@ const ServiceDetails: React.FC = () => {
                 titleDirection="textLeft"
                 titleDuration={1.2}
                 disableDescriptionAnimation={true}
+                cardDuration={2.2}
+                cardStagger={0.3}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ServiceDetailsCta />

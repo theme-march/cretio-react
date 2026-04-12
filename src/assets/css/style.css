@@ -1225,6 +1225,20 @@ kbd {
   transition: all 400ms linear;
 }
 
+.ak-hover-zoom-pronounced {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.ak-hover-zoom-pronounced img {
+  transition: all 0.4s ease-out;
+  transform: scale(1);
+}
+.ak-hover-zoom-pronounced:hover img {
+  transform: scale(1.1);
+}
+
+
 .split-line {
   display: inline-block !important;
 }

@@ -4,7 +4,15 @@ import show1 from "@assets/img/services/services-details-show-1.png";
 import show2 from "@assets/img/services/services-details-show-2.png";
 import accordionImg from "@assets/img/services/accordion-1.png";
 
-const ServiceDetailsContent: React.FC = () => {
+interface ServiceDetailsContentProps {
+    disableMainImgAnimation?: boolean;
+    enableZoomInAnimation?: boolean;
+}
+
+const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
+    disableMainImgAnimation = false,
+    enableZoomInAnimation = false,
+}) => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
 
     const accordionData = [
@@ -20,7 +28,7 @@ const ServiceDetailsContent: React.FC = () => {
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
-                <div className="services-main-img ak-parallax">
+                <div className={`services-main-img ${disableMainImgAnimation ? "" : "ak-parallax"}`}>
                     <img src={mainImg} className="img-fluid" alt="..." />
                 </div>
             </div>
@@ -81,7 +89,7 @@ const ServiceDetailsContent: React.FC = () => {
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row align-items-center">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
-                                <div className="image-hov-one ak-parallax">
+                                <div className={`image-hov-one ${enableZoomInAnimation ? "ak-hover-zoom-pronounced" : "ak-parallax"}`}>
                                     <img src={accordionImg} className="img-fluid" alt="..." />
                                 </div>
                             </div>

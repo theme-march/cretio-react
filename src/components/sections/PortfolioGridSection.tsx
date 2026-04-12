@@ -18,15 +18,24 @@ const portfolioItems = [
     { id: 7, title: "Transforming Brands Through Strategic Initiatives", img: port7, col: "col-md-6" },
 ];
 
-const PortfolioGridSection: React.FC = () => {
+interface PortfolioGridSectionProps {
+    disableAnimationCount?: number;
+}
+
+const PortfolioGridSection: React.FC<PortfolioGridSectionProps> = ({ 
+    disableAnimationCount = 0 
+}) => {
     return (
         <div className="container">
             <div className="portfolio-wapper">
                 <div className="row justify-content-between align-items-center g-5 overflow-hidden">
-                    {portfolioItems.map((item) => (
+                    {portfolioItems.map((item, index) => (
                         <div className={item.col} key={item.id}>
                             <Link to="/portfolio/portfolio-details" className="portfolio-card overflow-hidden">
-                                <div className="portfolio-top-img img-anim-left-show ak-parallax">
+                                <div 
+                                    className={`portfolio-top-img ${index < disableAnimationCount ? (item.id === 5 ? "" : "ak-parallax") : "img-anim-left-show"}`}
+                                    data-no-parallax={item.id === 5}
+                                >
                                     <img src={item.img} alt={item.title} className="w-100" />
                                 </div>
                                 <div className="portfolio-content">
@@ -41,14 +50,14 @@ const PortfolioGridSection: React.FC = () => {
                 </div>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="ak-center">
-                    <button className="circle-btn style-1 circle-btn-anim">
+                    <a href="#" className="circle-btn style-1 circle-btn-anim">
                         <span className="text text-uppercase">
                             Load More
                             <br />
                             Project
                             <i className="flaticon-up-right-arrow"></i>
                         </span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

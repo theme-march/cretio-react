@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeading from "@components/common/SectionHeading";
 
 const steps = [
@@ -20,6 +19,8 @@ interface ProcessSectionProps {
     titleEase?: string;
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
+    cardDuration?: number;
+    cardStagger?: number;
 }
 
 const ProcessSection: React.FC<ProcessSectionProps> = ({ 
@@ -31,7 +32,9 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
     titleSplitText,
     titleEase,
     disableDescriptionAnimation = false,
-    disableCaptionAnimation = false
+    disableCaptionAnimation = false,
+    cardDuration = 1.8,
+    cardStagger = 0.2
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
 
@@ -46,8 +49,8 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
                 {
                     opacity: 1,
                     scale: 1,
-                    duration: 1.8,
-                    stagger: 0.2,
+                    duration: cardDuration,
+                    stagger: cardStagger,
                     ease: "elastic.out(1, 0.5)",
                     scrollTrigger: {
                         trigger: sectionRef.current,

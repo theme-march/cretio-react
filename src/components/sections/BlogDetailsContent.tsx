@@ -6,7 +6,11 @@ import blog4 from "@assets/img/blogs/blog-detail-4.png";
 import person1 from "@assets/img/blogs/comment-person-1.png";
 import quoteBg from "@assets/img/bg/quote-text-bg.png";
 
-const BlogDetailsContent: React.FC = () => {
+interface BlogDetailsContentProps {
+    disableParallax?: boolean;
+}
+
+const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax = false }) => {
     return (
         <div className="container blogs-details-wapper">
             <div className="blogs-details">
@@ -22,15 +26,15 @@ const BlogDetailsContent: React.FC = () => {
                 </p>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row gy-4">
-                    <div className="col-md-6 ak-parallax">
+                    <div className={`col-md-6 ${disableParallax ? "" : "ak-parallax"}`}>
                         <img src={blog1} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
-                    <div className="col-md-6 ak-parallax">
+                    <div className={`col-md-6 ${disableParallax ? "" : "ak-parallax"}`}>
                         <img src={blog2} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
-                <div className="blogs-details-quote-text ak-parallax">
+                <div className={`blogs-details-quote-text ${disableParallax ? "" : "ak-parallax"}`}>
                     <img src={quoteBg} alt="..." />
                     <p>
                         <span className="dot-text"></span>
@@ -42,10 +46,10 @@ const BlogDetailsContent: React.FC = () => {
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row gy-4">
-                    <div className="col-md-4 ak-parallax">
+                    <div className={`col-md-4 ${disableParallax ? "" : "ak-parallax"}`}>
                         <img src={blog3} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
-                    <div className="col-md-8 ak-parallax">
+                    <div className={`col-md-8 ${disableParallax ? "" : "ak-parallax"}`}>
                         <img src={blog4} className="blogs-details-img h-100 w-100" alt="..." />
                     </div>
                 </div>

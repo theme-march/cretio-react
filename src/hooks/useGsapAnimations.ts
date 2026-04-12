@@ -67,7 +67,7 @@ const useGsapAnimations = () => {
                       ease: "power2.out"
                   });
 
-                if (image) {
+                if (image && $imgReveal.getAttribute("data-no-parallax") !== "true") {
                     tl.from(image, {
                         xPercent: 100,
                         scale: 1.2,
@@ -82,12 +82,20 @@ const useGsapAnimations = () => {
                             yPercent: 20,
                             scrollTrigger: {
                                 trigger: $imgReveal,
-                                scrub: true,
+                                scrub: 1,
                                 start: "top bottom",
                                 end: "bottom top",
                             }
                         }
                     );
+                } else if (image) {
+                    tl.from(image, {
+                        xPercent: 100,
+                        scale: 1.2,
+                        duration: 1.5,
+                        ease: "power2.out",
+                        delay: -1.2
+                    });
                 }
             });
 
@@ -135,9 +143,10 @@ const useGsapAnimations = () => {
                 gsap.set(element, { overflow: 'hidden' });
                 gsap.fromTo(img, 
                     { yPercent: -20 },
-                    { yPercent: 20, ease: 'none', scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                    { yPercent: 20, ease: 'none', scrollTrigger: { trigger: element, scrub: 1, start: "top bottom", end: "bottom top" } }
                 );
             });
+
 
             const teamNameParallax = gsap.utils.toArray<HTMLElement>(".team-name-parallax");
             teamNameParallax.forEach((element) => {
@@ -164,7 +173,7 @@ const useGsapAnimations = () => {
                 if (img) {
                     gsap.fromTo(img, 
                         { yPercent: -20, ease: 'none' },
-                        { yPercent: 20, ease: "power2.out", scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                        { yPercent: 20, ease: "power2.out", scrollTrigger: { trigger: element, scrub: 1, start: "top bottom", end: "bottom top" } }
                     );
                 }
             });
@@ -188,7 +197,7 @@ const useGsapAnimations = () => {
                 if (img) {
                     gsap.fromTo(img, 
                         { yPercent: -20, scale: 1, ease: 'none' },
-                        { yPercent: 20, scale: 1.2, ease: 'none', scrollTrigger: { trigger: element, scrub: true, start: "top bottom", end: "bottom top" } }
+                        { yPercent: 20, scale: 1.2, ease: 'none', scrollTrigger: { trigger: element, scrub: 1, start: "top bottom", end: "bottom top" } }
                     );
                 }
             });

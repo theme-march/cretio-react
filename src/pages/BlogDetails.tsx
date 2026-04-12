@@ -22,7 +22,7 @@ const BlogDetails: React.FC = () => {
             />
             <BlogDetailsBanner />
             <div className="ak-height-85 ak-height-lg-50"></div>
-            <BlogDetailsContent />
+            <BlogDetailsContent disableParallax={true} />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );
