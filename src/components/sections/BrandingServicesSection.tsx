@@ -16,8 +16,13 @@ const services = [
     { id: 5, title: "Brand Design", img: port1, hasSlash: false },
 ];
 
-const BrandingServicesSection: React.FC = () => {
+interface BrandingServicesSectionProps {
+    variant?: "default" | "marketing-agency";
+}
+
+const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ variant = "default" }) => {
     const sectionRef = useRef<HTMLElement>(null);
+    const isMarketingAgency = variant === "marketing-agency";
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -74,10 +79,10 @@ const BrandingServicesSection: React.FC = () => {
                 className="mini-section-title"
                 titleTag="h6"
                 leftAnimation="fade-animation"
-                leftDirection="left"
+                leftDirection={isMarketingAgency ? "right" : "left"}
                 leftDelay="0"
                 rightAnimation="fade-animation"
-                rightDirection="left"
+                rightDirection={isMarketingAgency ? "left" : "right"}
                 rightOffset="55"
                 rightDelay="0"
                 disableCaptionAnimation={true}

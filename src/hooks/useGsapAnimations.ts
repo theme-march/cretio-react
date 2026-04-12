@@ -353,14 +353,15 @@ const useGsapAnimations = () => {
                         trigger: title,
                         start: "top 85%",
                         toggleActions: "play none none none",
-                    },
-                    onComplete: () => {
-                        const newsletterWrapper = document.querySelectorAll(".newsletter-wapper");
-                        newsletterWrapper.forEach((wrapper) => {
-                            wrapper.classList.add("active");
-                        });
                     }
                 });
+
+                anim.call(() => {
+                    const newsletterWrapper = document.querySelectorAll(".newsletter-wapper");
+                    newsletterWrapper.forEach((wrapper) => {
+                        wrapper.classList.add("active");
+                    });
+                }, [], 0.1);
 
                 wordsTargets.forEach((wordElement, wordIndex) => {
                     const word = wordElement as HTMLElement;

@@ -23,7 +23,7 @@ const Home: React.FC = () => {
             <AboutSection />
             <ServicesSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <CoreFeaturesSection hideHeadingGap={true} />
+            <CoreFeaturesSection hideHeadingGap={true} cardDirection="left" />
             <PortfolioSection />
             <FunFactSection />
             <AwardsSection />
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             <TeamSection />
             <MarqueeTextSection variant="style2" />
             <BlogSection />
-            <NewsletterSection variant="style-3" />
+            <NewsletterSection variant="style-3" headingVariant="minimal-studio" />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

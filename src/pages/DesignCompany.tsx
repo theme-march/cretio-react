@@ -25,11 +25,12 @@ const DesignCompany: React.FC = () => {
             <DigitalMarketingServicesSection />
             <FunFactSection variant="type-2" />
             <AwardsSection variant="design-company" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <MarketingTestimonialSection variant="design-company" />
             <DesignCompanyPricingSection />
             <MarketingVideoSection videoSrc={markagVideo} />
-            <ClientLogoSection />
-            <NewsSection />
+            <ClientLogoSection direction="left"/>
+            <NewsSection headingVariant="minimal-studio" />
             <NewsletterSection />
             <MarqueeTextSection />
         </>

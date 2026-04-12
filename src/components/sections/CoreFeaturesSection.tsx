@@ -67,6 +67,7 @@ interface CoreFeaturesProps {
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
     cardAnimation?: string;
+    cardDirection?: string;
     titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
     titleSplitText?: string;
     sliderType?: "dots" | "navigation";
@@ -94,6 +95,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
     cardAnimation = "fade-animation",
+    cardDirection,
     titleAnimation = "text-animation",
     titleSplitText,
     sliderType = "dots",
@@ -211,6 +213,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                         } ${cardAnimation}`}
                                         style={fullWidth ? { maxWidth: "100%" } : undefined}
                                         data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
+                                        data-direction={cardDirection}
                                     >
                                         {variant === "style-2" && (
                                             <>
@@ -252,6 +255,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             <div
                                 className={`core-feature-card type-3 ${cardAnimation} theme-border-wrap`}
                                 data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
+                                data-direction={cardDirection}
                                 key={feature.id}
                             >
                                 <div className="b-top-left">
@@ -295,6 +299,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                 } ${cardAnimation}`}
                                 style={fullWidth ? { maxWidth: "100%" } : undefined}
                                 data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
+                                data-direction={cardDirection}
                                 key={feature.id}
                             >
                                 {variant === "style-2" && (

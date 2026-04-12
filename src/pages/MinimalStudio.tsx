@@ -44,9 +44,9 @@ const MinimalStudio: React.FC = () => {
                 captionDelay="0.35"
             />
             <MarketingTestimonialSection variant="style-2 type-2" />
-            <ClientLogoSection />
+            <ClientLogoSection direction="left" />
 
-            <NewsSection />
+            <NewsSection headingVariant="minimal-studio" />
             <MarketingContactSection variant="style-2" />
             <NewsletterSection 
                 variant="style-3"

@@ -20,7 +20,7 @@ const MarketingAgency: React.FC = () => {
         <>
             <MarketingHeroSection />
             <MarketingAboutSection variant="marketing-agency" />
-            <BrandingServicesSection />
+            <BrandingServicesSection variant="marketing-agency" />
             <FunFactSection />
             <PortfolioSliderSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -43,7 +43,7 @@ const MarketingAgency: React.FC = () => {
                 captionOffset="55"
             />
             <MarketingContactSection />
-            <ClientLogoSection />
+            <ClientLogoSection direction="left"/>
             <NewsletterSection />
             <MarqueeTextSection />
         </>

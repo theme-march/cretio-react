@@ -51,9 +51,9 @@ const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, varian
 
 const funFacts = [
     { id: "count1", number: 65, suffix: "K", label: "Project Completed" },
-    { id: "count2", number: 28, suffix: "K", label: "Happy Customers" },
+    { id: "count2", number: 8, suffix: "K", label: "Happy Customers" },
     { id: "count3", number: 32, suffix: "+", label: "Years of Experience" },
-    { id: "count4", number: 13, suffix: "+", label: "Award Achievement" },
+    { id: "count4", number: 13, suffix: "", label: "Award Achievement" },
 ];
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
@@ -62,14 +62,16 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
             // Cards Animation - Refined for smoothness (duration 1.8s)
-            gsap.fromTo(".funfact", 
-                { 
-                    opacity: 0, 
-                    scale: 0.5 
+            gsap.fromTo(".funfact",
+                {
+                    opacity: 0,
+                    scale: 0.5,
+                    y: 50
                 },
                 {
                     opacity: 1,
                     scale: 1,
+                    y: 0,
                     duration: 1.8,
                     stagger: 0.2, // Sequenced left-to-right
                     ease: "elastic.out(1, 0.5)",
@@ -85,7 +87,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
             const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
             countElements?.forEach((el) => {
                 const target = parseInt(el.textContent || "0", 10);
-                gsap.fromTo(el, 
+                gsap.fromTo(el,
                     { innerText: 0 },
                     {
                         innerText: target,

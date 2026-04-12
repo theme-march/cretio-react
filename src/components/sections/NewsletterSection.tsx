@@ -13,20 +13,32 @@ interface NewsletterSectionProps {
     titleDuration?: number;
     titleEase?: string;
     disableFormAnimation?: boolean;
+    headingVariant?: "default" | "minimal-studio";
 }
 
 const NewsletterSection: React.FC<NewsletterSectionProps> = ({ 
     variant = "style-1",
-    titleAnimation,
+    titleAnimation: propTitleAnimation,
     underlineReveal = false,
-    formDirection,
-    formDelay,
-    titleDirection,
+    formDirection: propFormDirection,
+    formDelay: propFormDelay,
+    titleDirection: propTitleDirection,
     titleSplitText,
-    titleDuration,
-    titleEase,
-    disableFormAnimation = false
+    titleDuration: propTitleDuration,
+    titleEase: propTitleEase,
+    disableFormAnimation = false,
+    headingVariant = "default"
 }) => {
+    const isMinimalStudio = headingVariant === "minimal-studio";
+    
+    // Set values based on headingVariant
+    const titleAnimation = propTitleAnimation || (isMinimalStudio ? "text-animation" : undefined);
+    const titleDirection = propTitleDirection || (isMinimalStudio ? "textLeft" : undefined);
+    const titleDuration = propTitleDuration || (isMinimalStudio ? 1.0 : undefined);
+    const titleEase = propTitleEase || (isMinimalStudio ? "back.out(1.7)" : undefined);
+    const formDirection = propFormDirection || (isMinimalStudio ? "right" : undefined);
+    const formDelay = propFormDelay || (isMinimalStudio ? "0.35" : undefined);
+
     const isStyle3 = variant === "style-3";
     const isStyle2 = variant === "style-2";
 
@@ -79,53 +91,51 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
     }
 
     const content = (
-        <div className={`ak-center ${isStyle2 ? "ms-xxl-3 " : ""}`}>
-            <section className="newsletter-wapper">
-                <div className="theme-border-wrap cta-form-border hover-animation">
-                    <div className="b-top-left">
-                        <div className="horizontal"></div>
-                        <div className="verticle"></div>
-                    </div>
-                    <div className="b-top-right d-flex">
-                        <div className="horizontal"></div>
-                        <div className="verticle"></div>
-                    </div>
-                    <div className="b-bottom-right d-flex flex-end">
-                        <div className="horizontal flex-end align-self-end"></div>
-                        <div className="verticle"></div>
-                    </div>
-                    <div className="b-bottom-left">
-                        <div className="verticle"></div>
-                        <div className="horizontal"></div>
-                    </div>
+        <section className={`ak-center newsletter-wapper ${isStyle2 ? "ms-xxl-3 " : ""}`}>
+            <div className="theme-border-wrap cta-form-border hover-animation">
+                <div className="b-top-left">
+                    <div className="horizontal"></div>
+                    <div className="verticle"></div>
+                </div>
+                <div className="b-top-right d-flex">
+                    <div className="horizontal"></div>
+                    <div className="verticle"></div>
+                </div>
+                <div className="b-bottom-right d-flex flex-end">
+                    <div className="horizontal flex-end align-self-end"></div>
+                    <div className="verticle"></div>
+                </div>
+                <div className="b-bottom-left">
+                    <div className="verticle"></div>
+                    <div className="horizontal"></div>
+                </div>
 
-                    <div className="container">
-                        <div className="newsletter-content">
-                            <div className="newsletter-anim title-anim">
-                                <h2 className="newsletter-title anim-line-words">
-                                    Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
-                                </h2>
-                            </div>
-                            <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
-                                <input
-                                    type="email"
-                                    className="newsletter-input"
-                                    placeholder="Enter your email..."
-                                    required
-                                />
-                                <button type="submit" className="newsletter-btn">
-                                    <span className="newbtn-text"> Newsletter </span>
-                                    <span className="primary-icon-anim">
-                                        <i className="flaticon-up-right-arrow"></i>
-                                        <i className="flaticon-up-right-arrow"></i>
-                                    </span>
-                                </button>
-                            </form>
+                <div className="container">
+                    <div className="newsletter-content">
+                        <div className="newsletter-anim title-anim">
+                            <h2 className="newsletter-title anim-line-words">
+                                Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
+                            </h2>
                         </div>
+                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                            <input
+                                type="email"
+                                className="newsletter-input"
+                                placeholder="Enter your email..."
+                                required
+                            />
+                            <button type="submit" className="newsletter-btn">
+                                <span className="newbtn-text"> Newsletter </span>
+                                <span className="primary-icon-anim">
+                                    <i className="flaticon-up-right-arrow"></i>
+                                    <i className="flaticon-up-right-arrow"></i>
+                                </span>
+                            </button>
+                        </form>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     );
 
     if (isStyle2) {
