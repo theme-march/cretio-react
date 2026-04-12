@@ -2,7 +2,9 @@ import SectionHeading from "@components/common/SectionHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import { Pagination, Navigation, Scrollbar } from "swiper/modules";
 
 export interface CoreFeature {
     id: string;
@@ -67,6 +69,8 @@ interface CoreFeaturesProps {
     cardAnimation?: string;
     titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
     titleSplitText?: string;
+    sliderType?: "dots" | "navigation";
+    fullWidth?: boolean;
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -92,6 +96,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     cardAnimation = "fade-animation",
     titleAnimation = "text-animation",
     titleSplitText,
+    sliderType = "dots",
+    fullWidth = false,
 }) => {
     return (
         <section
@@ -119,35 +125,83 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         disableCaptionAnimation={disableCaptionAnimation}
                     />
                 )}
-                {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}
-                {isSlider ? (
-                    <>
+            </div>
+            {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}
+            {isSlider ? (
+                <>
+                    {sliderType === "navigation" && (
+                        <>
+                            <div className={fullWidth ? "" : "container"}>
+                                <div className="core-features-swiper-controller">
+                                    <div className="core-features-scrollbar"></div>
+                                    <div className="core-features-navigation">
+                                        <div className="core-features-button-prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="10" viewBox="0 0 28 10" fill="none">
+                                                <path d="M0.716728 5.58228L6.17073 1.58728V5.24028L26.5947 5.58228L6.17073 5.92428V9.57728L0.716728 5.58228Z" fill="#353535" />
+                                            </svg>
+                                        </div>
+                                        <div className="core-features-button-next">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="10" viewBox="0 0 28 10" fill="none">
+                                                <path d="M27.1934 5.58228L21.7394 1.58728V5.24028L1.31543 5.58228L21.7394 5.92428V9.57728L27.1934 5.58228Z" fill="#353535" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="ak-height-75 ak-height-lg-50"></div>
+                        </>
+                    )}
+                    <div className={fullWidth ? "" : "container"}>
                         <Swiper
-                            className="core-features ak-slider slider-two"
-                            modules={[Pagination]}
+                            className={sliderType === "navigation" ? "core-features style2 ak-slider" : "core-features ak-slider slider-two"}
+                            modules={sliderType === "navigation" ? [Navigation, Scrollbar] : [Pagination]}
                             loop={true}
-                            pagination={{
-                                el: ".core-features-swiper-pagination",
-                                clickable: true,
-                                type: "custom",
-                                renderCustom: (swiper, _current, _total) => {
-                                    let dots = "";
-                                    const realCurrent = swiper.realIndex % 3;
-                                    for (let i = 0; i < 3; i++) {
-                                        dots += `<span class="swiper-pagination-bullet ${
-                                            i === realCurrent
-                                                ? "swiper-pagination-bullet-active"
-                                                : ""
-                                        }"></span>`;
-                                    }
-                                    return dots;
+                            {...(sliderType === "navigation" ? {
+                                navigation: {
+                                    nextEl: ".core-features-button-next",
+                                    prevEl: ".core-features-button-prev",
                                 },
-                            }}
-                            breakpoints={{
-                                320: { slidesPerView: 1 },
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3 },
-                            }}
+                                scrollbar: {
+                                    el: ".core-features-scrollbar",
+                                    draggable: true,
+                                }
+                            } : {
+                                pagination: {
+                                    el: ".core-features-swiper-pagination",
+                                    clickable: true,
+                                    type: "custom",
+                                    renderCustom: (swiper, _current, _total) => {
+                                        let dots = "";
+                                        const realCurrent = swiper.realIndex % 3;
+                                        for (let i = 0; i < 3; i++) {
+                                            dots += `<span class="swiper-pagination-bullet ${
+                                                i === realCurrent
+                                                    ? "swiper-pagination-bullet-active"
+                                                    : ""
+                                            }"></span>`;
+                                        }
+                                        return dots;
+                                    },
+                                }
+                            })}
+                            spaceBetween={30}
+                            breakpoints={
+                                sliderType === "navigation"
+                                    ? {
+                                          400: { slidesPerView: 1 },
+                                          580: { slidesPerView: 2 },
+                                          991: { slidesPerView: 3 },
+                                          1199: { slidesPerView: 3 },
+                                          1399: { slidesPerView: 4 },
+                                          1499: { slidesPerView: 5 },
+                                      }
+                                    : {
+                                          320: { slidesPerView: 1 },
+                                          580: { slidesPerView: 1 },
+                                          768: { slidesPerView: 2 },
+                                          1024: { slidesPerView: 3 },
+                                      }
+                            }
                         >
                             {[...features, ...features].map((feature, index) => (
                                 <SwiperSlide key={`${feature.id}-${index}`}>
@@ -155,6 +209,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                         className={`core-feature-card ${
                                             variant === "style-2" ? "type-1 style-2" : "type-2"
                                         } ${cardAnimation}`}
+                                        style={fullWidth ? { maxWidth: "100%" } : undefined}
                                         data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
                                     >
                                         {variant === "style-2" && (
@@ -187,9 +242,11 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                        <div className="core-features-swiper-pagination"></div>
-                    </>
-                ) : variant === "style-3" ? (
+                        {sliderType === "dots" && <div className="core-features-swiper-pagination"></div>}
+                    </div>
+                </>
+            ) : variant === "style-3" ? (
+                <div className="container">
                     <div className="core-features">
                         {features.map((feature, index) => (
                             <div
@@ -222,8 +279,13 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             </div>
                         ))}
                     </div>
-                ) : (
-                    <div className="core-features">
+                </div>
+            ) : (
+                <div className={fullWidth ? "" : "container"}>
+                    <div 
+                        className="core-features" 
+                        style={fullWidth ? { flexDirection: "column", gap: "30px" } : undefined}
+                    >
                         {features.map((feature, index) => (
                             <div
                                 className={`core-feature-card ${
@@ -231,6 +293,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                         ? `style-2 ${index % 2 === 0 ? "color-2" : "color-3"}`
                                         : ""
                                 } ${cardAnimation}`}
+                                style={fullWidth ? { maxWidth: "100%" } : undefined}
                                 data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
                                 key={feature.id}
                             >
@@ -263,8 +326,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             </div>
                         ))}
                     </div>
-                )}
-            </div>
+                </div>
+            )}
             {showBottomGap && <div className="ak-height-150 ak-height-lg-80"></div>}
         </section>
     );

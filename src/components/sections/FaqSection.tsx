@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
 import faqBg from "@assets/img/bg/faq-bg.png";
 
 const faqData = [
@@ -40,8 +41,36 @@ const faqData = [
     },
 ];
 
-const FaqSection: React.FC = () => {
+interface FaqSectionProps {
+    disableParallax?: boolean;
+}
+
+const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(1);
+    const accordionRef = useRef<HTMLDivElement>(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            const tabs = gsap.utils.toArray<HTMLElement>(".ak-accordion-tab");
+            tabs.forEach((tab, index) => {
+                const item = faqData[index];
+                if (activeIndex === item.id) {
+                    gsap.to(tab, {
+                        height: "auto",
+                        duration: 0.4,
+                        ease: "power2.out",
+                    });
+                } else {
+                    gsap.to(tab, {
+                        height: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                    });
+                }
+            });
+        }, accordionRef);
+        return () => ctx.revert();
+    }, [activeIndex]);
 
     const toggleAccordion = (id: number) => {
         setActiveIndex(activeIndex === id ? null : id);
@@ -52,11 +81,11 @@ const FaqSection: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="faq-wapper">
                 <div className="faq-img-content">
-                    <div className="image-hov-one ak-parallax">
+                    <div className={`image-hov-one ${disableParallax ? "" : "ak-parallax"}`}>
                         <img src={faqBg} alt="..." />
                     </div>
                 </div>
-                <div className="faq-accordion">
+                <div className="faq-accordion" ref={accordionRef}>
                     <div className="ak-accordion">
                         {faqData.map((item) => (
                             <div
@@ -84,9 +113,12 @@ const FaqSection: React.FC = () => {
                                         </svg>
                                     </span>
                                 </div>
-                                {activeIndex === item.id && (
-                                    <div className="ak-accordion-tab">{item.answer}</div>
-                                )}
+                                <div
+                                    className="ak-accordion-tab"
+                                    style={{ height: 0, overflow: "hidden", display: "block" }}
+                                >
+                                    {item.answer}
+                                </div>
                             </div>
                         ))}
                     </div>

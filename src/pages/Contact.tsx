@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='<span class="highlight-text">Get In Touch</span> With our Digital <span class="highlight-text">Professional Team</span>'
+                title='<span class="highlight-text">Get In Touch</span> With our <br class="d-none d-lg-block" /> Digital <span class="highlight-text">Professional Team</span>'
                 links={[{ label: "Home", path: "/" }, { label: "Contact Us", path: "/contact" }]}
                 variant="style-2"
                 showCircle={false}

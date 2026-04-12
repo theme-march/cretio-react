@@ -1,5 +1,4 @@
 import React from "react";
-import logoDark from "@assets/img/logo/dark-logo.svg";
 import logoWhite from "@assets/img/logo/white-logo.svg";
 import { Link } from "react-router-dom";
 import useGsapAnimations from "@hooks/useGsapAnimations";
@@ -30,9 +29,6 @@ const ComingSoon: React.FC = () => {
                         </div>
                         <div className="container">
                             <div className="brand-logo ak-center">
-                                <Link to="/" className="ak-site_branding dark-logo">
-                                    <img src={logoDark} alt="..." />
-                                </Link>
                                 <Link to="/" className="ak-site_branding white-logo">
                                     <img src={logoWhite} alt="..." />
                                 </Link>
@@ -44,7 +40,7 @@ const ComingSoon: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>03</span>
+                                                    <span>0</span>
                                                 </div>
                                                 <p className="funfact-text">Months</p>
                                             </div>
@@ -52,7 +48,7 @@ const ComingSoon: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>27</span>
+                                                    <span>0</span>
                                                 </div>
                                                 <p className="funfact-text">Days</p>
                                             </div>
@@ -60,7 +56,7 @@ const ComingSoon: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>23</span>
+                                                    <span>0</span>
                                                 </div>
                                                 <p className="funfact-text">Hours</p>
                                             </div>
@@ -68,7 +64,7 @@ const ComingSoon: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>56</span>
+                                                    <span>0</span>
                                                 </div>
                                                 <p className="funfact-text">Minutes</p>
                                             </div>

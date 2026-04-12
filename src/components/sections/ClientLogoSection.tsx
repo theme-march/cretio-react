@@ -20,9 +20,13 @@ const clients = [
 
 interface ClientLogoSectionProps {
     showTitle?: boolean;
+    direction?: "left" | "right" | "top" | "bottom";
 }
 
-const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({ showTitle = false }) => {
+const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
+    showTitle = false,
+    direction = "bottom",
+}) => {
     return (
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -45,7 +49,7 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({ showTitle = false
                                 className={`client-logo fade-animation`}
                                 data-offset="40"
                                 data-delay={client.delay}
-                                data-direction="bottom"
+                                data-direction={direction}
                                 data-duration="0.75"
                             >
                                 <img src={client.img} alt={client.title} />

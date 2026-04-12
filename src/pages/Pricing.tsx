@@ -31,11 +31,16 @@ const Pricing: React.FC = () => {
                 title='Our <span class="highlight">Exceptional</span> Digital Services <span class="highlight">Capabilities</span>'
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                 caption="Services"
+                titleDirection="textLeft"
+                titleDuration={1.2}
+                cardAnimation=""
+                fullWidth={true}
+                sliderType="navigation"
                 isSlider={true}
                 showTopGap={true}
                 features={coreFeaturesData}
             />
-            <ClientLogoSection showTitle={true} />
+            <ClientLogoSection showTitle={true} direction="left" />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

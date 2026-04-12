@@ -21,7 +21,7 @@ const Faq: React.FC = () => {
                 showCircle={false}
                 strokeTextClass="text-normal"
             />
-            <FaqSection />
+            <FaqSection disableParallax={true} />
             <NewsletterSection />
             <MarqueeTextSection variant="style2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
