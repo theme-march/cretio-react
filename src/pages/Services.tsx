@@ -40,6 +40,7 @@ const Services: React.FC = () => {
                 titleAnimation="text-animation"
                 titleDirection="textLeft"
                 titleDuration={1.2}
+                underlineReveal={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>

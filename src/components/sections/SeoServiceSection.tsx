@@ -24,15 +24,15 @@ const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ variant = "defaul
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                 caption="Services"
                 // SeoAgency variant: 3D rotationX flip animation on the title
-                titleAnimation={isSeoAgency ? "anim-title-2" : "text-animation"}
-                titleDirection={isSeoAgency ? "rotationX" : "textTop"}
-                titleSplitText={isSeoAgency ? "lines" : undefined}
+                titleAnimation={isSeoAgency ? "" : "text-animation"}
+                titleDirection={isSeoAgency ? "bottom" : "textTop"}
+                titleSplitText={undefined}
                 // Description: fade-animation with template delay
                 descriptionDirection={isSeoAgency ? "bottom" : "none"}
-                descriptionDelay={isSeoAgency ? "0.35" : "0.3"}
+                descriptionDelay={isSeoAgency ? "0.3" : "0.3"}
                 // Caption: fade-animation with template delay
-                captionDirection="right"
-                captionDelay={isSeoAgency ? "0.55" : "0.3"}
+                captionDirection={isSeoAgency ? "bottom" : "right"}
+                captionDelay={isSeoAgency ? "0.3" : "0.3"}
             />
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="seo-service-wapper">

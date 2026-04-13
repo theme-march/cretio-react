@@ -74,8 +74,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                     caption="Recent News"
                     variant="style-1"
                     titleAnimation={isSeoAgency ? "fade-animation" : "text-animation"}
-                    titleDirection={isSeoAgency ? "none" : ((isCreativePortfolio || isMinimalStudio) ? "textLeft" : "textTop")}
-                    titleDuration={(isCreativePortfolio || isMinimalStudio) ? 1.0 : 1.5}
+                    titleDirection={isSeoAgency ? "bottom" : ((isCreativePortfolio || isMinimalStudio) ? "textLeft" : "textTop")}
+                    titleDuration={(isDesignCompany || isCreativePortfolio) ? 1.5 : (isMinimalStudio ? 1.0 : 1.5)}
                     {...(isMinimalStudio && !isDesignCompany && {
                         descriptionDirection: "right",
                         descriptionDelay: "0.35",
@@ -93,18 +93,14 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                     {...(isMinimalStudio && !isDesignCompany && {
                         titleEase: "back.out(1.7)"
                     })}
-                    {...(isCreativePortfolio && {
-                        descriptionDirection: "right",
-                        descriptionDelay: "0.35",
-                        captionDirection: "right",
-                        captionDelay: "0.55",
-                        titleEase: "none"
-                    })}
+                    disableCaptionAnimation={isCreativePortfolio}
+                    disableDespAnimation={isCreativePortfolio}
                     {...(isSeoAgency && {
                         disableDespAnimation: false,
                         descriptionDirection: "bottom",
-                        descriptionDelay: "0.35",
-                        captionDelay: "0.55"
+                        captionDirection: "bottom",
+                        descriptionDelay: "0.3",
+                        captionDelay: "0.3"
                     })}
                 />
             </div>

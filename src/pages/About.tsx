@@ -47,14 +47,14 @@ const About: React.FC = () => {
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
                 cardAnimation=""
-                titleDirection="textRight"
+                titleDirection="textLeft"
             />
             <TeamSection 
-                titleDirection="textRight"
+                titleDirection="textLeft"
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
             />
-            <ClientLogoSection showTitle={true} />
+            <ClientLogoSection variant="about" />
             <NewsletterSection 
                 variant="style-3" 
                 titleAnimation="text-animation"

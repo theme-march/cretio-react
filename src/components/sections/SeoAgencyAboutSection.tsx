@@ -23,15 +23,7 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
 
         const ctx = gsap.context(() => {
             const circles = gsap.utils.toArray<HTMLElement>(".number-circle");
-            const countElements = Array.from(sectionRef.current?.querySelectorAll(".amin_auto_count") || []);
-
-            // Parse counter data upfront
-            const counterData = countElements.map((el) => {
-                const text = el.textContent || "";
-                const numericPart = parseFloat(text);
-                const suffix = text.replace(/[0-9.]/g, "");
-                return { el, numericPart, suffix };
-            });
+            const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
 
             // Single shared ScrollTrigger - Values reverted to template standards
             ScrollTrigger.create({
@@ -53,22 +45,18 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
                     }
 
                     // Counters start at the template-defined delay of 0.3s
-                    counterData.forEach(({ el, numericPart, suffix }) => {
-                        if (!isNaN(numericPart)) {
-                            gsap.fromTo(el,
-                                { innerText: 0 },
-                                {
-                                    innerText: numericPart,
-                                    duration: 3, // Template duration
-                                    delay: 0.3,  // Template delay
-                                    snap: { innerText: 1 },
-                                    ease: "power1.out",
-                                    onUpdate: function () {
-                                        el.textContent = Math.floor(Number(el.textContent)) + suffix;
-                                    }
-                                }
-                            );
-                        }
+                    countElements?.forEach((el) => {
+                        const target = parseInt(el.textContent || "0", 10);
+                        gsap.fromTo(el,
+                            { innerText: 0 },
+                            {
+                                innerText: target,
+                                duration: 3, // Template duration
+                                delay: 0.3,  // Template delay
+                                snap: { innerText: 1 },
+                                ease: "power1.out",
+                            }
+                        );
                     });
                 }
             });
@@ -94,7 +82,7 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
                     <div className="number-circle-content">
                         <div className="number-circle number-circle-top-left funfact style1">
                             <div className="img-clip-text ak-bg d-inline" style={{ backgroundImage: `url(${funfactBg})` }}>
-                                <span className="amin_auto_count">8k</span>
+                                <span className="amin_auto_count">8</span>k
                             </div>
                             <p className="achievement-text">Happy Customers</p>
                         </div>
