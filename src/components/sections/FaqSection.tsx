@@ -48,32 +48,67 @@ interface FaqSectionProps {
 const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(1);
     const accordionRef = useRef<HTMLDivElement>(null);
+    const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            const tabs = gsap.utils.toArray<HTMLElement>(".ak-accordion-tab");
-            tabs.forEach((tab, index) => {
+            // Initialize accordion states
+            tabRefs.current.forEach((tab, index) => {
+                if (!tab) return;
                 const item = faqData[index];
                 if (activeIndex === item.id) {
-                    gsap.to(tab, {
-                        height: "auto",
-                        duration: 0.4,
-                        ease: "power2.out",
-                    });
+                    gsap.set(tab, { height: "auto", opacity: 1, overflow: "hidden" });
                 } else {
-                    gsap.to(tab, {
-                        height: 0,
-                        duration: 0.4,
-                        ease: "power2.inOut",
-                    });
+                    gsap.set(tab, { height: 0, opacity: 0, overflow: "hidden" });
                 }
             });
         }, accordionRef);
         return () => ctx.revert();
-    }, [activeIndex]);
+    }, []);
 
     const toggleAccordion = (id: number) => {
-        setActiveIndex(activeIndex === id ? null : id);
+        const isClosing = id === activeIndex;
+
+        // Find the index in tabRefs for the current and new id
+        const currentIndex = faqData.findIndex((item) => item.id === activeIndex);
+        const nextIndex = faqData.findIndex((item) => item.id === id);
+
+        // Close currently open panel
+        if (activeIndex !== null && tabRefs.current[currentIndex]) {
+            const closingTab = tabRefs.current[currentIndex];
+            gsap.killTweensOf(closingTab);
+            const renderedHeight = closingTab.offsetHeight;
+            gsap.fromTo(closingTab,
+                { height: renderedHeight, opacity: 1 },
+                {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.35,
+                    ease: "power2.inOut",
+                }
+            );
+        }
+
+        if (isClosing) {
+            setActiveIndex(null);
+            return;
+        }
+
+        // Open new panel
+        setActiveIndex(id);
+        const newTab = tabRefs.current[nextIndex];
+        if (newTab) {
+            gsap.killTweensOf(newTab);
+            gsap.fromTo(newTab,
+                { height: 0, opacity: 0 },
+                {
+                    height: "auto",
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: "power2.out",
+                }
+            );
+        }
     };
 
     return (
@@ -87,7 +122,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
                 </div>
                 <div className="faq-accordion" ref={accordionRef}>
                     <div className="ak-accordion">
-                        {faqData.map((item) => (
+                        {faqData.map((item, index) => (
                             <div
                                 key={item.id}
                                 className={`ak-accordion-item ${activeIndex === item.id ? "active" : ""}`}
@@ -114,10 +149,12 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
                                     </span>
                                 </div>
                                 <div
-                                    className="ak-accordion-tab"
-                                    style={{ height: 0, overflow: "hidden", display: "block" }}
+                                    ref={(el) => { tabRefs.current[index] = el; }}
+                                    style={{ overflow: "hidden" }}
                                 >
-                                    {item.answer}
+                                    <div className="ak-accordion-tab" style={{ display: "block" }}>
+                                        {item.answer}
+                                    </div>
                                 </div>
                             </div>
                         ))}
