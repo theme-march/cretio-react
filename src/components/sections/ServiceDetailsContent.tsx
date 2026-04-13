@@ -32,6 +32,7 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
 }) => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
     const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     const accordionData = [
         { title: "1. What platforms do you develop mobile apps for?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
@@ -71,6 +72,13 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                     ease: "power2.inOut",
                 }
             );
+
+            // Animate title sliding down
+            const closingTitle = titleRefs.current[activeAccordion];
+            if (closingTitle) {
+                gsap.killTweensOf(closingTitle);
+                gsap.to(closingTitle, { y: 8, duration: 0.35, ease: "power2.inOut" });
+            }
         }
 
         if (isClosing) {
@@ -92,6 +100,13 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                     ease: "power2.out",
                 }
             );
+        }
+
+        // Animate title sliding up
+        const openingTitle = titleRefs.current[index];
+        if (openingTitle) {
+            gsap.killTweensOf(openingTitle);
+            gsap.fromTo(openingTitle, { y: 8 }, { y: 0, duration: 0.4, ease: "power2.out" });
         }
     };
 
@@ -158,7 +173,7 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
-                        <div className="row align-items-center">
+                        <div className="row align-items-start">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
                                 <div className={`image-hov-one ${enableZoomInAnimation ? "ak-hover-zoom-pronounced" : "ak-parallax"}`}>
                                     <img src={accordionImg} className="img-fluid" alt="..." />
@@ -170,6 +185,7 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                                         <div className="ak-accordion-item" key={index}>
                                             <div
                                                 className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
+                                                ref={(el) => { titleRefs.current[index] = el; }}
                                                 onClick={() => handleAccordionClick(index)}
                                                 style={{ cursor: "pointer" }}
                                             >
