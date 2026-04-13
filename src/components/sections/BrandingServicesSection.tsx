@@ -17,12 +17,13 @@ const services = [
 ];
 
 interface BrandingServicesSectionProps {
-    variant?: "default" | "marketing-agency";
+    variant?: "default" | "marketing-agency" | "design-company";
 }
 
 const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ variant = "default" }) => {
     const sectionRef = useRef<HTMLElement>(null);
     const isMarketingAgency = variant === "marketing-agency";
+    const isDesignCompany = variant === "design-company";
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -82,7 +83,7 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ varia
                 leftDirection={isMarketingAgency ? "right" : "left"}
                 leftDelay="0"
                 rightAnimation="fade-animation"
-                rightDirection={isMarketingAgency ? "left" : "right"}
+                rightDirection={isDesignCompany ? "left" : (isMarketingAgency ? "left" : "right")}
                 rightOffset="55"
                 rightDelay="0"
                 disableCaptionAnimation={true}

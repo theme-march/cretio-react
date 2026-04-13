@@ -21,7 +21,7 @@ const DesignCompany: React.FC = () => {
         <>
             <DesignCompanyHeroSection />
             <MarketingAboutSection variant="design-company" />
-            <BrandingServicesSection />
+            <BrandingServicesSection variant="design-company" />
             <DigitalMarketingServicesSection />
             <FunFactSection variant="type-2" />
             <AwardsSection variant="design-company" />
@@ -30,7 +30,7 @@ const DesignCompany: React.FC = () => {
             <DesignCompanyPricingSection />
             <MarketingVideoSection videoSrc={markagVideo} />
             <ClientLogoSection direction="left"/>
-            <NewsSection headingVariant="minimal-studio" />
+            <NewsSection headingVariant="design-company" />
             <NewsletterSection />
             <MarqueeTextSection />
         </>

@@ -51,13 +51,14 @@ const newsItems = [
 
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
-    headingVariant?: "default" | "creative-portfolio" | "seo-agency" | "minimal-studio";
+    headingVariant?: "default" | "creative-portfolio" | "seo-agency" | "minimal-studio" | "design-company";
 }
 
 const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingVariant = "default" }) => {
     const isStyle2 = variant === "style-2";
     const isSeoAgency = headingVariant === "seo-agency";
-    const isMinimalStudio = headingVariant === "minimal-studio";
+    const isDesignCompany = headingVariant === "design-company";
+    const isMinimalStudio = headingVariant === "minimal-studio" || isDesignCompany;
     const isCreativePortfolio = headingVariant === "creative-portfolio";
     
     const prefix = isStyle2 ? "news-blog" : "news-logs";
@@ -75,30 +76,35 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                     titleAnimation={isSeoAgency ? "fade-animation" : "text-animation"}
                     titleDirection={isSeoAgency ? "none" : ((isCreativePortfolio || isMinimalStudio) ? "textLeft" : "textTop")}
                     titleDuration={(isCreativePortfolio || isMinimalStudio) ? 1.0 : 1.5}
-                    {...(isMinimalStudio && { titleEase: "back.out(1.7)" })}
+                    {...(isMinimalStudio && !isDesignCompany && {
+                        descriptionDirection: "right",
+                        descriptionDelay: "0.35",
+                        captionDirection: "right",
+                        captionDelay: "0.55",
+                    })}
+                    {...(((!isSeoAgency && !isCreativePortfolio && !isMinimalStudio) || isDesignCompany) && {
+                        rightAnimation: "fade-animation",
+                        rightDirection: isDesignCompany ? "left" : "bottom",
+                        rightDelay: isDesignCompany ? "0.35" : "0.3",
+                        captionDelay: isDesignCompany ? "0.35" : "0.3",
+                        disableDespAnimation: isDesignCompany,
+                        disableCaptionAnimation: isDesignCompany,
+                    })}
+                    {...(isMinimalStudio && !isDesignCompany && {
+                        titleEase: "back.out(1.7)"
+                    })}
                     {...(isCreativePortfolio && {
                         descriptionDirection: "right",
                         descriptionDelay: "0.35",
                         captionDirection: "right",
                         captionDelay: "0.55",
+                        titleEase: "none"
                     })}
                     {...(isSeoAgency && {
                         disableDespAnimation: false,
                         descriptionDirection: "bottom",
                         descriptionDelay: "0.35",
                         captionDelay: "0.55"
-                    })}
-                    {...(!isSeoAgency && !isCreativePortfolio && !isMinimalStudio && {
-                        rightAnimation: "fade-animation",
-                        rightDirection: "bottom",
-                        rightDelay: "0.3",
-                        captionDelay: "0.3"
-                    })}
-                    {...(isMinimalStudio && {
-                        descriptionDirection: "right",
-                        descriptionDelay: "0.35",
-                        captionDirection: "right",
-                        captionDelay: "0.55",
                     })}
                 />
             </div>
@@ -184,11 +190,21 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                                         </>
                                     ) : (
                                         <>
-                                            <div className="news-img-content">
-                                                <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
-                                                    <img src={item.image} alt={item.title} />
+                                            {isDesignCompany ? (
+                                                // No 'news-img-content' class → hover CSS selector won't match.
+                                                // Inline styles replicate its layout so the parallax clipping container is preserved.
+                                                <div style={{ position: "relative", overflow: "hidden", maxHeight: "350px", width: "100%" }}>
+                                                    <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
+                                                        <img src={item.image} alt={item.title} />
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            ) : (
+                                                <div className="news-img-content">
+                                                    <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
+                                                        <img src={item.image} alt={item.title} />
+                                                    </div>
+                                                </div>
+                                            )}
                                             <div className={`news-body ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
                                                 {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}
                                             >
