@@ -6,6 +6,7 @@ import pdImg2 from "@assets/img/portfolio/portfolio-details-2.png";
 const PortfolioDetailsContent: React.FC = () => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
     const sectionRef = useRef<HTMLDivElement>(null);
+    const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -30,10 +31,61 @@ const PortfolioDetailsContent: React.FC = () => {
                     });
                 }
             });
+
+            // Initialize accordion states
+            tabRefs.current.forEach((tab, index) => {
+                if (!tab) return;
+                if (index === 0) {
+                    gsap.set(tab, { height: "auto", opacity: 1, overflow: "hidden" });
+                } else {
+                    gsap.set(tab, { height: 0, opacity: 0, overflow: "hidden" });
+                }
+            });
         }, sectionRef);
 
         return () => ctx.revert();
     }, []);
+
+    const handleAccordionClick = (index: number) => {
+        const isClosing = index === activeAccordion;
+
+        // Close currently open panel
+        if (activeAccordion !== null && tabRefs.current[activeAccordion]) {
+            const closingTab = tabRefs.current[activeAccordion];
+            gsap.killTweensOf(closingTab);
+            const renderedHeight = closingTab.offsetHeight;
+            gsap.fromTo(closingTab,
+                { height: renderedHeight, opacity: 1 },
+                {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.35,
+                    ease: "power2.inOut",
+                }
+            );
+        }
+
+        if (isClosing) {
+            setActiveAccordion(null);
+            return;
+        }
+
+        // Open new panel
+        setActiveAccordion(index);
+        const newTab = tabRefs.current[index];
+        if (newTab) {
+            gsap.killTweensOf(newTab);
+            gsap.fromTo(newTab,
+                { height: 0, opacity: 0 },
+                {
+                    height: "auto",
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: "power2.out",
+                }
+            );
+        }
+    };
 
     const accordionData = [
         { title: "1. What platforms do you develop mobile apps for?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
@@ -45,7 +97,7 @@ const PortfolioDetailsContent: React.FC = () => {
     ];
 
     return (
-        <div className="container portfolio-details-container">
+        <div className="container portfolio-details-container" ref={sectionRef}>
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="portfolio-details-box">
                 <h3 className="pd-title mb-2">Android App Development</h3>
@@ -87,7 +139,7 @@ const PortfolioDetailsContent: React.FC = () => {
                             <div className="ak-accordion-item" key={index}>
                                 <div
                                     className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
-                                    onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
+                                    onClick={() => handleAccordionClick(index)}
                                     style={{ cursor: "pointer" }}
                                 >
                                     <h6 className="ak-accordion-title">{item.title}</h6>
@@ -97,8 +149,13 @@ const PortfolioDetailsContent: React.FC = () => {
                                         </svg>
                                     </span>
                                 </div>
-                                <div className="ak-accordion-tab" style={{ display: activeAccordion === index ? "block" : "none" }}>
-                                    {item.content}
+                                <div
+                                    ref={(el) => { tabRefs.current[index] = el; }}
+                                    style={{ overflow: "hidden" }}
+                                >
+                                    <div className="ak-accordion-tab" style={{ display: "block" }}>
+                                        {item.content}
+                                    </div>
                                 </div>
                             </div>
                         ))}
