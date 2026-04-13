@@ -34,6 +34,7 @@ const ServiceDetails: React.FC = () => {
                 titleDirection="textLeft"
                 titleDuration={1.2}
                 disableDescriptionAnimation={true}
+                disableCaptionAnimation={true}
                 cardDuration={2.2}
                 cardStagger={0.3}
             />
@@ -45,6 +46,7 @@ const ServiceDetails: React.FC = () => {
                 titleAnimation="text-animation"
                 titleDirection="textLeft"
                 titleDuration={1.2}
+                underlineReveal={true}
                 disableFormAnimation={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>

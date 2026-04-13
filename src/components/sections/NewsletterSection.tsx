@@ -53,7 +53,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <section className={`container ${underlineReveal ? "newsletter-wapper" : ""}`}>
                     <div className="newsletter-content style-2">
-                        <div className={`newsletter-title-content ${titleAnimation ? "" : "title-anim"}`}>
+                        <div className={`newsletter-title-content newsletter-anim ${titleAnimation ? "" : "title-anim"}`}>
                             <h2 
                                 className={`newsletter-title ${titleAnimation || "anim-line-words"}`}
                                 {...(titleAnimation && titleDirection ? { "data-direction": titleDirection } : {})}

@@ -116,9 +116,11 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {caption && (
                         <div
                             className={`ak-section-caption ${!disableCaptionAnimation ? "fade-animation" : ""}`}
-                            data-direction={captionDirection}
-                            data-delay={captionDelay}
-                            {...(captionOffset && { "data-offset": captionOffset })}
+                            {...(!disableCaptionAnimation ? {
+                                "data-direction": captionDirection,
+                                "data-delay": captionDelay,
+                                ...(captionOffset && { "data-offset": captionOffset })
+                            } : {})}
                         >
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="223" height="12" viewBox="0 0 223 12" fill="none">
