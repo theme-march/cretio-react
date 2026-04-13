@@ -41,9 +41,10 @@ const blogPosts = [
 interface BlogSectionProps {
     showHeading?: boolean;
     showLoadMore?: boolean;
+    disableAnimation?: boolean;
 }
 
-const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadMore = false }) => {
+const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadMore = false, disableAnimation = false }) => {
     return (
         <section>
             {showHeading && (
@@ -59,7 +60,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadM
                 </div>
             )}
             <div className="container">
-                <div className="blogs-content fade-animation">
+                <div className={`blogs-content ${disableAnimation ? "" : "fade-animation"}`}>
                     {blogPosts.map((post, index) => (
                         <Link to="/blog/blog-details" className="blog-card" key={index}>
                             <div className="blog-image">

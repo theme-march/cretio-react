@@ -16,7 +16,7 @@ const Blog: React.FC = () => {
                 strokeTextClass="text-normal"
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <BlogSection showHeading={false} showLoadMore={true} />
+            <BlogSection showHeading={false} showLoadMore={true} disableAnimation={true} />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </>
     );

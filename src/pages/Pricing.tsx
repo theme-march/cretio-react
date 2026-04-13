@@ -38,6 +38,8 @@ const Pricing: React.FC = () => {
                 sliderType="navigation"
                 isSlider={true}
                 showTopGap={true}
+                disableCaptionAnimation={true}
+                disableDescriptionAnimation={true}
                 features={coreFeaturesData}
             />
             <ClientLogoSection showTitle={true} direction="left" />
