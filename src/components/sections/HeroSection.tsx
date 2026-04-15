@@ -115,8 +115,8 @@ const HeroSection: React.FC = () => {
                 <div className="hero-left-column">
                     <div className="title-box">
                         <h2 className="title ak-mask-text">
-                            <span className="digital d-block">Shohaib</span>
-                            <span className="agency d-block">Islam</span>
+                            <span className="digital d-block">Digital</span>
+                            <span className="agency d-block">Agency</span>
                         </h2>
                     </div>
                     <div className="cta-box">
