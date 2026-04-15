@@ -162,6 +162,21 @@
 
 .portfolio-details-container {
   max-width: 930px;
+  .pd-desp-mobile-fix {
+    @media screen and (max-width: 991px) {
+      margin-top: -32px;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+  .pd-img-parallax {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 .portfolio-main-img {
   position: relative;

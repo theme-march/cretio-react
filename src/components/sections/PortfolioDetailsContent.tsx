@@ -10,25 +10,34 @@ const PortfolioDetailsContent: React.FC = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            const imageScrollElements = gsap.utils.toArray<HTMLElement>(".image-scroll");
-            imageScrollElements.forEach((element) => {
+            // Handle parallax exclusively for pd-img containers.
+            // These divs intentionally do NOT carry image-scroll or ak-parallax classes
+            // to prevent the global useGsapAnimations hook from picking them up
+            // and creating competing animations.
+            const pdParallaxElements = gsap.utils.toArray<HTMLElement>(".pd-img-parallax");
+            pdParallaxElements.forEach((element) => {
                 const dataHeight = element.getAttribute("data-height");
                 if (dataHeight) {
                     element.style.height = `${dataHeight}px`;
                 }
+                gsap.set(element, { overflow: "hidden" });
 
                 const img = element.querySelector("img");
                 if (img) {
-                    gsap.to(img, {
-                        y: () => -(img.offsetHeight - element.offsetHeight),
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: element,
-                            start: "top center",
-                            end: "bottom center",
-                            scrub: true,
-                        },
-                    });
+                    gsap.fromTo(
+                        img,
+                        { yPercent: -20 },
+                        {
+                            yPercent: 20,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: element,
+                                start: "top bottom",
+                                end: "bottom top",
+                                scrub: 1,
+                            },
+                        }
+                    );
                 }
             });
 
@@ -114,7 +123,7 @@ const PortfolioDetailsContent: React.FC = () => {
                     and the like) web page editors now.
                 </p>
 
-                <div className="pd-img image-scroll ak-parallax" data-height="350">
+                <div className="pd-img pd-img-parallax" data-height="350">
                     <img src={pdImg1} alt="..." />
                 </div>
                 <div>
@@ -161,7 +170,7 @@ const PortfolioDetailsContent: React.FC = () => {
                         ))}
                     </div>
                 </div>
-                <p className="pd-desp">
+                <p className="pd-desp pd-desp-mobile-fix">
                     it is a long established fact that a reader will be distracted by the
                     readable content of a page when looking at its layout. The point of
                     using Lorem Ipsum is that it has a more-or-less normal distribution of
@@ -169,7 +178,7 @@ const PortfolioDetailsContent: React.FC = () => {
                     look like readable web page editors nowEnglish. Many desktop
                     publishing packages and web page editors now use.
                 </p>
-                <div className="pd-img image-scroll ak-parallax" data-height="400">
+                <div className="pd-img pd-img-parallax" data-height="400">
                     <img src={pdImg2} alt="..." />
                 </div>
                 <p className="pd-desp">
