@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import SectionHeading from "@components/common/SectionHeading";
 import seoServiceImg from "@assets/img/services/seo-service.png";
 
-const services = [
-    { id: 1, title: "Keyword Research & Strategy" },
-    { id: 2, title: "On-Page SEO Optimization" },
-    { id: 3, title: "Content Creation Optimization" },
-    { id: 4, title: "Keyword Research & Strategy" },
-];
+import servicesData from "../../dataJson/servicesData.json";
+
+const services = servicesData.seoServices;
 
 interface SeoServiceSectionProps {
     variant?: "seo-agency" | "default";

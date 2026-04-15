@@ -6,48 +6,10 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import SectionHeading from "@components/common/SectionHeading";
 
-import news1 from "@assets/img/news/news-1.png";
-import news2 from "@assets/img/news/news-2.png";
-import news3 from "@assets/img/news/news-3.png";
+import blogsData from "../../dataJson/blogsData.json";
+import { getImagePath } from "../../utils/imageLoader";
 
-const newsItems = [
-    {
-        id: 1,
-        image: news1,
-        title: "Partnering for Success Choosing the Right Master Digital Agency.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-        id: 2,
-        image: news2,
-        title: "Digital Mastery How Digital Agencies Turn Ideas into Digital World Reality.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-        id: 3,
-        image: news3,
-        title: "The Art of Digital Agency Strategies for Growth of Client Business.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-        id: 4,
-        image: news1,
-        title: "Partnering for Success Choosing the Right Master Digital Agency.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-        id: 5,
-        image: news2,
-        title: "Digital Mastery How Digital Agencies Turn Ideas into Digital World Reality.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-    {
-        id: 6,
-        image: news3,
-        title: "The Art of Digital Agency Strategies for Growth of Client Business.",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    },
-];
+const newsItems = blogsData.slice(0, 6);
 
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
@@ -159,12 +121,12 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                     }}
                     className={`mt-4 ak-slider ${sliderClass}`}
                 >
-                        {newsItems.map((item) => (
+                        {newsItems.map((item: any) => (
                             <SwiperSlide key={item.id} className="p-0">
                                 <Link to="/blog/blog-details" className={isStyle2 ? "news-blog-card" : "news-card"}>
                                     {isStyle2 ? (
                                         <>
-                                                <img src={item.image} alt={item.title} className="news-blog-bg-img" />
+                                                <img src={getImagePath(item.image)} alt={item.title} className="news-blog-bg-img" />
                                             <div className="overlay"></div>
                                             <h6 className={`news-blog-title ${headingVariant === "creative-portfolio" ? "" : "team-name-parallax"}`} 
                                                 {...(headingVariant !== "creative-portfolio" && { "data-parallax-y-start": "20", "data-parallax-y-end": "-50" })}
@@ -187,17 +149,13 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
                                     ) : (
                                         <>
                                             {isDesignCompany ? (
-                                                // No 'news-img-content' class → hover CSS selector won't match.
-                                                // Inline styles replicate its layout so the parallax clipping container is preserved.
-                                                <div style={{ position: "relative", overflow: "hidden", maxHeight: "350px", width: "100%" }}>
-                                                    <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
-                                                        <img src={item.image} alt={item.title} />
-                                                    </div>
+                                                <div className="news-img-top" style={{ overflow: "hidden" }}>
+                                                    <img src={getImagePath(item.image)} alt={item.title} />
                                                 </div>
                                             ) : (
                                                 <div className="news-img-content">
                                                     <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
-                                                        <img src={item.image} alt={item.title} />
+                                                        <img src={getImagePath(item.image)} alt={item.title} />
                                                     </div>
                                                 </div>
                                             )}

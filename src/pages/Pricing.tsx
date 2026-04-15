@@ -2,9 +2,8 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PricingSection from "@components/sections/PricingSection";
 import GoalSection from "@components/sections/GoalSection";
-import CoreFeaturesSection, {
-    coreFeaturesData,
-} from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import coreFeaturesData from "@/dataJson/coreFeaturesData.json";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 

@@ -1,0 +1,59 @@
+{
+  "sectionInfo": {
+    "title": "Our <span class=\"highlight\">Exceptional</span> Digital Transformation <span class=\"highlight\">Services</span>",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing .",
+    "caption": "Services",
+    "btnText": "Learn More"
+  },
+  "mainServices": [
+    {
+      "id": "01",
+      "title": "UI/UX Design",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "image": "src/assets/img/services/services-hover-1.png",
+      "features": ["Brand Research", "Competitor Analysis", "Design Structure"]
+    },
+    {
+      "id": "02",
+      "title": "Web Design",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "image": "src/assets/img/services/services-hover-2.png",
+      "features": ["Brand Research", "Design Analysis", "Design Structure"]
+    },
+    {
+      "id": "03",
+      "title": "Web Development",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "image": "src/assets/img/services/services-hover-3.png",
+      "features": ["Brand Research", "Competitor Analysis", "Modern Code Structure"]
+    },
+    {
+      "id": "04",
+      "title": "App Development",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "image": "src/assets/img/services/services-hover-4.png",
+      "features": ["Brand Research", "Competitor Analysis", "Modern Code Structure"]
+    }
+  ],
+  "seoServices": [
+    { "id": 1, "title": "Keyword Research & Strategy" },
+    { "id": 2, "title": "On-Page SEO Optimization" },
+    { "id": 3, "title": "Content Creation Optimization" },
+    { "id": 4, "title": "Keyword Research & Strategy" }
+  ],
+  "brandingServices": [
+    { "id": 1, "title": "Branding", "img": "src/assets/img/project/markag-project-1.png", "hasSlash": true },
+    { "id": 2, "title": "Brand Strategy", "img": "src/assets/img/project/markag-project-2.png", "hasSlash": true },
+    { "id": 3, "title": "Brand Development", "img": "src/assets/img/project/markag-project-3.png", "hasSlash": true },
+    { "id": 4, "title": "Social Media Strategy", "img": "src/assets/img/project/markag-project-4.png", "hasSlash": true },
+    { "id": 5, "title": "Brand Design", "img": "src/assets/img/project/markag-project-1.png", "hasSlash": false }
+  ],
+  "digitalMarketingServices": [
+    { "id": 1, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-1.png", "widthClass": "width-1" },
+    { "id": 2, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-2.png", "widthClass": "width-2" },
+    { "id": 3, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-3.png", "widthClass": "width-1" },
+    { "id": 4, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-4.png", "widthClass": "width-2" },
+    { "id": 5, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-5.png", "widthClass": "width-1" },
+    { "id": 6, "title": "Exceptional Android App Development", "category": "Design", "img": "src/assets/img/services/dc-services-6.png", "widthClass": "width-1" }
+  ]
+}

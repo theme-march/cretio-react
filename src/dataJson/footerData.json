@@ -1,0 +1,44 @@
+{
+  "logos": {
+    "dark": "src/assets/img/logo/dark-logo.svg",
+    "white": "src/assets/img/logo/white-logo.svg",
+    "footer": "src/assets/img/logo/footer-logo.svg"
+  },
+  "cta": {
+    "title": "Let’s",
+    "titleTwo": "<span>work</span> Together",
+    "btnText": "Start Project",
+    "btnLink": "/contact",
+    "emailTitle": "Say hello!",
+    "email": "info@email.com"
+  },
+  "company": {
+    "description": "We thrive on creativity and <span>innovation</span>. Our team is constantly exploring new ideas and approaches to ensure your <span> digital presence </span> is fresh."
+  },
+  "contact": {
+    "phone": "(406) 555-012",
+    "phoneLink": "tel:(406)555-0120",
+    "address": "901 N Pitt Str., Suite 170 Alexandria, USA"
+  },
+  "menu": [
+    { "title": "Home", "href": "/" },
+    { "title": "About", "href": "/about" },
+    { "title": "Services", "href": "/services" },
+    { "title": "Portfolio", "href": "/portfolio" },
+    { "title": "Contact Us", "href": "/contact" }
+  ],
+  "socials": [
+    { "icon": "flaticon-facebook", "link": "#" },
+    { "icon": "flaticon-video", "link": "#" },
+    { "icon": "flaticon-linkedin", "link": "#" }
+  ],
+  "gallery": [
+    "src/assets/img/gallery/mini-gallery-1.png",
+    "src/assets/img/gallery/mini-gallery-2.png",
+    "src/assets/img/gallery/mini-gallery-3.png",
+    "src/assets/img/gallery/mini-gallery-4.png",
+    "src/assets/img/gallery/mini-gallery-5.png",
+    "src/assets/img/gallery/mini-gallery-6.png"
+  ],
+  "copyright": "© 2025 <span>Thememarch.</span> All rights reserved."
+}

@@ -11,33 +11,44 @@ const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "styl
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            gsap.to(".text-color-one", {
-                xPercent: -20,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1,
-                },
-            });
-            gsap.to(".text-color-two", {
-                xPercent: 20,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1,
-                },
-            });
-            gsap.to(".text-color-three", {
-                xPercent: -20,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1,
-                },
-            });
+            const elOne = sectionRef.current?.querySelector(".text-color-one");
+            if (elOne) {
+                gsap.to(elOne, {
+                    xPercent: -20,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1,
+                    },
+                });
+            }
+
+            const elTwo = sectionRef.current?.querySelector(".text-color-two");
+            if (elTwo) {
+                gsap.to(elTwo, {
+                    xPercent: 20,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1,
+                    },
+                });
+            }
+
+            const elThree = sectionRef.current?.querySelector(".text-color-three");
+            if (elThree) {
+                gsap.to(elThree, {
+                    xPercent: -20,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1,
+                    },
+                });
+            }
         }, sectionRef);
 
         return () => ctx.revert();

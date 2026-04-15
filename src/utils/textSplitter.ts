@@ -72,7 +72,12 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
         }
     }
 
-    if (!element.classList.contains("is-split")) {
+    const hasSplitChars = element.querySelector(".split-char") !== null;
+    const hasSplitWords = element.querySelector(".split-word") !== null;
+
+    if (!element.classList.contains("is-split") || (!hasSplitChars && !hasSplitWords)) {
+        // Clear any half-baked indicators if we are re-splitting
+        element.classList.remove("is-split");
         Array.from(element.childNodes).forEach(processNode);
         element.classList.add("is-split");
     } else {

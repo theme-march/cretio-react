@@ -5,17 +5,10 @@ import { Navigation } from "swiper/modules";
 import { gsap } from "gsap";
 import "swiper/css";
 
-import port1 from "@assets/img/project/markag-project-1.png";
-import port2 from "@assets/img/project/markag-project-2.png";
-import port3 from "@assets/img/project/markag-project-3.png";
+import projectsData from "@/dataJson/projectsData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-const portfolioItems = [
-    { id: 1, title: "Product Launch Campaign", img: port1, category: "Digital Marketing" },
-    { id: 2, title: "Influencer Marketing for TechGear", img: port2, category: "Marketing Strategy" },
-    { id: 3, title: "Social Media Campaign", img: port3, category: "Content Creation" },
-    { id: 4, title: "SEO Optimization for HealthPlus", img: port1, category: "SEO Agency" },
-    { id: 5, title: "Brand Identity for GreenEnergy", img: port2, category: "Design Company" },
-];
+const portfolioItems = projectsData.sliderProjects;
  
 const PortfolioSliderSection: React.FC = () => {
     const swiperContainerRef = useRef<HTMLDivElement>(null);
@@ -118,7 +111,7 @@ const PortfolioSliderSection: React.FC = () => {
                                 className="team-card border-0" 
                             >
                                 <div className="team-img-top ak-parallax" style={{ maxHeight: "450px", overflow: "hidden" }}>
-                                    <img src={item.img} alt={item.title} className="w-100" />
+                                    <img src={getImagePath(item.image)} alt={item.title} className="w-100" />
                                 </div>
                                 <div
                                     className="team-body"

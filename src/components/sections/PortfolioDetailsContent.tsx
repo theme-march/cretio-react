@@ -1,7 +1,9 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import pdImg1 from "@assets/img/portfolio/portfolio-details-1.png";
-import pdImg2 from "@assets/img/portfolio/portfolio-details-2.png";
+import detailsData from "@/dataJson/detailsContentData.json";
+import { getImagePath } from "@/utils/imageLoader";
+
+const accordionData = detailsData.portfolioDetails.accordion;
 
 const PortfolioDetailsContent: React.FC = () => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
@@ -96,43 +98,25 @@ const PortfolioDetailsContent: React.FC = () => {
         }
     };
 
-    const accordionData = [
-        { title: "1. What platforms do you develop mobile apps for?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "2. What is the process for developing a mobile app?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "3. What platforms do you use for web development?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "4. How long does it take to build a website?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "5. How can digital marketing help my business?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "6. What digital marketing services do you offer?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-    ];
 
     return (
         <div className="container portfolio-details-container" ref={sectionRef}>
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="portfolio-details-box">
-                <h3 className="pd-title mb-2">Android App Development</h3>
+                <h3 className="pd-title mb-2">{detailsData.portfolioDetails.title}</h3>
                 <p className="pd-desp">
-                    It is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here.
+                    {detailsData.portfolioDetails.description1}
                 </p>
                 <p className="pd-desp">
-                    Making it look like readable web 'lorem ipsum' will uncover many web
-                    sites still in their infancy. Various versions have evolved over the
-                    years, sometimes by accident, sometimes on purpose (injected humour
-                    and the like) web page editors now.
+                    {detailsData.portfolioDetails.description2}
                 </p>
 
                 <div className="pd-img pd-img-parallax" data-height="350">
-                    <img src={pdImg1} alt="..." />
+                    <img src={getImagePath("portfolio/portfolio-details-1.png")} alt="..." />
                 </div>
                 <div>
                     <p className="pd-desp">
-                        It is a long established fact that a reader will be distracted by
-                        the readable content of a page when looking at its layout. The point
-                        of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, as opposed to using 'Content here, content
-                        here.
+                        {detailsData.portfolioDetails.description3}
                     </p>
                 </div>
 
@@ -144,7 +128,7 @@ const PortfolioDetailsContent: React.FC = () => {
                 </p>
                 <div className="p-md-5">
                     <div className="ak-accordion">
-                        {accordionData.map((item, index) => (
+                        {accordionData.map((item: any, index: number) => (
                             <div className="ak-accordion-item" key={index}>
                                 <div
                                     className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
@@ -171,23 +155,13 @@ const PortfolioDetailsContent: React.FC = () => {
                     </div>
                 </div>
                 <p className="pd-desp pd-desp-mobile-fix">
-                    it is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here', making it
-                    look like readable web page editors nowEnglish. Many desktop
-                    publishing packages and web page editors now use.
+                    {detailsData.portfolioDetails.description5}
                 </p>
                 <div className="pd-img pd-img-parallax" data-height="400">
-                    <img src={pdImg2} alt="..." />
+                    <img src={getImagePath("portfolio/portfolio-details-2.png")} alt="..." />
                 </div>
                 <p className="pd-desp">
-                    It is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here', making it
-                    look like readable web page editors nowEnglish. Many desktop
-                    publishing packages and web page editors now use.
+                    {detailsData.portfolioDetails.description6}
                 </p>
             </div>
         </div>

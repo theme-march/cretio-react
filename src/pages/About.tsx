@@ -7,9 +7,8 @@ import AwardsSection from "@components/sections/AwardsSection";
 import GoalSection from "@components/sections/GoalSection";
 import TestimonialSection from "@components/sections/TestimonialSection";
 import FunFactSection from "@components/sections/FunFactSection";
-import CoreFeaturesSection, {
-    coreFeaturesData,
-} from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import coreFeaturesJSON from "@/dataJson/coreFeaturesData.json";
 import TeamSection from "@components/sections/TeamSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
@@ -43,7 +42,7 @@ const About: React.FC = () => {
                 isSlider={true}
                 showTopGap={true}
                 showBottomGap={true}
-                features={coreFeaturesData}
+                features={coreFeaturesJSON}
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
                 cardAnimation=""

@@ -4,8 +4,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+import commonData from "@/dataJson/commonSectionsData.json";
 import star2 from "@assets/img/shape/star-2.png";
 import line2 from "@assets/img/shape/line-2.png";
+
+const data = commonData.aboutContent;
 
 const AboutSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -46,17 +49,10 @@ const AboutSection: React.FC = () => {
                     <img src={star2} alt="star" className="star-2" />
                 </div>
                 <div className="about-info">
-                    <h3 className="about-title text-color-shiption">
-                        We thrive on{" "}
-                        <span className="highlight ak-black-color">creativity</span> and{" "}
-                        <span className="highlight">innovation</span>. Our team is constantly
-                        exploring new ideas and approaches to ensure your{" "}
-                        <span className="highlight">digital presence</span> is fresh, engaging,
-                        and ahead of the competition.
-                    </h3>
+                    <h3 className="about-title text-color-shiption" dangerouslySetInnerHTML={{ __html: data.title }} />
                     <div className="fade-animation">
                         <Link to="/about" className="more-btn">
-                            <span className="morebtn-text"> About More </span>
+                            <span className="morebtn-text">{data.btnTextHome}</span>
                             <span className="primary-icon-anim">
                                 <i className="flaticon-up-right-arrow"></i>
                                 <i className="flaticon-up-right-arrow"></i>

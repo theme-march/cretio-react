@@ -3,35 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 
-import testimonial1 from "@assets/img/testmonial/testmonial-1.png";
-import testimonial2 from "@assets/img/testmonial/testmonial-2.png";
+import testimonialsData from "../../dataJson/testimonialsData.json";
+import { getImagePath } from "../../utils/imageLoader";
 
-const testimonials = [
-    {
-        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-        image: testimonial1,
-        name: "Mostahid Jackma",
-        location: "From USA",
-    },
-    {
-        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-        image: testimonial2,
-        name: "Morgan Brown",
-        location: "From USA",
-    },
-    {
-        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-        image: testimonial1,
-        name: "Mostahid Jackma",
-        location: "From USA",
-    },
-    {
-        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-        image: testimonial2,
-        name: "Morgan Brown",
-        location: "From USA",
-    },
-];
+const testimonials = testimonialsData.defaultTestimonials;
 
 interface TestimonialSectionProps {
     fadeAnimation?: boolean;
@@ -66,7 +41,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ fadeAnimation =
                                     <p className="testmonial-desp">{test.text}</p>
                                     <div className="ak-height-50 ak-height-lg-30"></div>
                                     <div className="testmonial-info">
-                                        <img className="testmonial-img" src={test.image} alt={test.name} />
+                                        <img className="testmonial-img" src={getImagePath(test.image)} alt={test.name} />
                                         <h6 className="testmonial-title">{test.name}</h6>
                                         <p className="testmonial-shot-desp">{test.location}</p>
                                     </div>

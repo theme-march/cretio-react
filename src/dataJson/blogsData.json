@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "image": "src/assets/img/blogs/blog-1.png",
+    "author": "Alex Johnson",
+    "date": "01/07/2024",
+    "title": "Partnering for Success Choosing the Right Digital Agency",
+    "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting."
+  },
+  {
+    "id": 2,
+    "image": "src/assets/img/blogs/blog-2.png",
+    "author": "Taylor Smith",
+    "date": "15/08/2023",
+    "title": "Building the Future How Digital Agencies Drive Innovation",
+    "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting."
+  },
+  {
+    "id": 3,
+    "image": "src/assets/img/blogs/blog-3.png",
+    "author": "Jamie Lee",
+    "date": "02/04/2024",
+    "title": "Digital Mastery How Agencies Turn Ideas into Reality",
+    "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting."
+  },
+  {
+    "id": 4,
+    "image": "src/assets/img/blogs/blog-4.png",
+    "author": "Casey Miller",
+    "date": "09/08/2024",
+    "title": "The Art of Digital Marketing Agency Strategies for Growth",
+    "description": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting."
+  },
+  {
+    "id": 5,
+    "image": "src/assets/img/news/news-1.png",
+    "author": "Admin",
+    "date": "10/10/2024",
+    "title": "Partnering for Success Choosing the Right Master Digital Agency.",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "id": 6,
+    "image": "src/assets/img/news/news-2.png",
+    "author": "Admin",
+    "date": "12/10/2024",
+    "title": "Digital Mastery How Digital Agencies Turn Ideas into Digital World Reality.",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "id": 7,
+    "image": "src/assets/img/news/news-3.png",
+    "author": "Admin",
+    "date": "14/10/2024",
+    "title": "The Art of Digital Agency Strategies for Growth of Client Business.",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  }
+]

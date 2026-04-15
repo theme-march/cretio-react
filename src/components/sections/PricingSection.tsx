@@ -1,47 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const pricingPlans = [
-    {
-        title: "Starter",
-        duration: "Monthly Package",
-        price: 199,
-        maxPrice: 249,
-        features: [
-            "Custom Home Page Design",
-            "Responsive Layout",
-            "Basic SEO Optimization",
-            "3 Portfolio Project Pages",
-            "Contact Form Integration",
-        ],
-    },
-    {
-        title: "Professional",
-        duration: "Monthly Package",
-        price: 399,
-        maxPrice: 449,
-        features: [
-            "Custom Home Page Design",
-            "Responsive Layout",
-            "Basic SEO Optimization",
-            "3 Portfolio Project Pages",
-            "Contact Form Integration",
-        ],
-    },
-    {
-        title: "Premium",
-        duration: "Monthly Package",
-        price: 699,
-        maxPrice: 749,
-        features: [
-            "Custom Home Page Design",
-            "Responsive Layout",
-            "Basic SEO Optimization",
-            "3 Portfolio Project Pages",
-            "Contact Form Integration",
-        ],
-    },
-];
+import pricingData from "@/dataJson/pricingPlansData.json";
+
+const pricingPlans = pricingData.defaultPricing;
 
 const PricingSection: React.FC = () => {
     return (

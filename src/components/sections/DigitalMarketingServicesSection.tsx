@@ -10,14 +10,10 @@ import service4 from "@assets/img/services/dc-services-4.png";
 import service5 from "@assets/img/services/dc-services-5.png";
 import service6 from "@assets/img/services/dc-services-6.png";
 
-const services = [
-    { id: 1, title: "Exceptional Android App Development", category: "Design", img: service1, widthClass: "width-1" },
-    { id: 2, title: "Exceptional Android App Development", category: "Design", img: service2, widthClass: "width-2" },
-    { id: 3, title: "Exceptional Android App Development", category: "Design", img: service3, widthClass: "width-1" },
-    { id: 4, title: "Exceptional Android App Development", category: "Design", img: service4, widthClass: "width-2" },
-    { id: 5, title: "Exceptional Android App Development", category: "Design", img: service5, widthClass: "width-1" },
-    { id: 6, title: "Exceptional Android App Development", category: "Design", img: service6, widthClass: "width-1" },
-];
+import servicesData from "../../dataJson/servicesData.json";
+import { getImagePath } from "../../utils/imageLoader";
+
+const services = servicesData.digitalMarketingServices;
 
 const DigitalMarketingServicesSection: React.FC = () => {
     return (
@@ -54,7 +50,7 @@ const DigitalMarketingServicesSection: React.FC = () => {
                             data-delay={`${0.15 + index * 0.2}`}
                             key={service.id}
                         >
-                            <img src={service.img} alt={service.title} />
+                            <img src={getImagePath(service.img)} alt={service.title} />
                             <div className="service-hover-info">
                                 <div className="left-content">
                                     <p className="mini-title">{service.category}</p>

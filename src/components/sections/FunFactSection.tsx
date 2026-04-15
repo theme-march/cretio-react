@@ -49,12 +49,9 @@ const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, varian
     );
 };
 
-const funFacts = [
-    { id: "count1", number: 65, suffix: "K", label: "Project Completed" },
-    { id: "count2", number: 8, suffix: "K", label: "Happy Customers" },
-    { id: "count3", number: 32, suffix: "+", label: "Years of Experience" },
-    { id: "count4", number: 13, suffix: "", label: "Award Achievement" },
-];
+import funFacts from "@/dataJson/commonSectionsData.json";
+
+const funFactsList = funFacts.funFacts;
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -121,7 +118,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                 <div
                     className={`funfact-content ${variant === "type-2" ? "type-2 funfact-gap" : ""} ${variant === "type-3" ? "type-3" : ""}`}
                 >
-                    {funFacts.map((fact, index) => (
+                    {funFactsList.map((fact, index) => (
                         <FunFactItem
                             key={fact.id}
                             number={fact.number}
