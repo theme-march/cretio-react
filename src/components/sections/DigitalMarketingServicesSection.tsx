@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 import SectionHeading from "@components/common/SectionHeading";
 
-import service1 from "@assets/img/services/dc-services-1.png";
-import service2 from "@assets/img/services/dc-services-2.png";
-import service3 from "@assets/img/services/dc-services-3.png";
-import service4 from "@assets/img/services/dc-services-4.png";
-import service5 from "@assets/img/services/dc-services-5.png";
-import service6 from "@assets/img/services/dc-services-6.png";
+
 
 import servicesData from "../../dataJson/servicesData.json";
 import { getImagePath } from "../../utils/imageLoader";

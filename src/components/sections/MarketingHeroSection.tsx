@@ -71,7 +71,6 @@ const MarketingHeroSection: React.FC = () => {
 
                 if (!heroImg) return;
 
-                // Stop previous animations
                 gsap.killTweensOf([heroImg, subTitle, mainTitle, caption]);
 
                 let tl = gsap.timeline({ defaults: { duration: 1 } });
@@ -116,7 +115,7 @@ const MarketingHeroSection: React.FC = () => {
             };
 
             swiperInstance.on('slideChangeTransitionStart', handleSlideChange);
-            handleSlideChange(); // Initial load
+            handleSlideChange();
 
             return () => {
                 swiperInstance.off('slideChangeTransitionStart', handleSlideChange);

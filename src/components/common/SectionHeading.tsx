@@ -64,11 +64,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     rightDelay,
 }) => {
     const TitleTag = titleTag;
-    // If leftAnimation is provided, put the animation on the wrapper div
     const leftWrapperClass = leftAnimation ? `ak-section-left ${leftAnimation}` : "ak-section-left";
     const rightWrapperClass = rightAnimation ? `ak-section-right ${rightAnimation}` : "ak-section-right";
 
-    // If leftAnimation is on wrapper, don't add animation class to the title itself
     const resolvedTitleAnimation = leftAnimation ? "" : titleAnimation;
 
     return (
@@ -97,7 +95,6 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {...(rightAnimation && rightOffset ? { "data-offset": rightOffset } : {})}
                     {...(rightAnimation && rightDelay ? { "data-delay": rightDelay } : {})}
                     {...(!rightAnimation ? {
-                        // legacy: if no rightAnimation, keep the old behaviour (no animation on wrapper)
                     } : {})}
                 >
                     {description && (

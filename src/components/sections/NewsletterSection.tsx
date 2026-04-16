@@ -33,7 +33,6 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
 }) => {
     const isMinimalStudio = headingVariant === "minimal-studio";
     
-    // Set values based on headingVariant
     const titleAnimation = propTitleAnimation || (isMinimalStudio ? "text-animation" : undefined);
     const titleDirection = propTitleDirection || (isMinimalStudio ? "textLeft" : undefined);
     const titleDuration = propTitleDuration || (isMinimalStudio ? 1.0 : undefined);

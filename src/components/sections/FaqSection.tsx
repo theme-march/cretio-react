@@ -15,7 +15,6 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            // Initialize accordion states
             tabRefs.current.forEach((tab, index) => {
                 if (!tab) return;
                 const item = faqData[index];
@@ -32,11 +31,9 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
     const toggleAccordion = (id: number) => {
         const isClosing = id === activeIndex;
 
-        // Find the index in tabRefs for the current and new id
         const currentIndex = faqData.findIndex((item) => item.id === activeIndex);
         const nextIndex = faqData.findIndex((item) => item.id === id);
 
-        // Close currently open panel
         if (activeIndex !== null && tabRefs.current[currentIndex]) {
             const closingTab = tabRefs.current[currentIndex];
             gsap.killTweensOf(closingTab);
@@ -57,7 +54,6 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
             return;
         }
 
-        // Open new panel
         setActiveIndex(id);
         const newTab = tabRefs.current[nextIndex];
         if (newTab) {

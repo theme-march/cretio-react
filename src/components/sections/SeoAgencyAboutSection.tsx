@@ -25,13 +25,11 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
             const circles = gsap.utils.toArray<HTMLElement>(".number-circle");
             const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
 
-            // Single shared ScrollTrigger - Values reverted to template standards
             ScrollTrigger.create({
                 trigger: sectionRef.current,
                 start: "top center+=200",
                 once: true,
                 onEnter: () => {
-                    // Circles pop one-by-one with elastic ease
                     if (circles.length > 0) {
                         gsap.from(circles, {
                             scale: 0.5,
@@ -44,15 +42,14 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
                         });
                     }
 
-                    // Counters start at the template-defined delay of 0.3s
                     countElements?.forEach((el) => {
                         const target = parseInt(el.textContent || "0", 10);
                         gsap.fromTo(el,
                             { innerText: 0 },
                             {
                                 innerText: target,
-                                duration: 3, // Template duration
-                                delay: 0.3,  // Template delay
+                                duration: 3,
+                                delay: 0.3,
                                 snap: { innerText: 1 },
                                 ease: "power1.out",
                             }

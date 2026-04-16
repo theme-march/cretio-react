@@ -12,7 +12,6 @@ const PortfolioIsotopeSection: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState("*");
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Filter items based on active filter
     const filteredItems = portfolioItems.filter(item => {
         if (activeFilter === "*") return true;
         const filterClass = activeFilter.replace(".", "");
@@ -27,12 +26,12 @@ const PortfolioIsotopeSection: React.FC = () => {
                     ".isotope-item",
                     {
                         opacity: 0,
-                        scale: 0.3, // Deep "inside the screen" scale
+                        scale: 0.3,
                     },
                     {
                         opacity: 1,
                         scale: 1,
-                        duration: 0.35, // Fast animation
+                        duration: 0.35,
                         stagger: 0.05,
                         ease: "power2.out",
                         clearProps: "all"

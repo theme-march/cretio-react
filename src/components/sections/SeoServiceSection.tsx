@@ -20,14 +20,11 @@ const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ variant = "defaul
                 title='Our <span class="highlight">Exceptional</span> SEO Business Growth <span class="highlight">Services</span>'
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                 caption="Services"
-                // SeoAgency variant: 3D rotationX flip animation on the title
                 titleAnimation={isSeoAgency ? "" : "text-animation"}
                 titleDirection={isSeoAgency ? "bottom" : "textTop"}
                 titleSplitText={undefined}
-                // Description: fade-animation with template delay
                 descriptionDirection={isSeoAgency ? "bottom" : "none"}
                 descriptionDelay={isSeoAgency ? "0.3" : "0.3"}
-                // Caption: fade-animation with template delay
                 captionDirection={isSeoAgency ? "bottom" : "right"}
                 captionDelay={isSeoAgency ? "0.3" : "0.3"}
             />

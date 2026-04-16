@@ -12,10 +12,6 @@ const PortfolioDetailsContent: React.FC = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            // Handle parallax exclusively for pd-img containers.
-            // These divs intentionally do NOT carry image-scroll or ak-parallax classes
-            // to prevent the global useGsapAnimations hook from picking them up
-            // and creating competing animations.
             const pdParallaxElements = gsap.utils.toArray<HTMLElement>(".pd-img-parallax");
             pdParallaxElements.forEach((element) => {
                 const dataHeight = element.getAttribute("data-height");
@@ -43,7 +39,6 @@ const PortfolioDetailsContent: React.FC = () => {
                 }
             });
 
-            // Initialize accordion states
             tabRefs.current.forEach((tab, index) => {
                 if (!tab) return;
                 if (index === 0) {
@@ -60,7 +55,6 @@ const PortfolioDetailsContent: React.FC = () => {
     const handleAccordionClick = (index: number) => {
         const isClosing = index === activeAccordion;
 
-        // Close currently open panel
         if (activeAccordion !== null && tabRefs.current[activeAccordion]) {
             const closingTab = tabRefs.current[activeAccordion];
             gsap.killTweensOf(closingTab);
@@ -81,7 +75,6 @@ const PortfolioDetailsContent: React.FC = () => {
             return;
         }
 
-        // Open new panel
         setActiveAccordion(index);
         const newTab = tabRefs.current[index];
         if (newTab) {

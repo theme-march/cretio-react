@@ -148,7 +148,6 @@ const Header: React.FC = () => {
                 <div className="nav-bar-border"></div>
             </header>
 
-            {/* Offcanvas Body */}
             <div
                 className="offcanvas offcanvas-end style-1"
                 tabIndex={-1}

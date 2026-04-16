@@ -27,7 +27,6 @@ const Footer: React.FC = () => {
             if (footerTitleTwo) {
                 const splitRes = splitText(footerTitleTwo, "chars");
                 
-                // Character-level animation matching the exact template (footerText)
                 const footerTimeline = gsap.timeline({ delay: 1, repeat: -1, yoyo: true });
                 footerTimeline.from(splitRes.chars, {
                     duration: 2.5,

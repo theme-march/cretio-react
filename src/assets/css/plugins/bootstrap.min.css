@@ -1,9 +1,4 @@
-@charset "UTF-8"; /*!
- * Bootstrap v5.2.0-beta1 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+@charset "UTF-8"; 
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -366,6 +361,7 @@ select:disabled {
 [type='submit'],
 button {
   -webkit-appearance: button;
+  appearance: button;
 }
 [type='button']:not(:disabled),
 [type='reset']:not(:disabled),
@@ -417,6 +413,7 @@ legend + * {
 [type='search'] {
   outline-offset: -2px;
   -webkit-appearance: textfield;
+  appearance: textfield;
 }
 ::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -431,6 +428,7 @@ legend + * {
 ::file-selector-button {
   font: inherit;
   -webkit-appearance: button;
+  appearance: button;
 }
 output {
   display: inline-block;
@@ -2148,7 +2146,6 @@ textarea.form-control-lg {
   -moz-appearance: none;
   appearance: none;
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
   print-color-adjust: exact;
 }
 .form-check-input[type='checkbox'] {
@@ -10421,4 +10418,3 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.min.css.map */

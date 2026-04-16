@@ -33,7 +33,6 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
 
     const accordionData = detailsData.serviceDetails.accordion;
 
-    // Override CSS display:none — GSAP needs the element visible to animate
     useLayoutEffect(() => {
         tabRefs.current.forEach((tab, index) => {
             if (!tab) return;
@@ -48,7 +47,6 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
     const handleAccordionClick = (index: number) => {
         const isClosing = index === activeAccordion;
 
-        // Close currently open panel
         if (activeAccordion !== null && tabRefs.current[activeAccordion]) {
             const closingTab = tabRefs.current[activeAccordion];
             gsap.killTweensOf(closingTab);
@@ -69,7 +67,6 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
             return;
         }
 
-        // Open new panel
         setActiveAccordion(index);
         const newTab = tabRefs.current[index];
         if (newTab) {

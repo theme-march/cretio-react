@@ -35,7 +35,6 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Cards Animation
             gsap.fromTo(".funfact", 
                 { 
                     opacity: 0, 
@@ -55,7 +54,6 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
                 }
             );
 
-            // Numeric Count-up Animation
             const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
             countElements?.forEach((el) => {
                 const target = parseInt(el.textContent || "0", 10);
