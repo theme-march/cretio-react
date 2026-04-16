@@ -27,21 +27,17 @@ const Header: React.FC = () => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            // Sticky header logic
             if (currentScrollY > 150) {
                 setIsSticky(true);
             } else {
                 setIsSticky(false);
             }
 
-            // Hide/Show logic
             if (window.innerWidth <= 991) {
                 setIsVisible(true);
             } else if (currentScrollY > lastScrollY && currentScrollY > 300) {
-                // Scrolling down
                 setIsVisible(false);
             } else {
-                // Scrolling up
                 setIsVisible(true);
             }
 
