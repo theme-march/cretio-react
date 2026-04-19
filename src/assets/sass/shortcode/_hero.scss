@@ -149,10 +149,7 @@
   .marketing-agency-hero.style-1 {
     .marketing-agency-slider-card {
       position: relative;
-      @media (min-height: 800px) {
-        min-height: calc(100vh - 120px);
-      }
-      min-height: 100vh;
+      min-height: 702px !important;
       width: 100%;
       height: 100%;
 

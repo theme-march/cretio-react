@@ -20,7 +20,7 @@ const SeoAgency = lazy(() => import("@pages/SeoAgency"));
 const Team = lazy(() => import("@pages/Team"));
 const Pricing = lazy(() => import("@pages/Pricing"));
 const Faq = lazy(() => import("@pages/Faq"));
-const NotFound = lazy(() => import("@pages/NotFound"));
+const NotFound = lazy(() => import("@pages/ErrorPages/404"));
 const ComingSoon = lazy(() => import("@pages/ComingSoon"));
 
 const router = createBrowserRouter([

@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import { getImagePath } from "../utils/imageLoader";
+import { getImagePath } from "../../utils/imageLoader";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
-import siteSettings from "../dataJson/siteSettings.json";
-import { splitText } from "../utils/textSplitter";
+import siteSettings from "../../dataJson/siteSettings.json";
+import { splitText } from "../../utils/textSplitter";
 
 const Footer: React.FC = () => {
     const footerRef = useRef<HTMLElement>(null);

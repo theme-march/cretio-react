@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import navItems from "../dataJson/navItemsList.json";
-import siteSettings from "../dataJson/siteSettings.json";
-import { getImagePath } from "../utils/imageLoader";
+import navItems from "../../dataJson/navitemslist.json";
+import siteSettings from "../../dataJson/siteSettings.json";
+import { getImagePath } from "../../utils/imageLoader";
 
 const Header: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);

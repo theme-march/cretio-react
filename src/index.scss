@@ -101,3 +101,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* Force fix for Marketing Hero Height */
+.marketing-agency-section .marketing-agency-hero.style-1 .marketing-agency-slider-card {
+  min-height: 702px !important;
+}
