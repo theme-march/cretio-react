@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import darkLogo from "@assets/img/logo/dark-logo.svg";
-import whiteLogo from "@assets/img/logo/white-logo.svg";
-import miniGallery1 from "@assets/img/gallery/mini-gallery-1.png";
-import miniGallery2 from "@assets/img/gallery/mini-gallery-2.png";
-import miniGallery3 from "@assets/img/gallery/mini-gallery-3.png";
-import miniGallery4 from "@assets/img/gallery/mini-gallery-4.png";
-import miniGallery5 from "@assets/img/gallery/mini-gallery-5.png";
-import miniGallery6 from "@assets/img/gallery/mini-gallery-6.png";
+import navItems from "../dataJson/navItemsList.json";
+import siteSettings from "../dataJson/siteSettings.json";
+import { getImagePath } from "../utils/imageLoader";
 
 const Header: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -32,21 +27,17 @@ const Header: React.FC = () => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            // Sticky header logic
             if (currentScrollY > 150) {
                 setIsSticky(true);
             } else {
                 setIsSticky(false);
             }
 
-            // Hide/Show logic
             if (window.innerWidth <= 991) {
                 setIsVisible(true);
             } else if (currentScrollY > lastScrollY && currentScrollY > 300) {
-                // Scrolling down
                 setIsVisible(false);
             } else {
-                // Scrolling up
                 setIsVisible(true);
             }
 
@@ -72,72 +63,35 @@ const Header: React.FC = () => {
                 <div className="ak-main_header">
                     <div className="container container-customize">
                         <div className="ak-main_header_in">
-                            <div className="ak-main-header-left">
+                             <div className="ak-main-header-left">
                                 <Link className="ak-site_branding dark-logo" to="/">
-                                    <img src={darkLogo} alt="Logo" />
+                                    <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
                                 </Link>
                                 <Link className="ak-site_branding white-logo" to="/">
-                                    <img src={whiteLogo} alt="Logo" />
+                                    <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
                                 </Link>
                             </div>
                             <div className="ak-main-header-center">
                                 <div className="ak-nav ak-medium">
                                     <ul className={`ak-nav_list ${mobileMenuOpen ? "ak-show" : ""}`}>
-                                        <li className={`menu-item-has-children ${openSubmenus['home'] ? 'active' : ''}`}>
-                                            <Link to="/">Home</Link>
-                                            <span 
-                                                className={`ak-munu_dropdown_toggle ${openSubmenus['home'] ? 'active' : ''}`}
-                                                onClick={(e) => toggleSubmenu(e, 'home')}
-                                            ></span>
-                                            <ul style={{ display: openSubmenus['home'] ? 'block' : '' }}>
-                                                <li><Link to="/">Digital Agency</Link></li>
-                                                <li><Link to="/marketing-agency">Marketing Agency</Link></li>
-                                                <li><Link to="/design-company">Design Company</Link></li>
-                                                <li><Link to="/creative-portfolio">Creative Portfolio</Link></li>
-                                                <li><Link to="/minimal-studio">Minimal Studio</Link></li>
-                                                <li><Link to="/seo-agency">SEO Agency</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li><Link to="/about">About</Link></li>
-                                        <li className={`menu-item-has-children ${openSubmenus['services'] ? 'active' : ''}`}>
-                                            <Link to="/services">Services</Link>
-                                            <span 
-                                                className={`ak-munu_dropdown_toggle ${openSubmenus['services'] ? 'active' : ''}`}
-                                                onClick={(e) => toggleSubmenu(e, 'services')}
-                                            ></span>
-                                            <ul style={{ display: openSubmenus['services'] ? 'block' : '' }}>
-                                                <li><Link to="/services">Services</Link></li>
-                                                <li><Link to="/services/service-details">Services Details</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li className={`menu-item-has-children ${openSubmenus['portfolio'] ? 'active' : ''}`}>
-                                            <Link to="/portfolio">Portfolio</Link>
-                                            <span 
-                                                className={`ak-munu_dropdown_toggle ${openSubmenus['portfolio'] ? 'active' : ''}`}
-                                                onClick={(e) => toggleSubmenu(e, 'portfolio')}
-                                            ></span>
-                                            <ul style={{ display: openSubmenus['portfolio'] ? 'block' : '' }}>
-                                                <li><Link to="/portfolio">Portfolio</Link></li>
-                                                <li><Link to="/portfolio/portfolio-details">Portfolio Details</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li className={`menu-item-has-children ${openSubmenus['pages'] ? 'active' : ''}`}>
-                                            <Link to="#">Pages</Link>
-                                            <span 
-                                                className={`ak-munu_dropdown_toggle ${openSubmenus['pages'] ? 'active' : ''}`}
-                                                onClick={(e) => toggleSubmenu(e, 'pages')}
-                                            ></span>
-                                            <ul style={{ display: openSubmenus['pages'] ? 'block' : '' }}>
-                                                <li><Link to="/blog">Blog</Link></li>
-                                                <li><Link to="/blog/blog-details">Blog Details</Link></li>
-                                                <li><Link to="/team">Team</Link></li>
-                                                <li><Link to="/pricing">Pricing</Link></li>
-                                                <li><Link to="/faq">Faq</Link></li>
-                                                <li><Link to="/404">404 Page</Link></li>
-                                                <li><Link to="/coming-soon">Coming Soon</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li><Link to="/contact">Contact</Link></li>
+                                        {navItems.map((item, index) => (
+                                            <li key={index} className={item.subMenu ? `menu-item-has-children ${openSubmenus[item.title.toLowerCase()] ? 'active' : ''}` : ''}>
+                                                <Link to={item.href}>{item.title}</Link>
+                                                {item.subMenu && (
+                                                    <>
+                                                        <span 
+                                                            className={`ak-munu_dropdown_toggle ${openSubmenus[item.title.toLowerCase()] ? 'active' : ''}`}
+                                                            onClick={(e) => toggleSubmenu(e, item.title.toLowerCase())}
+                                                        ></span>
+                                                        <ul style={{ display: openSubmenus[item.title.toLowerCase()] ? 'block' : '' }}>
+                                                            {item.subMenu.map((sub, subIndex) => (
+                                                                <li key={subIndex}><Link to={sub.href}>{sub.title}</Link></li>
+                                                            ))}
+                                                        </ul>
+                                                    </>
+                                                )}
+                                            </li>
+                                        ))}
                                     </ul>
                                     <span 
                                         className={`ak-munu_toggle ${mobileMenuOpen ? "ak-toggle_active" : ""}`}
@@ -194,7 +148,6 @@ const Header: React.FC = () => {
                 <div className="nav-bar-border"></div>
             </header>
 
-            {/* Offcanvas Body */}
             <div
                 className="offcanvas offcanvas-end style-1"
                 tabIndex={-1}
@@ -212,47 +165,38 @@ const Header: React.FC = () => {
                     <div className="offcanvas-body-coustom-style">
                         <div className="offcanvas-logo-content">
                             <Link className="ak-site_branding dark-logo" to="/">
-                                <img src={darkLogo} alt="Logo" />
+                                <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
                             </Link>
                             <Link className="ak-site_branding white-logo" to="/">
-                                <img src={whiteLogo} alt="Logo" />
+                                <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
                             </Link>
                         </div>
                         <p className="desp">
-                            We thrive on creativity and innovation. Our team is constantly
-                            exploring new.
+                            {siteSettings.company.description.replace(/<span>|<\/span>/g, '')}
                         </p>
                         <div className="row row-cols-3 g-3">
-                            {[miniGallery1, miniGallery2, miniGallery3, miniGallery4, miniGallery5, miniGallery6].map((img, i) => (
+                            {siteSettings.gallery.map((img, i) => (
                                 <div className="col" key={i}>
-                                    <img src={img} className="img-fluid" alt={`Gallery ${i + 1}`} />
+                                    <img src={getImagePath(img)} className="img-fluid" alt={`Gallery ${i + 1}`} />
                                 </div>
                             ))}
                         </div>
 
                         <div className="offcanvas-footer-contant">
                             <p className="short-title">Say hello!</p>
-                            <a className="email" href="mailto:info@email.com">info@email.com</a>
-                            <a className="email" href="tel:(406)555-0120">(406) 555-0120</a>
+                            <a className="email" href={`mailto:${siteSettings.cta.email}`}>{siteSettings.cta.email}</a>
+                            <a className="email" href={siteSettings.contact.phoneLink}>{siteSettings.contact.phone}</a>
                             <a href="#">
-                                901 N Pitt Str., Suite 170 <br />
-                                Alexandria, USA
+                                {siteSettings.contact.address}
                             </a>
                             <div className="ak-height-25 ak-height-lg-25"></div>
                             <p className="short-title">Social:</p>
                             <div className="social-icon">
-                                <a href="#" className="icon style-2 dark-mode">
-                                    <i className="flaticon-facebook"></i>
-                                </a>
-                                <a href="#" className="icon style-2 dark-mode">
-                                    <i className="flaticon-video"></i>
-                                </a>
-                                <a href="#" className="icon style-2 dark-mode">
-                                    <i className="flaticon-linkedin"></i>
-                                </a>
-                                <a href="#" className="icon style-2 dark-mode">
-                                    <i className="flaticon-twitter"></i>
-                                </a>
+                                {siteSettings.socials.map((social, index) => (
+                                    <a key={index} href={social.link} className="icon style-2 dark-mode">
+                                        <i className={social.icon}></i>
+                                    </a>
+                                ))}
                             </div>
                             <div className="ak-height-40 ak-height-lg-40"></div>
                         </div>

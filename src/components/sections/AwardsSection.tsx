@@ -2,25 +2,8 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
-import awardHover1 from "@assets/img/award/hover-img-1.png";
-import awardHover2 from "@assets/img/award/hover-img-2.png";
-import awardHover3 from "@assets/img/award/hover-img-3.png";
-import awardHover4 from "@assets/img/award/hover-img-4.png";
-import awardHover5 from "@assets/img/award/hover-img-5.png";
-
-import award1 from "@assets/img/award/awards-1.svg";
-import award2 from "@assets/img/award/awards-2.svg";
-import award3 from "@assets/img/award/awards-3.svg";
-import award4 from "@assets/img/award/awards-4.svg";
-import award5 from "@assets/img/award/awards-5.svg";
-
-const awards = [
-    { id: 1, title: "Dribbble Award 2024", type: "Audience Choice", category: "Design of the day", hoverImg: awardHover1, awardImg: award1 },
-    { id: 2, title: "Product hunt Award 2024", type: "Audience Choice", category: "Feature Product", hoverImg: awardHover2, awardImg: award2 },
-    { id: 3, title: "Envato Award 2024", type: "Audience Choice", category: "Trendsetter", hoverImg: awardHover3, awardImg: award3 },
-    { id: 4, title: "Google Award 2024", type: "Honorable Mention", category: "Best Problem Solver", hoverImg: awardHover4, awardImg: award4 },
-    { id: 5, title: "Microsoft Award 2024", type: "Honorable Mention", category: "Best Developer", hoverImg: awardHover5, awardImg: award5 },
-];
+import awards from "@/dataJson/awardsData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
 interface AwardsSectionProps {
     showTopGap?: boolean;
@@ -33,6 +16,8 @@ interface AwardsSectionProps {
     titleDuration?: number;
     captionOffset?: string;
     variant?: "default" | "design-company" | "minimal-studio";
+    title?: string;
+    highlightWords?: string[];
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
@@ -45,11 +30,13 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
     captionDelay,
     titleOffset,
     captionOffset,
-    variant = "default"
+    variant = "default",
+    title = (variant === "design-company" || variant === "minimal-studio") ? "Awards <br /> Achievement" : "Awards <br /> Achievement",
+    highlightWords = ["Awards"],
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
-    const [hoverImg, setHoverImg] = useState<string>(awards[0].hoverImg);
+    const [hoverImg, setHoverImg] = useState<string>(getImagePath(awards[0].hoverImg));
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -89,7 +76,8 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
             <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading 
-                    title={variant === "design-company" || variant === "minimal-studio" ? '<span class="highlight">Awards</span> <br /> Achievement' : '<span class="highlight-text">Awards</span> <br /> Achievement'}
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Awards" 
                     variant="style-2"
                     titleAnimation={variant === "design-company" ? "text-animation" : titleAnimation}
@@ -119,7 +107,7 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                                 className="awards-card fade-animation"
                                 data-direction="bottom"
                                 key={award.id}
-                                onMouseEnter={() => handleMouseEnter(award.hoverImg)}
+                                onMouseEnter={() => handleMouseEnter(getImagePath(award.hoverImg))}
                                 onMouseLeave={handleMouseLeave}
                                 onMouseMove={handleMouseMove}
                             >
@@ -129,7 +117,7 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                                 <p className="awards-type">{award.type}</p>
                                 <p className="awards-category">{award.category}</p>
                                 <div className="awards-img">
-                                    <img src={award.awardImg} alt="..." />
+                                    <img src={getImagePath(award.awardImg)} alt="..." />
                                 </div>
                             </div>
                         ))}

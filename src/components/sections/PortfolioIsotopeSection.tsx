@@ -2,33 +2,16 @@ import React, { useState, useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 
-import port1 from "@assets/img/portfolio/portfolio-1.png";
-import port2 from "@assets/img/portfolio/portfolio-2.png";
-import port3 from "@assets/img/portfolio/portfolio-3.png";
-import port4 from "@assets/img/portfolio/portfolio-4.png";
-import service2 from "@assets/img/services/dc-services-2.png";
+import projectsData from "../../dataJson/projectsData.json";
+import { getImagePath } from "../../utils/imageLoader";
 
-const categories = [
-    { name: "All", filter: "*" },
-    { name: "UI/UX", filter: ".isf-uiux" },
-    { name: "Design", filter: ".isf-design" },
-    { name: "Web App", filter: ".isf-webapp" },
-    { name: "Branding", filter: ".isf-branding" },
-];
-
-const portfolioItems = [
-    { id: 1, title: "Product Launch Campaign", category: "Design", img: port3, tags: "isf-design isf-webapp", colClass: "col-md-5" },
-    { id: 2, title: "Product Launch Campaign for EcoHome Products", category: "Design", img: port4, tags: "isf-design", colClass: "col-md-7" },
-    { id: 3, title: "Exceptional Android App Development", category: "Branding", img: service2, tags: "isf-branding", isServiceStyle: true, colClass: "col-md-12" },
-    { id: 4, title: "Campaign for EcoHome Products", category: "Web App", img: port1, tags: "isf-uiux isf-webapp", colClass: "col-md-6" },
-    { id: 5, title: "Product Launch", category: "UI/UX", img: port2, tags: "isf-uiux", colClass: "col-md-6" },
-];
+const categories = projectsData.categories;
+const portfolioItems = projectsData.mainProjects;
 
 const PortfolioIsotopeSection: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState("*");
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Filter items based on active filter
     const filteredItems = portfolioItems.filter(item => {
         if (activeFilter === "*") return true;
         const filterClass = activeFilter.replace(".", "");
@@ -43,12 +26,12 @@ const PortfolioIsotopeSection: React.FC = () => {
                     ".isotope-item",
                     {
                         opacity: 0,
-                        scale: 0.3, // Deep "inside the screen" scale
+                        scale: 0.3,
                     },
                     {
                         opacity: 1,
                         scale: 1,
-                        duration: 0.35, // Fast animation
+                        duration: 0.35,
                         stagger: 0.05,
                         ease: "power2.out",
                         clearProps: "all"
@@ -100,7 +83,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                         {item.isServiceStyle ? (
                             <div className="dm-service-items style2 m-0 h-100">
                                 <Link to="/portfolio/portfolio-details" className="width-2 service-item h-100">
-                                    <img src={item.img} alt={item.title} />
+                                    <img src={getImagePath(item.image)} alt={item.title} />
                                     <div className="service-hover-info">
                                         <div className="left-content">
                                             <p className="mini-title">Brand</p>
@@ -119,7 +102,7 @@ const PortfolioIsotopeSection: React.FC = () => {
                         ) : (
                             <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 w-100">
                                 <div className="portfolio-img">
-                                    <img src={item.img} alt={item.title} />
+                                    <img src={getImagePath(item.image)} alt={item.title} />
                                 </div>
                                 <div className="portfolio-info">
                                     <div className="portfolio-subtitle">{item.category}</div>

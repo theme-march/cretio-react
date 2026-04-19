@@ -2,56 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SectionHeading from "@components/common/SectionHeading";
 
-import blog1 from "@assets/img/blogs/blog-1.png";
-import blog2 from "@assets/img/blogs/blog-2.png";
-import blog3 from "@assets/img/blogs/blog-3.png";
-import blog4 from "@assets/img/blogs/blog-4.png";
+import blogsData from "../../dataJson/blogsData.json";
+import { getImagePath } from "../../utils/imageLoader";
 
-const blogPosts = [
-    {
-        image: blog1,
-        author: "Alex Johnson",
-        date: "01/07/2024",
-        title: "Partnering for Success Choosing the Right Digital Agency",
-        description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting.",
-    },
-    {
-        image: blog2,
-        author: "Taylor Smith",
-        date: "15/08/2023",
-        title: "Building the Future How Digital Agencies Drive Innovation",
-        description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting.",
-    },
-    {
-        image: blog3,
-        author: "Jamie Lee",
-        date: "02/04/2024",
-        title: "Digital Mastery How Agencies Turn Ideas into Reality",
-        description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting.",
-    },
-    {
-        image: blog4,
-        author: "Casey Miller",
-        date: "09/08/2024",
-        title: "The Art of Digital Marketing Agency Strategies for Growth",
-        description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been industry and typesetting.",
-    },
-];
+const blogPosts = blogsData.slice(0, 4);
 
 interface BlogSectionProps {
     showHeading?: boolean;
     showLoadMore?: boolean;
     disableAnimation?: boolean;
+    title?: string;
+    highlightWords?: string[];
 }
 
-const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadMore = false, disableAnimation = false }) => {
+const BlogSection: React.FC<BlogSectionProps> = ({ 
+    showHeading = true, 
+    showLoadMore = false, 
+    disableAnimation = false,
+    title = "Our Exceptional Digital Industrial News",
+    highlightWords = ["Exceptional", "News"],
+}) => {
     return (
         <section>
             {showHeading && (
                 <div className="container">
                     <div className="ak-height-150 ak-height-lg-80"></div>
                     <SectionHeading
-                        title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">News</span>'
+                        title={title}
+                        highlightWords={highlightWords}
                         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                         caption="Recent News"
                         disableDespAnimation={true}
@@ -64,7 +42,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadM
                     {blogPosts.map((post, index) => (
                         <Link to="/blog/blog-details" className="blog-card" key={index}>
                             <div className="blog-image">
-                                <img src={post.image} alt={post.title} />
+                                <img src={getImagePath(post.image)} alt={post.title} />
                             </div>
                             <div className="blog-info">
                                 <div className="blog-heading">

@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import featureBg1 from "@assets/img/services/feature-item-bg-1.png";
-import featureBg2 from "@assets/img/services/feature-item-bg-2.png";
-import featureBg3 from "@assets/img/services/feature-item-bg-3.png";
-import featureBg4 from "@assets/img/services/feature-item-bg-4.png";
+import commonData from "@/dataJson/commonSectionsData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-const features = [
-    { id: "01", title: "Discovery & SEO Comprehensive Strategy", img: featureBg1 },
-    { id: "02", title: "Implement Strategy & Improve Site Speed", img: featureBg2 },
-    { id: "03", title: "Continuously Monitor & Provide Reports", img: featureBg3 },
-    { id: "04", title: "Continually Optimize Site Based on Data", img: featureBg4 },
-];
+const features = commonData.seoFeatures;
 
 const SeoFeatureSection: React.FC = () => {
     const [activeFeature, setActiveFeature] = useState(features[0]);
@@ -20,7 +13,7 @@ const SeoFeatureSection: React.FC = () => {
             className="feature-area"
             onMouseLeave={() => setActiveFeature(features[0])}
         >
-            <img className="feature-area-img" src={activeFeature.img} alt="..." />
+            <img className="feature-area-img" src={getImagePath(activeFeature.img)} alt="..." />
             <div className="feature-wapper row row-cols-1 row-cols-md-2 row-cols-xl-4 m-0">
                 {features.map((feature) => (
                     <Link 
@@ -29,7 +22,7 @@ const SeoFeatureSection: React.FC = () => {
                         key={feature.id}
                         onMouseEnter={() => setActiveFeature(feature)}
                     >
-                        <img className="feature-item-bg" src={feature.img} alt="..." />
+                        <img className="feature-item-bg" src={getImagePath(feature.img)} alt="..." />
                         <div className="feature-item-content">
                             <div className="feature-item-number">
                                 <h2 className="feature-number">{feature.id}</h2>

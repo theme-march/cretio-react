@@ -2,12 +2,10 @@ import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { splitText } from "../utils/textSplitter";
-// ScrollTrigger is registered globally in main.tsx
 
 const useGsapAnimations = () => {
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            // 1. fadeAnimation
             const fadeArray = gsap.utils.toArray<HTMLElement>(".fade-animation");
             fadeArray.forEach((item) => {
                 let fade_direction = item.getAttribute("data-direction") || "bottom";
@@ -29,7 +27,7 @@ const useGsapAnimations = () => {
                     case "left": animationProps.x = -fade_offset; break;
                     case "right": animationProps.x = fade_offset; break;
                     case "bottom": animationProps.y = fade_offset; break;
-                    case "none": break; // pure opacity fade, no movement
+                    case "none": break;
                     default: animationProps.y = fade_offset;
                 }
 
@@ -44,7 +42,6 @@ const useGsapAnimations = () => {
                 gsap.from(item, animationProps);
             });
 
-            // 2. imgAnimLeftShow
             const imgAnimArray = gsap.utils.toArray<HTMLElement>(".img-anim-left-show");
             imgAnimArray.forEach((imgReveal) => {
                 let $imgReveal = imgReveal;
@@ -99,7 +96,6 @@ const useGsapAnimations = () => {
                 }
             });
 
-            // 3. circleBtnAnim (Magnetic Button)
             const circleButtons = gsap.utils.toArray<HTMLElement>(".circle-btn-anim");
             circleButtons.forEach((btn) => {
                 const strength = 40;
@@ -136,7 +132,6 @@ const useGsapAnimations = () => {
                 btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
             });
 
-            // 4. Parallax Animations explicitly matched to HTML template
             const parallaxBgContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
             parallaxBgContainers.forEach((element) => {
                 let img = element.querySelector("img") || element;
@@ -202,7 +197,6 @@ const useGsapAnimations = () => {
                 }
             });
 
-            // 7. sliderTextContext
             const slidingContents = gsap.utils.toArray<HTMLElement>(".slideing-text-content");
             slidingContents.forEach((content) => {
                 const texts = content.querySelectorAll(".slideing-text");
@@ -222,7 +216,6 @@ const useGsapAnimations = () => {
                 });
             });
 
-            // 8. anim-title-2
             const titleAnim2Containers = gsap.utils.toArray<HTMLElement>(".title-animation-content");
             titleAnim2Containers.forEach((container) => {
                 const divs = container.querySelectorAll(".anim-title-2 div");
@@ -241,7 +234,6 @@ const useGsapAnimations = () => {
                 }
             });
 
-            // 9. text-color-shiption
             const textColorShiptions = gsap.utils.toArray<HTMLElement>(".text-color-shiption");
             textColorShiptions.forEach((elem) => {
                 const colorText = elem.getAttribute("data-color");
@@ -275,7 +267,6 @@ const useGsapAnimations = () => {
                 }
             });
 
-            // 10. textAnimation (Words or fallback)
             const textAnimations = gsap.utils.toArray<HTMLElement>(".text-animation");
             textAnimations.forEach((element) => {
                 let split_text = element.getAttribute("data-split-text") || "chars";
@@ -340,7 +331,6 @@ const useGsapAnimations = () => {
                 gsap.from(elementsToAnimate, animationProps);
             });
 
-            // 11. titleAnimation (anim-line-words)
             const titleAnims = gsap.utils.toArray<HTMLElement>(".title-anim");
             titleAnims.forEach((title) => {
                 const delay_value = Number(title.getAttribute("data-delay")) || 0;
@@ -391,7 +381,6 @@ const useGsapAnimations = () => {
 
 
 
-            // 13. Contact Stroke Title Animation
             const contactStrokeTitles = gsap.utils.toArray<HTMLElement>(".contact-title-stroke");
             contactStrokeTitles.forEach((title) => {
                 gsap.set(title, { perspective: 600 });
@@ -424,7 +413,6 @@ const useGsapAnimations = () => {
             });
         });
 
-        // Add a small delay for DOM calculations then refresh
         const timer = setTimeout(() => {
             ScrollTrigger.refresh();
         }, 100);

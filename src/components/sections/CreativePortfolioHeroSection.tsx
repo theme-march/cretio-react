@@ -5,15 +5,10 @@ import { Parallax, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import heroImg1 from "@assets/img/hero/creative-portfolio.png";
-import heroImg2 from "@assets/img/hero/creative-portfolio-2.png";
-import heroImg3 from "@assets/img/hero/creative-portfolio-3.jpg";
+import heroData from "@/dataJson/heroSlidesData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-const heroSlides = [
-    { id: 1, img: heroImg1, title: 'Captivating <span class="highlight-text">Portfolio</span> Designs to Inspire' },
-    { id: 2, img: heroImg2, title: 'Captivating <span class="highlight-text">Portfolio</span> Designs to Inspire' },
-    { id: 3, img: heroImg3, title: 'Captivating <span class="highlight-text">Portfolio</span> Designs to Inspire' },
-];
+const heroSlides = heroData.creativeHero;
 
 const CreativePortfolioHeroSection: React.FC = () => {
     return (
@@ -29,7 +24,7 @@ const CreativePortfolioHeroSection: React.FC = () => {
                 {heroSlides.map((slide) => (
                     <SwiperSlide key={slide.id}>
                         <div className="cp-hero-content" data-swiper-parallax="15%">
-                            <img src={slide.img} alt="Portfolio" className="img-fluid" />
+                            <img src={getImagePath(slide.img)} alt="Portfolio" className="img-fluid" />
                             <div className="container-customize">
                                 <div className="cp-hero-title-box">
                                     <h1

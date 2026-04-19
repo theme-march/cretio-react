@@ -39,7 +39,6 @@ const HeroSection: React.FC = () => {
                 if (res.chars) agencyChars.push(...res.chars);
             });
 
-            // Hero Entry Animation 
             const tl = gsap.timeline({ delay: 1.0 });
 
             tl.from(agencyChars, {
@@ -72,7 +71,6 @@ const HeroSection: React.FC = () => {
 
         }, sectionRef);
 
-        // Swiper Init
         swiperRef.current = new Swiper(".partners-logos-slider", {
             modules: [Navigation, Scrollbar, Autoplay],
             loop: true,
@@ -115,8 +113,8 @@ const HeroSection: React.FC = () => {
                 <div className="hero-left-column">
                     <div className="title-box">
                         <h2 className="title ak-mask-text">
-                            <span className="digital d-block">Shohaib</span>
-                            <span className="agency d-block">Islam</span>
+                            <span className="digital d-block">Digital</span>
+                            <span className="agency d-block">Agency</span>
                         </h2>
                     </div>
                     <div className="cta-box">
@@ -134,7 +132,6 @@ const HeroSection: React.FC = () => {
                             Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
                         </p>
                     </div>
-                    {/* ... partners-section ... */}
                     <div className="partners-section">
                         <h6 className="partners-title">Our Trusted Partner</h6>
                         <div className="ak-slider partners-logos-slider">

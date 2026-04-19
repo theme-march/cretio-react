@@ -2,44 +2,7 @@ import React, { useState, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import faqBg from "@assets/img/bg/faq-bg.png";
 
-const faqData = [
-    {
-        id: 1,
-        question: "1. What platforms do you develop mobile apps for?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-    {
-        id: 2,
-        question: "2. What is the process for developing a mobile app?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-    {
-        id: 3,
-        question: "3. What platforms do you use for web development?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-    {
-        id: 4,
-        question: "4. How long does it take to build a website?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-    {
-        id: 5,
-        question: "5. How can digital marketing help my business?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-    {
-        id: 6,
-        question: "6. What digital marketing services do you offer?",
-        answer:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less.",
-    },
-];
+import faqData from "../../dataJson/faqsData.json";
 
 interface FaqSectionProps {
     disableParallax?: boolean;
@@ -52,7 +15,6 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            // Initialize accordion states
             tabRefs.current.forEach((tab, index) => {
                 if (!tab) return;
                 const item = faqData[index];
@@ -69,11 +31,9 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
     const toggleAccordion = (id: number) => {
         const isClosing = id === activeIndex;
 
-        // Find the index in tabRefs for the current and new id
         const currentIndex = faqData.findIndex((item) => item.id === activeIndex);
         const nextIndex = faqData.findIndex((item) => item.id === id);
 
-        // Close currently open panel
         if (activeIndex !== null && tabRefs.current[currentIndex]) {
             const closingTab = tabRefs.current[currentIndex];
             gsap.killTweensOf(closingTab);
@@ -94,7 +54,6 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
             return;
         }
 
-        // Open new panel
         setActiveIndex(id);
         const newTab = tabRefs.current[nextIndex];
         if (newTab) {

@@ -8,25 +8,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-import heroImg1 from "@assets/img/hero/marketing-agency.png";
-import heroImg2 from "@assets/img/hero/marketing-agency-2.png";
+import heroData from "@/dataJson/heroSlidesData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-const heroSlides = [
-    {
-        id: 1,
-        img: heroImg1,
-        caption: "Business Hunter",
-        subTitle: 'Driving <span class="highlight">Growth</span> Through',
-        mainTitle: '<span class="highlight">Creative</span> Marketing Strategies',
-    },
-    {
-        id: 2,
-        img: heroImg2,
-        caption: "Business Hunter",
-        subTitle: 'Driving <span class="highlight">Growth</span> Through',
-        mainTitle: '<span class="highlight">Creative</span> Marketing Strategies',
-    },
-];
+const heroSlides = heroData.marketingHero;
 
 const MarketingHeroSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -86,7 +71,6 @@ const MarketingHeroSection: React.FC = () => {
 
                 if (!heroImg) return;
 
-                // Stop previous animations
                 gsap.killTweensOf([heroImg, subTitle, mainTitle, caption]);
 
                 let tl = gsap.timeline({ defaults: { duration: 1 } });
@@ -131,7 +115,7 @@ const MarketingHeroSection: React.FC = () => {
             };
 
             swiperInstance.on('slideChangeTransitionStart', handleSlideChange);
-            handleSlideChange(); // Initial load
+            handleSlideChange();
 
             return () => {
                 swiperInstance.off('slideChangeTransitionStart', handleSlideChange);
@@ -155,7 +139,7 @@ const MarketingHeroSection: React.FC = () => {
                     {heroSlides.map((slide) => (
                         <SwiperSlide key={slide.id}>
                             <div className="marketing-agency-slider-card ak-parallax">
-                                <img className="hero-bg-img" src={slide.img} alt="" />
+                                <img className="hero-bg-img" src={getImagePath(slide.img)} alt="" />
                                 <div className="marketing-agency-content">
                                     <div className="container-extent">
                                         <div className="marketing-agency-info">

@@ -39,7 +39,6 @@ const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
                 },
             });
 
-            // Animate stroke draw AND opacity together — matches original initPreloader()
             gsap.to(text, {
                 strokeDashoffset: 0,
                 duration: 3,
@@ -48,7 +47,6 @@ const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
                 ease: "power4.inOut",
             });
 
-            // Counter animation using roundProps to match original jQuery template
             tl.to(
                 loadingPercent,
                 {

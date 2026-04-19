@@ -1,6 +1,8 @@
 import React from "react";
-
+import commonData from "@/dataJson/commonSectionsData.json";
 import testimonialBg from "@assets/img/shape/testimonial.svg";
+
+const data = commonData.newsletter;
 
 interface NewsletterSectionProps {
     variant?: "style-1" | "style-2" | "style-3";
@@ -31,7 +33,6 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
 }) => {
     const isMinimalStudio = headingVariant === "minimal-studio";
     
-    // Set values based on headingVariant
     const titleAnimation = propTitleAnimation || (isMinimalStudio ? "text-animation" : undefined);
     const titleDirection = propTitleDirection || (isMinimalStudio ? "textLeft" : undefined);
     const titleDuration = propTitleDuration || (isMinimalStudio ? 1.0 : undefined);
@@ -61,7 +62,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                                 {...(titleAnimation && titleDuration ? { "data-duration": titleDuration } : {})}
                                 {...(titleAnimation && titleEase ? { "data-ease": titleEase } : {})}
                             >
-                                Join Our <span className={`highlight text-underlines ${underlineReveal ? "underline-anim" : ""}`}>Newsletter</span> for the Latest <span className="highlight">Exclusive</span> Content
+                                <span dangerouslySetInnerHTML={{ __html: data.title.replace('text-underlines', `text-underlines ${underlineReveal ? "underline-anim" : ""}`) }} />
                             </h2>
                         </div>
                         <form 
@@ -114,7 +115,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                     <div className="newsletter-content">
                         <div className="newsletter-anim title-anim">
                             <h2 className="newsletter-title anim-line-words">
-                                Join Our <span className="highlight text-underlines">Newsletter</span> for Latest <span className="highlight">Exclusive</span> Content
+                                <span dangerouslySetInnerHTML={{ __html: data.title }} />
                             </h2>
                         </div>
                         <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>

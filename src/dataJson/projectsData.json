@@ -1,0 +1,32 @@
+{
+  "mainProjects": [
+    { "id": 1, "title": "Campaign for EcoHome Products", "category": "Web App", "image": "src/assets/img/portfolio/portfolio-1.png", "tags": "isf-uiux isf-webapp", "colClass": "col-md-6" },
+    { "id": 2, "title": "Product Launch", "category": "UI/UX", "image": "src/assets/img/portfolio/portfolio-2.png", "tags": "isf-uiux", "colClass": "col-md-6" },
+    { "id": 3, "title": "Product Launch Campaign", "category": "Design", "image": "src/assets/img/portfolio/portfolio-3.png", "tags": "isf-design isf-webapp", "colClass": "col-md-5" },
+    { "id": 4, "title": "Product Launch Campaign for EcoHome Products", "category": "Design", "image": "src/assets/img/portfolio/portfolio-4.png", "tags": "isf-design", "colClass": "col-md-7" },
+    { "id": 5, "title": "Exceptional Android App Development", "category": "Branding", "image": "src/assets/img/services/dc-services-2.png", "tags": "isf-branding", "isServiceStyle": true, "colClass": "col-md-12" }
+  ],
+  "gridProjects": [
+    { "id": 1, "title": "Empowering Brands Redefining Digital Excellence", "image": "src/assets/img/portfolio/portfolio-top-img-1.png", "col": "col-md-5" },
+    { "id": 2, "title": "Shaping the Future of Digital Innovation and Leadership", "image": "src/assets/img/portfolio/portfolio-top-img-2.png", "col": "col-md-7" },
+    { "id": 3, "title": "Pioneering Innovation and Redefining Standards", "image": "src/assets/img/portfolio/portfolio-top-img-3.png", "col": "col-md-5" },
+    { "id": 4, "title": "Elevating Digital Frontiers: Crafting Strategic Online Solutions", "image": "src/assets/img/portfolio/portfolio-top-img-4.png", "col": "col-md-7" },
+    { "id": 5, "title": "Driving Digital Transformation: Pioneering Strategies to Redesign Digital Horizons and Define New Standards in Online Innovation", "image": "src/assets/img/portfolio/portfolio-top-img-5.png", "col": "col-md-12" },
+    { "id": 6, "title": "Product Launch Campaign for EcoHome", "image": "src/assets/img/portfolio/portfolio-top-img-6.png", "col": "col-md-6" },
+    { "id": 7, "title": "Transforming Brands Through Strategic Initiatives", "image": "src/assets/img/portfolio/portfolio-top-img-7.png", "col": "col-md-6" }
+  ],
+  "sliderProjects": [
+    { "id": 1, "title": "Product Launch Campaign", "image": "src/assets/img/project/markag-project-1.png", "category": "Digital Marketing" },
+    { "id": 2, "title": "Influencer Marketing for TechGear", "image": "src/assets/img/project/markag-project-2.png", "category": "Marketing Strategy" },
+    { "id": 3, "title": "Social Media Campaign", "image": "src/assets/img/project/markag-project-3.png", "category": "Content Creation" },
+    { "id": 4, "title": "SEO Optimization for HealthPlus", "image": "src/assets/img/project/markag-project-1.png", "category": "SEO Agency" },
+    { "id": 5, "title": "Brand Identity for GreenEnergy", "image": "src/assets/img/project/markag-project-2.png", "category": "Design Company" }
+  ],
+  "categories": [
+    { "name": "All", "filter": "*" },
+    { "name": "UI/UX", "filter": ".isf-uiux" },
+    { "name": "Design", "filter": ".isf-design" },
+    { "name": "Web App", "filter": ".isf-webapp" },
+    { "name": "Branding", "filter": ".isf-branding" }
+  ]
+}

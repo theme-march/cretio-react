@@ -4,29 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const methodologyData = [
-    {
-        id: "01",
-        title: "Technical SEO Development",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
-        hasBgText: true,
-    },
-    {
-        id: "02",
-        title: "Keyword Optimization & Internal Linking",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
-    },
-    {
-        id: "03",
-        title: "Social Media Engagement & Online",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
-    },
-    {
-        id: "04",
-        title: "Content Strategy & Creation",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
-    },
-];
+import commonData from "@/dataJson/commonSectionsData.json";
+
+const methodologyData = commonData.methodology;
 
 const MethodologySection: React.FC = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);

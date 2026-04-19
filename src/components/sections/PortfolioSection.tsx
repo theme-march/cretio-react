@@ -1,45 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import portfolio1 from "@assets/img/portfolio/portfolio-1.png";
-import portfolio2 from "@assets/img/portfolio/portfolio-2.png";
-import portfolio3 from "@assets/img/portfolio/portfolio-3.png";
-import portfolio4 from "@assets/img/portfolio/portfolio-4.png";
+import projectsData from "../../dataJson/projectsData.json";
+import { getImagePath } from "../../utils/imageLoader";
 
 const PortfolioSection: React.FC = () => {
+    const portfolioItems = projectsData.mainProjects.slice(0, 4);
+
     return (
         <section className="container">
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="portfolio-content">
                 <div className="d-flex flex-lg-column flex-column-reverse">
                     <div className="portfolio-content-top">
-                        <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
-                            <div className="portfolio-img img-anim-left-show">
-                                <img src={portfolio1} alt="Portfolio 1" />
-                            </div>
-                            <div className="portfolio-info">
-                                <div className="portfolio-subtitle">Google Marketing</div>
-                                <div className="portfolio-text style-1">
-                                    <h4 className="portfolio-title">Campaign for EcoHome Products</h4>
-                                    <div className="portfolio-btn">
-                                        <i className="flaticon-up-right-arrow"></i>
+                        {portfolioItems.slice(0, 2).map((item) => (
+                            <Link to="/portfolio/portfolio-details" className="portfolio-card style-1" key={item.id}>
+                                <div className="portfolio-img img-anim-left-show">
+                                    <img src={getImagePath(item.image)} alt={item.title} />
+                                </div>
+                                <div className="portfolio-info">
+                                    <div className="portfolio-subtitle">{item.category}</div>
+                                    <div className="portfolio-text style-1">
+                                        <h4 className="portfolio-title">{item.title}</h4>
+                                        <div className="portfolio-btn">
+                                            <i className="flaticon-up-right-arrow"></i>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Link>
-                        <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
-                            <div className="portfolio-img img-anim-left-show">
-                                <img src={portfolio2} alt="Portfolio 2" />
-                            </div>
-                            <div className="portfolio-info">
-                                <div className="portfolio-subtitle">Google Marketing</div>
-                                <div className="portfolio-text style-1">
-                                    <h4 className="portfolio-title">Product Launch</h4>
-                                    <div className="portfolio-btn">
-                                        <i className="flaticon-up-right-arrow"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
+                            </Link>
+                        ))}
                     </div>
                     <div className="ak-height-lg-60"></div>
 
@@ -52,36 +40,22 @@ const PortfolioSection: React.FC = () => {
                 </div>
                 <div className="ak-height-lg-60"></div>
                 <div className="portfolio-content-bottom">
-                    <Link to="/portfolio/portfolio-details" className="portfolio-card style-1 mb-0 mb-md-5">
-                        <div className="portfolio-img img-anim-left-show">
-                            <img src={portfolio3} alt="Portfolio 3" />
-                        </div>
-                        <div className="portfolio-info">
-                            <div className="portfolio-subtitle">Google Marketing</div>
-                            <div className="portfolio-text style-1">
-                                <h4 className="portfolio-title">Product Launch Campaign</h4>
-                                <div className="portfolio-btn">
-                                    <i className="flaticon-up-right-arrow"></i>
+                    {portfolioItems.slice(2, 4).map((item, index) => (
+                        <Link to="/portfolio/portfolio-details" className={`portfolio-card style-1 ${index === 0 ? "mb-0 mb-md-5" : ""}`} key={item.id}>
+                            <div className="portfolio-img img-anim-left-show">
+                                <img src={getImagePath(item.image)} alt={item.title} />
+                            </div>
+                            <div className="portfolio-info">
+                                <div className="portfolio-subtitle">{item.category}</div>
+                                <div className="portfolio-text style-1">
+                                    <h4 className="portfolio-title">{item.title}</h4>
+                                    <div className="portfolio-btn">
+                                        <i className="flaticon-up-right-arrow"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
-                    <Link to="/portfolio/portfolio-details" className="portfolio-card style-1">
-                        <div className="portfolio-img img-anim-left-show">
-                            <img src={portfolio4} alt="Portfolio 4" />
-                        </div>
-                        <div className="portfolio-info">
-                            <div className="portfolio-subtitle">Google Marketing</div>
-                            <div className="portfolio-text style-1">
-                                <h4 className="portfolio-title">
-                                    Product Launch Campaign for EcoHome Products
-                                </h4>
-                                <div className="portfolio-btn">
-                                    <i className="flaticon-up-right-arrow"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>

@@ -1,22 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import port1 from "@assets/img/portfolio/portfolio-top-img-1.png";
-import port2 from "@assets/img/portfolio/portfolio-top-img-2.png";
-import port3 from "@assets/img/portfolio/portfolio-top-img-3.png";
-import port4 from "@assets/img/portfolio/portfolio-top-img-4.png";
-import port5 from "@assets/img/portfolio/portfolio-top-img-5.png";
-import port6 from "@assets/img/portfolio/portfolio-top-img-6.png";
-import port7 from "@assets/img/portfolio/portfolio-top-img-7.png";
+import projectsData from "@/dataJson/projectsData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-const portfolioItems = [
-    { id: 1, title: "Empowering Brands Redefining Digital Excellence", img: port1, col: "col-md-5" },
-    { id: 2, title: "Shaping the Future of Digital Innovation and Leadership", img: port2, col: "col-md-7" },
-    { id: 3, title: "Pioneering Innovation and Redefining Standards", img: port3, col: "col-md-5" },
-    { id: 4, title: "Elevating Digital Frontiers: Crafting Strategic Online Solutions", img: port4, col: "col-md-7" },
-    { id: 5, title: "Driving Digital Transformation: Pioneering Strategies to Redesign Digital Horizons and Define New Standards in Online Innovation", img: port5, col: "col-md-12" },
-    { id: 6, title: "Product Launch Campaign for EcoHome", img: port6, col: "col-md-6" },
-    { id: 7, title: "Transforming Brands Through Strategic Initiatives", img: port7, col: "col-md-6" },
-];
+const portfolioItems = projectsData.gridProjects;
 
 interface PortfolioGridSectionProps {
     disableAnimationCount?: number;
@@ -36,7 +23,7 @@ const PortfolioGridSection: React.FC<PortfolioGridSectionProps> = ({
                                     className={`portfolio-top-img ${index < disableAnimationCount ? (item.id === 5 ? "" : "ak-parallax") : "img-anim-left-show"}`}
                                     data-no-parallax={item.id === 5}
                                 >
-                                    <img src={item.img} alt={item.title} className="w-100" />
+                                    <img src={getImagePath(item.image)} alt={item.title} className="w-100" />
                                 </div>
                                 <div className="portfolio-content">
                                     <h6 className="portfolio-title">{item.title}</h6>

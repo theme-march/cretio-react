@@ -6,34 +6,11 @@ import "swiper/css/scrollbar";
 import { Navigation, Scrollbar } from "swiper/modules";
 import SectionHeading from "@components/common/SectionHeading";
 
-import team1 from "@assets/img/team/team-1.png";
-import team2 from "@assets/img/team/team-2.png";
-import team3 from "@assets/img/team/team-3.png";
-import team4 from "@assets/img/team/team-4.png";
+import teamData from "@/dataJson/teamMembersData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
-import markagTeam1 from "@assets/img/team/markag-team-1.png";
-import markagTeam2 from "@assets/img/team/markag-team-2.png";
-import markagTeam3 from "@assets/img/team/markag-team-3.png";
-import markagTeam4 from "@assets/img/team/markag-team-4.png";
-
-const standardTeam = [
-    { name: "Alex Johnson", role: "Creative Director", image: team1 },
-    { name: "Taylor Smith", role: "Graphic Designer", image: team2 },
-    { name: "Jamie Lee", role: "Art Director", image: team3 },
-    { name: "Morgan Brown", role: "UX/UI Designer", image: team4 },
-    { name: "Alex Johnson", role: "Creative Director", image: team1 },
-    { name: "Taylor Smith", role: "Graphic Designer", image: team2 },
-    { name: "Jamie Lee", role: "Art Director", image: team3 },
-    { name: "Morgan Brown", role: "UX/UI Designer", image: team4 },
-    { name: "Alex Johnson", role: "Creative Director", image: team1 },
-];
-
-const marketingTeam = [
-    { name: "Jennifer Alexandria", role: "CEO & Founder", image: markagTeam1 },
-    { name: "Jonathan Christopher", role: "Marketing Officer", image: markagTeam2 },
-    { name: "Michael Alexander", role: "Marketing Manager", image: markagTeam3 },
-    { name: "William Anthony", role: "Social Manager", image: markagTeam4 },
-];
+const standardTeam = teamData.standardTeam;
+const marketingTeam = teamData.marketingTeam;
 
 interface TeamSectionProps {
     titleAnimation?: "text-animation" | "fade-animation";
@@ -46,6 +23,8 @@ interface TeamSectionProps {
     variant?: "default" | "creative-portfolio";
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
+    title?: string;
+    highlightWords?: string[];
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({
@@ -59,6 +38,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     variant = "default",
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
+    title = 'Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>',
+    highlightWords = [],
 }) => {
     const location = useLocation();
     const isMarketingAgency = location.pathname === "/marketing-agency";
@@ -69,7 +50,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container" style={isMarketingAgency ? { maxWidth: "1296px" } : {}}>
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="426+ Team Members"
                     variant="style-1"
@@ -98,7 +80,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                                 data-offset="55"
                             >
                                 <div className="team-img-top ak-parallax" style={{ width: "306px", margin: "0 auto", aspectRatio: "306 / 372", overflow: "hidden" }}>
-                                    <a href="#"><img src={member.image} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
+                                    <a href="#"><img src={getImagePath(member.image)} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
                                     <div className="team-social-icon">
                                         <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
                                         <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
@@ -162,7 +144,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                             <SwiperSlide key={index}>
                                 <div className="border-0 team-card">
                                     <div className="team-img-top ak-parallax">
-                                        <a href="#"><img src={member.image} alt={member.name} /></a>
+                                        <a href="#"><img src={getImagePath(member.image)} alt={member.name} /></a>
                                         <div className="team-social-icon">
                                             <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
                                             <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>

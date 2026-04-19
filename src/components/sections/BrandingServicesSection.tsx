@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
-import port1 from "@assets/img/project/markag-project-1.png";
-import port2 from "@assets/img/project/markag-project-2.png";
-import port3 from "@assets/img/project/markag-project-3.png";
-import port4 from "@assets/img/project/markag-project-4.png";
 
-const services = [
-    { id: 1, title: "Branding", img: port1, hasSlash: true },
-    { id: 2, title: "Brand Strategy", img: port2, hasSlash: true },
-    { id: 3, title: "Brand Development", img: port3, hasSlash: true },
-    { id: 4, title: "Social Media Strategy", img: port4, hasSlash: true },
-    { id: 5, title: "Brand Design", img: port1, hasSlash: false },
-];
+import servicesData from "@/dataJson/servicesData.json";
+import { getImagePath } from "@/utils/imageLoader";
+
+const services = servicesData.brandingServices;
 
 interface BrandingServicesSectionProps {
     variant?: "default" | "marketing-agency" | "design-company";
+    title?: string;
+    highlightWords?: string[];
 }
 
-const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ variant = "default" }) => {
+const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ 
+    variant = "default",
+    title = "Our Exceptional Digital Marketing Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     const sectionRef = useRef<HTMLElement>(null);
     const isMarketingAgency = variant === "marketing-agency";
     const isDesignCompany = variant === "design-company";
@@ -74,7 +73,8 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ varia
         <section className="container" ref={sectionRef}>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SectionHeading
-                title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'
+                title={title}
+                highlightWords={highlightWords}
                 caption="Services"
                 variant="style-2"
                 className="mini-section-title"
@@ -92,7 +92,7 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ varia
             <div className="ak-border-width"></div>
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="services-branding">
-                {services.map((service) => (
+                {services.map((service: any) => (
                     <Link
                         to="/services/service-details"
                         className="sb-card fade-animation"
@@ -104,7 +104,7 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ varia
                         <h2>
                             {service.title} {service.hasSlash && <span className="no-hover-color"> / </span>}
                         </h2>
-                        <img src={service.img} alt={service.title} style={{ opacity: 0, scale: 0.5 }} />
+                        <img src={getImagePath(service.img)} alt={service.title} style={{ opacity: 0, scale: 0.5 }} />
                     </Link>
                 ))}
             </div>

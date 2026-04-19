@@ -24,7 +24,6 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl }) =>
 
     if (!mounted) return null;
 
-    // Convert YouTube URL to Embed URL if needed
     const getEmbedUrl = (url: string) => {
         if (url.includes("youtube.com/watch?v=")) {
             return url.replace("watch?v=", "embed/");

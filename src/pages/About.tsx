@@ -7,9 +7,8 @@ import AwardsSection from "@components/sections/AwardsSection";
 import GoalSection from "@components/sections/GoalSection";
 import TestimonialSection from "@components/sections/TestimonialSection";
 import FunFactSection from "@components/sections/FunFactSection";
-import CoreFeaturesSection, {
-    coreFeaturesData,
-} from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import coreFeaturesJSON from "@/dataJson/coreFeaturesData.json";
 import TeamSection from "@components/sections/TeamSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
@@ -22,7 +21,8 @@ const About: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='We thrive on <span class="highlight-text">creativity</span> & <span class="highlight-text">innovation</span> in digital presence'
+                title="We thrive on creativity & innovation in digital presence"
+                highlightWords={["creativity", "innovation"]}
                 links={[{ label: "Home", path: "/" }, { label: "About Us", path: "/about" }]}
                 videoSrc={aboutVideo}
                 variant="style-3"
@@ -37,13 +37,14 @@ const About: React.FC = () => {
             <FunFactSection />
             <CoreFeaturesSection 
                 variant="style-2" 
-                title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                title="Our Exceptional Digital Transformation Services"
+                highlightWords={["Exceptional", "Services"]}
                 description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."}
                 caption="Services"
                 isSlider={true}
                 showTopGap={true}
                 showBottomGap={true}
-                features={coreFeaturesData}
+                features={coreFeaturesJSON}
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
                 cardAnimation=""

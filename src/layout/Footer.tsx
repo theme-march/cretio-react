@@ -1,9 +1,10 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import footerLogo from "@assets/img/logo/footer-logo.svg";
+import { getImagePath } from "../utils/imageLoader";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
+import siteSettings from "../dataJson/siteSettings.json";
 import { splitText } from "../utils/textSplitter";
 
 const Footer: React.FC = () => {
@@ -22,16 +23,16 @@ const Footer: React.FC = () => {
                 },
             });
 
-            // Character level repeating animation for "work Together"
             const footerTitleTwo = footerRef.current?.querySelector(".footer-cta-title-two") as HTMLElement;
             if (footerTitleTwo) {
                 const splitRes = splitText(footerTitleTwo, "chars");
-                const footerTimeline = gsap.timeline({ delay: 1.5, repeat: -1, yoyo: true });
+                
+                const footerTimeline = gsap.timeline({ delay: 1, repeat: -1, yoyo: true });
                 footerTimeline.from(splitRes.chars, {
                     duration: 2.5,
-                    x: -20,
+                    x: -10,
                     autoAlpha: 0,
-                    stagger: 0.05,
+                    stagger: 0.02,
                     ease: "elastic.out(1, 0.3)",
                 });
             }
@@ -56,22 +57,22 @@ const Footer: React.FC = () => {
                 <div className="ak-footer-container">
                     <div className="footer-cta">
                         <div className="footer-cta-info ak-mask-text">
-                            <h1 className="footer-cta-title">Let’s</h1>
+                            <h1 className="footer-cta-title">{siteSettings.cta.title}</h1>
                             <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
                         </div>
                         <div className="footer-btn-email">
                             <div className="footer-btn-content">
-                                <Link to="/contact" className="footer-btn circle-btn-anim">
+                                <Link to={siteSettings.cta.btnLink} className="footer-btn circle-btn-anim">
                                     <span className="text">
-                                        Start <i className="flaticon-up-right-arrow"></i>
+                                        {siteSettings.cta.btnText.split(' ')[0]} <i className="flaticon-up-right-arrow"></i>
                                         <br />
-                                        <span>Project</span>
+                                        <span>{siteSettings.cta.btnText.split(' ')[1]}</span>
                                     </span>
                                 </Link>
                             </div>
                             <div className="footer-email">
-                                <p className="email-short-title">Say hello!</p>
-                                <a href="mailto:info@email.com"> info@email.com</a>
+                                <p className="email-short-title">{siteSettings.cta.emailTitle}</p>
+                                <a href={`mailto:${siteSettings.cta.email}`}> {siteSettings.cta.email}</a>
                             </div>
                         </div>
                     </div>
@@ -79,33 +80,27 @@ const Footer: React.FC = () => {
                         <div className="about-company">
                             <img
                                 className="footer-logo"
-                                src={footerLogo}
+                                src={getImagePath(siteSettings.logos.footer)}
                                 alt="Logo"
                             />
-                            <p className="about-company-desp">
-                                We thrive on creativity and <span>innovation</span>. Our team is
-                                constantly exploring new ideas and approaches to ensure your
-                                <span> digital presence </span> is fresh.
-                            </p>
+                            <p className="about-company-desp" dangerouslySetInnerHTML={{ __html: siteSettings.company.description }}></p>
                         </div>
 
                         <div className="address-phn">
-                            <a href="tel:(406)555-0120" className="phn">
+                            <a href={siteSettings.contact.phoneLink} className="phn">
                                 <span>
                                     <i className="flaticon-telephone"> </i> 
                                 </span>
-                                 (406) 555-012
+                                {siteSettings.contact.phone}
                             </a>
-                            <p className="address">901 N Pitt Str., Suite 170 Alexandria, USA</p>
+                            <p className="address">{siteSettings.contact.address}</p>
                         </div>
 
                         <div className="footer-list-content">
                             <ul className="footer-list-menu">
-                                <li><Link to="/">Home</Link></li>
-                                <li><Link to="/about">About</Link></li>
-                                <li><Link to="/services">Services</Link></li>
-                                <li><Link to="/portfolio">Portfolio</Link></li>
-                                <li><Link to="/contact">Contact Us</Link></li>
+                                {siteSettings.menu.map((item, index) => (
+                                    <li key={index}><Link to={item.href}>{item.title}</Link></li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -116,19 +111,13 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="ak-space-between">
                         <div className="social-icon">
-                            <a href="#" className="icon">
-                                <i className="flaticon-facebook"></i>
-                            </a>
-                            <a href="#" className="icon">
-                                <i className="flaticon-video"></i>
-                            </a>
-                            <a href="#" className="icon">
-                                <i className="flaticon-linkedin"></i>
-                            </a>
+                            {siteSettings.socials.map((social, index) => (
+                                <a key={index} href={social.link} className="icon">
+                                    <i className={social.icon}></i>
+                                </a>
+                            ))}
                         </div>
-                        <p className="copy-right-text">
-                            © 2025 <span>Thememarch.</span> All rights reserved.
-                        </p>
+                        <p className="copy-right-text" dangerouslySetInnerHTML={{ __html: siteSettings.copyright }}></p>
                     </div>
                 </div>
             </div>

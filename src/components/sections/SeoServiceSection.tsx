@@ -3,34 +3,35 @@ import { Link } from "react-router-dom";
 import SectionHeading from "@components/common/SectionHeading";
 import seoServiceImg from "@assets/img/services/seo-service.png";
 
-const services = [
-    { id: 1, title: "Keyword Research & Strategy" },
-    { id: 2, title: "On-Page SEO Optimization" },
-    { id: 3, title: "Content Creation Optimization" },
-    { id: 4, title: "Keyword Research & Strategy" },
-];
+import servicesData from "../../dataJson/servicesData.json";
+
+const services = servicesData.seoServices;
 
 interface SeoServiceSectionProps {
     variant?: "seo-agency" | "default";
+    title?: string;
+    highlightWords?: string[];
 }
 
-const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ variant = "default" }) => {
+const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ 
+    variant = "default",
+    title = "Our Exceptional SEO Business Growth Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     const isSeoAgency = variant === "seo-agency";
 
     return (
         <section className="container">
             <SectionHeading
-                title='Our <span class="highlight">Exceptional</span> SEO Business Growth <span class="highlight">Services</span>'
+                title={title}
+                highlightWords={highlightWords}
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                 caption="Services"
-                // SeoAgency variant: 3D rotationX flip animation on the title
                 titleAnimation={isSeoAgency ? "" : "text-animation"}
                 titleDirection={isSeoAgency ? "bottom" : "textTop"}
                 titleSplitText={undefined}
-                // Description: fade-animation with template delay
                 descriptionDirection={isSeoAgency ? "bottom" : "none"}
                 descriptionDelay={isSeoAgency ? "0.3" : "0.3"}
-                // Caption: fade-animation with template delay
                 captionDirection={isSeoAgency ? "bottom" : "right"}
                 captionDelay={isSeoAgency ? "0.3" : "0.3"}
             />

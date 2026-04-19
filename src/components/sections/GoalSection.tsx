@@ -2,12 +2,9 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import goalCircleOverlay from "@assets/img/bg/goal-circle-overlay.png";
 
-const skills = [
-    { title: "UI/UX Design", percentage: 95 },
-    { title: "Web Development", percentage: 80 },
-    { title: "App Development", percentage: 95 },
-    { title: "CMS Development", percentage: 98 },
-];
+import commonData from "@/dataJson/commonSectionsData.json";
+
+const skills = commonData.skills;
 
 interface SkillBarProps {
     title: string;

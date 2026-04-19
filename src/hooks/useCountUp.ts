@@ -12,7 +12,6 @@ const useCountUp = (end: number, duration: number = 2000, start: number = 0) => 
             const progress = timestamp - startTime;
             const percentage = Math.min(progress / duration, 1);
 
-            // Easing function: easeOutExpo
             const easedPercentage = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
 
             setCount(Math.floor(easedPercentage * (end - start) + start));

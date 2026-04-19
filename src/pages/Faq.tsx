@@ -10,7 +10,7 @@ const Faq: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='<span class="highlight-text">Frequently</span> Asked Every Questions To Know'
+                title="Frequently Asked Every Questions To Know"
                 highlightWords={["Frequently"]}
                 links={[
                     { label: "Home", path: "/" },

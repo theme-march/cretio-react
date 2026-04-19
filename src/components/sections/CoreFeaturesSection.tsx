@@ -6,45 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Pagination, Navigation, Scrollbar } from "swiper/modules";
 
+import coreFeaturesData from "@/dataJson/coreFeaturesData.json";
+
 export interface CoreFeature {
     id: string;
     icon: string;
     title: string;
     description: string;
 }
-
-export const coreFeaturesData: CoreFeature[] = [
-    {
-        id: "01",
-        icon: "flaticon-circle",
-        title: "Web Development",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
-    },
-    {
-        id: "02",
-        icon: "flaticon-folded",
-        title: "UI/UX Design",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
-    },
-    {
-        id: "03",
-        icon: "flaticon-twirl",
-        title: "Web Design",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
-    },
-    {
-        id: "04",
-        icon: "flaticon-twirl",
-        title: "App Development",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
-    },
-    {
-        id: "05",
-        icon: "flaticon-twirl",
-        title: "E-commerce Solutions",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry.",
-    },
-];
 
 interface CoreFeaturesProps {
     variant?: "style-1" | "style-2" | "style-3";
@@ -72,6 +41,7 @@ interface CoreFeaturesProps {
     titleSplitText?: string;
     sliderType?: "dots" | "navigation";
     fullWidth?: boolean;
+    highlightWords?: string[];
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -100,6 +70,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     titleSplitText,
     sliderType = "dots",
     fullWidth = false,
+    highlightWords = [],
 }) => {
     return (
         <section
@@ -110,6 +81,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                 {title && (
                     <SectionHeading
                         title={title}
+                        highlightWords={highlightWords}
                         variant={variant === "style-2" ? "style-2" : "style-1"}
                         className={variant === "style-2" ? "bg-black" : ""}
                         description={description}

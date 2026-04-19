@@ -4,26 +4,12 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import testimonialsData from "@/dataJson/testimonialsData.json";
+import { getImagePath } from "@/utils/imageLoader";
 import testimonialBg2 from "@assets/img/bg/testimonial-bg-2.png";
 import testimonialSvg from "@assets/img/shape/testimonial.svg";
-import testimonialImg1 from "@assets/img/testmonial/testmonial-1.png";
 
-const testimonials = [
-    {
-        id: 1,
-        text: "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
-        name: "Morgan Brown",
-        location: "From USA",
-        img: testimonialImg1,
-    },
-    {
-        id: 2,
-        text: "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
-        name: "Morgan Brown",
-        location: "From USA",
-        img: testimonialImg1,
-    },
-];
+const testimonials = testimonialsData.marketingTestimonials;
 
 interface MarketingTestimonialSectionProps {
     variant?: string;
@@ -59,7 +45,7 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                         </div>
                         <div className="testmonial-person-content">
                             <div className="person-img">
-                                <img src={item.img} alt={item.name} />
+                                <img src={getImagePath(item.img)} alt={item.name} />
                             </div>
                             <div className="person-info">
                                 <h6>{item.name}</h6>

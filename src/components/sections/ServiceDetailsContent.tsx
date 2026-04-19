@@ -1,9 +1,7 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
-import mainImg from "@assets/img/services/services-main-img.png";
-import show1 from "@assets/img/services/services-details-show-1.png";
-import show2 from "@assets/img/services/services-details-show-2.png";
-import accordionImg from "@assets/img/services/accordion-1.png";
+import detailsData from "@/dataJson/detailsContentData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
 interface ServiceDetailsContentProps {
     disableMainImgAnimation?: boolean;
@@ -33,16 +31,8 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
     const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const accordionData = [
-        { title: "1. What platforms do you develop mobile apps for?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "2. What is the process for developing a mobile app?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "3. What platforms do you use for web development?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "4. How long does it take to build a website?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "5. How can digital marketing help my business?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-        { title: "6. What digital marketing services do you offer?", content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-    ];
+    const accordionData = detailsData.serviceDetails.accordion;
 
-    // Override CSS display:none — GSAP needs the element visible to animate
     useLayoutEffect(() => {
         tabRefs.current.forEach((tab, index) => {
             if (!tab) return;
@@ -57,7 +47,6 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
     const handleAccordionClick = (index: number) => {
         const isClosing = index === activeAccordion;
 
-        // Close currently open panel
         if (activeAccordion !== null && tabRefs.current[activeAccordion]) {
             const closingTab = tabRefs.current[activeAccordion];
             gsap.killTweensOf(closingTab);
@@ -78,7 +67,6 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
             return;
         }
 
-        // Open new panel
         setActiveAccordion(index);
         const newTab = tabRefs.current[index];
         if (newTab) {
@@ -100,29 +88,19 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className={`services-main-img ${disableMainImgAnimation ? "" : "ak-parallax"}`}>
-                    <img src={mainImg} className="img-fluid" alt="..." />
+                    <img src={getImagePath("services/services-main-img.png")} className="img-fluid" alt="..." />
                 </div>
             </div>
 
             <section className="container">
                 <div className="services-short-info">
                     <div className="services-short-info-content">
-                        <div className="services-short-info-item">
-                            <span className="services-short-info-label">Services:</span>
-                            <span className="services-short-info-text">Android App Dev</span>
-                        </div>
-                        <div className="services-short-info-item">
-                            <span className="services-short-info-label">Approximate Time:</span>
-                            <span className="services-short-info-text"> 3 Months - 1 Year</span>
-                        </div>
-                        <div className="services-short-info-item">
-                            <span className="services-short-info-label">Industry:</span>
-                            <span className="services-short-info-text">300+ Industry, We are Working</span>
-                        </div>
-                        <div className="services-short-info-item">
-                            <span className="services-short-info-label">Area We Cover: </span>
-                            <span className="services-short-info-text">Around Globe</span>
-                        </div>
+                        {detailsData.serviceDetails.shortInfo.map((info, idx) => (
+                            <div className="services-short-info-item" key={idx}>
+                                <span className="services-short-info-label">{info.label}</span>
+                                <span className="services-short-info-text">{info.text}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -131,42 +109,42 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                 <div className="container">
                     <div className="services-details-title">
                         <h3 className="services-details-title-text text-animation">
-                            Android & IOS App Development
+                            {detailsData.serviceDetails.title}
                         </h3>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description1}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description2}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
                             <div className="col-md-4 ak-parallax">
-                                <img src={show1} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="..." />
                             </div>
                             <div className="col-md-8 ak-parallax">
-                                <img src={show2} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="..." />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description3}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description4}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row align-items-center">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
                                 <div className={`image-hov-one ${enableZoomInAnimation ? "ak-hover-zoom-pronounced" : "ak-parallax"}`}>
-                                    <img src={accordionImg} className="img-fluid" alt="..." />
+                                    <img src={getImagePath("services/accordion-1.png")} className="img-fluid" alt="..." />
                                 </div>
                             </div>
                             <div className="col-xl-6 col-12">
                                 <div className="ak-accordion">
-                                    {accordionData.map((item, index) => (
+                                    {accordionData.map((item: any, index: number) => (
                                         <div className="ak-accordion-item" key={index}>
                                             <div
                                                 className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
@@ -193,20 +171,20 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description5}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
                             <div className="col-md-8 ak-parallax">
-                                <img src={show2} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="..." />
                             </div>
                             <div className="col-md-4 ak-parallax">
-                                <img src={show1} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="..." />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+                            {detailsData.serviceDetails.description6}
                         </p>
                     </div>
                 </div>

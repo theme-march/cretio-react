@@ -8,7 +8,7 @@ const Team: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text"> Exceptional</span> Digital Industrial <span class="highlight-text">Team Member</span>'
+                title="Our Exceptional Digital Industrial Team Member"
                 highlightWords={["Exceptional", "Member"]}
                 links={[
                     { label: "Home", path: "/" },

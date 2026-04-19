@@ -2,12 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
-const steps = [
-    { id: "01", title: "Planning and Idea Validation" },
-    { id: "02", title: "Wireframing and Design" },
-    { id: "03", title: "Technical Planning & Development" },
-    { id: "04", title: "Testing and Quality Assurance" },
-];
+import steps from "../../dataJson/processStepsData.json";
 
 interface ProcessSectionProps {
     variant?: "style-1" | "style-2";
@@ -21,6 +16,8 @@ interface ProcessSectionProps {
     disableCaptionAnimation?: boolean;
     cardDuration?: number;
     cardStagger?: number;
+    title?: string;
+    highlightWords?: string[];
 }
 
 const ProcessSection: React.FC<ProcessSectionProps> = ({ 
@@ -34,13 +31,14 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
     cardDuration = 1.8,
-    cardStagger = 0.2
+    cardStagger = 0.2,
+    title = "Our Exceptional Digital Industrial Working Process",
+    highlightWords = ["Exceptional", "Process"],
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Cards Animation
             gsap.fromTo(".funfact", 
                 { 
                     opacity: 0, 
@@ -60,7 +58,6 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
                 }
             );
 
-            // Numeric Count-up Animation
             const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
             countElements?.forEach((el) => {
                 const target = parseInt(el.textContent || "0", 10);
@@ -87,7 +84,8 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
         <section ref={sectionRef}>
             <div className="container">
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Working Process</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Process"
                     description={description}
                     variant={variant}

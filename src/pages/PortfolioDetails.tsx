@@ -10,7 +10,7 @@ const PortfolioDetails: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text">Exceptional</span> Successful Development <span class="highlight-text">Project</span>'
+                title="Our Exceptional Successful Development Project"
                 highlightWords={["Exceptional", "Project"]}
                 links={[
                     { label: "Home", path: "/" },

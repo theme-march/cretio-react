@@ -72,7 +72,11 @@ export function splitText(element: HTMLElement, type: string = "chars"): SplitRe
         }
     }
 
-    if (!element.classList.contains("is-split")) {
+    const hasSplitChars = element.querySelector(".split-char") !== null;
+    const hasSplitWords = element.querySelector(".split-word") !== null;
+
+    if (!element.classList.contains("is-split") || (!hasSplitChars && !hasSplitWords)) {
+        element.classList.remove("is-split");
         Array.from(element.childNodes).forEach(processNode);
         element.classList.add("is-split");
     } else {
@@ -100,14 +104,10 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
 
     const threshold = 4;
 
-    // Step 1: Pre-calculate ALL positions BEFORE any DOM mutations
-    // This prevents the "one word per line" reflow bug
     const wrappersWithTops = wordWrappers.map((wrapper) => ({
         wrapper,
         top: Math.round(wrapper.getBoundingClientRect().top),
     }));
-
-    // Step 2: Group wrappers into visual lines
     const lineGroups: HTMLElement[][] = [];
     let currentTop: number | null = null;
     let currentGroup: HTMLElement[] = [];
@@ -126,10 +126,6 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
     });
     if (currentGroup.length) lineGroups.push(currentGroup);
 
-    // Step 3: Wrap each line safely
-    // Strategy: flatten all direct children of `element` into an ordered array,
-    // find the range of nodes belonging to each line group, and move them into a wrapper.
-    // This avoids range.surroundContents() which crashes when spans cross line boundaries.
     lineGroups.forEach((group) => {
         if (!group.length) return;
 
@@ -143,7 +139,6 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
         const firstWord = group[0];
         const lastWord = group[group.length - 1];
 
-        // Walk up to find the direct child of `element` for each boundary word
         const getDirectChild = (node: Node): ChildNode | null => {
             let n = node;
             while (n.parentNode && n.parentNode !== element) {
@@ -157,7 +152,6 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
 
         if (!firstAncestor || !lastAncestor) return;
 
-        // Collect all direct children of `element` between firstAncestor and lastAncestor inclusive
         const children = Array.from(element.childNodes);
         const startIdx = children.indexOf(firstAncestor);
         const endIdx = children.indexOf(lastAncestor);
@@ -166,7 +160,6 @@ function wrapLines(element: HTMLElement): HTMLElement[] {
 
         const nodesToMove = children.slice(startIdx, endIdx + 1);
 
-        // Insert the lineWrapper before the first node, then move nodes into it
         element.insertBefore(lineWrapper, firstAncestor);
         nodesToMove.forEach((n) => lineWrapper.appendChild(n));
 

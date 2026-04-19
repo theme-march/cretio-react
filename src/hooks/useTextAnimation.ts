@@ -1,6 +1,5 @@
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
-// ScrollTrigger is registered globally in main.tsx
 
 const useTextAnimation = (containerRef?: React.RefObject<HTMLElement | null>) => {
     useLayoutEffect(() => {
@@ -15,7 +14,6 @@ const useTextAnimation = (containerRef?: React.RefObject<HTMLElement | null>) =>
                 const ease = element.getAttribute("data-ease") || "power2.out";
 
                 if (words.length > 0) {
-                    // Reset words initial state
                     gsap.set(words, { translateY: "100%", opacity: 0 });
                     
                     gsap.to(words, {
@@ -32,7 +30,6 @@ const useTextAnimation = (containerRef?: React.RefObject<HTMLElement | null>) =>
                         }
                     });
                 } else {
-                    // Fallback to whole element animation if no .anim-word children
                     gsap.from(element, {
                         y: 40,
                         opacity: 0,

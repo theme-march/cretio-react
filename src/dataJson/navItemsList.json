@@ -1,0 +1,51 @@
+[
+    {
+        "title": "Home",
+        "href": "/",
+        "subMenu": [
+            { "title": "Digital Agency", "href": "/" },
+            { "title": "Marketing Agency", "href": "/marketing-agency" },
+            { "title": "Design Company", "href": "/design-company" },
+            { "title": "Creative Portfolio", "href": "/creative-portfolio" },
+            { "title": "Minimal Studio", "href": "/minimal-studio" },
+            { "title": "SEO Agency", "href": "/seo-agency" }
+        ]
+    },
+    {
+        "title": "About",
+        "href": "/about"
+    },
+    {
+        "title": "Services",
+        "href": "/services",
+        "subMenu": [
+            { "title": "Services", "href": "/services" },
+            { "title": "Services Details", "href": "/services/service-details" }
+        ]
+    },
+    {
+        "title": "Portfolio",
+        "href": "/portfolio",
+        "subMenu": [
+            { "title": "Portfolio", "href": "/portfolio" },
+            { "title": "Portfolio Details", "href": "/portfolio/portfolio-details" }
+        ]
+    },
+    {
+        "title": "Pages",
+        "href": "#",
+        "subMenu": [
+            { "title": "Blog", "href": "/blog" },
+            { "title": "Blog Details", "href": "/blog/blog-details" },
+            { "title": "Team", "href": "/team" },
+            { "title": "Pricing", "href": "/pricing" },
+            { "title": "Faq", "href": "/faq" },
+            { "title": "404 Page", "href": "/404" },
+            { "title": "Coming Soon", "href": "/coming-soon" }
+        ]
+    },
+    {
+        "title": "Contact",
+        "href": "/contact"
+    }
+]

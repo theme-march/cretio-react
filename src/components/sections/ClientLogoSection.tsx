@@ -1,25 +1,10 @@
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
-import client1 from "@assets/img/client/client-1.png";
-import client2 from "@assets/img/client/client-2.png";
-import client3 from "@assets/img/client/client-3.png";
-import client4 from "@assets/img/client/client-4.png";
-
-const clients = [
-    { id: 1, img: client1, title: "Credesign", subtitle: "Portfolio Template", delay: 0.15 },
-    { id: 2, img: client2, title: "Vixan Dev", subtitle: "Portfolio Template", delay: 0.35 },
-    { id: 3, img: client3, title: "Enfhess Star", subtitle: "NFT Market Star Point", delay: 0.55 },
-    { id: 4, img: client1, title: "Credesign", subtitle: "Portfolio Template", delay: 0.75 },
-    { id: 5, img: client4, title: "Fingcon Con", subtitle: "Consulting Hub GloBAL", delay: 0.95 },
-    { id: 6, img: client2, title: "Vixan Dev", subtitle: "Portfolio Template", delay: 0.15 },
-    { id: 7, img: client1, title: "Credesign", subtitle: "Portfolio Template", delay: 0.35 },
-    { id: 8, img: client4, title: "Fingcon Con", subtitle: "Consulting Hub GloBAL", delay: 0.55 },
-    { id: 9, img: client1, title: "Credesign", subtitle: "Portfolio Template", delay: 0.75 },
-    { id: 10, img: client3, title: "Enfhess Star", subtitle: "NFT Market Star Point", delay: 0.95 },
-];
+import clients from "@/dataJson/clientLogosData.json";
+import { getImagePath } from "@/utils/imageLoader";
 
 interface ClientLogoSectionProps {
     showTitle?: boolean;
@@ -61,7 +46,7 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
                             {clients.map((client) => (
                                 <SwiperSlide key={client.id}>
                                     <div className="client-logo border-0">
-                                        <img src={client.img} alt={client.title} />
+                                        <img src={getImagePath(client.img)} alt={client.title} />
                                         <div className="client-info">
                                             <h6 className="client-title">{client.title}</h6>
                                             <p className="client-shot-title">{client.subtitle}</p>
@@ -130,7 +115,7 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
                                 data-direction={direction}
                                 data-duration="0.75"
                             >
-                                <img src={client.img} alt={client.title} />
+                                <img src={getImagePath(client.img)} alt={client.title} />
                                 <div className="client-info">
                                     <h6 className="client-title">{client.title}</h6>
                                     <p className="client-shot-title">{client.subtitle}</p>

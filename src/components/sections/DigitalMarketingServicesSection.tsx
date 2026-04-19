@@ -3,29 +3,29 @@ import { Link } from "react-router-dom";
 
 import SectionHeading from "@components/common/SectionHeading";
 
-import service1 from "@assets/img/services/dc-services-1.png";
-import service2 from "@assets/img/services/dc-services-2.png";
-import service3 from "@assets/img/services/dc-services-3.png";
-import service4 from "@assets/img/services/dc-services-4.png";
-import service5 from "@assets/img/services/dc-services-5.png";
-import service6 from "@assets/img/services/dc-services-6.png";
 
-const services = [
-    { id: 1, title: "Exceptional Android App Development", category: "Design", img: service1, widthClass: "width-1" },
-    { id: 2, title: "Exceptional Android App Development", category: "Design", img: service2, widthClass: "width-2" },
-    { id: 3, title: "Exceptional Android App Development", category: "Design", img: service3, widthClass: "width-1" },
-    { id: 4, title: "Exceptional Android App Development", category: "Design", img: service4, widthClass: "width-2" },
-    { id: 5, title: "Exceptional Android App Development", category: "Design", img: service5, widthClass: "width-1" },
-    { id: 6, title: "Exceptional Android App Development", category: "Design", img: service6, widthClass: "width-1" },
-];
 
-const DigitalMarketingServicesSection: React.FC = () => {
+import servicesData from "../../dataJson/servicesData.json";
+import { getImagePath } from "../../utils/imageLoader";
+
+const services = servicesData.digitalMarketingServices;
+
+interface DigitalMarketingServicesSectionProps {
+    title?: string;
+    highlightWords?: string[];
+}
+
+const DigitalMarketingServicesSection: React.FC<DigitalMarketingServicesSectionProps> = ({
+    title = "Our Exceptional Digital Marketing Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     return (
         <section>
             <div className="container">
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Services"
                     variant="style-2"
                     className="mini-section-title"
@@ -54,7 +54,7 @@ const DigitalMarketingServicesSection: React.FC = () => {
                             data-delay={`${0.15 + index * 0.2}`}
                             key={service.id}
                         >
-                            <img src={service.img} alt={service.title} />
+                            <img src={getImagePath(service.img)} alt={service.title} />
                             <div className="service-hover-info">
                                 <div className="left-content">
                                     <p className="mini-title">{service.category}</p>

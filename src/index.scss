@@ -1,17 +1,14 @@
-/* Global CSS Imports derived from the template */
 @import "@assets/fonts/flaticon_cretio.css";
 @import "@assets/css/plugins/swiper.min.css";
 @import "@assets/css/plugins/bootstrap.min.css";
 @import "@assets/sass/style.scss";
 @import "@assets/sass/components/_video_modal.scss";
 
-/* Additional layout styles */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* Header Background and Transition */
 .ak-site_header {
   transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out !important;
   background-color: var(--body-bg-color) !important;
@@ -22,7 +19,6 @@ body {
   z-index: 9999;
 }
 
-/* Sticky state background and shadow */
 .ak-sticky_active {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -31,22 +27,16 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Hide header on scroll down */
 .ak-header-hide {
   transform: translateY(-100%);
 }
-
-/* Ensure navbar border doesn't clash with solid background */
 .nav-bar-border {
   display: none !important;
 }
 
-/* Light/Dark specific adjustments if needed */
 .ak-site_header.ak-sticky_active {
   background-color: var(--body-bg-color) !important;
 }
-
-/* Background Utility Classes missing from style.css */
 .ak-solidblack-bg {
   background-color: #000000 !important;
 }
@@ -72,7 +62,6 @@ body {
 }
 
 
-/* Fix for sidebar appearing behind navbar */
 .offcanvas {
   z-index: 1000020 !important;
 }
@@ -81,13 +70,10 @@ body {
   z-index: 1000010 !important;
 }
 
-/* Fix for parallax image speed/jumping by disabling CSS transitions */
 .ak-parallax img, 
 .ak-parallax video {
   transition: none !important;
 }
-
-/* Loading Fallback */
 .ak-loading-fallback {
   display: flex;
   align-items: center;

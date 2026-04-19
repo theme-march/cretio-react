@@ -2,9 +2,8 @@ import React from "react";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PricingSection from "@components/sections/PricingSection";
 import GoalSection from "@components/sections/GoalSection";
-import CoreFeaturesSection, {
-    coreFeaturesData,
-} from "@components/sections/CoreFeaturesSection";
+import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
+import coreFeaturesData from "@/dataJson/coreFeaturesData.json";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
@@ -13,8 +12,8 @@ const Pricing: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='<span class="highlight-text">Get Start</span> With our Digital Affordable <span class="highlight-text">Pricing Plan</span>'
-                highlightWords={["Start", "Plan"]}
+                title="Get Start With our Digital Affordable Pricing Plan"
+                highlightWords={["Get Start", "Pricing Plan"]}
                 links={[
                     { label: "Home", path: "/" },
                     { label: "Pricing Plan", path: "" },

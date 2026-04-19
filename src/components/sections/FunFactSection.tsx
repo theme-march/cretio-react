@@ -49,19 +49,15 @@ const FunFactItem: React.FC<FunFactItemProps> = ({ number, suffix, label, varian
     );
 };
 
-const funFacts = [
-    { id: "count1", number: 65, suffix: "K", label: "Project Completed" },
-    { id: "count2", number: 8, suffix: "K", label: "Happy Customers" },
-    { id: "count3", number: 32, suffix: "+", label: "Years of Experience" },
-    { id: "count4", number: 13, suffix: "", label: "Award Achievement" },
-];
+import funFacts from "@/dataJson/commonSectionsData.json";
+
+const funFactsList = funFacts.funFacts;
 
 const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLElement>(null);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Cards Animation - Refined for smoothness (duration 1.8s)
             gsap.fromTo(".funfact",
                 {
                     opacity: 0,
@@ -73,7 +69,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                     scale: 1,
                     y: 0,
                     duration: 1.8,
-                    stagger: 0.2, // Sequenced left-to-right
+                    stagger: 0.2,
                     ease: "elastic.out(1, 0.5)",
                     scrollTrigger: {
                         trigger: sectionRef.current,
@@ -83,7 +79,6 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                 }
             );
 
-            // Numeric Count-up Animation
             const countElements = sectionRef.current?.querySelectorAll(".amin_auto_count");
             countElements?.forEach((el) => {
                 const target = parseInt(el.textContent || "0", 10);
@@ -103,7 +98,6 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
             });
         }, sectionRef);
 
-        // Keep a light refresh to ensure ScrollTrigger stability
         const timer = setTimeout(() => {
             ScrollTrigger.refresh();
         }, 500);
@@ -121,7 +115,7 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                 <div
                     className={`funfact-content ${variant === "type-2" ? "type-2 funfact-gap" : ""} ${variant === "type-3" ? "type-3" : ""}`}
                 >
-                    {funFacts.map((fact, index) => (
+                    {funFactsList.map((fact, index) => (
                         <FunFactItem
                             key={fact.id}
                             number={fact.number}
