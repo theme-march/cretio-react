@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.ak-site_header {
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out !important;
+  background-color: var(--body-bg-color) !important;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.ak-sticky_active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .ak-sticky_active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.ak-header-hide {
+  transform: translateY(-100%);
+}
+.nav-bar-border {
+  display: none !important;
+}
+
+.ak-site_header.ak-sticky_active {
+  background-color: var(--body-bg-color) !important;
+}
+.ak-solidblack-bg {
+  background-color: #000000 !important;
+}
+
+.ak-black-bg {
+  background-color: #101010 !important;
+}
+
+.ak-gray-bg {
+  background-color: #f1f1f1 !important;
+}
+
+.dark .ak-gray-bg {
+  background-color: #000000 !important;
+}
+
+.ak-white-bg {
+  background-color: #ffffff !important;
+}
+
+.dark .ak-white-bg {
+  background-color: #101010 !important;
+}
+
+
+.offcanvas {
+  z-index: 1000020 !important;
+}
+
+.offcanvas-backdrop {
+  z-index: 1000010 !important;
+}
+
+.ak-parallax img, 
+.ak-parallax video {
+  transition: none !important;
+}
+.ak-loading-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--body-bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.ak-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--primary-color, #ff5e14);
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marketing-agency-section .marketing-agency-hero.style-1 .marketing-agency-slider-card {
+  min-height: 702px !important;
+}
