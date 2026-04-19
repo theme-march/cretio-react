@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <!-- Basic metas
+    ======================================== -->
+  <meta charset="utf-8" />
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+  <!-- Mobile specific metas
+    ======================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta property="og:title" content="Documentation" />
+  <meta property="og:url" content="index.html" />
+  <!-- Page Title
+    ======================================== -->
+  <title>Cretio - Digital Agency React Template Documentation</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/icon/favicon.svg" />
+  <!-- fonts
+	======================================== -->
+  <link rel="stylesheet" type="text/css" href="assets/css/elegantFont.css" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="assets/css/vendor/bootstrap.min.css" />
+  <!-- Custom css -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+</head>
+
+<body>
+
+  <a href="#top" class="back-to-top"><i class="fal fa-arrow-up"></i></a>
+
+  <header class="page-header sticky-top" id="top">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <div class="logo">
+            <a href="#" class="nav-brand">
+              <img src="assets/images/icon/white-logo.svg" alt="Cretio Logo" style="max-height: 40px;">
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-6 col-6">
+          <div class="right-part d-flex justify-content-end align-items-center">
+            <form action="#" class="search-form d-none d-lg-block">
+              <div class="input-group">
+                <input type="text" class="search-input" placeholder="Search item" />
+              </div>
+            </form>
+            <div class="nav-list">
+              <a class="support-link d-none d-md-inline-block" href="https://themeforest.net/user/thememarch"
+                target="_blank">request
+                support</a>
+              <a class="e-btn d-none d-md-inline-block" href="https://themeforest.net/user/thememarch/Team"
+                target="_blank">Visit Themes</a>
+              <a href="#" class="toggle-navbar"><i class="icon_menu"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of .container -->
+  </header>
+  <div class="main-content-wrapper">
+    <div class="container">
+      <div class="row doc-container">
+        <div class="col-xl-3">
+          <aside class="sidebar-navigation sticky-top doc-sidebar">
+            <h3>Doc Navigation</h3>
+            <!-- <nav class="nav">						 -->
+            <ul class="thememarch-doc-nav nav-sidebar doc-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#getting_started"><img src="assets/images/icon/start-button.png" /> Getting
+                  Started
+                </a>
+                <span class="icon">
+                  <i class="icon_plus"></i>
+                  <i class="icon_minus-06"></i>
+                </span>
+                <ul class="submenu dropdown_nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#introduction">Introduction</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#what_included">What's Included</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#react_installation"><img src="assets/images/icon/react-icon.png" /> React
+                  Installation</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#basic_site_setting"><img src="assets/images/icon/writer.png" /> Basic Site
+                  Setting</a>
+                <span class="icon">
+                  <i class="icon_plus"></i>
+                  <i class="icon_minus-06"></i>
+                </span>
+                <ul class="submenu dropdown_nav">
+                  <li class="sub-nav nav-item">
+                    <a class="nav-link" href="#change_site_title_and_favicon">Change Site Title and Favicon</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#change_logo">Changing Brand Logo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#customize_menu">Customize Menu</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#customize_footer">Customize Footer</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#pages"><img src="assets/images/icon/landing-page.png" /> Pages
+                </a>
+                <span class="icon">
+                  <i class="icon_plus"></i>
+                  <i class="icon_minus-06"></i>
+                </span>
+                <ul class="submenu dropdown_nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#blog">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Services">Services
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Team">Team</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Portfolio">Portfolio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#404">404</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#template_options"><img src="assets/images/icon/settings.png" /> Template
+                  Options
+                </a>
+                <span class="icon">
+                  <i class="icon_plus"></i>
+                  <i class="icon_minus-06"></i>
+                </span>
+                <ul class="submenu dropdown_nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#option_header">Header</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#option_sass">SASS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#option_color">Color</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#option_typo">Typography</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#support"><img src="assets/images/icon/headphone.png" />Support</a>
+              </li>
+            </ul>
+            <!-- </nav> -->
+          </aside>
+        </div>
+        <div class="col-xl-9 col-lg-12">
+          <div class="main-content">
+            <main class="main">
+              <div class="filterable-wrapper">
+                <article id="getting_started" class="section-main doc-section">
+                  <div class="steps-panel">
+                    <ol class="ordered-list">
+                      <li>
+                        <strong>Item Name : </strong> Cretio - Digital Agency React Template
+                      </li>
+                      <li><strong>Created: </strong> 15 April 2026</li>
+                      <li><strong>Item Version : </strong> v 1.0.0</li>
+                      <li>
+                        <strong>Author : </strong>
+                        <a href="https://themeforest.net/user/thememarch/Team" target="_blank">thememarch</a>
+                      </li>
+                      <li>
+                        <strong>Support Ticket: </strong>
+                        <a href="https://themeforest.net/user/thememarch"
+                          target="_blank">https://themeforest.net/user/thememarch</a>
+                      </li>
+                    </ol>
+                  </div>
+                  <figure>
+                    <img class="max-100" src="assets/images/screenshot.png" alt="" />
+                  </figure>
+
+                  <section id="introduction">
+                    <h2>Introduction</h2>
+                    <h4 class="title">
+                      Cretio - Digital Agency React Template
+                    </h4>
+                    <div class="top-support">
+                      For any support please don't hesitate to contact us at
+                      <a href="https://themeforest.net/user/thememarch" target="_blank"><b>Support Center</b></a>. We
+                      provide 15
+                      hours real-time support for our
+                      customers.
+                    </div>
+                    <p>
+                      We would like to thank you for choosing <b>Cretio</b>.
+                    </p>
+                  </section>
+                  <!-- End of #getting_started -->
+                  <section id="requirements">
+                    <h3>Getting started</h3>
+                    <p>Thank you very much for purchasing the template. We've put a lot of hard work into it, and we
+                      hope you love it as much as we do. As far as the documentation is concerned, we have tried to
+                      cover as much as possible to help you get your new template up and running and to help you
+                      customise it. If you have any questions that are beyond the scope of this help file, please feel
+                      free to drop us an email. Thanks so much!
+                    </p>
+
+                    <div class="requirements">
+                      <h2>Requirements</h2>
+                      <p>
+                        There are system requirements in order to install and
+                        setup <b>Cretio</b> template and its components properly.
+                        Make sure that you are installed
+                        <strong>node.js</strong> and <strong>npm</strong>.
+                      </p>
+
+                      <h4>
+                        For nodejs go here
+                        <a target="_blank" href="https://nodejs.org/en/">Nodjs <i class="icon_link_alt"></i></a>
+                      </h4>
+                      <figure>
+                        <img class="max-100" src="assets/images/nodejs.png" alt="" />
+                      </figure>
+
+                    </div>
+
+                    <h4>Template Features</h4>
+                    <div class="steps-panel">
+                      <ul class="ordered-list">
+                        <li>React JS</li>
+                        <li>Based on Bootstrap 5.x</li>
+                        <li>ReactJS without jQuery</li>
+                        <li>Free Premium Quality Support</li>
+                        <li>Logo Slider Integration</li>
+                        <li>Sticky Header</li>
+                        <li>Modern UI / Google Fonts</li>
+                        <li>100% Responsive</li>
+                        <li>Nice and Clean Design</li>
+                        <li>Clean and commented code</li>
+                        <li>Customizeable all components of each page</li>
+                        <li>GSAP Animations & Swiper JS</li>
+                        <li>6 Home Pages Variants</li>
+                        <li>15+ Inner Pages</li>
+                        <li>Blog Pages</li>
+                        <li>Image background</li>
+                        <li>Easy to customize</li>
+                        <li>Flexible and multi-purpose</li>
+                        <li>Valid / CSS3</li>
+                        <li>24/7 Awesome support</li>
+                        <li>Detailed documentation</li>
+                      </ul>
+                    </div>
+                  </section>
+                  <!-- End of #requirements -->
+                  <section id="what_included">
+                    <h3>What's Included</h3>
+                    <p>
+                      After purchasing Cretio template on themeforest.net
+                      with your Envato account, go to your Download page. You
+                      can choose to download Cretio template package which
+                      contains the following files:
+                    </p>
+                    <figure>
+                      <img class="max-100" src="assets/images/1.png" alt="" />
+                    </figure>
+                    <h4>
+                      The contents of the template package downloaded from
+                      ThemeForest
+                    </h4>
+                    <div class="steps-panel">
+                      <ul class="ordered-list">
+
+                        <li>
+                          <strong>cretio-react</strong> - An React js Template
+                          file. this file you can edit and use for your
+                          business.
+                        </li>
+                        <li>
+                          <strong>cretio-react-documentation</strong> - This folder
+                          contains what you are reading now :)
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                  <!-- End of #what_included -->
+                </article>
+
+                <article id="react_installation" class="section-main doc-section">
+                  <section>
+                    <h2>React Installation</h2>
+                    <p>
+                      Please follow the instructions to see how
+                      you can install the project on your local machine:
+                    </p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>For local host</strong> -
+                          <ol class="ordered-list">
+                            <li>Open your terminal / command prompt in the project root</li>
+                            <li>
+                              Run: <code>npm install</code>
+                            </li>
+                            <li>
+                              Run: <code>npm run dev</code> (to start the dev server at
+                              <strong>http://localhost:5173</strong>)
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                      <br />
+                      <br />
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>For Production Build</strong> -
+                          <ol class="ordered-list">
+                            <li>Open your terminal</li>
+                            <li>
+                              Run: <code>npm run build</code> (this will generate the <code>dist</code> folder in the root directory)
+                            </li>
+                          </ol>
+                        </li>
+                        <li>
+                          <strong>Build and Deploying to Vercel</strong> -
+                          <a
+                            href="https://www.youtube.com/watch?v=7T4w0QJtL-o">https://www.youtube.com/watch?v=7T4w0QJtL-o</a>
+                        </li>
+                      </ol>
+                      <br />
+                    </div>
+                  </section>
+                  <!-- End of #installation -->
+                </article>
+
+                <article id="basic_site_setting" class="section-main doc-section">
+                  <section>
+                    <h2>Basic Site Settings</h2>
+                  </section>
+                  <!-- End of #section-4 -->
+                  <section id="change_site_title_and_favicon">
+                    <h3>Change Site Title, Favicon and Theme</h3>
+                    <p>Global site identification and default theme settings are managed in the root directory. To customize these settings, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Global Configuration File</strong>
+                          <p>Navigate to the root folder and open <code>index.html</code>.</p>
+                        </li>
+                        <li>
+                          <strong>Default Theme Control</strong>
+                          <p>You can set the default global theme by changing the class on the <code>&lt;body&gt;</code> tag. Use <code>class="dark"</code> for dark mode or <code>class="light"</code> for light mode.</p>
+                        </li>
+                        <li>
+                          <strong>Update Site Title</strong>
+                          <p>Locate the <code>&lt;title&gt;</code> tag inside the <code>&lt;head&gt;</code> section and update the text to your desired site name.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/change-title.png" alt="Edit Site Title" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Manage Favicon</strong>
+                          <p>Replace the default icon file at <code>src/assets/img/logo/favicon.svg</code> with your custom icon. If you use a different format (like <code>.png</code> or <code>.ico</code>), remember to update the <code>href</code> and <code>type</code> attributes in the <code>&lt;link rel="icon"&gt;</code> tag.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/change-favIcon.png" alt="Configure Favicon & Theme" />
+                          </figure>
+                        </li>
+                        
+                      </ol>
+                    </div>
+                  </section>
+                  <!-- End of #installation -->
+                  <section id="change_logo">
+                    <h3>Change Logo</h3>
+                    <p>To change the brand logos in the <b>Cretio</b> project, follow these two steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Step 1: Replace Logo Assets</strong>
+                          <p>
+                            Upload your custom logo files to the following directory:
+                            <code>src/assets/img/logo/</code>
+                          </p>
+                          <ul class="ordered-list">
+                            <li><code>dark-logo.svg</code>: Used for the primary sticky header and offcanvas.</li>
+                            <li><code>white-logo.svg</code>: Used for the initial header state on dark backgrounds.</li>
+                            <li><code>footer-logo.svg</code>: Used in the footer section.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-logo.png" alt="Logo Files" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Step 2: Update Configuration JSON</strong>
+                          <p>
+                            If you used different filenames or want to update the paths, navigate to the global settings file:
+                            <code>src/dataJson/siteSettings.json</code>
+                          </p>
+                          <p>Then, update the <code>"logos"</code> object with your new file paths:</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-logo-show.png" alt="Logo Preview" />
+                          </figure>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                  <!-- End of #change_logo -->
+
+                  <section id="customize_menu">
+                    <h3>Customize Menu</h3>
+                    <p>The navigation menu is dynamically generated from a JSON configuration file. To manage your menu items, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Configuration File</strong>
+                          <p>Navigate to: <code>src/dataJson/navItemsList.json</code></p>
+                        </li>
+                        <li>
+                          <strong>Understand the Structure</strong>
+                          <p>Each menu item is an object with the following properties:</p>
+                          <ul>
+                            <li><code>title</code>: The text displayed in the menu.</li>
+                            <li><code>href</code>: The URL path for the link.</li>
+                            <li><code>subMenu</code> (Optional): An array of objects for dropdown items.</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Adding a Submenu (Dropdown)</strong>
+                          <p>To create a dropdown, add a <code>"subMenu"</code> array to any menu item. For example:</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/nav-menus.png" alt="Menu Customization" />
+                          </figure>
+<pre><code>{
+  "title": "Services",
+  "href": "/services",
+  "subMenu": [
+    { "title": "Service 1", "href": "/service-1" },
+    { "title": "Service 2", "href": "/service-2" }
+  ]
+}</code></pre>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+
+                  <section id="customize_footer">
+                    <h3>Customize Global Settings & Footer</h3>
+                    <p>The site's branding, contact information, and footer content are managed via a single global configuration file.</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Configuration File</strong>
+                          <p>Navigate to: <code>src/dataJson/siteSettings.json</code></p>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-footers.png" alt="Footer Files" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Customizable Sections</strong>
+                          <ul class="ordered-list">
+                            <li><code>logos</code>: Update paths for the dark, white, and footer-specific logos.</li>
+                            <li><code>cta</code>: Customize the "Work Together" section title, button text, and contact email.</li>
+                            <li><code>company</code>: Update the company description text.</li>
+                            <li><code>contact</code>: Manage the phone number, address, and click-to-call links.</li>
+                            <li><code>socials</code>: Update the social media icons (using Flaticon classes) and their respective profile links.</li>
+                            <li><code>gallery</code>: Update the list of image paths for the small footer gallery.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-logo-footer-show.png" alt="Footer Preview" />
+                          </figure>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                </article>
+
+                <article id="pages" class="section-main doc-section">
+                  <section id="blog">
+                    <h3>Customize Blog data</h3>
+                    <p>To manage your blog posts, you need to update the central JSON data file. Follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Data File</strong>
+                          <p>Navigate to: <code>src/dataJson/blogsData.json</code></p>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-blog.png" alt="Blog Data JSON Structure" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Understand the Blog Structure</strong>
+                          <p>Each blog post is represented as an object with the following properties:</p>
+                          <ul>
+                            <li><code>id</code>: A unique numeric identifier for the post.</li>
+                            <li><code>image</code>: The path to the blog thumbnail image (e.g., <code>src/assets/img/blogs/blog-1.png</code>).</li>
+                            <li><code>author</code>: The name of the post author.</li>
+                            <li><code>date</code>: The publication date in <code>DD/MM/YYYY</code> format.</li>
+                            <li><code>title</code>: The main headline of the blog post.</li>
+                            <li><code>description</code>: A short summary or excerpt of the post content.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/site-blog-show.png" alt="Blog Page Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Adding New Posts</strong>
+                          <p>Simply append a new object to the array in the JSON file. Ensure you provide a unique <code>id</code> for each new entry.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                  <section id="Services">
+                    <h3>Customize Services list data</h3>
+                    <p>Services data is managed through a structured JSON file that supports multiple layout variants. To customize your services, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Data File</strong>
+                          <p>Navigate to: <code>src/dataJson/servicesData.json</code></p>
+                          <figure>
+                            <img class="max-100" src="assets/images/services-list.png" alt="Services Data File" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Customize Section Info</strong>
+                          <p>Use the <code>sectionInfo</code> object to update the global header for the services section (Title, Description, Short Caption, and Button Text).</p>
+                        </li>
+                        <li>
+                          <strong>Manage Main Services</strong>
+                          <p>Each service in the <code>mainServices</code> array includes:</p>
+                          <ul>
+                            <li><code>id</code>: A unique numeric index.</li>
+                            <li><code>title</code>: The name of the service.</li>
+                            <li><code>description</code>: A brief overview of the service.</li>
+                            <li><code>image</code>: The background/hover image path.</li>
+                            <li><code>features</code>: An array of strings for key benefits or features.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/services-list-show.png" alt="Services Page Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Specialized Lists</strong>
+                          <p>Depending on your page variant, you may also need to update <code>seoServices</code>, <code>brandingServices</code>, or <code>digitalMarketingServices</code> arrays.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                  <section id="Team">
+                    <h3>Customize Team lists data</h3>
+                    <p>The team section is data-driven and supports multiple layouts for different project variants. To customize your team members, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Data File</strong>
+                          <p>All team information is stored in: <code>src/dataJson/teamMembersData.json</code></p>
+                        </li>
+                        <li>
+                          <strong>Understand the Team Variants</strong>
+                          <p>The JSON file contains two primary lists: <code>standardTeam</code> (Creative Agency) and <code>marketingTeam</code> (Marketing Agency).</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/team-list.png" alt="Team Data JSON Structure" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Member Entry Fields</strong>
+                          <p>Each member profile uses the following structure:</p>
+<pre><code>{
+  "id": 1,
+  "name": "Alex Johnson",
+  "role": "Creative Director",
+  "image": "src/assets/img/team/team-1.png"
+}</code></pre>
+                          <figure>
+                            <img class="max-100" src="assets/images/team-list-show.png" alt="Team Page Layout Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Image Asset Placement</strong>
+                          <p>Upload new team member photos to <code>src/assets/img/team/</code> and update the <code>image</code> path in the JSON file accordingly.</p>
+                        </li>
+                      </ol>
+                    </div>
+
+                  </section>
+                  <section id="Portfolio">
+                    <h3>Customize Portfolio data</h3>
+                    <p>The portfolio section uses <b>Isotope</b> for dynamic filtering. To manage your projects and filter categories, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Data File</strong>
+                          <p>Navigate to: <code>src/dataJson/projectsData.json</code></p>
+                          <figure>
+                            <img class="max-100" src="assets/images/gallery.png" alt="Portfolio Data File" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Configuring Filter Categories</strong>
+                          <p>In the <code>categories</code> array, define your filter buttons. The <code>filter</code> property must be a CSS selector (e.g., <code>.isf-uiux</code>).</p>
+                        </li>
+                        <li>
+                          <strong>Manage Project Entries</strong>
+                          <p>Each project in the <code>mainProjects</code> array includes:</p>
+                          <ul>
+                            <li><code>id</code>: A unique identifier.</li>
+                            <li><code>title</code>: The project name.</li>
+                            <li><code>category</code>: The display category name.</li>
+                            <li><code>image</code>: The project thumbnail path.</li>
+                            <li><code>tags</code>: CSS classes that <b>must match</b> the filter selector (without the dot).</li>
+                            <li><code>colClass</code>: The Bootstrap column width (e.g., <code>col-md-6</code>).</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/gallery-show.png" alt="Portfolio Page Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Layout Variations</strong>
+                          <p>Update <code>gridProjects</code> or <code>sliderProjects</code> if you are using those specific layout variants on different pages.</p>
+<pre><code>// Category Filter
+{ "name": "UI/UX", "filter": ".isf-uiux" }
+
+// Project Entry
+{ 
+  "id": 1, 
+  "title": "EcoHome Campaign", 
+  "category": "Web App", 
+  "tags": "isf-uiux isf-webapp",
+  "image": "path/to/img.png" 
+}</code></pre>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                  <section id="LandingElements">
+                    <h3>Landing Page Elements</h3>
+                    <p>Manage the main visual and branding elements of your home and landing pages using these data files:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Hero Sliders</strong>
+                          <p>File: <code>src/dataJson/heroSlidesData.json</code></p>
+                          <p>Edit the <code>marketingHero</code> or <code>creativeHero</code> arrays to change slide images, captions, main titles, and highlighted text (using <code>&lt;span class="highlight"&gt;</code>).</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/hero-slideData.png" alt="Hero Slider Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/marketing-hero.png" alt="Marketing Agency Hero Preview" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/creative-hero.png" alt="Creative Portfolio Hero Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Client & Partner Logos</strong>
+                          <p>File: <code>src/dataJson/clientLogosData.json</code></p>
+                          <p>Update the <code>img</code> and <code>title</code> fields to manage the scrolling brand logo section. Assets should be placed in <code>src/assets/img/client/</code>.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/client-logo-show.png" alt="Client Logo Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Awards & Achievements</strong>
+                          <p>File: <code>src/dataJson/awardsData.json</code></p>
+                          <p>Manage list of awards, categories, and hover images for the honors section.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/award-data-show.png" alt="Award Section Preview" />
+                          </figure>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+
+                  <section id="InteractiveComponents">
+                    <h3>Interactive & Business Components</h3>
+                    <p>Configure core business features and interactive elements through these structured data files:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Pricing Plans</strong>
+                          <p>File: <code>src/dataJson/pricingPlansData.json</code></p>
+                          <p>Update <code>title</code>, <code>price</code>, and the <code>features</code> string array to customize your service packages.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/price-data.png" alt="Pricing Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/price-data-show.png" alt="Pricing Section Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Testimonials & Feedback</strong>
+                          <p>File: <code>src/dataJson/testimonialsData.json</code></p>
+                          <p>Edit member feedback, names, locations, and profile photos in the <code>defaultTestimonials</code> or <code>marketingTestimonials</code> lists.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/testimonial-data.png" alt="Testimonial Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/testimonial-show.png" alt="Testimonial Section Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>FAQs (Accordions)</strong>
+                          <p>File: <code>src/dataJson/faqsData.json</code></p>
+                          <p>Manage simple Question and Answer pairs that populate the accordion components on the FAQ page.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/faq-data.png" alt="FAQ Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/faq-show.png" alt="FAQ Section Preview" />
+                          </figure>
+                        </li>
+
+                      </ol>
+                    </div>
+                  </section>
+
+                  <section id="GlobalUtilities">
+                    <h3>Global Content & Utilities</h3>
+                    <p>Manage shared content, statistics, and workflow steps used across multiple pages:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Fun Facts & Skills</strong>
+                          <p>File: <code>src/dataJson/commonSectionsData.json</code></p>
+                          <p>Update the <code>funFacts</code> array (numbers and labels) and <code>skills</code> (titles and percentages) for "About Us" sections.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/funfact-data.png" alt="Fun Fact Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/funfact-show.png" alt="Fun Fact Section Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Newsletter & Forms</strong>
+                          <p>File: <code>src/dataJson/commonSectionsData.json</code></p>
+                          <p>Update the <code>newsletter</code> object to change titles, placeholders, and button text for lead generation sections.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/newsletter-data.png" alt="Newsletter Data" />
+                          </figure>
+                          <figure>
+                            <img class="max-100" src="assets/images/newsletter-show.png" alt="Newsletter Section Preview" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Process & Methodology</strong>
+                          <p>Files: <code>src/dataJson/processStepsData.json</code> & <code>commonSectionsData.json -> methodology</code></p>
+                          <p>Document your project workflow by editing the step titles and descriptions.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/process-step-data.png" alt="Process Steps Data" />
+                          </figure>
+                        </li>
+
+                      </ol>
+                    </div>
+                  </section>
+
+                    <h3>Error Pages</h3>
+                    <p>The 404 Error page is a standalone component. To customize its content, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Direct Component Access</strong>
+                          <p>Navigate to: <code>src/pages/NotFound.tsx</code></p>
+                        </li>
+                        <li>
+                          <strong>Text Customization</strong>
+                          <p>Update the following JSX elements to change the page messages:</p>
+                          <ul>
+                            <li><code>&lt;h2 className="error-message"&gt;</code>: Update the main "Page Not Found!" headline.</li>
+                            <li><code>&lt;p className="error-description"&gt;</code>: Customize the detailed error description text.</li>
+                            <li><code>&lt;Link&gt;</code>: Update the "Back To Home" button text and the <code>to="/"</code> path if needed.</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Visual Customization</strong>
+                          <p>The "4!4" display uses a combination of text and an SVG exclamation mark. You can modify the SVG code or the surrounding <code>className="number"</code> spans to change the look and feel.</p>
+                        </li>
+                      </ol>
+                    </div>
+                    <figure>
+                      <img class="max-100" src="assets/images/404.png" alt="404 Page Preview" />
+                      <br />
+                      <br />
+                      <img class="max-100" src="assets/images/404-show.png" alt="404 Page Detailed Preview" />
+                      <figcaption class="text-center mt-3">
+                        The 404 page is fully customizable within the <code>NotFound.tsx</code> component.
+                      </figcaption>
+                    </figure>
+                  </section>
+                </article>
+
+                <article id="template_options" class="section-main doc-section">
+                  <section id="option_header">
+                    <h3>Customize Header</h3>
+                    <p>The header is a dynamic component that manages navigation, branding, and global settings. To customize it, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Core Component</strong>
+                          <p>The layout and logic are defined in <code>src/layout/Header.tsx</code>.</p>
+                        </li>
+                        <li>
+                          <strong>Navigation Menu</strong>
+                          <p>Manage all menu items and submenus by editing: <code>src/dataJson/navItemsList.json</code>. The header automatically renders this list.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/nav-list.png" alt="Navigation Data File" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Logos & Branding</strong>
+                          <p>The header pulls the Dark and White logos from the <code>logos</code> section in <code>src/dataJson/siteSettings.json</code>.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/footer-data.png" alt="Shared Layout Data" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>CTA Button</strong>
+                          <p>To change the "Start Project" button text or its destination link, modify the <code>&lt;Link&gt;</code> component within <code>Header.tsx</code> (look for the <code>custom-button</code> class).</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/cta-startProject.png" alt="CTA Button Structure" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Offcanvas Menu</strong>
+                          <p>The slide-out menu (triggered by the dots icon) displays your description, gallery, contact info, and socials by pulling data directly from <code>src/dataJson/siteSettings.json</code>.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+
+                  <section id="option_sass">
+                    <h3>SASS Customization</h3>
+                    <p>The project's visual style is architected using SASS for modularity and ease of maintenance. To customize the styling, follow these steps:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>The Style Entry</strong>
+                          <p>The primary bridge between React and SASS is <code>src/index.scss</code>. This file imports all global plugins and the main theme stylesheet.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/sass-link.png" alt="SASS Registry" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Global Variables (Colors & Typography)</strong>
+                          <p>For quick branding updates, navigate to <code>src/assets/sass/default/</code>:</p>
+                          <ul>
+                            <li><code>_color_variable.scss</code>: Edit this file to update the theme's primary, secondary, and background colors.</li>
+                            <li><code>_typography.scss</code>: Use this file to manage font families, weights, and global font sizes.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/color-variable.png" alt="Color Variables" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>SASS Folder Structure</strong>
+                          <p>The <code>src/assets/sass/</code> directory is organized into functional modules:</p>
+                          <ul>
+                            <li><code>common/</code>: Shared utilities and layout basics.</li>
+                            <li><code>components/</code>: Styles for specific UI elements like modals, buttons, and sections.</li>
+                            <li><code>shortcode/</code>: Advanced template modules and UI blocks.</li>
+                          </ul>
+                          <figure>
+                            <img class="max-100" src="assets/images/sass-structure.png" alt="SASS Module Structure" />
+                          </figure>
+                        </li>
+                        <li>
+                          <strong>Compiling Styles</strong>
+                          <p>The theme uses a pre-compiled <code>style.css</code> for performance, but you should always modify the <code>.scss</code> files. The build process will automatically handle the compilation during development.</p>
+                          <figure>
+                            <img class="max-100" src="assets/images/typography.png" alt="Typography Variables" />
+                          </figure>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+                  
+
+                  <section id="AppDevelopment">
+                    <h3>App Development Guide</h3>
+                    <p>Basic workflow for extending the template and changing global styles:</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Adding New Pages</strong>
+                          <p>To add a new page:
+                            <br />1. Create a <code>.tsx</code> file in <code>src/pages/</code>.
+                            <br />2. Import it in <code>src/App.tsx</code>.
+                            <br />3. Add a new <code>&lt;Route path="/your-path" element={&lt;YourPage /&gt;} /&gt;</code> inside the <code>&lt;Routes&gt;</code> component.
+                          </p>
+                        </li>
+                        <li>
+                          <strong>Updating Google Fonts</strong>
+                          <p>Navigate to <code>src/assets/sass/default/_typography.scss</code> and replace the <code>@import</code> URL with your chosen Google Font. Then, update the <code>font-family</code> variables in the same file.</p>
+                        </li>
+                      </ol>
+                    </div>
+                  </section>
+
+                <article id="support" class="section-main doc-section">
+                  <section>
+                    <h3>Support</h3>
+                    <p style="color: red; font-weight: bold">
+                      If you face any issue please contact us at
+                      <a class="black-color" href="https://themeforest.net/user/thememarch" target="_blank">Support
+                        Ticket</a>. We
+                      provide 15 hours real-time support for our
+                      customers.
+                    </p>
+                    <p>Thank you for purchasing our template.</p>
+                    <p class="mt50"></p>
+                  </section>
+                </article>
+                <!-- End of #getting_started1-4 -->
+              </div>
+
+              <!-- End of .filterable-wrapper -->
+            </main>
+          </div>
+        </div>
+      </div>
+      <!-- End of .main-content -->
+    </div>
+    <!-- End of .container -->
+  </div>
+  <!-- End of .main-content -->
+
+  <footer class="tp-footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <div class="page-footer">
+            <p>
+              © 2026 All Rights Reserved by
+              <a href="https://themeforest.net/user/thememarch/Team">thememarch</a>.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="social-footer text-md-right">
+            <a href="#"><i class="social_youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End of .page-footer -->
+
+  <!-- Javascripts
+		======================================= -->
+  <!-- jQuery -->
+  <script src="assets/js/vendor/jquery.min.js"></script>
+  <script src="assets/js/vendor/jquery-migrate.min.js"></script>
+  <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+  <!-- jQuery Easing Plugin -->
+  <script src="assets/js/vendor/easing-1.3.js"></script>
+  <!-- Custom Script -->
+  <script src="assets/js/onpage-menu.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
