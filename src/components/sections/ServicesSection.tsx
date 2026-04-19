@@ -12,12 +12,16 @@ interface ServicesProps {
     variant?: "style-1" | "style-2";
     showHeading?: boolean;
     topGapClass?: string;
+    title?: string;
+    highlightWords?: string[];
 }
 
 const ServicesSection: React.FC<ServicesProps> = ({ 
     variant = "style-1",
     showHeading = true,
-    topGapClass = "ak-height-150 ak-height-lg-80"
+    topGapClass = "ak-height-150 ak-height-lg-80",
+    title = servicesData.sectionInfo.title,
+    highlightWords = [],
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
 
@@ -73,7 +77,8 @@ const ServicesSection: React.FC<ServicesProps> = ({
                 <div className="service-content">
                     {showHeading && (
                         <SectionHeading
-                            title={servicesData.sectionInfo.title}
+                            title={title}
+                            highlightWords={highlightWords}
                             description={servicesData.sectionInfo.description}
                             caption={servicesData.sectionInfo.caption}
                             titleDuration={0.7}

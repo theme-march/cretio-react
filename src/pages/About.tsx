@@ -21,7 +21,8 @@ const About: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='We thrive on <span class="highlight-text">creativity</span> & <span class="highlight-text">innovation</span> in digital presence'
+                title="We thrive on creativity & innovation in digital presence"
+                highlightWords={["creativity", "innovation"]}
                 links={[{ label: "Home", path: "/" }, { label: "About Us", path: "/about" }]}
                 videoSrc={aboutVideo}
                 variant="style-3"
@@ -36,7 +37,8 @@ const About: React.FC = () => {
             <FunFactSection />
             <CoreFeaturesSection 
                 variant="style-2" 
-                title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                title="Our Exceptional Digital Transformation Services"
+                highlightWords={["Exceptional", "Services"]}
                 description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."}
                 caption="Services"
                 isSlider={true}

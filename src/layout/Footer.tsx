@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { getImagePath } from "../utils/imageLoader";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
-import footerData from "../dataJson/footerData.json";
+import siteSettings from "../dataJson/siteSettings.json";
 import { splitText } from "../utils/textSplitter";
 
 const Footer: React.FC = () => {
@@ -57,22 +57,22 @@ const Footer: React.FC = () => {
                 <div className="ak-footer-container">
                     <div className="footer-cta">
                         <div className="footer-cta-info ak-mask-text">
-                            <h1 className="footer-cta-title">{footerData.cta.title}</h1>
+                            <h1 className="footer-cta-title">{siteSettings.cta.title}</h1>
                             <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
                         </div>
                         <div className="footer-btn-email">
                             <div className="footer-btn-content">
-                                <Link to={footerData.cta.btnLink} className="footer-btn circle-btn-anim">
+                                <Link to={siteSettings.cta.btnLink} className="footer-btn circle-btn-anim">
                                     <span className="text">
-                                        {footerData.cta.btnText.split(' ')[0]} <i className="flaticon-up-right-arrow"></i>
+                                        {siteSettings.cta.btnText.split(' ')[0]} <i className="flaticon-up-right-arrow"></i>
                                         <br />
-                                        <span>{footerData.cta.btnText.split(' ')[1]}</span>
+                                        <span>{siteSettings.cta.btnText.split(' ')[1]}</span>
                                     </span>
                                 </Link>
                             </div>
                             <div className="footer-email">
-                                <p className="email-short-title">{footerData.cta.emailTitle}</p>
-                                <a href={`mailto:${footerData.cta.email}`}> {footerData.cta.email}</a>
+                                <p className="email-short-title">{siteSettings.cta.emailTitle}</p>
+                                <a href={`mailto:${siteSettings.cta.email}`}> {siteSettings.cta.email}</a>
                             </div>
                         </div>
                     </div>
@@ -80,25 +80,25 @@ const Footer: React.FC = () => {
                         <div className="about-company">
                             <img
                                 className="footer-logo"
-                                src={getImagePath(footerData.logos.footer)}
+                                src={getImagePath(siteSettings.logos.footer)}
                                 alt="Logo"
                             />
-                            <p className="about-company-desp" dangerouslySetInnerHTML={{ __html: footerData.company.description }}></p>
+                            <p className="about-company-desp" dangerouslySetInnerHTML={{ __html: siteSettings.company.description }}></p>
                         </div>
 
                         <div className="address-phn">
-                            <a href={footerData.contact.phoneLink} className="phn">
+                            <a href={siteSettings.contact.phoneLink} className="phn">
                                 <span>
                                     <i className="flaticon-telephone"> </i> 
                                 </span>
-                                {footerData.contact.phone}
+                                {siteSettings.contact.phone}
                             </a>
-                            <p className="address">{footerData.contact.address}</p>
+                            <p className="address">{siteSettings.contact.address}</p>
                         </div>
 
                         <div className="footer-list-content">
                             <ul className="footer-list-menu">
-                                {footerData.menu.map((item, index) => (
+                                {siteSettings.menu.map((item, index) => (
                                     <li key={index}><Link to={item.href}>{item.title}</Link></li>
                                 ))}
                             </ul>
@@ -111,13 +111,13 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="ak-space-between">
                         <div className="social-icon">
-                            {footerData.socials.map((social, index) => (
+                            {siteSettings.socials.map((social, index) => (
                                 <a key={index} href={social.link} className="icon">
                                     <i className={social.icon}></i>
                                 </a>
                             ))}
                         </div>
-                        <p className="copy-right-text" dangerouslySetInnerHTML={{ __html: footerData.copyright }}></p>
+                        <p className="copy-right-text" dangerouslySetInnerHTML={{ __html: siteSettings.copyright }}></p>
                     </div>
                 </div>
             </div>

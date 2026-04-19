@@ -22,6 +22,8 @@ interface SectionHeadingProps {
     descriptionDelay?: string;
     /** Renders an h6 instead of h2 for the title */
     titleTag?: "h2" | "h6";
+    /** Array of words to highlight with the .highlight class */
+    highlightWords?: string[];
     /** If true, puts fade-animation and data-direction on the left wrapper div (not the title element) */
     leftAnimation?: string;
     leftDirection?: string;
@@ -54,6 +56,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     captionDelay = "0.3",
     descriptionDelay = "0.3",
     titleTag = "h2",
+    highlightWords = [],
     leftAnimation,
     leftDirection,
     leftOffset,
@@ -68,6 +71,36 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     const rightWrapperClass = rightAnimation ? `ak-section-right ${rightAnimation}` : "ak-section-right";
 
     const resolvedTitleAnimation = leftAnimation ? "" : titleAnimation;
+
+    const renderTitle = () => {
+        if (typeof title !== "string" || highlightWords.length === 0) {
+            return typeof title === "string" ? <span dangerouslySetInnerHTML={{ __html: title }} /> : title;
+        }
+
+        let parts: (string | React.ReactNode)[] = [title];
+        highlightWords.forEach((word) => {
+            const newParts: (string | React.ReactNode)[] = [];
+            parts.forEach((part) => {
+                if (typeof part === "string") {
+                    const split = part.split(new RegExp(`(${word})`, "gi"));
+                    newParts.push(...split);
+                } else {
+                    newParts.push(part);
+                }
+            });
+            parts = newParts;
+        });
+
+        return parts.map((part, i) =>
+            typeof part === "string" && highlightWords.some((hw) => hw.toLowerCase() === part.toLowerCase()) ? (
+                <span key={`Part-${i}`} className="highlight">
+                    {part}
+                </span>
+            ) : (
+                <span key={`Part-${i}`} dangerouslySetInnerHTML={{ __html: part as string }} />
+            )
+        );
+    };
 
     return (
         <div className={`ak-section-heading ak-style-1 ${variant === "style-2" ? "type-2" : ""} ${className}`}>
@@ -84,8 +117,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {...(!leftAnimation && { "data-ease": titleEase })}
                     {...(!leftAnimation && titleOffset && { "data-offset": titleOffset })}
                     {...(titleSplitText ? { "data-split-text": titleSplitText } : {})}
-                    {...(typeof title === "string" ? { dangerouslySetInnerHTML: { __html: title } } : { children: title })}
                 >
+                    {renderTitle()}
                 </TitleTag>
             </div>
             {(description || caption) && (

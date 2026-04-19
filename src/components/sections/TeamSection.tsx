@@ -23,6 +23,8 @@ interface TeamSectionProps {
     variant?: "default" | "creative-portfolio";
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
+    title?: string;
+    highlightWords?: string[];
 }
 
 const TeamSection: React.FC<TeamSectionProps> = ({
@@ -36,6 +38,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     variant = "default",
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
+    title = 'Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>',
+    highlightWords = [],
 }) => {
     const location = useLocation();
     const isMarketingAgency = location.pathname === "/marketing-agency";
@@ -46,7 +50,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container" style={isMarketingAgency ? { maxWidth: "1296px" } : {}}>
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="426+ Team Members"
                     variant="style-1"

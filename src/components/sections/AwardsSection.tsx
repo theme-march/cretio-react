@@ -16,6 +16,8 @@ interface AwardsSectionProps {
     titleDuration?: number;
     captionOffset?: string;
     variant?: "default" | "design-company" | "minimal-studio";
+    title?: string;
+    highlightWords?: string[];
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
@@ -28,7 +30,9 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
     captionDelay,
     titleOffset,
     captionOffset,
-    variant = "default"
+    variant = "default",
+    title = (variant === "design-company" || variant === "minimal-studio") ? "Awards <br /> Achievement" : "Awards <br /> Achievement",
+    highlightWords = ["Awards"],
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
@@ -72,7 +76,8 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
             <section className="container" ref={sectionRef}>
                 {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
                 <SectionHeading 
-                    title={variant === "design-company" || variant === "minimal-studio" ? '<span class="highlight">Awards</span> <br /> Achievement' : '<span class="highlight-text">Awards</span> <br /> Achievement'}
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Awards" 
                     variant="style-2"
                     titleAnimation={variant === "design-company" ? "text-animation" : titleAnimation}

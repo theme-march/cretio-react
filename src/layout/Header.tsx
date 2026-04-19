@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import navItems from "../dataJson/navItemsList.json";
-import footerData from "../dataJson/footerData.json";
+import siteSettings from "../dataJson/siteSettings.json";
 import { getImagePath } from "../utils/imageLoader";
 
 const Header: React.FC = () => {
@@ -65,10 +65,10 @@ const Header: React.FC = () => {
                         <div className="ak-main_header_in">
                              <div className="ak-main-header-left">
                                 <Link className="ak-site_branding dark-logo" to="/">
-                                    <img src={getImagePath(footerData.logos.dark)} alt="Logo" />
+                                    <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
                                 </Link>
                                 <Link className="ak-site_branding white-logo" to="/">
-                                    <img src={getImagePath(footerData.logos.white)} alt="Logo" />
+                                    <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
                                 </Link>
                             </div>
                             <div className="ak-main-header-center">
@@ -165,17 +165,17 @@ const Header: React.FC = () => {
                     <div className="offcanvas-body-coustom-style">
                         <div className="offcanvas-logo-content">
                             <Link className="ak-site_branding dark-logo" to="/">
-                                <img src={getImagePath(footerData.logos.dark)} alt="Logo" />
+                                <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
                             </Link>
                             <Link className="ak-site_branding white-logo" to="/">
-                                <img src={getImagePath(footerData.logos.white)} alt="Logo" />
+                                <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
                             </Link>
                         </div>
                         <p className="desp">
-                            {footerData.company.description.replace(/<span>|<\/span>/g, '')}
+                            {siteSettings.company.description.replace(/<span>|<\/span>/g, '')}
                         </p>
                         <div className="row row-cols-3 g-3">
-                            {footerData.gallery.map((img, i) => (
+                            {siteSettings.gallery.map((img, i) => (
                                 <div className="col" key={i}>
                                     <img src={getImagePath(img)} className="img-fluid" alt={`Gallery ${i + 1}`} />
                                 </div>
@@ -184,15 +184,15 @@ const Header: React.FC = () => {
 
                         <div className="offcanvas-footer-contant">
                             <p className="short-title">Say hello!</p>
-                            <a className="email" href={`mailto:${footerData.cta.email}`}>{footerData.cta.email}</a>
-                            <a className="email" href={footerData.contact.phoneLink}>{footerData.contact.phone}</a>
+                            <a className="email" href={`mailto:${siteSettings.cta.email}`}>{siteSettings.cta.email}</a>
+                            <a className="email" href={siteSettings.contact.phoneLink}>{siteSettings.contact.phone}</a>
                             <a href="#">
-                                {footerData.contact.address}
+                                {siteSettings.contact.address}
                             </a>
                             <div className="ak-height-25 ak-height-lg-25"></div>
                             <p className="short-title">Social:</p>
                             <div className="social-icon">
-                                {footerData.socials.map((social, index) => (
+                                {siteSettings.socials.map((social, index) => (
                                     <a key={index} href={social.link} className="icon style-2 dark-mode">
                                         <i className={social.icon}></i>
                                     </a>

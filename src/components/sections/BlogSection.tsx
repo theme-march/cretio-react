@@ -11,16 +11,25 @@ interface BlogSectionProps {
     showHeading?: boolean;
     showLoadMore?: boolean;
     disableAnimation?: boolean;
+    title?: string;
+    highlightWords?: string[];
 }
 
-const BlogSection: React.FC<BlogSectionProps> = ({ showHeading = true, showLoadMore = false, disableAnimation = false }) => {
+const BlogSection: React.FC<BlogSectionProps> = ({ 
+    showHeading = true, 
+    showLoadMore = false, 
+    disableAnimation = false,
+    title = "Our Exceptional Digital Industrial News",
+    highlightWords = ["Exceptional", "News"],
+}) => {
     return (
         <section>
             {showHeading && (
                 <div className="container">
                     <div className="ak-height-150 ak-height-lg-80"></div>
                     <SectionHeading
-                        title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">News</span>'
+                        title={title}
+                        highlightWords={highlightWords}
                         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                         caption="Recent News"
                         disableDespAnimation={true}

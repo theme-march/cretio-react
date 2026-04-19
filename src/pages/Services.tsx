@@ -12,7 +12,8 @@ const Services: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text">Exceptional</span> Digital Transformation <span class="highlight-text">Services</span>'
+                title="Our Exceptional Digital Transformation Services"
+                highlightWords={["Exceptional", "Services"]}
                 links={[{ label: "Home", path: "/" }, { label: "Services", path: "/services" }]}
                 variant="style-2"
                 titleAnimation=""
@@ -26,7 +27,8 @@ const Services: React.FC = () => {
                 variant="style-3"
                 bgClass="ak-gray-bg"
                 showBottomGap={true}
-                title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
+                title="Our Exceptional Digital Transformation Services"
+                highlightWords={["Exceptional", "Services"]}
                 titleDirection="textLeft"
                 titleDuration={1.2}
                 disableDescriptionAnimation={true}

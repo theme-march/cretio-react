@@ -9,7 +9,7 @@ const BlogDetails: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text"> Exceptional</span> Digital Industrial <span class="highlight-text">Recent News</span>'
+                title="Our Exceptional Digital Industrial Recent News"
                 highlightWords={["Exceptional", "News"]}
                 links={[
                     { label: "Home", path: "/" },

@@ -8,8 +8,9 @@ const Portfolio: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text">Exceptional</span> Successful Development <span class="highlight-text">Projects</span>'
-                links={[{ label: "Home", path: "/" }, { label: "Projects", path: "/portfolio" }]}
+                title="Our Exceptional Successful Development Projects"
+                highlightWords={["Exceptional", "Projects"]}
+                links={[{ label: "Home", path: "/" }, { label: "Portfolio", path: "/portfolio" }]}
                 variant="style-2"
                 strokeText="PORTFOLIO"
                 showCircle={false}

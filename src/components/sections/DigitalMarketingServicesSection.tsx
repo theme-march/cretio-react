@@ -10,13 +10,22 @@ import { getImagePath } from "../../utils/imageLoader";
 
 const services = servicesData.digitalMarketingServices;
 
-const DigitalMarketingServicesSection: React.FC = () => {
+interface DigitalMarketingServicesSectionProps {
+    title?: string;
+    highlightWords?: string[];
+}
+
+const DigitalMarketingServicesSection: React.FC<DigitalMarketingServicesSectionProps> = ({
+    title = "Our Exceptional Digital Marketing Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     return (
         <section>
             <div className="container">
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Services"
                     variant="style-2"
                     className="mini-section-title"

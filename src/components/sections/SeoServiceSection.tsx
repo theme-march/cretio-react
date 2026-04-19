@@ -9,15 +9,22 @@ const services = servicesData.seoServices;
 
 interface SeoServiceSectionProps {
     variant?: "seo-agency" | "default";
+    title?: string;
+    highlightWords?: string[];
 }
 
-const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ variant = "default" }) => {
+const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({ 
+    variant = "default",
+    title = "Our Exceptional SEO Business Growth Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     const isSeoAgency = variant === "seo-agency";
 
     return (
         <section className="container">
             <SectionHeading
-                title='Our <span class="highlight">Exceptional</span> SEO Business Growth <span class="highlight">Services</span>'
+                title={title}
+                highlightWords={highlightWords}
                 description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                 caption="Services"
                 titleAnimation={isSeoAgency ? "" : "text-animation"}

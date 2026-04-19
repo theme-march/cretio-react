@@ -41,6 +41,7 @@ interface CoreFeaturesProps {
     titleSplitText?: string;
     sliderType?: "dots" | "navigation";
     fullWidth?: boolean;
+    highlightWords?: string[];
 }
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -69,6 +70,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     titleSplitText,
     sliderType = "dots",
     fullWidth = false,
+    highlightWords = [],
 }) => {
     return (
         <section
@@ -79,6 +81,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                 {title && (
                     <SectionHeading
                         title={title}
+                        highlightWords={highlightWords}
                         variant={variant === "style-2" ? "style-2" : "style-1"}
                         className={variant === "style-2" ? "bg-black" : ""}
                         description={description}

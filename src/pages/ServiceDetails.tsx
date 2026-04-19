@@ -12,7 +12,7 @@ const ServiceDetails: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='Our <span class="highlight-text">Exceptional</span> Android App Development <span class="highlight-text">Services</span>'
+                title="Our Exceptional Android App Development Services"
                 highlightWords={["Exceptional", "Services"]}
                 links={[
                     { label: "Home", path: "/" },

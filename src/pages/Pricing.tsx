@@ -12,8 +12,8 @@ const Pricing: React.FC = () => {
     return (
         <>
             <Breadcrumb
-                title='<span class="highlight-text">Get Start</span> With our Digital Affordable <span class="highlight-text">Pricing Plan</span>'
-                highlightWords={["Start", "Plan"]}
+                title="Get Start With our Digital Affordable Pricing Plan"
+                highlightWords={["Get Start", "Pricing Plan"]}
                 links={[
                     { label: "Home", path: "/" },
                     { label: "Pricing Plan", path: "" },

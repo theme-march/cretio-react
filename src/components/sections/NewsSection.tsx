@@ -14,9 +14,16 @@ const newsItems = blogsData.slice(0, 6);
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
     headingVariant?: "default" | "creative-portfolio" | "seo-agency" | "minimal-studio" | "design-company";
+    title?: string;
+    highlightWords?: string[];
 }
 
-const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingVariant = "default" }) => {
+const NewsSection: React.FC<NewsSectionProps> = ({ 
+    variant = "style-1", 
+    headingVariant = "default",
+    title = "Our Exceptional Digital Industrial News",
+    highlightWords = ["Exceptional", "News"],
+}) => {
     const isStyle2 = variant === "style-2";
     const isSeoAgency = headingVariant === "seo-agency";
     const isDesignCompany = headingVariant === "design-company";
@@ -31,7 +38,8 @@ const NewsSection: React.FC<NewsSectionProps> = ({ variant = "style-1", headingV
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">News</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
                     caption="Recent News"
                     variant="style-1"

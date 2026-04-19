@@ -11,9 +11,15 @@ const services = servicesData.brandingServices;
 
 interface BrandingServicesSectionProps {
     variant?: "default" | "marketing-agency" | "design-company";
+    title?: string;
+    highlightWords?: string[];
 }
 
-const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ variant = "default" }) => {
+const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ 
+    variant = "default",
+    title = "Our Exceptional Digital Marketing Services",
+    highlightWords = ["Exceptional", "Services"],
+}) => {
     const sectionRef = useRef<HTMLElement>(null);
     const isMarketingAgency = variant === "marketing-agency";
     const isDesignCompany = variant === "design-company";
@@ -67,7 +73,8 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({ varia
         <section className="container" ref={sectionRef}>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SectionHeading
-                title='Our <span class="highlight">Exceptional</span> Digital Marketing <span class="highlight">Services</span>'
+                title={title}
+                highlightWords={highlightWords}
                 caption="Services"
                 variant="style-2"
                 className="mini-section-title"

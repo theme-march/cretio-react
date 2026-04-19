@@ -16,6 +16,8 @@ interface ProcessSectionProps {
     disableCaptionAnimation?: boolean;
     cardDuration?: number;
     cardStagger?: number;
+    title?: string;
+    highlightWords?: string[];
 }
 
 const ProcessSection: React.FC<ProcessSectionProps> = ({ 
@@ -29,7 +31,9 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
     disableDescriptionAnimation = false,
     disableCaptionAnimation = false,
     cardDuration = 1.8,
-    cardStagger = 0.2
+    cardStagger = 0.2,
+    title = "Our Exceptional Digital Industrial Working Process",
+    highlightWords = ["Exceptional", "Process"],
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
 
@@ -80,7 +84,8 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
         <section ref={sectionRef}>
             <div className="container">
                 <SectionHeading
-                    title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Working Process</span>'
+                    title={title}
+                    highlightWords={highlightWords}
                     caption="Process"
                     description={description}
                     variant={variant}
