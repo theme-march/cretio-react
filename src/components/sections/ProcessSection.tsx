@@ -2,7 +2,12 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
-import steps from "../../dataJson/processStepsData.json";
+const steps = [
+    { "id": "01", "title": "Planning and Idea Validation" },
+    { "id": "02", "title": "Wireframing and Design" },
+    { "id": "03", "title": "Technical Planning & Development" },
+    { "id": "04", "title": "Testing and Quality Assurance" }
+];
 
 interface ProcessSectionProps {
     variant?: "style-1" | "style-2";

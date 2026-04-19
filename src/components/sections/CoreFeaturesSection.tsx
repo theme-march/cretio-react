@@ -6,7 +6,38 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Pagination, Navigation, Scrollbar } from "swiper/modules";
 
-import coreFeaturesData from "@/dataJson/coreFeaturesData.json";
+const coreFeaturesData = [
+    {
+        "id": "01",
+        "icon": "flaticon-circle",
+        "title": "Web Development",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+    },
+    {
+        "id": "02",
+        "icon": "flaticon-folded",
+        "title": "UI/UX Design",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+    },
+    {
+        "id": "03",
+        "icon": "flaticon-twirl",
+        "title": "Web Design",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+    },
+    {
+        "id": "04",
+        "icon": "flaticon-twirl",
+        "title": "App Development",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+    },
+    {
+        "id": "05",
+        "icon": "flaticon-twirl",
+        "title": "E-commerce Solutions",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+    }
+];
 
 export interface CoreFeature {
     id: string;

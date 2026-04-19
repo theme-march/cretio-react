@@ -4,7 +4,50 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import testimonialsData from "@/dataJson/testimonialsData.json";
+const testimonialsData = {
+    "defaultTestimonials": [
+        {
+            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "image": "testmonial-1.png",
+            "name": "Mostahid Jackma",
+            "location": "From USA"
+        },
+        {
+            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "image": "testmonial-2.png",
+            "name": "Morgan Brown",
+            "location": "From USA"
+        },
+        {
+            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "image": "testmonial-1.png",
+            "name": "Mostahid Jackma",
+            "location": "From USA"
+        },
+        {
+            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "image": "testmonial-2.png",
+            "name": "Morgan Brown",
+            "location": "From USA"
+        }
+    ],
+    "marketingTestimonials": [
+        {
+            "id": 1,
+            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
+            "name": "Morgan Brown",
+            "location": "From USA",
+            "img": "testmonial-1.png"
+        },
+        {
+            "id": 2,
+            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
+            "name": "Morgan Brown",
+            "location": "From USA",
+            "img": "testmonial-1.png"
+        }
+    ]
+};
 import { getImagePath } from "@/utils/imageLoader";
 import testimonialBg2 from "@assets/img/bg/testimonial-bg-2.png";
 import testimonialSvg from "@assets/img/shape/testimonial.svg";

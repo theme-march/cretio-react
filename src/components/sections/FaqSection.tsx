@@ -2,7 +2,38 @@ import React, { useState, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import faqBg from "@assets/img/bg/faq-bg.png";
 
-import faqData from "../../dataJson/faqsData.json";
+const faqData = [
+    {
+        "id": 1,
+        "question": "1. What platforms do you develop mobile apps for?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    },
+    {
+        "id": 2,
+        "question": "2. What is the process for developing a mobile app?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    },
+    {
+        "id": 3,
+        "question": "3. What platforms do you use for web development?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    },
+    {
+        "id": 4,
+        "question": "4. How long does it take to build a website?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    },
+    {
+        "id": 5,
+        "question": "5. How can digital marketing help my business?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    },
+    {
+        "id": 6,
+        "question": "6. What digital marketing services do you offer?",
+        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+    }
+];
 
 interface FaqSectionProps {
     disableParallax?: boolean;

@@ -8,7 +8,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-import heroData from "@/dataJson/heroSlidesData.json";
+const heroData = {
+    "marketingHero": [
+        {
+            "id": 1,
+            "img": "marketing-agency.png",
+            "caption": "Business Hunter",
+            "subTitle": "Driving <span class=\"highlight\">Growth</span> Through",
+            "mainTitle": "<span class=\"highlight\">Creative</span> Marketing Strategies"
+        },
+        {
+            "id": 2,
+            "img": "marketing-agency-2.png",
+            "caption": "Business Hunter",
+            "subTitle": "Driving <span class=\"highlight\">Growth</span> Through",
+            "mainTitle": "<span class=\"highlight\">Creative</span> Marketing Strategies"
+        }
+    ],
+    "creativeHero": [
+        { "id": 1, "img": "creative-portfolio.png", "title": "Captivating <span class=\"highlight-text\">Portfolio</span> Designs to Inspire" },
+        { "id": 2, "img": "creative-portfolio-2.png", "title": "Captivating <span class=\"highlight-text\">Portfolio</span> Designs to Inspire" },
+        { "id": 3, "img": "creative-portfolio-3.jpg", "title": "Captivating <span class=\"highlight-text\">Portfolio</span> Designs to Inspire" }
+    ]
+};
 import { getImagePath } from "@/utils/imageLoader";
 
 const heroSlides = heroData.marketingHero;

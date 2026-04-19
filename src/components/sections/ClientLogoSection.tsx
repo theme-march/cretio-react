@@ -3,7 +3,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import clients from "@/dataJson/clientLogosData.json";
+const clients = [
+    { "id": 1, "img": "client-1.png", "title": "Credesign", "subtitle": "Portfolio Template", "delay": 0.15 },
+    { "id": 2, "img": "client-2.png", "title": "Vixan Dev", "subtitle": "Portfolio Template", "delay": 0.35 },
+    { "id": 3, "img": "client-3.png", "title": "Enfhess Star", "subtitle": "NFT Market Star Point", "delay": 0.55 },
+    { "id": 4, "img": "client-1.png", "title": "Credesign", "subtitle": "Portfolio Template", "delay": 0.75 },
+    { "id": 5, "img": "client-4.png", "title": "Fingcon Con", "subtitle": "Consulting Hub GloBAL", "delay": 0.95 },
+    { "id": 6, "img": "client-2.png", "title": "Vixan Dev", "subtitle": "Portfolio Template", "delay": 0.15 },
+    { "id": 7, "img": "client-1.png", "title": "Credesign", "subtitle": "Portfolio Template", "delay": 0.35 },
+    { "id": 8, "img": "client-4.png", "title": "Fingcon Con", "subtitle": "Consulting Hub GloBAL", "delay": 0.55 },
+    { "id": 9, "img": "client-1.png", "title": "Credesign", "subtitle": "Portfolio Template", "delay": 0.75 },
+    { "id": 10, "img": "client-3.png", "title": "Enfhess Star", "subtitle": "NFT Market Star Point", "delay": 0.95 }
+];
 import { getImagePath } from "@/utils/imageLoader";
 
 interface ClientLogoSectionProps {

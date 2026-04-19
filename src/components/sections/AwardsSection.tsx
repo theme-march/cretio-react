@@ -2,7 +2,48 @@ import React, { useState, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
-import awards from "@/dataJson/awardsData.json";
+const awards = [
+    {
+        "id": 1,
+        "title": "Dribbble Award 2024",
+        "type": "Audience Choice",
+        "category": "Design of the day",
+        "hoverImg": "hover-img-1.png",
+        "awardImg": "awards-1.svg"
+    },
+    {
+        "id": 2,
+        "title": "Product hunt Award 2024",
+        "type": "Audience Choice",
+        "category": "Feature Product",
+        "hoverImg": "hover-img-2.png",
+        "awardImg": "awards-2.svg"
+    },
+    {
+        "id": 3,
+        "title": "Envato Award 2024",
+        "type": "Audience Choice",
+        "category": "Trendsetter",
+        "hoverImg": "hover-img-3.png",
+        "awardImg": "awards-3.svg"
+    },
+    {
+        "id": 4,
+        "title": "Google Award 2024",
+        "type": "Honorable Mention",
+        "category": "Best Problem Solver",
+        "hoverImg": "hover-img-4.png",
+        "awardImg": "awards-4.svg"
+    },
+    {
+        "id": 5,
+        "title": "Microsoft Award 2024",
+        "type": "Honorable Mention",
+        "category": "Best Developer",
+        "hoverImg": "hover-img-5.png",
+        "awardImg": "awards-5.svg"
+    }
+];
 import { getImagePath } from "@/utils/imageLoader";
 
 interface AwardsSectionProps {
