@@ -1,80 +1,64 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-const commonData = {
-    "funFacts": [
-        { "id": "count1", "number": 65, "suffix": "K", "label": "Project Completed" },
-        { "id": "count2", "number": 8, "suffix": "K", "label": "Happy Customers" },
-        { "id": "count3", "number": 32, "suffix": "+", "label": "Years of Experience" },
-        { "id": "count4", "number": 13, "suffix": "", "label": "Award Achievement" }
-    ],
-    "skills": [
-        { "title": "UI/UX Design", "percentage": 95 },
-        { "title": "Web Development", "percentage": 80 },
-        { "title": "App Development", "percentage": 95 },
-        { "title": "CMS Development", "percentage": 98 }
-    ],
-    "methodology": [
-        {
-            "id": "01",
-            "title": "Technical SEO Development",
-            "description": "We optimize your site's structure and performance to ensure search engines can crawl and index your content efficiently.",
-            "hasBgText": true
-        },
-        {
-            "id": "02",
-            "title": "Keyword Optimization & Internal Linking",
-            "description": "Strategic keyword placement and smart internal linking structures to boost your visibility for targeted search queries."
-        },
-        {
-            "id": "03",
-            "title": "Social Media Engagement & Online",
-            "description": "Building strong social signals and community engagement to expand your digital footprint across various platforms."
-        },
-        {
-            "id": "04",
-            "title": "Content Strategy & Creation",
-            "description": "Creating high-quality, relevant content that resonates with your audience and establishes your brand as an authority."
-        }
-    ],
-    "seoFeatures": [
-        { "id": "01", "title": "Discovery & SEO Comprehensive Strategy", "img": "feature-item-bg-1.png" },
-        { "id": "02", "title": "Implement Strategy & Improve Site Speed", "img": "feature-item-bg-2.png" },
-        { "id": "03", "title": "Continuously Monitor & Provide Reports", "img": "feature-item-bg-3.png" },
-        { "id": "04", "title": "Continually Optimize Site Based on Data", "img": "feature-item-bg-4.png" }
-    ],
-    "aboutContent": {
-        "title": "We thrive on <span class=\"highlight ak-black-color\">creativity</span> and <span class=\"highlight\">innovation</span>. Our team is constantly exploring new ideas and approaches to ensure your <span class=\"highlight\">digital presence</span> is fresh, engaging, and ahead of the competition.",
-        "btnTextHome": "About More",
-        "btnTextAbout": "View Latest Project"
-    },
-    "newsletter": {
-        "title": "Join Our <span class=\"highlight text-underlines\">Newsletter</span> for Latest <span class=\"highlight\">Exclusive</span> Content",
-        "placeholder": "Enter your email...",
-        "btnText": "Newsletter"
-    }
-};
 import { getImagePath } from "@/utils/imageLoader";
 
-const features = commonData.seoFeatures;
+interface SeoFeature {
+    id: string;
+    title: string;
+    img: string;
+    description?: string;
+}
+
+const commonData = {
+    // ... skipping other bits of commonData duplication as requested by user
+    "seoFeatures": [
+        { 
+            "id": "01", 
+            "title": "Discovery & SEO Comprehensive Strategy", 
+            "img": "feature-item-bg-1.png",
+            "description": "We analyze your current performance and market trends to build a data-driven roadmap for long-term SEO success."
+        },
+        { 
+            "id": "02", 
+            "title": "Implement Strategy & Improve Site Speed", 
+            "img": "feature-item-bg-2.png",
+            "description": "Executing technical optimizations and infrastructure improvements to ensure your site loads fast and performs perfectly."
+        },
+        { 
+            "id": "03", 
+            "title": "Continuously Monitor & Provide Reports", 
+            "img": "feature-item-bg-3.png",
+            "description": "Keeping a close eye on your rankings and traffic, providing transparent reports that highlight your growth and ROI."
+        },
+        { 
+            "id": "04", 
+            "title": "Continually Optimize Site Based on Data", 
+            "img": "feature-item-bg-4.png",
+            "description": "Evolving our strategy based on real-world performance data to maintain your competitive edge in the search results."
+        }
+    ]
+};
+
+const features: SeoFeature[] = commonData.seoFeatures;
 
 const SeoFeatureSection: React.FC = () => {
-    const [activeFeature, setActiveFeature] = useState(features[0]);
+    const [activeFeature, setActiveFeature] = useState<SeoFeature>(features[0]);
 
     return (
         <div 
             className="feature-area"
             onMouseLeave={() => setActiveFeature(features[0])}
         >
-            <img className="feature-area-img" src={getImagePath(activeFeature.img)} alt="Active feature background" />
+            <img className="feature-area-img" src={getImagePath(activeFeature.img)} alt="Active digital strategy feature background" />
             <div className="feature-wapper row row-cols-1 row-cols-md-2 row-cols-xl-4 m-0">
-                {features.map((feature) => (
+                {features.map((feature: SeoFeature) => (
                     <Link 
                         to="/about" 
                         className={`feature-item p-0 ${activeFeature.id === feature.id ? "active" : ""}`} 
                         key={feature.id}
                         onMouseEnter={() => setActiveFeature(feature)}
                     >
-                        <img className="feature-item-bg" src={getImagePath(feature.img)} alt={`${feature.title} background`} />
+                        <img className="feature-item-bg" src={getImagePath(feature.img)} alt={`${feature.title} background ornament`} />
                         <div className="feature-item-content">
                             <div className="feature-item-number">
                                 <h2 className="feature-number">{feature.id}</h2>
@@ -82,7 +66,7 @@ const SeoFeatureSection: React.FC = () => {
                             <div className="feature-info">
                                 <h3 className="feature-info-title">{feature.title}</h3>
                                 <p className="feature-info-desp">
-                                    Our strategic approach ensures your digital assets are optimized for maximum visibility and sustainable growth.
+                                    {feature.description}
                                 </p>
                             </div>
                         </div>

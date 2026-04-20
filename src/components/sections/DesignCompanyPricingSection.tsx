@@ -72,17 +72,17 @@ const DesignCompanyPricingSection: React.FC = () => {
                     <div className="package-content" onMouseLeave={() => setActiveIndex(1)}>
                         {pricingPlans.map((plan, index) => (
                             <div
-                                key={index}
+                                key={plan.title}
                                 className={`package-one style2 hover-active-class ${activeIndex === index ? "active" : ""}`}
                                 onMouseEnter={() => setActiveIndex(index)}
                             >
-                                <div className="package-head-info">
+                                <div className="package-head info">
                                     <h6 className="title">{plan.title}</h6>
                                     <p className="duration">{plan.duration}</p>
                                 </div>
                                 <ul className="package-list">
-                                    {plan.features.map((feature, fIndex) => (
-                                        <li key={fIndex}>
+                                    {plan.features.map((feature) => (
+                                        <li key={feature}>
                                             <i className="flaticon-check-mark"></i>
                                             <span>{feature}</span>
                                         </li>

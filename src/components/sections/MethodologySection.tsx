@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -21,23 +21,26 @@ const commonData = {
         {
             "id": "01",
             "title": "Technical SEO Development",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+            "description": "We optimize your site's backend structure to ensure search engines can crawl and index your content efficiently.",
             "hasBgText": true
         },
         {
             "id": "02",
             "title": "Keyword Optimization & Internal Linking",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Targeting high-intent search terms and building a logical internal link structure to boost your page authority.",
+            "hasBgText": false
         },
         {
             "id": "03",
             "title": "Social Media Engagement & Online",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Expanding your digital footprint through strategic social sharing and community management to drive organic traffic.",
+            "hasBgText": false
         },
         {
             "id": "04",
             "title": "Content Strategy & Creation",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Developing high-value, relevant content that resonates with your audience and fulfills search engine criteria.",
+            "hasBgText": false
         }
     ],
     "seoFeatures": [

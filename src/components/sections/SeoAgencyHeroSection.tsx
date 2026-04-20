@@ -52,10 +52,10 @@ const SeoAgencyHeroSection: React.FC = () => {
                 <p className="sa-left-text">901 N Pitt Str., Suite 170 Alexandria, USA</p>
             </div>
             <ul className="sa-social-links">
-                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Facebook">FACEBOOK </a></li>
-                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Instagram">INSTAGRAM </a></li>
-                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on LinkedIn">LINKEDIN </a></li>
-                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Twitter">TWITTER </a></li>
+                <li className="sa-social-item"><a href="#" aria-label="Follow us on Facebook">FACEBOOK </a></li>
+                <li className="sa-social-item"><a href="#" aria-label="Follow us on Instagram">INSTAGRAM </a></li>
+                <li className="sa-social-item"><a href="#" aria-label="Follow us on LinkedIn">LINKEDIN </a></li>
+                <li className="sa-social-item"><a href="#" aria-label="Follow us on Twitter">TWITTER </a></li>
             </ul>
         </section>
     );

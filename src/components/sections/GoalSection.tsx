@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import goalCircleOverlay from "@assets/img/bg/goal-circle-overlay.png";
 
@@ -159,19 +159,16 @@ const GoalSection: React.FC = () => {
                                 <span> Straight Goal </span>
                             </div>
                             <p className="ak-section-desp">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of
-                                type and scrambled.
+                                We are dedicated to delivering measurable results through a combination of creative excellence and advanced analytics, ensuring every campaign is perfectly aligned with your business objectives.
                             </p>
                         </div>
                     </div>
                     <div className="ak-height-75 ak-height-lg-50"></div>
                     <div className="progress-goal">
                         <div className="progress-container">
-                            {skills.map((skill, index) => (
+                            {skills.map((skill) => (
                                 <SkillBar
-                                    key={index}
+                                    key={skill.title}
                                     title={skill.title}
                                     percentage={skill.percentage}
                                 />

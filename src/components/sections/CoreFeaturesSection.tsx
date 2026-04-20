@@ -201,8 +201,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     fullWidth = false,
     highlightWords = [],
 }) => {
-    const defaultData = variant === "style-1" ? homeFeaturesData : (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3));
-    const featuresToDisplay = features || defaultData;
+    const defaultData = features ? features : (variant === "style-1" && !isSlider ? homeFeaturesData : (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3)));
+    const featuresToDisplay = defaultData;
 
     return (
         <section

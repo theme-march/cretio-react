@@ -25,10 +25,7 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 </h2>
                 <div className="ak-height-30 ak-height-lg-30"></div>
                 <p className="blogs-details-desp-text">
-                    It is a long established fact that a reader will be distracted by the
-                    readable content of a page when looking at its layout. The point of
-                    using Lorem Ipsum is that it has a more-or-less normal distribution of
-                    letters, as opposed to using 'Content here, content here.
+                    Choosing the right digital agency is a critical decision that can define your brand's future. It's not just about finding a service provider, but a strategic partner who understands your vision and has the technical expertise to turn it into reality.
                 </p>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row gy-4">
@@ -44,10 +41,7 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                     <img src={quoteBg} alt="Quote decoration background" />
                     <p>
                         <span className="dot-text"></span>
-                        “Making it look like readable web 'lorem ipsum' will uncover many
-                        web sites still in their infancy. Various versions have evolved over
-                        the years, sometimes by accident, sometimes on purpose (injected
-                        humour and the like) web page editors now.”
+                        “Success in the digital landscape isn't discovered; it's built through consistent innovation, meticulous data analysis, and a relentless focus on creating authentic user experiences that resonate.”
                     </p>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
@@ -63,10 +57,10 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 <div className="d-flex gap-3 align-items-center">
                     <p className="ak-black-color">Share:</p>
                     <div className="social-icon">
-                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-facebook"></i></a>
-                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-video"></i></a>
-                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-linkedin"></i></a>
-                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-twitter"></i></a>
+                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-facebook"></i></a>
+                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-video"></i></a>
+                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-linkedin"></i></a>
+                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-twitter"></i></a>
                     </div>
                 </div>
                 <div className="ak-height-100 ak-height-lg-50"></div>
@@ -82,9 +76,7 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                                 </div>
                             </div>
                             <p className="person-desp">
-                                There are many variations of passages of Lorem Ipsum available,
-                                but the majority have suffered alteration in some form, by
-                                injected humour.
+                                Such a great insight! Finding an agency that actually listens to your specific business needs rather than just offering cookie-cutter solutions is rare.
                             </p>
                             <button type="submit" className="comment-reply-btn">Reply Comment</button>
                         </div>

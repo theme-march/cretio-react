@@ -92,10 +92,10 @@ const CreativePortfolioHeroSection: React.FC = () => {
                 </div>
 
                 <ul className="cp-social-links">
-                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Facebook"> Facebook</a></li>
-                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on LinkedIn">LinkedIn </a></li>
-                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Github">Github </a></li>
-                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Dribbble">Dribbble </a></li>
+                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Facebook"> Facebook</a></li>
+                    <li className="sa-social-item"><a href="#" aria-label="Follow us on LinkedIn">LinkedIn </a></li>
+                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Github">Github </a></li>
+                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Dribbble">Dribbble </a></li>
                 </ul>
             </Swiper>
         </div>

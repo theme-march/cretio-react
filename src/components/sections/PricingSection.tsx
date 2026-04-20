@@ -51,15 +51,15 @@ const PricingSection: React.FC = () => {
     return (
         <section className="container">
             <div className="package-content style3">
-                {pricingPlans.map((plan, index) => (
-                    <div key={index} className="package-one style3">
+                {pricingPlans.map((plan) => (
+                    <div key={plan.title} className="package-one style3">
                         <div className="package-head-info">
                             <h6 className="title">{plan.title}</h6>
                             <p className="duration">{plan.duration}</p>
                         </div>
                         <ul className="package-list">
-                            {plan.features.map((feature, fIndex) => (
-                                <li key={fIndex}>
+                            {plan.features.map((feature) => (
+                                <li key={feature}>
                                     <i className="flaticon-check-mark"></i>
                                     <span>{feature}</span>
                                 </li>

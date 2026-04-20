@@ -99,8 +99,8 @@ const Footer: React.FC = () => {
 
                         <div className="footer-list-content">
                             <ul className="footer-list-menu">
-                                {siteSettings.menu.map((item, index) => (
-                                    <li key={index}><Link to={item.href}>{item.title}</Link></li>
+                                {siteSettings.menu.map((item) => (
+                                    <li key={item.title}><Link to={item.href}>{item.title}</Link></li>
                                 ))}
                             </ul>
                         </div>
@@ -112,8 +112,8 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="ak-space-between">
                         <div className="social-icon">
-                            {siteSettings.socials.map((social, index) => (
-                                <a key={index} href={social.link} className="icon" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
+                            {siteSettings.socials.map((social) => (
+                                <a key={social.title} href={social.link} className="icon" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                     <i className={social.icon}></i>
                                 </a>
                             ))}

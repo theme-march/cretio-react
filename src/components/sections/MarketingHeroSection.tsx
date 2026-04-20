@@ -186,10 +186,10 @@ const MarketingHeroSection: React.FC = () => {
 
                 <div className="social-links">
                     <ul>
-                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Facebook">Facebook</a></li>
-                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Twitter">Twitter</a></li>
-                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on LinkedIn">LinkedIn</a></li>
-                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Instagram">Instagram</a></li>
+                        <li><a href="#" className="social-link" aria-label="Follow us on Facebook">Facebook</a></li>
+                        <li><a href="#" className="social-link" aria-label="Follow us on Twitter">Twitter</a></li>
+                        <li><a href="#" className="social-link" aria-label="Follow us on LinkedIn">LinkedIn</a></li>
+                        <li><a href="#" className="social-link" aria-label="Follow us on Instagram">Instagram</a></li>
                     </ul>
                 </div>
             </div>

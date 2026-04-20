@@ -74,8 +74,8 @@ const Header: React.FC = () => {
                             <div className="ak-main-header-center">
                                 <div className="ak-nav ak-medium">
                                     <ul className={`ak-nav_list ${mobileMenuOpen ? "ak-show" : ""}`}>
-                                        {navItems.map((item, index) => (
-                                            <li key={index} className={item.subMenu ? `menu-item-has-children ${openSubmenus[item.title.toLowerCase()] ? 'active' : ''}` : ''}>
+                                        {navItems.map((item) => (
+                                            <li key={item.title} className={item.subMenu ? `menu-item-has-children ${openSubmenus[item.title.toLowerCase()] ? 'active' : ''}` : ''}>
                                                 <Link to={item.href}>{item.title}</Link>
                                                 {item.subMenu && (
                                                     <>
@@ -86,8 +86,8 @@ const Header: React.FC = () => {
                                                             aria-expanded={openSubmenus[item.title.toLowerCase()]}
                                                         ></button>
                                                         <ul style={{ display: openSubmenus[item.title.toLowerCase()] ? 'block' : '' }}>
-                                                            {item.subMenu.map((sub, subIndex) => (
-                                                                <li key={subIndex}><Link to={sub.href}>{sub.title}</Link></li>
+                                                            {item.subMenu.map((sub) => (
+                                                                <li key={sub.title}><Link to={sub.href}>{sub.title}</Link></li>
                                                             ))}
                                                         </ul>
                                                     </>
@@ -190,9 +190,9 @@ const Header: React.FC = () => {
                             {siteSettings.company.description.replace(/<span>|<\/span>/g, '')}
                         </p>
                         <div className="row row-cols-3 g-3">
-                            {siteSettings.gallery.map((img, i) => (
-                                <div className="col" key={i}>
-                                    <img src={getImagePath(img)} className="img-fluid" alt={`Gallery ${i + 1}`} />
+                            {siteSettings.gallery.map((img) => (
+                                <div className="col" key={img}>
+                                    <img src={getImagePath(img)} className="img-fluid" alt="Gallery item" />
                                 </div>
                             ))}
                         </div>
@@ -201,14 +201,14 @@ const Header: React.FC = () => {
                             <p className="short-title">Say hello!</p>
                             <a className="email" href={`mailto:${siteSettings.cta.email}`}>{siteSettings.cta.email}</a>
                             <a className="email" href={siteSettings.contact.phoneLink}>{siteSettings.contact.phone}</a>
-                            <a href="javascript:void(0)">
+                            <a href="#">
                                 {siteSettings.contact.address}
                             </a>
                             <div className="ak-height-25 ak-height-lg-25"></div>
                             <p className="short-title">Social:</p>
                             <div className="social-icon">
-                                {siteSettings.socials.map((social, index) => (
-                                    <a key={index} href={social.link} className="icon style-2 dark-mode" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
+                                {siteSettings.socials.map((social) => (
+                                    <a key={social.title} href={social.link} className="icon style-2 dark-mode" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                         <i className={social.icon}></i>
                                     </a>
                                 ))}

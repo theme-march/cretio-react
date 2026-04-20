@@ -28,9 +28,9 @@
     { "title": "Contact Us", "href": "/contact" }
   ],
   "socials": [
-    { "title": "Facebook", "icon": "flaticon-facebook", "link": "javascript:void(0)" },
-    { "title": "Video/YouTube", "icon": "flaticon-video", "link": "javascript:void(0)" },
-    { "title": "LinkedIn", "icon": "flaticon-linkedin", "link": "javascript:void(0)" }
+    { "title": "Facebook", "icon": "flaticon-facebook", "link": "#" },
+    { "title": "Video/YouTube", "icon": "flaticon-video", "link": "#" },
+    { "title": "LinkedIn", "icon": "flaticon-linkedin", "link": "#" }
   ],
   "gallery": [
     "src/assets/img/gallery/mini-gallery-1.png",

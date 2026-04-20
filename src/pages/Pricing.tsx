@@ -6,6 +6,8 @@ import CoreFeaturesSection from "@components/sections/CoreFeaturesSection";
 import ClientLogoSection from "@components/sections/ClientLogoSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
+import pricingFields from "@/dataJson/pricingFields.json";
+
 const Pricing: React.FC = () => {
     useGsapAnimations();
     return (
@@ -15,7 +17,7 @@ const Pricing: React.FC = () => {
                 highlightWords={["Get Start", "Pricing Plan"]}
                 links={[
                     { label: "Home", path: "/" },
-                    { label: "Pricing Plan", path: "" },
+                    { label: "Pricing Plan", path: "#" },
                 ]}
                 variant="style-2"
                 strokeText="Pricing"
@@ -26,12 +28,12 @@ const Pricing: React.FC = () => {
             <PricingSection />
             <GoalSection />
             <CoreFeaturesSection
-                title='Our <span class="highlight">Exceptional</span> Digital Services <span class="highlight">Capabilities</span>'
-                description="Choose the perfect plan that fits your business needs. We offer flexible pricing options designed for startups and enterprises alike."
-                caption="Services"
+                title={pricingFields.title}
+                description={pricingFields.description}
+                caption={pricingFields.caption}
                 titleDirection="textLeft"
                 titleDuration={1.2}
-                cardAnimation=""
+                cardAnimation="none"
                 fullWidth={true}
                 sliderType="navigation"
                 isSlider={true}
