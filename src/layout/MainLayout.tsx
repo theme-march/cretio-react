@@ -12,6 +12,7 @@ import Lenis from "lenis";
 const MainLayout: React.FC = () => {
     const location = useLocation();
     const navType = useNavigationType();
+    const lenisRef = useRef<Lenis | null>(null);
 
     
     const scrollPosRef = useRef(0);
@@ -41,7 +42,11 @@ const MainLayout: React.FC = () => {
     useEffect(() => {
         if (navType !== "POP") {
             scrollPosRef.current = 0;
-            window.scrollTo(0, 0);
+            if (lenisRef.current) {
+                lenisRef.current.scrollTo(0, { immediate: true });
+            } else {
+                window.scrollTo(0, 0);
+            }
             const timer = setTimeout(() => ScrollTrigger.refresh(), 300);
             return () => clearTimeout(timer);
         } else {
@@ -49,7 +54,12 @@ const MainLayout: React.FC = () => {
             const timer = setTimeout(() => {
                 ScrollTrigger.refresh();
                 if (savedPos) {
-                    window.scrollTo(0, parseInt(savedPos, 10));
+                    const pos = parseInt(savedPos, 10);
+                    if (lenisRef.current) {
+                        lenisRef.current.scrollTo(pos, { immediate: true });
+                    } else {
+                        window.scrollTo(0, pos);
+                    }
                 }
             }, 500);
             return () => clearTimeout(timer);
@@ -68,6 +78,8 @@ const MainLayout: React.FC = () => {
             infinite: false,
         });
 
+        lenisRef.current = lenis;
+
         const onScroll = () => {
             ScrollTrigger.update();
         };
@@ -83,6 +95,7 @@ const MainLayout: React.FC = () => {
 
         return () => {
             lenis.destroy();
+            lenisRef.current = null;
         };
     }, []);
 
