@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { getImagePath } from "../../utils/imageLoader";
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                     <div className="ak-space-between">
                         <div className="social-icon">
                             {siteSettings.socials.map((social, index) => (
-                                <a key={index} href={social.link} className="icon" aria-label={`Follow us on ${social.title}`}>
+                                <a key={index} href={social.link} className="icon" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                     <i className={social.icon}></i>
                                 </a>
                             ))}

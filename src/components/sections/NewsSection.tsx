@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar } from "swiper/modules";
@@ -10,6 +9,15 @@ import blogsData from "../../dataJson/blogsData.json";
 import { getImagePath } from "../../utils/imageLoader";
 
 const newsItems = blogsData.slice(0, 6);
+
+interface NewsItem {
+    id: number;
+    image: string;
+    date: string;
+    title: string;
+    description: string;
+    author: string;
+}
 
 interface NewsSectionProps {
     variant?: "style-1" | "style-2";
@@ -40,7 +48,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({
                 <SectionHeading
                     title={title}
                     highlightWords={highlightWords}
-                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                    description="Discover the latest industry news, expert insights, and essential updates from our creative digital agency."
                     caption="Recent News"
                     variant="style-1"
                     titleAnimation={isSeoAgency ? "fade-animation" : "text-animation"}
@@ -129,7 +137,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({
                     }}
                     className={`mt-4 ak-slider ${sliderClass}`}
                 >
-                        {newsItems.map((item: any) => (
+                        {newsItems.map((item: NewsItem) => (
                             <SwiperSlide key={item.id} className="p-0">
                                 <Link to="/blog/blog-details" className={isStyle2 ? "news-blog-card" : "news-card"}>
                                     {isStyle2 ? (

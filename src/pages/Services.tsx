@@ -33,7 +33,7 @@ const Services: React.FC = () => {
                 titleDuration={1.2}
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                description="Explore our wide range of digital marketing and development services designed to help your brand stand out in a competitive market."
                 caption="Top Trio Services"
             />
             <TestimonialSection />

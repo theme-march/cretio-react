@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import blog1 from "@assets/img/blogs/blog-detail-1.png";
 import blog2 from "@assets/img/blogs/blog-detail-2.png";
 import blog3 from "@assets/img/blogs/blog-detail-3.png";
@@ -11,6 +11,12 @@ interface BlogDetailsContentProps {
 }
 
 const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax = false }) => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+    };
     return (
         <div className="container blogs-details-wapper">
             <div className="blogs-details">
@@ -27,15 +33,15 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row gy-4">
                     <div className={`col-md-6 ${disableParallax ? "" : "ak-parallax"}`}>
-                        <img src={blog1} className="blogs-details-img h-100 w-100" alt="..." />
+                        <img src={blog1} className="blogs-details-img h-100 w-100" alt="Blog detail feature image 1" />
                     </div>
                     <div className={`col-md-6 ${disableParallax ? "" : "ak-parallax"}`}>
-                        <img src={blog2} className="blogs-details-img h-100 w-100" alt="..." />
+                        <img src={blog2} className="blogs-details-img h-100 w-100" alt="Blog detail feature image 2" />
                     </div>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className={`blogs-details-quote-text ${disableParallax ? "" : "ak-parallax"}`}>
-                    <img src={quoteBg} alt="..." />
+                    <img src={quoteBg} alt="Quote decoration background" />
                     <p>
                         <span className="dot-text"></span>
                         “Making it look like readable web 'lorem ipsum' will uncover many
@@ -47,10 +53,10 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 <div className="ak-height-50 ak-height-lg-50"></div>
                 <div className="row gy-4">
                     <div className={`col-md-4 ${disableParallax ? "" : "ak-parallax"}`}>
-                        <img src={blog3} className="blogs-details-img h-100 w-100" alt="..." />
+                        <img src={blog3} className="blogs-details-img h-100 w-100" alt="Blog detail showcase image 1" />
                     </div>
                     <div className={`col-md-8 ${disableParallax ? "" : "ak-parallax"}`}>
-                        <img src={blog4} className="blogs-details-img h-100 w-100" alt="..." />
+                        <img src={blog4} className="blogs-details-img h-100 w-100" alt="Blog detail showcase image 2" />
                     </div>
                 </div>
                 <div className="ak-height-50 ak-height-lg-50"></div>
@@ -87,7 +93,7 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                     <div className="contact-form-wapper style-2">
                         <h5 className="contact-title">Post Your Comment</h5>
                         <div className="ak-height-30 ak-height-lg-30"></div>
-                        <form onSubmit={(e) => e.preventDefault()}>
+                        <form onSubmit={handleSubmit}>
                             <div className="row g-4">
                                 <div className="col-md-6">
                                     <input required type="text" className="input-text style-2" placeholder="Name" name="name" />
@@ -100,9 +106,14 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                                 </div>
                             </div>
                             <div className="ak-height-40 ak-height-lg-30"></div>
-                            <button type="submit" className="circle-btn style-1 circle-btn-anim">
+                             <button type="submit" className="circle-btn style-1 circle-btn-anim">
                                 <span className="text text-uppercase">Post <i className="flaticon-up-right-arrow"></i><br />Comments</span>
                             </button>
+                            {isSubmitted && (
+                                <div className="mt-3 text-success fade-animation">
+                                    Your comment has been posted successfully! It will appear after moderation.
+                                </div>
+                            )}
                         </form>
                     </div>
                 </div>

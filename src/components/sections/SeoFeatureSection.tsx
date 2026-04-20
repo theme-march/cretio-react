@@ -17,23 +17,23 @@ const commonData = {
         {
             "id": "01",
             "title": "Technical SEO Development",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+            "description": "We optimize your site's structure and performance to ensure search engines can crawl and index your content efficiently.",
             "hasBgText": true
         },
         {
             "id": "02",
             "title": "Keyword Optimization & Internal Linking",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Strategic keyword placement and smart internal linking structures to boost your visibility for targeted search queries."
         },
         {
             "id": "03",
             "title": "Social Media Engagement & Online",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Building strong social signals and community engagement to expand your digital footprint across various platforms."
         },
         {
             "id": "04",
             "title": "Content Strategy & Creation",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Creating high-quality, relevant content that resonates with your audience and establishes your brand as an authority."
         }
     ],
     "seoFeatures": [
@@ -65,7 +65,7 @@ const SeoFeatureSection: React.FC = () => {
             className="feature-area"
             onMouseLeave={() => setActiveFeature(features[0])}
         >
-            <img className="feature-area-img" src={getImagePath(activeFeature.img)} alt="..." />
+            <img className="feature-area-img" src={getImagePath(activeFeature.img)} alt="Active feature background" />
             <div className="feature-wapper row row-cols-1 row-cols-md-2 row-cols-xl-4 m-0">
                 {features.map((feature) => (
                     <Link 
@@ -74,7 +74,7 @@ const SeoFeatureSection: React.FC = () => {
                         key={feature.id}
                         onMouseEnter={() => setActiveFeature(feature)}
                     >
-                        <img className="feature-item-bg" src={getImagePath(feature.img)} alt="..." />
+                        <img className="feature-item-bg" src={getImagePath(feature.img)} alt={`${feature.title} background`} />
                         <div className="feature-item-content">
                             <div className="feature-item-number">
                                 <h2 className="feature-number">{feature.id}</h2>
@@ -82,7 +82,7 @@ const SeoFeatureSection: React.FC = () => {
                             <div className="feature-info">
                                 <h3 className="feature-info-title">{feature.title}</h3>
                                 <p className="feature-info-desp">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Our strategic approach ensures your digital assets are optimized for maximum visibility and sustainable growth.
                                 </p>
                             </div>
                         </div>

@@ -27,7 +27,7 @@ const Pricing: React.FC = () => {
             <GoalSection />
             <CoreFeaturesSection
                 title='Our <span class="highlight">Exceptional</span> Digital Services <span class="highlight">Capabilities</span>'
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                description="Choose the perfect plan that fits your business needs. We offer flexible pricing options designed for startups and enterprises alike."
                 caption="Services"
                 titleDirection="textLeft"
                 titleDuration={1.2}

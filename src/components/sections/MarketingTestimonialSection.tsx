@@ -223,7 +223,7 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                 </div>
             ) : (
                 <div className="testmonial-area ak-parallax">
-                    <img className="testmonial-area-img ak-bg" src={testimonialBg2} alt="..." />
+                    <img className="testmonial-area-img ak-bg" src={testimonialBg2} alt="Testimonial background shape" />
                     <div className={`testmonial-wrapper ${isStyle2 ? "style2" : "style-1"}`}>
                         <div className="container">
                             <div className="fade-animation">

@@ -24,7 +24,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false, variant = 
                 <img
                     src={variant === "creative-portfolio" ? creativeAgencyVideoBg : (isAbout ? aboutVideoBg : videoBg)}
                     className="video-img ak-bg"
-                    alt="..."
+                    alt="Video thumbnail showing creative studio work"
                 />
                 <span className="video-player-btn circle-btn-anim ak-center">
                     <span className="text">Play Now</span>

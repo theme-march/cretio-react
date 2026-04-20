@@ -1,6 +1,6 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
-const detailsData = {
+const detailsDataDefault = {
     "portfolioDetails": {
         "title": "Android App Development",
         "description1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
@@ -44,7 +44,25 @@ const detailsData = {
 };
 import { getImagePath } from "@/utils/imageLoader";
 
+interface AccordionItem {
+    title: string;
+    content: string;
+}
+
 interface ServiceDetailsContentProps {
+    detailsData?: {
+        serviceDetails: {
+            title: string;
+            shortInfo: { label: string; text: string }[];
+            description1: string;
+            description2: string;
+            description3: string;
+            description4: string;
+            description5: string;
+            description6: string;
+            accordion: AccordionItem[];
+        };
+    };
     disableMainImgAnimation?: boolean;
     enableZoomInAnimation?: boolean;
 }
@@ -66,6 +84,7 @@ const AccordionSVG = () => (
 );
 
 const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
+    detailsData = detailsDataDefault,
     disableMainImgAnimation = false,
     enableZoomInAnimation = false,
 }) => {
@@ -129,14 +148,14 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className={`services-main-img ${disableMainImgAnimation ? "" : "ak-parallax"}`}>
-                    <img src={getImagePath("services/services-main-img.png")} className="img-fluid" alt="..." />
+                    <img src={getImagePath("services/services-main-img.png")} className="img-fluid" alt="Main service illustration showing strategic planning" />
                 </div>
             </div>
 
             <section className="container">
                 <div className="services-short-info">
                     <div className="services-short-info-content">
-                        {detailsData.serviceDetails.shortInfo.map((info, idx) => (
+                        {detailsData.serviceDetails.shortInfo.map((info: { label: string; text: string }, idx: number) => (
                             <div className="services-short-info-item" key={idx}>
                                 <span className="services-short-info-label">{info.label}</span>
                                 <span className="services-short-info-text">{info.text}</span>
@@ -162,10 +181,10 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
                             <div className="col-md-4 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="Service process step 1 illustration" />
                             </div>
                             <div className="col-md-8 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="Service process step 2 illustration" />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
@@ -180,13 +199,13 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                         <div className="row align-items-center">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
                                 <div className={`image-hov-one ${enableZoomInAnimation ? "ak-hover-zoom-pronounced" : "ak-parallax"}`}>
-                                    <img src={getImagePath("services/accordion-1.png")} className="img-fluid" alt="..." />
+                                    <img src={getImagePath("services/accordion-1.png")} className="img-fluid" alt="Support and maintenance illustration" />
                                 </div>
                             </div>
                             <div className="col-xl-6 col-12">
                                 <div className="ak-accordion">
-                                    {accordionData.map((item: any, index: number) => (
-                                        <div className="ak-accordion-item" key={index}>
+                                    {accordionData.map((item: AccordionItem, index: number) => (
+                                        <div className="ak-accordion-item" key={item.title}>
                                             <div
                                                 className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
                                                 onClick={() => handleAccordionClick(index)}
@@ -216,11 +235,11 @@ const ServiceDetailsContent: React.FC<ServiceDetailsContentProps> = ({
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
-                            <div className="col-md-8 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="..." />
+                             <div className="col-md-8 ak-parallax">
+                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="Service feature showcase card A" />
                             </div>
                             <div className="col-md-4 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="..." />
+                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="Service feature showcase card B" />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>

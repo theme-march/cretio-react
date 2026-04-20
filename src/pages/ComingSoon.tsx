@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import logoWhite from "@assets/img/logo/white-logo.svg";
 import { Link } from "react-router-dom";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const ComingSoon: React.FC = () => {
     useGsapAnimations();
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+    };
     return (
         <div className="upcomming-soon-container">
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -30,7 +36,7 @@ const ComingSoon: React.FC = () => {
                         <div className="container">
                             <div className="brand-logo ak-center">
                                 <Link to="/" className="ak-site_branding white-logo">
-                                    <img src={logoWhite} alt="..." />
+                                    <img src={logoWhite} alt="Cretio company logo white" />
                                 </Link>
                             </div>
                             <div className="ak-height-75 ak-height-lg-50"></div>
@@ -99,9 +105,9 @@ const ComingSoon: React.FC = () => {
                             </div>
                         </div>
                         <div className="email-send-form">
-                            <form onSubmit={(e) => e.preventDefault()}>
+                            <form onSubmit={handleSubmit}>
                                 <input required type="text" name="email" placeholder="Enter your email..." />
-                                <div className="email-send-btn">
+                                 <div className="email-send-btn">
                                     <button type="submit" className="more-btn style3 border-0">
                                         <span className="morebtn-text"> Newsletter </span>
                                         <span className="primary-icon-anim">
@@ -110,6 +116,11 @@ const ComingSoon: React.FC = () => {
                                         </span>
                                     </button>
                                 </div>
+                                {isSubmitted && (
+                                    <div className="mt-3 text-success fade-animation text-center">
+                                        Thank you for subscribing!
+                                    </div>
+                                )}
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,14 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-const detailsData = {
+import { getImagePath } from "../../utils/imageLoader";
+
+interface PortfolioDetailsItem {
+    id: number;
+    title: string;
+    content: string;
+}
+
+const detailsDataDefault = {
     "portfolioDetails": {
         "title": "Android App Development",
         "description1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
@@ -10,43 +18,32 @@ const detailsData = {
         "description5": "it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable web page editors nowEnglish. Many desktop publishing packages and web page editors now use.",
         "description6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable web page editors nowEnglish. Many desktop publishing packages and web page editors now use.",
         "accordion": [
-            { "title": "1. What platforms do you develop mobile apps for?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "2. What is the process for developing a mobile app?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "3. What platforms do you use for web development?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "4. How long does it take to build a website?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "5. How can digital marketing help my business?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "6. What digital marketing services do you offer?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." }
-        ]
-    },
-    "serviceDetails": {
-        "title": "Android & IOS App Development",
-        "shortInfo": [
-            { "label": "Services:", "text": "Android App Dev" },
-            { "label": "Approximate Time:", "text": "3 Months - 1 Year" },
-            { "label": "Industry:", "text": "300+ Industry, We are Working" },
-            { "label": "Area We Cover:", "text": "Around Globe" }
-        ],
-        "description1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to provide feedback. using 'Content here, content here.",
-        "accordion": [
-            { "title": "1. What platforms do you develop mobile apps for?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "2. What is the process for developing a mobile app?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "3. What platforms do you use for web development?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "4. How long does it take to build a website?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "5. How can digital marketing help my business?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "title": "6. What digital marketing services do you offer?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." }
+            { "id": 1, "title": "1. What platforms do you develop mobile apps for?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+            { "id": 2, "title": "2. What is the process for developing a mobile app?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+            { "id": 3, "title": "3. What platforms do you use for web development?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+            { "id": 4, "title": "4. How long does it take to build a website?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+            { "id": 5, "title": "5. How can digital marketing help my business?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
+            { "id": 6, "title": "6. What digital marketing services do you offer?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." }
         ]
     }
 };
-import { getImagePath } from "@/utils/imageLoader";
 
-const accordionData = detailsData.portfolioDetails.accordion;
+interface PortfolioDetailsProps {
+    detailsData?: {
+        portfolioDetails: {
+            title: string;
+            description1: string;
+            description2: string;
+            description3: string;
+            description4: string;
+            description5: string;
+            description6: string;
+            accordion: PortfolioDetailsItem[];
+        };
+    };
+}
 
-const PortfolioDetailsContent: React.FC = () => {
+const PortfolioDetailsContent: React.FC<PortfolioDetailsProps> = ({ detailsData = detailsDataDefault }) => {
     const [activeAccordion, setActiveAccordion] = useState<number | null>(0);
     const sectionRef = useRef<HTMLDivElement>(null);
     const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -146,7 +143,7 @@ const PortfolioDetailsContent: React.FC = () => {
                 </p>
 
                 <div className="pd-img pd-img-parallax" data-height="350">
-                    <img src={getImagePath("portfolio/portfolio-details-1.png")} alt="..." />
+                    <img src={getImagePath("portfolio/portfolio-details-1.png")} alt="Portfolio project showcase image 1" />
                 </div>
                 <div>
                     <p className="pd-desp">
@@ -162,7 +159,7 @@ const PortfolioDetailsContent: React.FC = () => {
                 </p>
                 <div className="p-md-5">
                     <div className="ak-accordion">
-                        {accordionData.map((item: any, index: number) => (
+                        {detailsData.portfolioDetails.accordion.map((item: PortfolioDetailsItem, index: number) => (
                             <div className="ak-accordion-item" key={index}>
                                 <div
                                     className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
@@ -192,7 +189,7 @@ const PortfolioDetailsContent: React.FC = () => {
                     {detailsData.portfolioDetails.description5}
                 </p>
                 <div className="pd-img pd-img-parallax" data-height="400">
-                    <img src={getImagePath("portfolio/portfolio-details-2.png")} alt="..." />
+                    <img src={getImagePath("portfolio/portfolio-details-2.png")} alt="Portfolio project showcase image 2" />
                 </div>
                 <p className="pd-desp">
                     {detailsData.portfolioDetails.description6}

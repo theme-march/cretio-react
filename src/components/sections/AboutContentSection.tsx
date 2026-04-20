@@ -19,23 +19,23 @@ const commonData = {
         {
             "id": "01",
             "title": "Technical SEO Development",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+            "description": "We optimize your site's structure and performance to ensure search engines can crawl and index your content efficiently.",
             "hasBgText": true
         },
         {
             "id": "02",
             "title": "Keyword Optimization & Internal Linking",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Strategic keyword placement and smart internal linking structures to boost your visibility for targeted search queries."
         },
         {
             "id": "03",
             "title": "Social Media Engagement & Online",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Building strong social signals and community engagement to expand your digital footprint across various platforms."
         },
         {
             "id": "04",
             "title": "Content Strategy & Creation",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Creating high-quality, relevant content that resonates with your audience and establishes your brand as an authority."
         }
     ],
     "seoFeatures": [
@@ -84,8 +84,8 @@ const AboutContentSection: React.FC = () => {
             <div className="ak-height-95 ak-height-lg-80"></div>
             <section className="about-content container" ref={sectionRef}>
                 <div className="star-content">
-                    <img src={star2} alt="star" className="star-1" />
-                    <img src={star2} alt="star" className="star-2" />
+                    <img src={star2} alt="Rotating star element left" className="star-1" />
+                    <img src={star2} alt="Rotating star element right" className="star-2" />
                 </div>
                 <div className="about-info">
                     <h3 className="about-title text-color-shiption"><CretioText text={data.title} /></h3>
@@ -96,7 +96,7 @@ const AboutContentSection: React.FC = () => {
                             <i className="flaticon-up-right-arrow"></i>
                         </span>
                     </Link>
-                    <img src={line2} alt="swirl design" className="swirl" />
+                    <img src={line2} alt="Decorative swirl design" className="swirl" />
                 </div>
             </section>
         </>

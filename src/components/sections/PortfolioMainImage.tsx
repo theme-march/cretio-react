@@ -6,7 +6,7 @@ const PortfolioMainImage: React.FC = () => {
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="portfolio-main-img ak-center ak-parallax">
-                <img src={portfolioBanner} className="pd-main-img" alt="..." />
+                <img src={portfolioBanner} className="pd-main-img" alt="Main portfolio project showcase banner" />
                 <div className="image-content">
                     <h4 className="image-content-title me-5">Exceptional Android App Development</h4>
                     <div className="image-content-box">

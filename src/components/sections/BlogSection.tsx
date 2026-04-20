@@ -30,7 +30,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                     <SectionHeading
                         title={title}
                         highlightWords={highlightWords}
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                        description="Stay updated with the latest trends and insights in digital marketing, industry innovation, and creative technology."
                         caption="Recent News"
                         disableDespAnimation={true}
                     />

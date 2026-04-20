@@ -25,7 +25,7 @@ const MinimalStudio: React.FC = () => {
                 titleDirection="textLeft"
                 titleEase="back.out(1.7)"
                 titleDuration={1}
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                description="Our studio is dedicated to crafting minimalist digital experiences that prioritize clarity, aesthetics, and user engagement."
                 descriptionDirection="right"
                 descriptionDelay="0.35"
                 caption="Top Trio Services"

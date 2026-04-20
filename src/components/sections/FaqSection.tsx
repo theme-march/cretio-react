@@ -107,7 +107,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ disableParallax = false }) => {
             <div className="faq-wapper">
                 <div className="faq-img-content">
                     <div className={`image-hov-one ${disableParallax ? "" : "ak-parallax"}`}>
-                        <img src={faqBg} alt="..." />
+                        <img src={faqBg} alt="Frequently asked questions background illustration" />
                     </div>
                 </div>
                 <div className="faq-accordion" ref={accordionRef}>

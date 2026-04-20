@@ -29,7 +29,7 @@ const ServiceDetails: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ProcessSection
                 variant="style-2"
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                description="Our specialized expertise allows us to deliver high-quality solutions tailored to the unique requirements of your business model."
                 titleAnimation="text-animation"
                 titleDirection="textLeft"
                 titleDuration={1.2}

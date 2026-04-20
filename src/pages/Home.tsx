@@ -21,9 +21,12 @@ const Home: React.FC = () => {
             <div className="ak-height-190 ak-height-lg-80"></div>
             <HeroSection />
             <AboutSection />
-            <ServicesSection />
+            <ServicesSection highlightWords={["Exceptional", "Services"]} />
             <div className="ak-height-150 ak-height-lg-80"></div>
-            <CoreFeaturesSection hideHeadingGap={true} cardDirection="left" />
+            <CoreFeaturesSection 
+                hideHeadingGap={true} 
+                cardDirection="left" 
+            />
             <PortfolioSection />
             <FunFactSection />
             <AwardsSection />

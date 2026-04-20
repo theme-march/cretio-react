@@ -49,32 +49,39 @@ export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
 };
 
 /**
- * Specifically for titles that only need <br/> and simple highlighting
+ * Specifically for titles that only need <br/> and simple highlighting.
+ * Now robustnessly handles <span class="highlight"> classes.
  */
 export const SafeText: React.FC<{ text: string }> = ({ text }) => {
-  if (!text) return null;
-
-  // This handles the common pattern: text <span class="highlight">word</span> text
-  // We'll simplify: just treat <span> as highlight and <br> as <br>
-  const parts = text.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/gi);
-
-  return (
-    <>
-      {parts.map((part, index) => {
-        const lowerPart = part.toLowerCase();
-        if (lowerPart.startsWith("<br")) return <br key={index} />;
-        if (lowerPart.startsWith("<span")) {
-            // Marker for span start
-            return null; 
-        }
-        if (lowerPart === "</span>") return null;
-        
-        // If the previous part was a span tag, we should have wrapped this in a span
-        // But split() makes it linear. Let's use a slightly better approach for SafeText.
-        return part;
-      })}
-    </>
-  );
+    if (!text) return null;
+    
+    // Use the robust parsing logic to handle nested/linear spans
+    const parts = text.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/gi);
+    let currentClass = "";
+    
+    return (
+        <>
+            {parts.map((part, index) => {
+                const lowerPart = part.toLowerCase();
+                if (lowerPart.startsWith("<br")) return <br key={index} />;
+                if (lowerPart.startsWith("<span")) {
+                    const classMatch = part.match(/class=["']([^"']*)["']/i);
+                    currentClass = classMatch ? classMatch[1] : "highlight";
+                    return null;
+                }
+                if (lowerPart === "</span>") {
+                    currentClass = "";
+                    return null;
+                }
+                if (part.startsWith("<")) return null;
+                
+                if (currentClass) {
+                    return <span key={index} className={currentClass}>{part}</span>;
+                }
+                return part;
+            })}
+        </>
+    );
 };
 
 /**

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
@@ -7,7 +7,14 @@ import SectionHeading from "@components/common/SectionHeading";
 import servicesData from "@/dataJson/servicesData.json";
 import { getImagePath } from "@/utils/imageLoader";
 
-const services = servicesData.brandingServices;
+interface ServiceItem {
+    id: number;
+    title: string;
+    img: string;
+    hasSlash?: boolean;
+}
+
+const services: ServiceItem[] = servicesData.brandingServices;
 
 interface BrandingServicesSectionProps {
     variant?: "default" | "marketing-agency" | "design-company";
@@ -92,7 +99,7 @@ const BrandingServicesSection: React.FC<BrandingServicesSectionProps> = ({
             <div className="ak-border-width"></div>
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="services-branding">
-                {services.map((service: any) => (
+                {services.map((service: ServiceItem) => (
                     <Link
                         to="/services/service-details"
                         className="sb-card fade-animation"

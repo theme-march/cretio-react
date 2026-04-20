@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import navItems from "../../dataJson/navitemslist.json";
@@ -208,7 +208,7 @@ const Header: React.FC = () => {
                             <p className="short-title">Social:</p>
                             <div className="social-icon">
                                 {siteSettings.socials.map((social, index) => (
-                                    <a key={index} href={social.link} className="icon style-2 dark-mode" aria-label={`Follow us on ${social.title}`}>
+                                    <a key={index} href={social.link} className="icon style-2 dark-mode" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                         <i className={social.icon}></i>
                                     </a>
                                 ))}

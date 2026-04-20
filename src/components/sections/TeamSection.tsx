@@ -52,7 +52,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                 <SectionHeading
                     title={title}
                     highlightWords={highlightWords}
-                    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                    description="Meet our team of digital experts committed to delivering excellence through innovation, creative strategy, and technical precision."
                     caption="426+ Team Members"
                     variant="style-1"
 

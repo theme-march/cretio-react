@@ -140,7 +140,7 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                 <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="awards-box">
                     <div className="awards-hover-image" ref={hoverRef} style={{ opacity: 0, scale: 0.5, pointerEvents: "none" }}>
-                        <img src={hoverImg} alt="..." id="awardsHover" />
+                        <img src={hoverImg} alt="Awards preview thumbnail" id="awardsHover" />
                     </div>
                     <div className="awards-list">
                         {awards.map((award) => (
@@ -158,7 +158,7 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                                 <p className="awards-type">{award.type}</p>
                                 <p className="awards-category">{award.category}</p>
                                 <div className="awards-img">
-                                    <img src={getImagePath(award.awardImg)} alt="..." />
+                                    <img src={getImagePath(award.awardImg)} alt={`${award.title} trophy icon`} />
                                 </div>
                             </div>
                         ))}

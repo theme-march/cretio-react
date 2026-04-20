@@ -1,7 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 const ContactFormSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+    };
 
     return (
         <section ref={sectionRef}>
@@ -30,7 +36,7 @@ const ContactFormSection: React.FC = () => {
                                 <div className="contact-form-wapper style-2">
                                     <h5 className="contact-title text-center">Drop a Message</h5>
                                     <div className="ak-height-30 ak-height-lg-30"></div>
-                                    <form onSubmit={(e) => e.preventDefault()}>
+                                    <form onSubmit={handleSubmit}>
                                         <div className="row g-4">
                                             <div className="col-md-6">
                                                 <input
@@ -61,7 +67,7 @@ const ContactFormSection: React.FC = () => {
                                             </div>
                                             <div className="col-md-6">
                                                 <input
-                                                    type="text"
+                                                    type="tel"
                                                     className="input-text style-2"
                                                     placeholder="Phone"
                                                     name="phone"
@@ -93,6 +99,11 @@ const ContactFormSection: React.FC = () => {
                                                 <span className="ak-center">Send Message</span>
                                             </button>
                                         </div>
+                                        {isSubmitted && (
+                                            <div className="mt-3 text-success fade-animation">
+                                                Your message has been sent successfully! Our team will contact you shortly.
+                                            </div>
+                                        )}
                                     </form>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({
             <SectionHeading
                 title={title}
                 highlightWords={highlightWords}
-                description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+                description="Our comprehensive SEO solutions are designed to improve your search visibility, drive organic traffic, and accelerate business growth."
                 caption="Services"
                 titleAnimation={isSeoAgency ? "" : "text-animation"}
                 titleDirection={isSeoAgency ? "bottom" : "textTop"}

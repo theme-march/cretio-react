@@ -40,6 +40,27 @@ const coreFeaturesData: CoreFeature[] = [
     },
 ];
 
+const homeFeaturesData: CoreFeature[] = [
+    {
+        id: "01",
+        icon: "flaticon-circle",
+        title: "Strategic Marketing",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+    },
+    {
+        id: "02",
+        icon: "flaticon-folded",
+        title: "Strategic Marketing",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+    },
+    {
+        id: "03",
+        icon: "flaticon-twirl",
+        title: "Strategic Marketing",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+    }
+];
+
 export interface CoreFeature {
     id: string;
     icon: string;
@@ -129,7 +150,7 @@ const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
             : variant === "style-2"
             ? "type-1 style-2"
             : variant === "style-1"
-            ? `style-2 ${index % 2 === 0 ? "color-2" : "color-3"}`
+            ? "style-2"
             : "type-2";
 
     return (
@@ -144,11 +165,12 @@ const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
                 <i className={feature.icon}></i>
             </div>
             <h6 className="core-feature-title">{feature.title}</h6>
-            <p className="core-feature-desc">{feature.description}</p>
+            <p className="core-feature-desp">{feature.description}</p>
             <p className="core-feature-number">{feature.id}</p>
         </div>
     );
 };
+
 
 
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
@@ -179,7 +201,8 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     fullWidth = false,
     highlightWords = [],
 }) => {
-    const featuresToDisplay = features || (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3));
+    const defaultData = variant === "style-1" ? homeFeaturesData : (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3));
+    const featuresToDisplay = features || defaultData;
 
     return (
         <section

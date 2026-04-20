@@ -7,6 +7,7 @@ import ThemeToggle from "@components/common/ThemeToggle";
 import Preloader from "@components/common/Preloader";
 import ScrollToTop from "@components/common/ScrollToTop";
 import LoadingFallback from "@components/common/LoadingFallback";
+import Lenis from "lenis";
 
 const MainLayout: React.FC = () => {
     const location = useLocation();
@@ -54,6 +55,36 @@ const MainLayout: React.FC = () => {
             return () => clearTimeout(timer);
         }
     }, [location.key, navType]);
+
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: "vertical",
+            gestureOrientation: "vertical",
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        const onScroll = () => {
+            ScrollTrigger.update();
+        };
+
+        lenis.on("scroll", onScroll);
+
+        const raf = (time: number) => {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        };
+
+        requestAnimationFrame(raf);
+
+        return () => {
+            lenis.destroy();
+        };
+    }, []);
 
     const handleLoadingComplete = () => {
         ScrollTrigger.refresh();

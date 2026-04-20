@@ -12,8 +12,8 @@ const ServiceDetailsCta: React.FC = () => {
                 <div className="dot-bottom-left"></div>
                 <div className="dot-bottom-right"></div>
                 <div className="services-bg-start">
-                    <img src={shapeLeft} alt="..." />
-                    <img src={shapeRight} alt="..." />
+                    <img src={shapeLeft} alt="Decorative background shape left" />
+                    <img src={shapeRight} alt="Decorative background shape right" />
                 </div>
                 <div className="services-details-cta-wapper">
                     <div className="services-details-cta-content">
