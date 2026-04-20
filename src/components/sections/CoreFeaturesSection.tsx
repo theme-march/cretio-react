@@ -85,7 +85,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     showTopGap = false,
     showBottomGap = false,
     hideHeadingGap = false,
-    features = coreFeaturesData.slice(0, 3),
+    features,
     descriptionDirection,
     descriptionDelay,
     captionDirection,
@@ -103,6 +103,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     fullWidth = false,
     highlightWords = [],
 }) => {
+    const featuresToDisplay = features || (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3));
     return (
         <section
             className={`core-features-area ${bgClass} ${variant === "style-2" ? "ak-solidblack-bg" : ""}`}
@@ -208,7 +209,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                       }
                             }
                         >
-                            {[...features, ...features].map((feature, index) => (
+                            {featuresToDisplay.map((feature, index) => (
                                 <SwiperSlide key={`${feature.id}-${index}`}>
                                     <div
                                         className={`core-feature-card ${
@@ -254,7 +255,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
             ) : variant === "style-3" ? (
                 <div className="container">
                     <div className="core-features">
-                        {features.map((feature, index) => (
+                        {featuresToDisplay.map((feature, index) => (
                             <div
                                 className={`core-feature-card type-3 ${cardAnimation} theme-border-wrap`}
                                 data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
@@ -293,7 +294,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                         className="core-features" 
                         style={fullWidth ? { flexDirection: "column", gap: "30px" } : undefined}
                     >
-                        {features.map((feature, index) => (
+                        {featuresToDisplay.map((feature, index) => (
                             <div
                                 className={`core-feature-card ${
                                     variant === "style-2"
