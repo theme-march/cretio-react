@@ -28,9 +28,9 @@
     { "title": "Contact Us", "href": "/contact" }
   ],
   "socials": [
-    { "icon": "flaticon-facebook", "link": "#" },
-    { "icon": "flaticon-video", "link": "#" },
-    { "icon": "flaticon-linkedin", "link": "#" }
+    { "title": "Facebook", "icon": "flaticon-facebook", "link": "javascript:void(0)" },
+    { "title": "Video/YouTube", "icon": "flaticon-video", "link": "javascript:void(0)" },
+    { "title": "LinkedIn", "icon": "flaticon-linkedin", "link": "javascript:void(0)" }
   ],
   "gallery": [
     "src/assets/img/gallery/mini-gallery-1.png",

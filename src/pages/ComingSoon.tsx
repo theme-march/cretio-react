@@ -92,10 +92,10 @@ const ComingSoon: React.FC = () => {
                                 Latest <span className="heghtlight">Exclusive</span> Content
                             </h5>
                             <div className="social-icon">
-                                <a href="#" className="icon style-2"><i className="flaticon-facebook"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-linkedin"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-instagram-logo"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-twitter"></i></a>
+                                <a href="javascript:void(0)" className="icon style-2"><i className="flaticon-facebook"></i></a>
+                                <a href="javascript:void(0)" className="icon style-2"><i className="flaticon-linkedin"></i></a>
+                                <a href="javascript:void(0)" className="icon style-2"><i className="flaticon-instagram-logo"></i></a>
+                                <a href="javascript:void(0)" className="icon style-2"><i className="flaticon-twitter"></i></a>
                             </div>
                         </div>
                         <div className="email-send-form">

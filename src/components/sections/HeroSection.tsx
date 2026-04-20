@@ -96,8 +96,8 @@ const HeroSection: React.FC = () => {
         });
 
         if (videoRef.current) {
-            videoRef.current.play().catch(error => {
-                console.log("Video auto-play prevented:", error);
+            videoRef.current.play().catch(() => {
+                // Video auto-play prevented
             });
         }
 

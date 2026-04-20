@@ -425,15 +425,24 @@
 
                   <section id="change_page_title">
                     <h3>Change Page Title</h3>
-                    <p>In this React template, page titles are managed in two ways:</p>
-                    <ul class="ordered-list">
-                      <li><strong>Global Site Title:</strong> This is the default title for all pages, defined in the root <code>index.html</code> (inside the <code>&lt;title&gt;</code> tag).</li>
-                      <li><strong>Individual Page Titles:</strong> To give each page a unique title (e.g., "About Us - Cretio"), you can use the <code>useEffect</code> hook inside the specific page component located in <code>src/pages/</code>.</li>
-                    </ul>
-                    <p><strong>Example:</strong> Add this code inside your page component to change its title dynamically:</p>
-                    <pre><code>React.useEffect(() => {
-  document.title = "Your Page Title - Cretio";
-}, []);</code></pre>
+                    <p>To change the main heading (title) of an individual page, navigate to the specific page file and update the <code>title</code> prop in the <code>Breadcrumb</code> or Hero component.</p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          <strong>Locate the Page Component:</strong>
+                          <p>Go to <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">pages</span></span> and open the file for the page you want to edit (e.g., <code>About.tsx</code>, <code>Services.tsx</code>).</p>
+                        </li>
+                        <li>
+                          <strong>Update the Title Prop:</strong>
+                          <p>Locate the <code>Breadcrumb</code> component and change the <code>title</code> and <code>highlightWords</code> (optional) to your desired text.</p>
+                          <pre><code>&lt;Breadcrumb
+    title="Your New Page Heading"
+    highlightWords={["New", "Heading"]}
+    ...
+/&gt;</code></pre>
+                        </li>
+                      </ol>
+                    </div>
                     <div class="steps-panel">
                       <figure>
                         <img src="assets/images/page-title.png" alt="Page Title 1" class="doc-image max-100" />

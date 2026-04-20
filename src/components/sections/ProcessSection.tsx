@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
+import { CretioText } from "../../utils/safeHtml";
 import gsap from "gsap";
 import SectionHeading from "@components/common/SectionHeading";
 
@@ -111,7 +112,7 @@ const ProcessSection: React.FC<ProcessSectionProps> = ({
                                     <span>{step.id.charAt(0)}</span>
                                     <span className="amin_auto_count">{step.id.substring(1)}</span>
                                 </div>
-                                <p className="funfact-text text-center" dangerouslySetInnerHTML={{ __html: step.title }} />
+                                <p className="funfact-text text-center"><CretioText text={step.title} /></p>
                             </div>
                         </div>
                     ))}

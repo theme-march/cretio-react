@@ -18,8 +18,4 @@ if (rootElement) {
       <App />
     </StrictMode>
   );
-} else {
-  console.error(
-    "Root element not found. Make sure you have <div id='root'></div> in index.html"
-  );
 }

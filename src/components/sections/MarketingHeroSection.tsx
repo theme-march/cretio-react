@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
+import { CretioText } from "../../utils/safeHtml";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, EffectFade } from "swiper/modules";
@@ -161,7 +162,7 @@ const MarketingHeroSection: React.FC = () => {
                     {heroSlides.map((slide) => (
                         <SwiperSlide key={slide.id}>
                             <div className="marketing-agency-slider-card ak-parallax">
-                                <img className="hero-bg-img" src={getImagePath(slide.img)} alt="" />
+                                <img className="hero-bg-img" src={getImagePath(slide.img)} alt="Marketing Agency Hero Slide" />
                                 <div className="marketing-agency-content">
                                     <div className="container-extent">
                                         <div className="marketing-agency-info">
@@ -173,8 +174,8 @@ const MarketingHeroSection: React.FC = () => {
                                                 </span>
                                                 <span> {slide.caption} </span>
                                             </div>
-                                            <h2 className="sub-title" dangerouslySetInnerHTML={{ __html: slide.subTitle }} />
-                                            <h2 className="main-title" dangerouslySetInnerHTML={{ __html: slide.mainTitle }} />
+                                            <h2 className="sub-title"><CretioText text={slide.subTitle} /></h2>
+                                            <h2 className="main-title"><CretioText text={slide.mainTitle} /></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -185,10 +186,10 @@ const MarketingHeroSection: React.FC = () => {
 
                 <div className="social-links">
                     <ul>
-                        <li><a href="#" className="social-link">Facebook</a></li>
-                        <li><a href="#" className="social-link">Twitter</a></li>
-                        <li><a href="#" className="social-link">LinkedIn</a></li>
-                        <li><a href="#" className="social-link">Instagram</a></li>
+                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Facebook">Facebook</a></li>
+                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Twitter">Twitter</a></li>
+                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on LinkedIn">LinkedIn</a></li>
+                        <li><a href="javascript:void(0)" className="social-link" aria-label="Follow us on Instagram">Instagram</a></li>
                     </ul>
                 </div>
             </div>

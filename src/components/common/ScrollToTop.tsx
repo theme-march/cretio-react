@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLenis } from "lenis/react";
 
 const ScrollToTop: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const lenis = useLenis();
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.pageYOffset > 350) {
+            if (window.scrollY > 350) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -21,14 +19,10 @@ const ScrollToTop: React.FC = () => {
 
     const scrollToTop = (e: React.MouseEvent) => {
         e.preventDefault();
-        if (lenis) {
-            lenis.scrollTo(0, { lerp: 0.1 });
-        } else {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
 
     return (
@@ -36,6 +30,14 @@ const ScrollToTop: React.FC = () => {
             className={`ak-scrollup ${isVisible ? "ak-scrollup-show" : ""}`}
             onClick={scrollToTop}
             style={{ cursor: "pointer" }}
+            role="button"
+            aria-label="Scroll to top"
+            tabIndex={isVisible ? 0 : -1}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    scrollToTop(e as unknown as React.MouseEvent);
+                }
+            }}
         >
             <svg
                 width="20"

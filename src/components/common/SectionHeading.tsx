@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeText } from "../../utils/safeHtml";
 
 interface SectionHeadingProps {
     title: React.ReactNode;
@@ -74,7 +75,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
 
     const renderTitle = () => {
         if (typeof title !== "string" || highlightWords.length === 0) {
-            return typeof title === "string" ? <span dangerouslySetInnerHTML={{ __html: title }} /> : title;
+            return typeof title === "string" ? <SafeText text={title} /> : title;
         }
 
         let parts: (string | React.ReactNode)[] = [title];
@@ -97,7 +98,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                     {part}
                 </span>
             ) : (
-                <span key={`Part-${i}`} dangerouslySetInnerHTML={{ __html: part as string }} />
+                <span key={`Part-${i}`}>
+                    {typeof part === "string" ? <SafeText text={part} /> : part}
+                </span>
             )
         );
     };

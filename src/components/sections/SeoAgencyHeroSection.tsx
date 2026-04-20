@@ -4,7 +4,7 @@ import seoHeroImg from "@assets/img/hero/seo-agency.png";
 const SeoAgencyHeroSection: React.FC = () => {
     return (
         <section className="seo-agency-hero-area ak-parallax">
-            <img src={seoHeroImg} className="ak-bg seo-agency-hero-area-bg" alt="" />
+            <img src={seoHeroImg} className="ak-bg seo-agency-hero-area-bg" alt="SEO Agency Hero Background" />
             <div className="container">
                 <div className="seo-agency-wrapper">
                     <div className="sa-title-box">
@@ -52,10 +52,10 @@ const SeoAgencyHeroSection: React.FC = () => {
                 <p className="sa-left-text">901 N Pitt Str., Suite 170 Alexandria, USA</p>
             </div>
             <ul className="sa-social-links">
-                <li className="sa-social-item"><a href="#">FACEBOOK </a></li>
-                <li className="sa-social-item"><a href="#">INSTAGRAM </a></li>
-                <li className="sa-social-item"><a href="#">LINKEDIN </a></li>
-                <li className="sa-social-item"><a href="#">TWITTER </a></li>
+                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Facebook">FACEBOOK </a></li>
+                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Instagram">INSTAGRAM </a></li>
+                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on LinkedIn">LINKEDIN </a></li>
+                <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Twitter">TWITTER </a></li>
             </ul>
         </section>
     );

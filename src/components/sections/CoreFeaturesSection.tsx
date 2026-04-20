@@ -1,42 +1,43 @@
-import SectionHeading from "@components/common/SectionHeading";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Pagination, Navigation, Scrollbar } from "swiper/modules";
+import SectionHeading from "@components/common/SectionHeading";
 
-const coreFeaturesData = [
+const coreFeaturesData: CoreFeature[] = [
     {
-        "id": "01",
-        "icon": "flaticon-circle",
-        "title": "Web Development",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+        id: "01",
+        icon: "flaticon-circle",
+        title: "Web Development",
+        description: "We build fast, scalable, and maintainable web applications tailored to your business goals and user needs.",
     },
     {
-        "id": "02",
-        "icon": "flaticon-folded",
-        "title": "UI/UX Design",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+        id: "02",
+        icon: "flaticon-folded",
+        title: "UI/UX Design",
+        description: "Our design team crafts intuitive interfaces that balance aesthetics with functionality for a seamless user journey.",
     },
     {
-        "id": "03",
-        "icon": "flaticon-twirl",
-        "title": "Web Design",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+        id: "03",
+        icon: "flaticon-twirl",
+        title: "Web Design",
+        description: "From landing pages to full websites, we create visually compelling designs that reflect your brand identity.",
     },
     {
-        "id": "04",
-        "icon": "flaticon-twirl",
-        "title": "App Development",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
+        id: "04",
+        icon: "flaticon-twirl",
+        title: "App Development",
+        description: "We develop robust mobile and desktop applications that deliver consistent performance across all platforms.",
     },
     {
-        "id": "05",
-        "icon": "flaticon-twirl",
-        "title": "E-commerce Solutions",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry."
-    }
+        id: "05",
+        icon: "flaticon-twirl",
+        title: "E-commerce Solutions",
+        description: "We build conversion-optimized online stores with secure payment systems and smooth shopping experiences.",
+    },
 ];
 
 export interface CoreFeature {
@@ -75,6 +76,81 @@ interface CoreFeaturesProps {
     highlightWords?: string[];
 }
 
+// --- Extracted reusable card subcomponents ---
+
+interface BorderDecorProps {
+    variant: "style-2" | "style-3" | "other";
+}
+
+const BorderDecor: React.FC<BorderDecorProps> = ({ variant }) => {
+    if (variant !== "style-2" && variant !== "style-3") return null;
+    return (
+        <>
+            <div className="b-top-left">
+                <div className="horizontal"></div>
+                <div className="vertical"></div>
+            </div>
+            <div className="b-top-right d-flex">
+                <div className="horizontal"></div>
+                <div className="vertical"></div>
+            </div>
+            <div className="b-bottom-right d-flex flex-end">
+                <div className="horizontal flex-end align-self-end"></div>
+                <div className="vertical"></div>
+            </div>
+            <div className="b-bottom-left">
+                <div className="vertical"></div>
+                <div className="horizontal"></div>
+            </div>
+        </>
+    );
+};
+
+interface CoreFeatureCardProps {
+    feature: CoreFeature;
+    index: number;
+    variant: "style-1" | "style-2" | "style-3";
+    cardAnimation: string;
+    cardDirection?: string;
+    fullWidth?: boolean;
+}
+
+const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
+    feature,
+    index,
+    variant,
+    cardAnimation,
+    cardDirection,
+    fullWidth,
+}) => {
+    const cardTypeClass =
+        variant === "style-3"
+            ? "type-3 theme-border-wrap"
+            : variant === "style-2"
+            ? "type-1 style-2"
+            : variant === "style-1"
+            ? `style-2 ${index % 2 === 0 ? "color-2" : "color-3"}`
+            : "type-2";
+
+    return (
+        <div
+            className={`core-feature-card ${cardTypeClass} ${cardAnimation}`}
+            style={fullWidth ? { maxWidth: "100%" } : undefined}
+            data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
+            data-direction={cardDirection}
+        >
+            <BorderDecor variant={variant === "style-2" || variant === "style-3" ? variant : "other"} />
+            <div className="icon">
+                <i className={feature.icon}></i>
+            </div>
+            <h6 className="core-feature-title">{feature.title}</h6>
+            <p className="core-feature-desc">{feature.description}</p>
+            <p className="core-feature-number">{feature.id}</p>
+        </div>
+    );
+};
+
+
 const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     variant = "style-1",
     bgClass = "",
@@ -104,11 +180,13 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     highlightWords = [],
 }) => {
     const featuresToDisplay = features || (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3));
+
     return (
         <section
             className={`core-features-area ${bgClass} ${variant === "style-2" ? "ak-solidblack-bg" : ""}`}
         >
             {showTopGap && <div className="ak-height-150 ak-height-lg-80"></div>}
+
             <div className="container">
                 {title && (
                     <SectionHeading
@@ -132,7 +210,9 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                     />
                 )}
             </div>
+
             {!hideHeadingGap && <div className="ak-height-75 ak-height-lg-50"></div>}
+
             {isSlider ? (
                 <>
                     {sliderType === "navigation" && (
@@ -157,39 +237,44 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             <div className="ak-height-75 ak-height-lg-50"></div>
                         </>
                     )}
+
                     <div className={fullWidth ? "" : "container"}>
                         <Swiper
-                            className={sliderType === "navigation" ? "core-features style2 ak-slider" : "core-features ak-slider slider-two"}
+                            className={
+                                sliderType === "navigation"
+                                    ? "core-features style2 ak-slider"
+                                    : "core-features ak-slider slider-two"
+                            }
                             modules={sliderType === "navigation" ? [Navigation, Scrollbar] : [Pagination]}
                             loop={true}
-                            {...(sliderType === "navigation" ? {
-                                navigation: {
-                                    nextEl: ".core-features-button-next",
-                                    prevEl: ".core-features-button-prev",
-                                },
-                                scrollbar: {
-                                    el: ".core-features-scrollbar",
-                                    draggable: true,
-                                }
-                            } : {
-                                pagination: {
-                                    el: ".core-features-swiper-pagination",
-                                    clickable: true,
-                                    type: "custom",
-                                    renderCustom: (swiper, _current, _total) => {
-                                        let dots = "";
-                                        const realCurrent = swiper.realIndex % 3;
-                                        for (let i = 0; i < 3; i++) {
-                                            dots += `<span class="swiper-pagination-bullet ${
-                                                i === realCurrent
-                                                    ? "swiper-pagination-bullet-active"
-                                                    : ""
-                                            }"></span>`;
-                                        }
-                                        return dots;
-                                    },
-                                }
-                            })}
+                            {...(sliderType === "navigation"
+                                ? {
+                                      navigation: {
+                                          nextEl: ".core-features-button-next",
+                                          prevEl: ".core-features-button-prev",
+                                      },
+                                      scrollbar: {
+                                          el: ".core-features-scrollbar",
+                                          draggable: true,
+                                      },
+                                  }
+                                : {
+                                      pagination: {
+                                          el: ".core-features-swiper-pagination",
+                                          clickable: true,
+                                          type: "custom" as const,
+                                          renderCustom: (swiper: { realIndex: number }, _current: number, _total: number) => {
+                                              let dots = "";
+                                              const realCurrent = swiper.realIndex % 3;
+                                              for (let i = 0; i < 3; i++) {
+                                                  dots += `<span class="swiper-pagination-bullet ${
+                                                      i === realCurrent ? "swiper-pagination-bullet-active" : ""
+                                                  }"></span>`;
+                                              }
+                                              return dots;
+                                          },
+                                      },
+                                  })}
                             spaceBetween={30}
                             breakpoints={
                                 sliderType === "navigation"
@@ -210,42 +295,15 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                             }
                         >
                             {featuresToDisplay.map((feature, index) => (
-                                <SwiperSlide key={`${feature.id}-${index}`}>
-                                    <div
-                                        className={`core-feature-card ${
-                                            variant === "style-2" ? "type-1 style-2" : "type-2"
-                                        } ${cardAnimation}`}
-                                        style={fullWidth ? { maxWidth: "100%" } : undefined}
-                                        data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
-                                        data-direction={cardDirection}
-                                    >
-                                        {variant === "style-2" && (
-                                            <>
-                                                <div className="b-top-left">
-                                                    <div className="horizontal"></div>
-                                                    <div className="verticle"></div>
-                                                </div>
-                                                <div className="b-top-right d-flex">
-                                                    <div className="horizontal"></div>
-                                                    <div className="verticle"></div>
-                                                </div>
-                                                <div className="b-bottom-right d-flex flex-end">
-                                                    <div className="horizontal flex-end align-self-end"></div>
-                                                    <div className="verticle"></div>
-                                                </div>
-                                                <div className="b-bottom-left">
-                                                    <div className="verticle"></div>
-                                                    <div className="horizontal"></div>
-                                                </div>
-                                            </>
-                                        )}
-                                        <div className="icon">
-                                            <i className={feature.icon}></i>
-                                        </div>
-                                        <h6 className="core-feature-title">{feature.title}</h6>
-                                        <p className="core-feature-desp">{feature.description}</p>
-                                        <p className="core-feature-number">{feature.id}</p>
-                                    </div>
+                                <SwiperSlide key={feature.id}>
+                                    <CoreFeatureCard
+                                        feature={feature}
+                                        index={index}
+                                        variant={variant}
+                                        cardAnimation={cardAnimation}
+                                        cardDirection={cardDirection}
+                                        fullWidth={fullWidth}
+                                    />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -256,89 +314,41 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                 <div className="container">
                     <div className="core-features">
                         {featuresToDisplay.map((feature, index) => (
-                            <div
-                                className={`core-feature-card type-3 ${cardAnimation} theme-border-wrap`}
-                                data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
-                                data-direction={cardDirection}
+                            <CoreFeatureCard
                                 key={feature.id}
-                            >
-                                <div className="b-top-left">
-                                    <div className="horizontal"></div>
-                                    <div className="verticle"></div>
-                                </div>
-                                <div className="b-top-right d-flex">
-                                    <div className="horizontal"></div>
-                                    <div className="verticle"></div>
-                                </div>
-                                <div className="b-bottom-right d-flex flex-end">
-                                    <div className="horizontal flex-end align-self-end"></div>
-                                    <div className="verticle"></div>
-                                </div>
-                                <div className="b-bottom-left">
-                                    <div className="verticle"></div>
-                                    <div className="horizontal"></div>
-                                </div>
-                                <div className="icon">
-                                    <i className={feature.icon}></i>
-                                </div>
-                                <h6 className="core-feature-title">{feature.title}</h6>
-                                <p className="core-feature-desp">{feature.description}</p>
-                                <p className="core-feature-number">{feature.id}</p>
-                            </div>
+                                feature={feature}
+                                index={index}
+                                variant={variant}
+                                cardAnimation={cardAnimation}
+                                cardDirection={cardDirection}
+                            />
                         ))}
                     </div>
                 </div>
             ) : (
                 <div className={fullWidth ? "" : "container"}>
-                    <div 
-                        className="core-features" 
+                    <div
+                        className="core-features"
                         style={fullWidth ? { flexDirection: "column", gap: "30px" } : undefined}
                     >
                         {featuresToDisplay.map((feature, index) => (
-                            <div
-                                className={`core-feature-card ${
-                                    variant === "style-2"
-                                        ? `style-2 ${index % 2 === 0 ? "color-2" : "color-3"}`
-                                        : ""
-                                } ${cardAnimation}`}
-                                style={fullWidth ? { maxWidth: "100%" } : undefined}
-                                data-delay={cardAnimation === "fade-animation" ? 0.15 + index * 0.2 : undefined}
-                                data-direction={cardDirection}
+                            <CoreFeatureCard
                                 key={feature.id}
-                            >
-                                {variant === "style-2" && (
-                                    <>
-                                        <div className="b-top-left">
-                                            <div className="horizontal"></div>
-                                            <div className="verticle"></div>
-                                        </div>
-                                        <div className="b-top-right d-flex">
-                                            <div className="horizontal"></div>
-                                            <div className="verticle"></div>
-                                        </div>
-                                        <div className="b-bottom-right d-flex flex-end">
-                                            <div className="horizontal flex-end align-self-end"></div>
-                                            <div className="verticle"></div>
-                                        </div>
-                                        <div className="b-bottom-left">
-                                            <div className="verticle"></div>
-                                            <div className="horizontal"></div>
-                                        </div>
-                                    </>
-                                )}
-                                <div className="icon">
-                                    <i className={feature.icon}></i>
-                                </div>
-                                <h6 className="core-feature-title">{feature.title}</h6>
-                                <p className="core-feature-desp">{feature.description}</p>
-                                <p className="core-feature-number">{feature.id}</p>
-                            </div>
+                                feature={feature}
+                                index={index}
+                                variant={variant}
+                                cardAnimation={cardAnimation}
+                                cardDirection={cardDirection}
+                                fullWidth={fullWidth}
+                            />
                         ))}
                     </div>
                 </div>
             )}
+
             {showBottomGap && <div className="ak-height-150 ak-height-lg-80"></div>}
         </section>
     );
 };
+
 export default CoreFeaturesSection;

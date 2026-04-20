@@ -6,6 +6,7 @@ import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
 import siteSettings from "../../dataJson/siteSettings.json";
 import { splitText } from "../../utils/textSplitter";
+import { SafeText } from "../../utils/safeHtml";
 
 const Footer: React.FC = () => {
     const footerRef = useRef<HTMLElement>(null);
@@ -83,7 +84,7 @@ const Footer: React.FC = () => {
                                 src={getImagePath(siteSettings.logos.footer)}
                                 alt="Logo"
                             />
-                            <p className="about-company-desp" dangerouslySetInnerHTML={{ __html: siteSettings.company.description }}></p>
+                            <p className="about-company-desp"><SafeText text={siteSettings.company.description} /></p>
                         </div>
 
                         <div className="address-phn">
@@ -112,12 +113,12 @@ const Footer: React.FC = () => {
                     <div className="ak-space-between">
                         <div className="social-icon">
                             {siteSettings.socials.map((social, index) => (
-                                <a key={index} href={social.link} className="icon">
+                                <a key={index} href={social.link} className="icon" aria-label={`Follow us on ${social.title}`}>
                                     <i className={social.icon}></i>
                                 </a>
                             ))}
                         </div>
-                        <p className="copy-right-text" dangerouslySetInnerHTML={{ __html: siteSettings.copyright }}></p>
+                        <p className="copy-right-text"><SafeText text={siteSettings.copyright} /></p>
                     </div>
                 </div>
             </div>

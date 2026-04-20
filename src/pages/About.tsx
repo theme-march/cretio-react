@@ -26,7 +26,7 @@ const About: React.FC = () => {
                 videoSrc={aboutVideo}
                 variant="style-3"
             />
-            <VideoSection isAbout={true} />
+            <VideoSection isAbout />
             <SlidingTextSection variant="style-2" />
             <AboutContentSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -34,28 +34,27 @@ const About: React.FC = () => {
             <GoalSection />
             <TestimonialSection />
             <FunFactSection />
-            <CoreFeaturesSection 
-                variant="style-2" 
+            <CoreFeaturesSection
+                variant="style-2"
                 title="Our Exceptional Digital Transformation Services"
                 highlightWords={["Exceptional", "Services"]}
-                description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."}
+                description="We deliver end-to-end digital solutions that drive growth, enhance user experience, and position your brand at the forefront of innovation."
                 caption="Services"
                 isSlider={true}
                 showTopGap={true}
                 showBottomGap={true}
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
-                cardAnimation=""
                 titleDirection="textLeft"
             />
-            <TeamSection 
+            <TeamSection
                 titleDirection="textLeft"
                 disableDescriptionAnimation={true}
                 disableCaptionAnimation={true}
             />
             <ClientLogoSection variant="about" />
-            <NewsletterSection 
-                variant="style-3" 
+            <NewsletterSection
+                variant="style-3"
                 titleAnimation="text-animation"
                 titleDirection="textRight"
                 disableFormAnimation={true}

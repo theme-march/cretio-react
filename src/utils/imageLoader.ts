@@ -18,6 +18,6 @@ export const getImagePath = (path: string): string => {
     return (images[match] as { default: string }).default;
   }
   
-  console.warn(`Image not found: ${path}`);
+  // Fail gracefully without console warning for production
   return path;
 };

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { CretioText } from "../../utils/safeHtml";
+
 const commonData = {
     "funFacts": [
         { "id": "count1", "number": 65, "suffix": "K", "label": "Project Completed" },
@@ -85,6 +87,8 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
 }) => {
     const isMinimalStudio = headingVariant === "minimal-studio";
     
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const titleAnimation = propTitleAnimation || (isMinimalStudio ? "text-animation" : undefined);
     const titleDirection = propTitleDirection || (isMinimalStudio ? "textLeft" : undefined);
     const titleDuration = propTitleDuration || (isMinimalStudio ? 1.0 : undefined);
@@ -97,7 +101,8 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert("Newsletter form submitted!");
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000);
     };
 
     if (isStyle3) {
@@ -114,29 +119,35 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                                 {...(titleAnimation && titleDuration ? { "data-duration": titleDuration } : {})}
                                 {...(titleAnimation && titleEase ? { "data-ease": titleEase } : {})}
                             >
-                                <span dangerouslySetInnerHTML={{ __html: data.title.replace('text-underlines', `text-underlines ${underlineReveal ? "underline-anim" : ""}`) }} />
+                                <CretioText text={data.title.replace('text-underlines', `text-underlines ${underlineReveal ? "underline-anim" : ""}`)} />
                             </h2>
                         </div>
-                        <form 
-                            className={`newsletter-form ${disableFormAnimation ? "" : "fade-animation"}`} 
-                            data-direction={formDirection}
-                            data-delay={formDelay}
-                            onSubmit={handleSubmit}
-                        >
-                            <input
-                                type="email"
-                                className="newsletter-input style-2"
-                                placeholder="Enter your email..."
-                                required
-                            />
-                            <button type="submit" className="newsletter-btn">
-                                <span className="newbtn-text"> Newsletter </span>
-                                <span className="primary-icon-anim">
-                                    <i className="flaticon-up-right-arrow"></i>
-                                    <i className="flaticon-up-right-arrow"></i>
-                                </span>
-                            </button>
-                        </form>
+                        {isSubmitted ? (
+                            <div className="ak-success-message" style={{ color: "var(--ak-primary-color)", padding: "20px" }}>
+                                <p>Thanks for subscribing!</p>
+                            </div>
+                        ) : (
+                            <form 
+                                className={`newsletter-form ${disableFormAnimation ? "" : "fade-animation"}`} 
+                                data-direction={formDirection}
+                                data-delay={formDelay}
+                                onSubmit={handleSubmit}
+                            >
+                                <input
+                                    type="email"
+                                    className="newsletter-input style-2"
+                                    placeholder="Enter your email..."
+                                    required
+                                />
+                                <button type="submit" className="newsletter-btn">
+                                    <span className="newbtn-text"> Newsletter </span>
+                                    <span className="primary-icon-anim">
+                                        <i className="flaticon-up-right-arrow"></i>
+                                        <i className="flaticon-up-right-arrow"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </section>
             </>
@@ -167,24 +178,30 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                     <div className="newsletter-content">
                         <div className="newsletter-anim title-anim">
                             <h2 className="newsletter-title anim-line-words">
-                                <span dangerouslySetInnerHTML={{ __html: data.title }} />
+                                <CretioText text={data.title} />
                             </h2>
                         </div>
-                        <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
-                            <input
-                                type="email"
-                                className="newsletter-input"
-                                placeholder="Enter your email..."
-                                required
-                            />
-                            <button type="submit" className="newsletter-btn">
-                                <span className="newbtn-text"> Newsletter </span>
-                                <span className="primary-icon-anim">
-                                    <i className="flaticon-up-right-arrow"></i>
-                                    <i className="flaticon-up-right-arrow"></i>
-                                </span>
-                            </button>
-                        </form>
+                        {isSubmitted ? (
+                             <div className="ak-success-message" style={{ color: "var(--ak-primary-color)", padding: "20px" }}>
+                                <p>Thanks for subscribing!</p>
+                            </div>
+                        ) : (
+                            <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                                <input
+                                    type="email"
+                                    className="newsletter-input"
+                                    placeholder="Enter your email..."
+                                    required
+                                />
+                                <button type="submit" className="newsletter-btn">
+                                    <span className="newbtn-text"> Newsletter </span>
+                                    <span className="primary-icon-anim">
+                                        <i className="flaticon-up-right-arrow"></i>
+                                        <i className="flaticon-up-right-arrow"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>
@@ -215,4 +232,3 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
 };
 
 export default NewsletterSection;
-

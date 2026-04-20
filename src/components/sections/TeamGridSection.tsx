@@ -13,24 +13,24 @@ const TeamGridSection: React.FC = () => {
                     {teamData.map((member) => (
                         <div key={member.id} className="border-0 team-card">
                             <div className="team-img-top ak-parallax">
-                                <a href="#"><img src={getImagePath(member.image)} alt={member.name} /></a>
+                                <a href="javascript:void(0)"><img src={getImagePath(member.image)} alt={member.name} /></a>
                                 <div className="team-social-icon">
-                                    <a href="#" className="icon">
+                                    <a href="javascript:void(0)" className="icon">
                                         <i className="flaticon-facebook-logo"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="javascript:void(0)" className="icon">
                                         <i className="flaticon-instagram-logo"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="javascript:void(0)" className="icon">
                                         <i className="flaticon-twitter"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="javascript:void(0)" className="icon">
                                         <i className="flaticon-linkedin"></i>
                                     </a>
                                 </div>
                             </div>
                             <div className="team-body">
-                                <h6 className="team-title"><a href="#">{member.name}</a></h6>
+                                <h6 className="team-title"><a href="javascript:void(0)">{member.name}</a></h6>
                                 <p className="team-text">{member.role}</p>
                             </div>
                         </div>

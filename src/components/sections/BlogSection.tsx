@@ -65,7 +65,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                     <>
                         <div className="ak-height-100 ak-height-lg-50"></div>
                         <div className="ak-center">
-                            <a href="#" className="circle-btn circle-btn-anim">
+                            <a href="javascript:void(0)" className="circle-btn circle-btn-anim">
                                 <span className="text text-uppercase">
                                     Load More<br />
                                     Articles

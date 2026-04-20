@@ -20,16 +20,17 @@ const ThemeToggle: React.FC = () => {
     return (
         <div className={`mode-toggle ${isOpen ? "active" : ""}`}>
             <div className="setting-mode" style={{ right: isOpen ? "35px" : "0" }}>
-                <button id="open" onClick={toggleOpen} style={{ display: isOpen ? "none" : "block" }}>
+                <button id="open" aria-label="Open Theme Settings" onClick={toggleOpen} style={{ display: isOpen ? "none" : "block" }}>
                     <i className="flaticon-sun"></i>
                 </button>
-                <button id="clecel" onClick={toggleOpen} style={{ display: isOpen ? "block" : "none" }}>
+                <button id="clecel" aria-label="Close Theme Settings" onClick={toggleOpen} style={{ display: isOpen ? "block" : "none" }}>
                     <i className="flaticon-close-button-1"></i>
                 </button>
             </div>
             <div className="mode-btn js-mode-type" style={{ right: isOpen ? "0" : "-40px", display: "flex" }}>
                 <button
                     data-mode="light"
+                    aria-label="Switch to Light Mode"
                     className={`mode-light ${theme === "light" ? "active" : ""}`}
                     onClick={() => setTheme("light")}
                 >
@@ -37,6 +38,7 @@ const ThemeToggle: React.FC = () => {
                 </button>
                 <button
                     data-mode="dark"
+                    aria-label="Switch to Dark Mode"
                     className={`mode-dark ${theme === "dark" ? "active" : ""}`}
                     onClick={() => setTheme("dark")}
                 >

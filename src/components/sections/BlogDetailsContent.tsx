@@ -57,10 +57,10 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 <div className="d-flex gap-3 align-items-center">
                     <p className="ak-black-color">Share:</p>
                     <div className="social-icon">
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-facebook"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-video"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-linkedin"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-twitter"></i></a>
+                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-facebook"></i></a>
+                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-video"></i></a>
+                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-linkedin"></i></a>
+                        <a href="javascript:void(0)" className="icon style-2 dark-mode"><i className="flaticon-twitter"></i></a>
                     </div>
                 </div>
                 <div className="ak-height-100 ak-height-lg-50"></div>

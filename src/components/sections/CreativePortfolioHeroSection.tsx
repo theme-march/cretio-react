@@ -1,4 +1,5 @@
 import React from "react";
+import { CretioText } from "../../utils/safeHtml";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination, Autoplay } from "swiper/modules";
@@ -52,8 +53,7 @@ const CreativePortfolioHeroSection: React.FC = () => {
                                     <h1
                                         className="cp-hero-title"
                                         data-swiper-parallax="700"
-                                        dangerouslySetInnerHTML={{ __html: slide.title }}
-                                    />
+                                    ><CretioText text={slide.title} /></h1>
                                 </div>
                             </div>
                         </div>
@@ -92,10 +92,10 @@ const CreativePortfolioHeroSection: React.FC = () => {
                 </div>
 
                 <ul className="cp-social-links">
-                    <li className="sa-social-item"><a href="#"> Facebook</a></li>
-                    <li className="sa-social-item"><a href="#">LinkedIn </a></li>
-                    <li className="sa-social-item"><a href="#">Github </a></li>
-                    <li className="sa-social-item"><a href="#">Dribbble </a></li>
+                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Facebook"> Facebook</a></li>
+                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on LinkedIn">LinkedIn </a></li>
+                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Github">Github </a></li>
+                    <li className="sa-social-item"><a href="javascript:void(0)" aria-label="Follow us on Dribbble">Dribbble </a></li>
                 </ul>
             </Swiper>
         </div>

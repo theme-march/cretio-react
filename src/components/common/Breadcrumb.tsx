@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeText } from "../../utils/safeHtml";
 import { Link } from "react-router-dom";
 
 interface BreadcrumbProps {
@@ -36,13 +37,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
     React.useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.play().catch(error => {
-                console.log("Breadcrumb video auto-play was prevented.", error);
+            videoRef.current.play().catch(() => {
+                // Breadcrumb video auto-play was prevented
             });
         }
     }, [videoSrc]);
     const renderTitle = () => {
-        if (highlightWords.length === 0) return <span dangerouslySetInnerHTML={{ __html: title }} />;
+        if (highlightWords.length === 0) return <SafeText text={title} />;
 
         let parts: (string | React.ReactNode)[] = [title];
         highlightWords.forEach((word) => {
@@ -64,7 +65,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                     {part}
                 </span>
             ) : (
-                <span key={`Part-${i}`} dangerouslySetInnerHTML={{ __html: part as string }} />
+                <span key={`Part-${i}`}>
+                    {typeof part === "string" ? <SafeText text={part} /> : part}
+                </span>
             )
         );
     };
