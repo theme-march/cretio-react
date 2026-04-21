@@ -425,28 +425,12 @@
 
                   <section id="change_page_title">
                     <h3>Change Page Title</h3>
-                    <p>To change the main heading (title) of an individual page, navigate to the specific page file and update the <code>title</code> prop in the <code>Breadcrumb</code> or Hero component.</p>
-                    <div class="steps-panel">
-                      <ol class="ordered-list">
-                        <li>
-                          <strong>Locate the Page Component:</strong>
-                          <p>Go to <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">pages</span></span> and open the file for the page you want to edit (e.g., <code>About.tsx</code>, <code>Services.tsx</code>).</p>
-                        </li>
-                        <li>
-                          <strong>Update the Title Prop:</strong>
-                          <p>Locate the <code>Breadcrumb</code> component and change the <code>title</code> and <code>highlightWords</code> (optional) to your desired text.</p>
-                          <pre><code>&lt;Breadcrumb
-    title="Your New Page Heading"
-    highlightWords={["New", "Heading"]}
-    ...
-/&gt;</code></pre>
-                        </li>
-                      </ol>
-                    </div>
+                    <p>To change the main heading (title) of an individual page, go to <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">pages</span></span> and open the file for the page you want to edit (e.g., <code>About.tsx</code>, <code>Services.tsx</code>). Then locate the <code>Breadcrumb</code> component and change the <code>title</code> and <code>highlightWords</code> (optional) to your desired text.</p>
+                    
                     <div class="steps-panel">
                       <figure>
                         <img src="assets/images/page-title.png" alt="Page Title 1" class="doc-image max-100" />
-                        <img src="assets/images/page-title-1.png" alt="Page Title 2" class="doc-image max-100" />
+                        <img src="assets/images/page-title-show.png" alt="Page Title 2" class="doc-image max-100" />
                         <br><br>
                         <img src="assets/images/page-title-2.png" alt="Page Title 3" class="doc-image max-100" />
                         <img src="assets/images/page-title-2-show.png" alt="Page Title 4" class="doc-image max-100" />
@@ -462,73 +446,44 @@
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Configuration File</strong>
                           <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
                                 class="direction_step">dataJson</span><span
                                 class="direction_step">navItemsList.json</span><span class="direction_step">Open the
                                 file</span></span></p>
                         </li>
                         <li>
-                          <strong>Understand the Structure</strong>
-                          <p>Each menu item is an object with the following properties:</p>
-                          <ul>
-                            <li><code>title</code>: The text displayed in the menu.</li>
-                            <li><code>href</code>: The URL path for the link.</li>
-                            <li><code>subMenu</code> (Optional): An array of objects for dropdown items.</li>
-                          </ul>
-                        </li>
-                        <li>
-                          <strong>Adding a Submenu (Dropdown)</strong>
-                          <p>To create a dropdown, add a <code>"subMenu"</code> array to any menu item. For example:</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/nav-menus.png" alt="Menu Customization" />
-                          </figure>
-                          <pre><code>{
-  "title": "Services",
-  "href": "/services",
-  "subMenu": [
-    { "title": "Service 1", "href": "/service-1" },
-    { "title": "Service 2", "href": "/service-2" }
-  ]
-}</code></pre>
+                          <p>Then customize the menu</p>
                         </li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/nav-itemList.png" alt="Menu List Configuration" />
+                        <img class="max-100" src="assets/images/nav-itemShow.png" alt="Menu Visual Display" />
+                        <figcaption style="text-align: center;">Customize the menu</figcaption>
+                      </figure>
                     </div>
                   </section>
 
                   <section id="customize_footer">
-                    <h3>Customize Global Settings & Footer</h3>
-                    <p>The site's branding, contact information, and footer content are managed via a single global
-                      configuration file.</p>
+                    <h3>Customize Footer</h3>
+                    <p>To customize the footer data, follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Configuration File</strong>
-                          <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">dataJson</span><span
-                                class="direction_step">siteSettings.json</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <figure>
-                            <img class="max-100" src="assets/images/site-footers.png" alt="Footer Files" />
-                          </figure>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">dataJson</span>
+                            <span class="direction_step">siteSettings.json</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Customizable Sections</strong>
-                          <ul class="ordered-list">
-                            <li><code>logos</code>: Update paths for the dark, white, and footer-specific logos.</li>
-                            <li><code>cta</code>: Customize the "Work Together" section title, button text, and contact
-                              email.</li>
-                            <li><code>company</code>: Update the company description text.</li>
-                            <li><code>contact</code>: Manage the phone number, address, and click-to-call links.</li>
-                            <li><code>socials</code>: Update the social media icons (using Flaticon classes) and their
-                              respective profile links.</li>
-                            <li><code>gallery</code>: Update the list of image paths for the small footer gallery.</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/site-logo-footer-show.png" alt="Footer Preview" />
-                          </figure>
-                        </li>
+                        <li>Then customize the footer data (Social links, Contact info, etc.)</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/footer-data.png" alt="Footer Data Configuration" />
+                        <img class="max-100" src="assets/images/site-footer-show.png" alt="Footer Visual Display" />
+                        <figcaption style="text-align: center;">Customize the footer</figcaption>
+                      </figure>
                     </div>
                   </section>
                 </article>

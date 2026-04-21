@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import navItems from "../../dataJson/navitemslist.json";
-import siteSettings from "../../dataJson/siteSettings.json";
 import { getImagePath } from "../../utils/imageLoader";
+import OffCanvasSidebar from "./OffCanvasSidebar";
+
+const logos = {
+    dark: "src/assets/img/logo/dark-logo.svg",
+    white: "src/assets/img/logo/white-logo.svg",
+};
+
 
 const Header: React.FC = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -65,10 +71,10 @@ const Header: React.FC = () => {
                         <div className="ak-main_header_in">
                              <div className="ak-main-header-left">
                                 <Link className="ak-site_branding dark-logo" to="/">
-                                    <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
+                                    <img src={getImagePath(logos.dark)} alt="Logo" />
                                 </Link>
                                 <Link className="ak-site_branding white-logo" to="/">
-                                    <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
+                                    <img src={getImagePath(logos.white)} alt="Logo" />
                                 </Link>
                             </div>
                             <div className="ak-main-header-center">
@@ -163,61 +169,7 @@ const Header: React.FC = () => {
                 <div className="nav-bar-border"></div>
             </header>
 
-            <div
-                className="offcanvas offcanvas-end style-1"
-                tabIndex={-1}
-                id="offcanvasRight"
-            >
-                <div className="offcanvas-header">
-                    <button
-                        type="button"
-                        className="btn-close btn-close-black ms-auto"
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Close"
-                    ></button>
-                </div>
-                <div className="offcanvas-body">
-                    <div className="offcanvas-body-coustom-style">
-                        <div className="offcanvas-logo-content">
-                            <Link className="ak-site_branding dark-logo" to="/">
-                                <img src={getImagePath(siteSettings.logos.dark)} alt="Logo" />
-                            </Link>
-                            <Link className="ak-site_branding white-logo" to="/">
-                                <img src={getImagePath(siteSettings.logos.white)} alt="Logo" />
-                            </Link>
-                        </div>
-                        <p className="desp">
-                            {siteSettings.company.description.replace(/<span>|<\/span>/g, '')}
-                        </p>
-                        <div className="row row-cols-3 g-3">
-                            {siteSettings.gallery.map((img) => (
-                                <div className="col" key={img}>
-                                    <img src={getImagePath(img)} className="img-fluid" alt="Gallery item" />
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="offcanvas-footer-contant">
-                            <p className="short-title">Say hello!</p>
-                            <a className="email" href={`mailto:${siteSettings.cta.email}`}>{siteSettings.cta.email}</a>
-                            <a className="email" href={siteSettings.contact.phoneLink}>{siteSettings.contact.phone}</a>
-                            <a href="#">
-                                {siteSettings.contact.address}
-                            </a>
-                            <div className="ak-height-25 ak-height-lg-25"></div>
-                            <p className="short-title">Social:</p>
-                            <div className="social-icon">
-                                {siteSettings.socials.map((social) => (
-                                    <a key={social.title} href={social.link} className="icon style-2 dark-mode" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
-                                        <i className={social.icon}></i>
-                                    </a>
-                                ))}
-                            </div>
-                            <div className="ak-height-40 ak-height-lg-40"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <OffCanvasSidebar />
         </>
     );
 };

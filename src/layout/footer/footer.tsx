@@ -4,9 +4,48 @@ import gsap from "gsap";
 import { getImagePath } from "../../utils/imageLoader";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
-import siteSettings from "../../dataJson/siteSettings.json";
 import { splitText } from "../../utils/textSplitter";
 import { SafeText } from "../../utils/safeHtml";
+
+const logos = {
+    footer: "src/assets/img/logo/footer-logo.svg",
+};
+
+const cta = {
+    title: "Let's",
+    titleTwo: "<span>work</span> Together",
+    btnText: "Start Project",
+    btnLink: "/contact",
+    emailTitle: "Say hello!",
+    email: "info@email.com",
+};
+
+const company = {
+    description: "We thrive on creativity and <span>innovation</span>. Our team is constantly exploring new ideas and approaches to ensure your <span> digital presence </span> is fresh.",
+};
+
+const contact = {
+    phone: "(406) 555-012",
+    phoneLink: "tel:(406)555-0120",
+    address: "901 N Pitt Str., Suite 170 Alexandria, USA",
+};
+
+const footerMenu = [
+    { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
+    { title: "Services", href: "/services" },
+    { title: "Portfolio", href: "/portfolio" },
+    { title: "Contact Us", href: "/contact" },
+];
+
+const socials = [
+    { title: "Facebook", icon: "flaticon-facebook", link: "#" },
+    { title: "Video/YouTube", icon: "flaticon-video", link: "#" },
+    { title: "LinkedIn", icon: "flaticon-linkedin", link: "#" },
+];
+
+const copyright = "© 2025 <span>Thememarch.</span> All rights reserved.";
+
 
 const Footer: React.FC = () => {
     const footerRef = useRef<HTMLElement>(null);
@@ -58,22 +97,22 @@ const Footer: React.FC = () => {
                 <div className="ak-footer-container">
                     <div className="footer-cta">
                         <div className="footer-cta-info ak-mask-text">
-                            <h1 className="footer-cta-title">{siteSettings.cta.title}</h1>
+                            <h1 className="footer-cta-title">{cta.title}</h1>
                             <h2 className="footer-cta-title-two"><span>work</span> Together</h2>
                         </div>
                         <div className="footer-btn-email">
                             <div className="footer-btn-content">
-                                <Link to={siteSettings.cta.btnLink} className="footer-btn circle-btn-anim">
+                                <Link to={cta.btnLink} className="footer-btn circle-btn-anim">
                                     <span className="text">
-                                        {siteSettings.cta.btnText.split(' ')[0]} <i className="flaticon-up-right-arrow"></i>
+                                        {cta.btnText.split(' ')[0]} <i className="flaticon-up-right-arrow"></i>
                                         <br />
-                                        <span>{siteSettings.cta.btnText.split(' ')[1]}</span>
+                                        <span>{cta.btnText.split(' ')[1]}</span>
                                     </span>
                                 </Link>
                             </div>
                             <div className="footer-email">
-                                <p className="email-short-title">{siteSettings.cta.emailTitle}</p>
-                                <a href={`mailto:${siteSettings.cta.email}`}> {siteSettings.cta.email}</a>
+                                <p className="email-short-title">{cta.emailTitle}</p>
+                                <a href={`mailto:${cta.email}`}> {cta.email}</a>
                             </div>
                         </div>
                     </div>
@@ -81,25 +120,25 @@ const Footer: React.FC = () => {
                         <div className="about-company">
                             <img
                                 className="footer-logo"
-                                src={getImagePath(siteSettings.logos.footer)}
+                                src={getImagePath(logos.footer)}
                                 alt="Logo"
                             />
-                            <p className="about-company-desp"><SafeText text={siteSettings.company.description} /></p>
+                            <p className="about-company-desp"><SafeText text={company.description} /></p>
                         </div>
 
                         <div className="address-phn">
-                            <a href={siteSettings.contact.phoneLink} className="phn">
+                            <a href={contact.phoneLink} className="phn">
                                 <span>
                                     <i className="flaticon-telephone"> </i> 
                                 </span>
-                                {siteSettings.contact.phone}
+                                {contact.phone}
                             </a>
-                            <p className="address">{siteSettings.contact.address}</p>
+                            <p className="address">{contact.address}</p>
                         </div>
 
                         <div className="footer-list-content">
                             <ul className="footer-list-menu">
-                                {siteSettings.menu.map((item) => (
+                                {footerMenu.map((item) => (
                                     <li key={item.title}><Link to={item.href}>{item.title}</Link></li>
                                 ))}
                             </ul>
@@ -112,13 +151,13 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="ak-space-between">
                         <div className="social-icon">
-                            {siteSettings.socials.map((social) => (
+                            {socials.map((social) => (
                                 <a key={social.title} href={social.link} className="icon" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                     <i className={social.icon}></i>
                                 </a>
                             ))}
                         </div>
-                        <p className="copy-right-text"><SafeText text={siteSettings.copyright} /></p>
+                        <p className="copy-right-text"><SafeText text={copyright} /></p>
                     </div>
                 </div>
             </div>
