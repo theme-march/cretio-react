@@ -37,15 +37,17 @@ const About: React.FC = () => {
             <CoreFeaturesSection
                 variant="style-2"
                 title="Our Exceptional Digital Transformation Services"
-                highlightWords={["Exceptional", "Services"]}
                 description="We deliver end-to-end digital solutions that drive growth, enhance user experience, and position your brand at the forefront of innovation."
                 caption="Services"
                 isSlider={true}
                 showTopGap={true}
                 showBottomGap={true}
-                disableDescriptionAnimation={true}
-                disableCaptionAnimation={true}
-                titleDirection="textLeft"
+                headingProps={{
+                    highlightWords: ["Exceptional", "Services"],
+                    disableDespAnimation: true,
+                    disableCaptionAnimation: true,
+                    titleDirection: "textLeft",
+                }}
             />
             <TeamSection
                 titleDirection="textLeft"

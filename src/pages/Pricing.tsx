@@ -31,15 +31,17 @@ const Pricing: React.FC = () => {
                 title={pricingFields.title}
                 description={pricingFields.description}
                 caption={pricingFields.caption}
-                titleDirection="textLeft"
-                titleDuration={1.2}
                 cardAnimation="none"
                 fullWidth={true}
                 sliderType="navigation"
                 isSlider={true}
                 showTopGap={true}
-                disableCaptionAnimation={true}
-                disableDescriptionAnimation={true}
+                headingProps={{
+                    titleDirection: "textLeft",
+                    titleDuration: 1.2,
+                    disableCaptionAnimation: true,
+                    disableDespAnimation: true,
+                }}
             />
             <ClientLogoSection showTitle={true} direction="left" />
             <div className="ak-height-150 ak-height-lg-80"></div>

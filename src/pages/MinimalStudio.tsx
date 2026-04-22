@@ -23,17 +23,19 @@ const MinimalStudio: React.FC = () => {
                 variant="style-2"
                 alternateColors={true}
                 title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
-                titleDirection="textLeft"
-                titleEase="back.out(1.7)"
-                titleDuration={1}
                 description="Our studio is dedicated to crafting minimalist digital experiences that prioritize clarity, aesthetics, and user engagement."
-                descriptionDirection="right"
-                descriptionDelay="0.35"
                 caption="Top Trio Services"
-                captionDirection="right"
-                captionDelay="0.55"
                 showTopGap={true}
                 showBottomGap={true}
+                headingProps={{
+                    titleDirection: "textLeft",
+                    titleEase: "back.out(1.7)",
+                    titleDuration: 1,
+                    descriptionDirection: "right",
+                    descriptionDelay: "0.35",
+                    captionDirection: "right",
+                    captionDelay: "0.55",
+                }}
             />
             <AwardsSection 
                 showTopGap={true} 

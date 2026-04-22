@@ -28,13 +28,15 @@ const Services: React.FC = () => {
                 bgClass="ak-gray-bg"
                 showBottomGap={true}
                 title="Our Exceptional Digital Transformation Services"
-                highlightWords={["Exceptional", "Services"]}
-                titleDirection="textLeft"
-                titleDuration={1.2}
-                disableDescriptionAnimation={true}
-                disableCaptionAnimation={true}
                 description="Explore our wide range of digital marketing and development services designed to help your brand stand out in a competitive market."
                 caption="Top Trio Services"
+                headingProps={{
+                    highlightWords: ["Exceptional", "Services"],
+                    titleDirection: "textLeft",
+                    titleDuration: 1.2,
+                    disableDespAnimation: true,
+                    disableCaptionAnimation: true,
+                }}
             />
             <TestimonialSection />
             <NewsletterSection 

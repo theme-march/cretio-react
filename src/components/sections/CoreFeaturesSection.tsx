@@ -1,4 +1,5 @@
 import React from "react";
+import type { ComponentProps } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -68,37 +69,26 @@ export interface CoreFeature {
     description: string;
 }
 
+type SectionHeadingProps = ComponentProps<typeof import("@components/common/SectionHeading").default>;
+
 interface CoreFeaturesProps {
     variant?: "style-1" | "style-2" | "style-3";
     bgClass?: string;
-    title?: string;
-    description?: string;
-    caption?: string;
     isSlider?: boolean;
     showTopGap?: boolean;
     showBottomGap?: boolean;
     hideHeadingGap?: boolean;
     features?: CoreFeature[];
-    descriptionDirection?: string;
-    descriptionDelay?: string;
-    captionDirection?: string;
-    captionDelay?: string;
-    titleDirection?: string;
-    titleEase?: string;
-    titleDuration?: number;
-    disableDescriptionAnimation?: boolean;
-    disableCaptionAnimation?: boolean;
     cardAnimation?: string;
     cardDirection?: string;
-    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
-    titleSplitText?: string;
     sliderType?: "dots" | "navigation";
     fullWidth?: boolean;
-    highlightWords?: string[];
     alternateColors?: boolean;
+    title?: string;
+    description?: string;
+    caption?: string;
+    headingProps?: Omit<Partial<SectionHeadingProps>, "title" | "description" | "caption">;
 }
-
-// --- Extracted reusable card subcomponents ---
 
 interface BorderDecorProps {
     variant: "style-2" | "style-3" | "other";
@@ -189,23 +179,12 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     showBottomGap = false,
     hideHeadingGap = false,
     features,
-    descriptionDirection,
-    descriptionDelay,
-    captionDirection,
-    captionDelay,
-    titleDirection,
-    titleEase,
-    titleDuration,
-    disableDescriptionAnimation = false,
-    disableCaptionAnimation = false,
     cardAnimation = "fade-animation",
     cardDirection,
-    titleAnimation = "text-animation",
-    titleSplitText,
     sliderType = "dots",
     fullWidth = false,
-    highlightWords = [],
     alternateColors = false,
+    headingProps = {},
 }) => {
     const defaultData = features ? features : (variant === "style-1" && !isSlider ? homeFeaturesData : (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3)));
     const featuresToDisplay = defaultData;
@@ -220,22 +199,11 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                 {title && (
                     <SectionHeading
                         title={title}
-                        highlightWords={highlightWords}
-                        variant={variant === "style-2" && !alternateColors ? "style-2" : "style-1"}
-                        className={variant === "style-2" ? "bg-black" : ""}
                         description={description}
                         caption={caption}
-                        descriptionDirection={descriptionDirection}
-                        descriptionDelay={descriptionDelay}
-                        captionDirection={captionDirection}
-                        captionDelay={captionDelay}
-                        titleDirection={titleDirection}
-                        titleEase={titleEase}
-                        titleDuration={titleDuration}
-                        titleAnimation={titleAnimation}
-                        titleSplitText={titleSplitText}
-                        disableDespAnimation={disableDescriptionAnimation}
-                        disableCaptionAnimation={disableCaptionAnimation}
+                        variant={variant === "style-2" && !alternateColors ? "style-2" : "style-1"}
+                        className={variant === "style-2" ? "bg-black" : ""}
+                        {...headingProps}
                     />
                 )}
             </div>
