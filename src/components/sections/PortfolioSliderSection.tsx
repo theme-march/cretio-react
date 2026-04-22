@@ -52,8 +52,7 @@ const PortfolioSliderSection: React.FC = () => {
                     </div>
                     <div className="ak-section-right fade-animation" data-direction="left" data-offset="55" data-delay="0.3">
                         <p className="ak-section-desp">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and
-                            typesetting of the printing .
+                            Explore our curated selection of high-impact digital marketing projects that demonstrate our commitment to excellence and creative innovation.
                         </p>
                         <div className="d-flex justify-content-between align-items-center flex-wrap">
                             <div className="ak-section-caption">

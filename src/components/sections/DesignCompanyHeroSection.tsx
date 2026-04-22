@@ -41,8 +41,7 @@ const DesignCompanyHeroSection: React.FC = () => {
                             <div className="dc-hero-bottom-content">
                                 <div className="dc-hero-desp">
                                     <p className="fade-animation" data-delay="0.6">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                                        industry's standard dummy text.
+                                        We are a full-service design studio focused on building premium digital experiences that empower brands to connect with their audience in meaningful ways.
                                     </p>
                                 </div>
                                 <h2 className="dc-hero-title text-2 fade-animation" data-direction="right" data-delay="0.8">

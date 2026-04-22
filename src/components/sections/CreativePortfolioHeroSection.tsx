@@ -70,8 +70,7 @@ const CreativePortfolioHeroSection: React.FC = () => {
                         </div>
                         <div className="cta-info">
                             <p className="description">
-                                Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the
-                                industry's standard dummy text ever since the 1500s.
+                                We combine technical expertise with creative vision to deliver digital products that stand out in today's competitive landscape.
                             </p>
                             <Link to="/contact" className="circle-btn circle-btn-anim">
                                 <span className="text text-uppercase">

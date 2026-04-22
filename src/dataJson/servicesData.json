@@ -1,7 +1,7 @@
 {
   "sectionInfo": {
     "title": "Our <span class=\"highlight\">Exceptional</span> Digital Transformation <span class=\"highlight\">Services</span>",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing .",
+    "description": "We offer a comprehensive suite of digital services designed to help your business thrive in a rapidly evolving technological world.",
     "caption": "Services",
     "btnText": "Learn More"
   },
@@ -9,7 +9,7 @@
     {
       "id": "01",
       "title": "UI/UX Design",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "description": "User-centric design that combines stunning visuals with intuitive functionality for an unparalleled digital experience.",
       "image": "src/assets/img/services/services-hover-1.png",
       "features": [
         "Brand Research",
@@ -20,7 +20,7 @@
     {
       "id": "02",
       "title": "Web Design",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "description": "Bespoke website designs that capture your brand's essence and convert visitors into loyal customers through elegant UX.",
       "image": "src/assets/img/services/services-hover-2.png",
       "features": [
         "Brand Research",
@@ -31,7 +31,7 @@
     {
       "id": "03",
       "title": "Web Development",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "description": "Robust, scalable web applications built with modern frameworks to ensure peak performance and long-term reliability.",
       "image": "src/assets/img/services/services-hover-3.png",
       "features": [
         "Brand Research",
@@ -42,7 +42,7 @@
     {
       "id": "04",
       "title": "App Development",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry and typesetting.",
+      "description": "High-performance mobile applications for iOS and Android that deliver seamless user experiences and powerful features.",
       "image": "src/assets/img/services/services-hover-4.png",
       "features": [
         "Brand Research",

@@ -19,23 +19,23 @@ const commonData = {
         {
             "id": "01",
             "title": "Technical SEO Development",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+            "description": "We optimize your site's infrastructure to ensure maximum visibility and performance across all search engines and devices.",
             "hasBgText": true
         },
         {
             "id": "02",
             "title": "Keyword Optimization & Internal Linking",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Our strategic approach to content structure helps search engines understand your value proposition and improve rankings."
         },
         {
             "id": "03",
             "title": "Social Media Engagement & Online",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "We build a strong community around your brand through authentic social media interactions and compelling creative content."
         },
         {
             "id": "04",
             "title": "Content Strategy & Creation",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Our team produces high-quality, relevant content that establishes your authority and keeps your audience engaged and informed."
         }
     ],
     "seoFeatures": [

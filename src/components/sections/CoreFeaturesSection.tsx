@@ -46,19 +46,19 @@ const homeFeaturesData: CoreFeature[] = [
         id: "01",
         icon: "flaticon-circle",
         title: "Strategic Marketing",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+        description: "We develop data-driven marketing strategies that amplify your brand's reach and engage your target audience effectively."
     },
     {
         id: "02",
         icon: "flaticon-folded",
-        title: "Strategic Marketing",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+        title: "Brand Identity",
+        description: "Our team crafts unique visual identities and brand stories that resonate with customers and build long-term loyalty."
     },
     {
         id: "03",
         icon: "flaticon-twirl",
-        title: "Strategic Marketing",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been industry and typesetting of the printing ."
+        title: "Digital Growth",
+        description: "We leverage cutting-edge technology and creative solutions to accelerate your business growth in the digital landscape."
     }
 ];
 

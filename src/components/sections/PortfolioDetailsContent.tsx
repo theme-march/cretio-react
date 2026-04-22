@@ -11,19 +11,19 @@ interface PortfolioDetailsItem {
 const detailsDataDefault = {
     "portfolioDetails": {
         "title": "Android App Development",
-        "description1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description2": "Making it look like readable web 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like) web page editors now.",
-        "description3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.",
-        "description4": "Making it look like readable web 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like) web page editors now.",
-        "description5": "it is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable web page editors nowEnglish. Many desktop publishing packages and web page editors now use.",
-        "description6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable web page editors nowEnglish. Many desktop publishing packages and web page editors now use.",
+        "description1": "We specialize in creating high-performance Android applications that leverage the latest platform features and design standards. Our development process ensures that your app is not only functional but also provides a superior user experience across all devices.",
+        "description2": "Our team of expert developers works closely with you to transform your vision into a robust digital product. From conceptualization to deployment, we maintain a focus on scalability and performance, ensuring your application can grow alongside your business.",
+        "description3": "The digital landscape is constantly evolving, and staying ahead requires a partner who understands the nuances of mobile technology. We provide comprehensive support and maintenance to ensure your app remains secure and optimized for the best possible user engagement.",
+        "description4": "By integrating advanced analytics and user feedback loops, we continuously refine the mobile experience. This data-driven approach allows us to make informed decisions that improve retention rates and drive meaningful business outcomes for our clients.",
+        "description5": "Security and privacy are at the core of our development philosophy. We implement industry-leading encryption and best practices to protect user data, giving your customers peace of mind while they interact with your brand's digital ecosystem.",
+        "description6": "A successful app is more than just code; it's a bridge between your brand and your audience. We focus on creating intuitive interfaces and smooth transitions that make every interaction feel natural and rewarding for the end-user.",
         "accordion": [
-            { "id": 1, "title": "1. What platforms do you develop mobile apps for?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "id": 2, "title": "2. What is the process for developing a mobile app?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "id": 3, "title": "3. What platforms do you use for web development?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "id": 4, "title": "4. How long does it take to build a website?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "id": 5, "title": "5. How can digital marketing help my business?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." },
-            { "id": 6, "title": "6. What digital marketing services do you offer?", "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less." }
+            { "id": 1, "title": "1. What platforms do you develop mobile apps for?", "content": "We develop native and cross-platform applications for both iOS and Android, ensuring your brand reaches the widest possible audience with a consistent experience." },
+            { "id": 2, "title": "2. What is the process for developing a mobile app?", "content": "Our process involves discovery, wireframing, UI/UX design, development, rigorous testing, and finally deployment followed by ongoing support and optimization." },
+            { "id": 3, "title": "3. What platforms do you use for web development?", "content": "We utilize modern frameworks like React, Next.js, and robust back-end technologies to build scalable web applications that meet complex business requirements." },
+            { "id": 4, "title": "4. How long does it take to build a website?", "content": "Timeline varies based on complexity, but a standard corporate website typically takes 4-8 weeks from initial design to final launch." },
+            { "id": 5, "title": "5. How can digital marketing help my business?", "content": "Digital marketing increases your online visibility, drives targeted traffic, and improves conversion rates through data-backed strategies and creative content." },
+            { "id": 6, "title": "6. What digital marketing services do you offer?", "content": "We offer a full range of services including SEO, content marketing, social media management, and pay-per-click advertising to boost your brand's presence." }
         ]
     }
 };
@@ -152,10 +152,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsProps> = ({ detailsData 
                 </div>
 
                 <p className="pd-desp">
-                    Making it look like readable web 'lorem ipsum' will uncover many web
-                    sites still in their infancy. Various versions have evolved over the
-                    years, sometimes by accident, sometimes on purpose (injected humour
-                    and the like) web page editors now.
+                    Our creative approach ensures that every pixel serves a purpose, creating a harmonious balance between brand storytelling and technical performance. We use the latest industry standards to build applications that are as beautiful as they are functional.
                 </p>
                 <div className="p-md-5">
                     <div className="ak-accordion">

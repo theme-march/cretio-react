@@ -66,23 +66,23 @@ const funFacts = {
         {
             "id": "01",
             "title": "Technical SEO Development",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.",
+            "description": "We optimize your site's foundation for maximum visibility and performance across all search engines and mobile devices.",
             "hasBgText": true
         },
         {
             "id": "02",
             "title": "Keyword Optimization & Internal Linking",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Strategic keyword placement and internal linking structures that help search engines understand and rank your content effectively."
         },
         {
             "id": "03",
             "title": "Social Media Engagement & Online",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Building a vibrant community around your brand through authentic social media interactions and compelling creative assets."
         },
         {
             "id": "04",
             "title": "Content Strategy & Creation",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry."
+            "description": "Our team develops high-quality, relevant content that establishes your brand's authority and keeps your audience engaged."
         }
     ],
     "seoFeatures": [

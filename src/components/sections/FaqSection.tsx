@@ -6,32 +6,32 @@ const faqData = [
     {
         "id": 1,
         "question": "1. What platforms do you develop mobile apps for?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "We specialize in native and cross-platform applications for both iOS and Android, ensuring your brand provides a consistent experience across all mobile devices."
     },
     {
         "id": 2,
         "question": "2. What is the process for developing a mobile app?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "Our process involves discovery, UI/UX design, iterative development sprints, and rigorous QA testing to ensure your app is robust and ready for the market."
     },
     {
         "id": 3,
         "question": "3. What platforms do you use for web development?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "We utilize modern frameworks like React, Next.js, and Node.js to build high-performance, scalable web applications that meet unique business requirements."
     },
     {
         "id": 4,
         "question": "4. How long does it take to build a website?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "The timeline varies based on complexity, but a typical professional website project usually takes between 6 to 10 weeks from concept to final launch."
     },
     {
         "id": 5,
         "question": "5. How can digital marketing help my business?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "Digital marketing boosts your visibility, drives targeted traffic to your site, and helps convert visitors into loyal customers through data-driven strategies."
     },
     {
         "id": 6,
         "question": "6. What digital marketing services do you offer?",
-        "answer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less."
+        "answer": "We provide a comprehensive range of services including SEO, PPC management, content strategy, and social media marketing to elevate your online presence."
     }
 ];
 

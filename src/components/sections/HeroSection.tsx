@@ -129,7 +129,7 @@ const HeroSection: React.FC = () => {
                             </Link>
                         </div>
                         <p className="description">
-                            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
+                            We are a creative agency dedicated to transforming your vision into reality through innovative design and strategic digital solutions.
                         </p>
                     </div>
                     <div className="partners-section">
@@ -174,7 +174,7 @@ const HeroSection: React.FC = () => {
                 </div>
                 <div className="hero-right-column">
                     <p className="description">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+                        In an era defined by rapid technological change, we provide the expertise and creativity needed to help your brand stand out and succeed in the digital landscape.
                     </p>
                     <div className="image-box">
                         <div className="da-shape-star">
