@@ -5,7 +5,7 @@
     --secondary-font: "Hind", sans-serif;
     --primary-color: #ff2c54;
     --theme-color: #000000;
-    --action-color: #ffffff;
+    --action-color: #ff2c54;
     --typo-dark: #333333;
     --typo-body: #666666;
     --typo-mid: #8A94A6;
@@ -104,7 +104,7 @@ a {
 }
 
 a:hover {
-    color: var(--action-color);
+    color: var(--primary-color);
     text-decoration: underline
 }
 

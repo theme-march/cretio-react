@@ -378,7 +378,8 @@
                               <span class="direction_step">index.html</span><span class="direction_step">Open the
                                 file</span></span> . Locate the <code>&lt;title&gt;</code> tag inside the
                             <code>&lt;head&gt;</code> section and
-                            update the text to your desired site name.</p>
+                            update the text to your desired site name.
+                          </p>
                           <figure>
                             <img class="max-100" src="assets/images/change-title.png" alt="Edit Site Title" />
                           </figure>
@@ -403,14 +404,28 @@
                   <!-- End of #installation -->
                   <section id="change_logo">
                     <h3>Change Logo</h3>
-                    <p>To update the logos across the entire site; Replace the existing files at <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">assets</span><span class="direction_step">img</span><span class="direction_step">logo</span></span> . If you want to rename the files or extensions, update their paths in <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">dataJson</span><span class="direction_step">siteSettings.json</span></span> under the <code>"logos"</code> key.</p>
+                    <p>To update the logos across the entire site, change the following files:</p>
                     <div class="steps-panel">
+                      <ul class="ordered-list">
+                        <li><strong>Header & Sidebar:</strong> <span class="direction_steps"><span
+                              class="direction_step">src</span><span class="direction_step">layout</span><span
+                              class="direction_step">header</span><span class="direction_step">header.tsx</span></span>
+                          & <span class="direction_steps"><span
+                              class="direction_step">OffCanvasSidebar.tsx</span></span></li>
+                        <li><strong>Footer:</strong> <span class="direction_steps"><span
+                              class="direction_step">src</span><span class="direction_step">layout</span><span
+                              class="direction_step">footer</span><span class="direction_step">footer.tsx</span></span>
+                        </li>
+                      </ul>
                       <figure>
                         <img class="max-100" src="assets/images/site-logo1.png" alt="Logo Configuration" />
                       </figure>
                       <figure>
-                        <img class="max-100" src="assets/images/site-logo-show-dark.png" alt="Logo Configuration" />
                         <figcaption style="text-align: center;">You can change <b>header logo</b> here</figcaption>
+                      </figure>
+                      <figure>
+                        <img class="max-100" src="assets/images/sidebar-show.png" alt="Logo Configuration" />
+                        <figcaption style="text-align: center;">You can change <b>header & sidebar logo</b> here</figcaption>
                       </figure>
                       <figure>
                         <img class="max-100" src="assets/images/site-footer.png" alt="Logo Configuration" />
@@ -425,8 +440,13 @@
 
                   <section id="change_page_title">
                     <h3>Change Page Title</h3>
-                    <p>To change the main heading (title) of an individual page, go to <span class="direction_steps"><span class="direction_step">src</span><span class="direction_step">pages</span></span> and open the file for the page you want to edit (e.g., <code>About.tsx</code>, <code>Services.tsx</code>). Then locate the <code>Breadcrumb</code> component and change the <code>title</code> and <code>highlightWords</code> (optional) to your desired text.</p>
-                    
+                    <p>To change the main heading (title) of an individual page, go to <span
+                        class="direction_steps"><span class="direction_step">src</span><span
+                          class="direction_step">pages</span></span> and open the file for the page you want to edit
+                      (e.g., <code>About.tsx</code>, <code>Services.tsx</code>). Then locate the <code>Breadcrumb</code>
+                      component and change the <code>title</code> and <code>highlightWords</code> (optional) to your
+                      desired text.</p>
+
                     <div class="steps-panel">
                       <figure>
                         <img src="assets/images/page-title.png" alt="Page Title 1" class="doc-image max-100" />
@@ -472,16 +492,16 @@
                           From the project folder, go to
                           <span class="direction_steps">
                             <span class="direction_step">src</span>
-                            <span class="direction_step">dataJson</span>
-                            <span class="direction_step">siteSettings.json</span>
-                            <span class="direction_step">Open the file</span>
+                            <span class="direction_step">layout</span>
+                            <span class="direction_step">footer</span>
+                            <span class="direction_step">footer.tsx</span>
                           </span>
                         </li>
-                        <li>Then customize the footer data (Social links, Contact info, etc.)</li>
+                        <li>Then customize the footer settings (Social links, Contact info, etc.) directly in the
+                          constants at the top of the file.</li>
                       </ol>
                       <figure>
-                        <img class="max-100" src="assets/images/footer-data.png" alt="Footer Data Configuration" />
-                        <img class="max-100" src="assets/images/site-footer-show.png" alt="Footer Visual Display" />
+                        <img class="max-100" src="assets/images/footer-customize.png" alt="Footer Visual Display" />
                         <figcaption style="text-align: center;">Customize the footer</figcaption>
                       </figure>
                     </div>
@@ -490,555 +510,248 @@
 
                 <article id="pages" class="section-main doc-section">
                   <section id="blog">
-                    <h3>Customize Blog data</h3>
-                    <p>To manage your blog posts, you need to update the central JSON data file. Follow these steps:</p>
+                    <h3>Customize Blog Data</h3>
+                    <p>To manage your blog posts, follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Data File</strong>
-                          <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">dataJson</span><span
-                                class="direction_step">blogsData.json</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <figure>
-                            <img class="max-100" src="assets/images/site-blog.png" alt="Blog Data JSON Structure" />
-                          </figure>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">dataJson</span>
+                            <span class="direction_step">blogsData.json</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Understand the Blog Structure</strong>
-                          <p>Each blog post is represented as an object with the following properties:</p>
-                          <ul>
-                            <li><code>id</code>: A unique numeric identifier for the post.</li>
-                            <li><code>image</code>: The path to the blog thumbnail image (e.g.,
-                              <code>src/assets/img/blogs/blog-1.png</code>).
-                            </li>
-                            <li><code>author</code>: The name of the post author.</li>
-                            <li><code>date</code>: The publication date in <code>DD/MM/YYYY</code> format.</li>
-                            <li><code>title</code>: The main headline of the blog post.</li>
-                            <li><code>description</code>: A short summary or excerpt of the post content.</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/site-blog-show.png" alt="Blog Page Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Adding New Posts</strong>
-                          <p>Simply append a new object to the array in the JSON file. Ensure you provide a unique
-                            <code>id</code> for each new entry.
-                          </p>
-                        </li>
+                        <li>Then customize the blog data or append new objects to the array (ensure each has a unique
+                          <code>id</code>).</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/site-blog.png" alt="Blog Data Structure" />
+                        <img class="max-100" src="assets/images/site-blog-show.png" alt="Blog Visual Display" />
+                        <figcaption style="text-align: center;">Customize the blog</figcaption>
+                      </figure>
                     </div>
                   </section>
                   <section id="Services">
-                    <h3>Customize Services list data</h3>
-                    <p>Services data is managed through a structured JSON file that supports multiple layout variants.
-                      To customize your services, follow these steps:</p>
+                    <h3>Customize Services List Data</h3>
+                    <p>To manage your services data (including section headers), follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Data File</strong>
-                          <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">dataJson</span><span
-                                class="direction_step">servicesData.json</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <figure>
-                            <img class="max-100" src="assets/images/services-list.png" alt="Services Data File" />
-                          </figure>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">dataJson</span>
+                            <span class="direction_step">servicesData.json</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Customize Section Info</strong>
-                          <p>Use the <code>sectionInfo</code> object to update the global header for the services
-                            section (Title, Description, Short Caption, and Button Text).</p>
-                        </li>
-                        <li>
-                          <strong>Manage Main Services</strong>
-                          <p>Each service in the <code>mainServices</code> array includes:</p>
-                          <ul>
-                            <li><code>id</code>: A unique numeric index.</li>
-                            <li><code>title</code>: The name of the service.</li>
-                            <li><code>description</code>: A brief overview of the service.</li>
-                            <li><code>image</code>: The background/hover image path.</li>
-                            <li><code>features</code>: An array of strings for key benefits or features.</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/services-list-show.png"
-                              alt="Services Page Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Specialized Lists</strong>
-                          <p>Depending on your page variant, you may also need to update <code>seoServices</code>,
-                            <code>brandingServices</code>, or <code>digitalMarketingServices</code> arrays.
-                          </p>
-                        </li>
+                        <li>Then customize the <code>sectionInfo</code> and <code>mainServices</code> arrays to update your content.</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/services-list.png" alt="Services Data Structure" />
+                        <img class="max-100" src="assets/images/services-list-show.png" alt="Services Visual Display" />
+                        <figcaption style="text-align: center;">Customize the services</figcaption>
+                      </figure>
                     </div>
                   </section>
                   <section id="Team">
-                    <h3>Customize Team lists data</h3>
-                    <p>The team section is data-driven and supports multiple layouts for different project variants. To
-                      customize your team members, follow these steps:</p>
+                    <h3>Customize Team List Data</h3>
+                    <p>To manage your team members across different sections, follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Data File</strong>
-                          <p>All team information is stored in: <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">dataJson</span><span
-                                class="direction_step">teamMembersData.json</span><span class="direction_step">Open the
-                                file</span></span></p>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">dataJson</span>
+                            <span class="direction_step">teamMembersData.json</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Understand the Team Variants</strong>
-                          <p>The JSON file contains two primary lists: <code>standardTeam</code> (Creative Agency) and
-                            <code>marketingTeam</code> (Marketing Agency).
-                          </p>
-                          <figure>
-                            <img class="max-100" src="assets/images/team-list.png" alt="Team Data JSON Structure" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Member Entry Fields</strong>
-                          <p>Each member profile uses the following structure:</p>
-                          <pre><code>{
-  "id": 1,
-  "name": "Alex Johnson",
-  "role": "Creative Director",
-  "image": "src/assets/img/team/team-1.png"
-}</code></pre>
-                          <figure>
-                            <img class="max-100" src="assets/images/team-list-show.png"
-                              alt="Team Page Layout Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Image Asset Placement</strong>
-                          <p>Upload new team member photos to <code>src/assets/img/team/</code> and update the
-                            <code>image</code> path in the JSON file accordingly.
-                          </p>
-                        </li>
+                        <li>Then customize the member profiles in the <code>standardTeam</code> or <code>marketingTeam</code> arrays.</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/team-list.png" alt="Team Data Structure" />
+                        <img class="max-100" src="assets/images/team-list-show.png" alt="Team Visual Display" />
+                        <figcaption style="text-align: center;">Customize the team</figcaption>
+                      </figure>
                     </div>
-
                   </section>
                   <section id="Portfolio">
-                    <h3>Customize Portfolio data</h3>
-                    <p>The portfolio section uses <b>Isotope</b> for dynamic filtering. To manage your projects and
-                      filter categories, follow these steps:</p>
+                    <h3>Customize Portfolio Data</h3>
+                    <p>To manage your projects and categories, follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Locate the Data File</strong>
-                          <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">dataJson</span><span
-                                class="direction_step">projectsData.json</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <figure>
-                            <img class="max-100" src="assets/images/gallery.png" alt="Portfolio Data File" />
-                          </figure>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">dataJson</span>
+                            <span class="direction_step">projectsData.json</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Configuring Filter Categories</strong>
-                          <p>In the <code>categories</code> array, define your filter buttons. The <code>filter</code>
-                            property must be a CSS selector (e.g., <code>.isf-uiux</code>).</p>
-                        </li>
-                        <li>
-                          <strong>Manage Project Entries</strong>
-                          <p>Each project in the <code>mainProjects</code> array includes:</p>
-                          <ul>
-                            <li><code>id</code>: A unique identifier.</li>
-                            <li><code>title</code>: The project name.</li>
-                            <li><code>category</code>: The display category name.</li>
-                            <li><code>image</code>: The project thumbnail path.</li>
-                            <li><code>tags</code>: CSS classes that <b>must match</b> the filter selector (without the
-                              dot).</li>
-                            <li><code>colClass</code>: The Bootstrap column width (e.g., <code>col-md-6</code>).</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/gallery-show.png" alt="Portfolio Page Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Layout Variations</strong>
-                          <p>Update <code>gridProjects</code> or <code>sliderProjects</code> if you are using those
-                            specific layout variants on different pages.</p>
-                          <pre><code>// Category Filter
-{ "name": "UI/UX", "filter": ".isf-uiux" }
-
-// Project Entry
-{ 
-  "id": 1, 
-  "title": "EcoHome Campaign", 
-  "category": "Web App", 
-  "tags": "isf-uiux isf-webapp",
-  "image": "path/to/img.png" 
-}</code></pre>
-                        </li>
+                        <li>Then customize the <code>categories</code> and <code>mainProjects</code> arrays. Ensure project <code>tags</code> match the filter selectors defined in categories.</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/portfolio-list.png" alt="Portfolio Data Structure" />
+                        <img class="max-100" src="assets/images/portfolio-list-show.png" alt="Portfolio Visual Display" />
+                        <figcaption style="text-align: center;">Customize the portfolio</figcaption>
+                      </figure>
                     </div>
                   </section>
-                  <section id="LandingElements">
-                    <h3>Landing Page Elements</h3>
-                    <p>Manage the main visual and branding elements of your home and landing pages using these data
-                      files:</p>
+
+                  <section id="ErrorPages">
+                    <h3>Customize Error Pages</h3>
+                    <p>To update the error messages or visual elements, follow these steps:</p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Hero Sliders</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">MarketingHeroSection.tsx</span><span class="direction_step">Open
-                                the file</span></span></p>
-                          <p>Edit the <code>marketingHero</code> or <code>creativeHero</code> arrays to change slide
-                            images, captions, main titles, and highlighted text (using
-                            <code>&lt;span class="highlight"&gt;</code>).
-                          </p>
-                          <figure>
-                            <img class="max-100" src="assets/images/hero-slideData.png" alt="Hero Slider Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/marketing-hero.png"
-                              alt="Marketing Agency Hero Preview" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/creative-hero.png"
-                              alt="Creative Portfolio Hero Preview" />
-                          </figure>
+                          From the project folder, go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">pages</span>
+                            <span class="direction_step">ErrorPages</span>
+                            <span class="direction_step">404.tsx</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Client & Partner Logos</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">ClientLogoSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Update the <code>img</code> and <code>title</code> fields to manage the scrolling brand
-                            logo section. Assets should be placed in <code>src/assets/img/client/</code>.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/client-logo-show.png" alt="Client Logo Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Awards & Achievements</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">AwardsSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Manage list of awards, categories, and hover images for the honors section.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/award-data-show.png" alt="Award Section Preview" />
-                          </figure>
-                        </li>
+                        <li>Then customize the error headline, description, and "Back to Home" button text directly in the JSX.</li>
                       </ol>
+                      <figure>
+                        <img class="max-100" src="assets/images/404.png" alt="404 Page Structure" />
+                        <img class="max-100" src="assets/images/404-show.png" alt="404 Page Visual Display" />
+                        <figcaption style="text-align: center;">Customize the 404 error page</figcaption>
+                      </figure>
                     </div>
-                  </section>
-
-                  <section id="InteractiveComponents">
-                    <h3>Interactive & Business Components</h3>
-                    <p>Configure core business features and interactive elements through these structured data files:
-                    </p>
-                    <div class="steps-panel">
-                      <ol class="ordered-list">
-                        <li>
-                          <strong>Pricing Plans</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">PricingSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Update <code>title</code>, <code>price</code>, and the <code>features</code> string array
-                            to customize your service packages.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/price-data.png" alt="Pricing Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/price-data-show.png"
-                              alt="Pricing Section Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Testimonials & Feedback</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">TestimonialSection.tsx</span><span class="direction_step">Open
-                                the file</span></span></p>
-                          <p>Edit member feedback, names, locations, and profile photos in the
-                            <code>defaultTestimonials</code> or <code>marketingTestimonials</code> lists.
-                          </p>
-                          <figure>
-                            <img class="max-100" src="assets/images/testimonial-data.png" alt="Testimonial Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/testimonial-show.png"
-                              alt="Testimonial Section Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>FAQs (Accordions)</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">FaqSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Manage simple Question and Answer pairs that populate the accordion components on the FAQ
-                            page.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/faq-data.png" alt="FAQ Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/faq-show.png" alt="FAQ Section Preview" />
-                          </figure>
-                        </li>
-
-                      </ol>
-                    </div>
-                  </section>
-
-                  <section id="GlobalUtilities">
-                    <h3>Global Content & Utilities</h3>
-                    <p>Manage shared content, statistics, and workflow steps used across multiple pages:</p>
-                    <div class="steps-panel">
-                      <ol class="ordered-list">
-                        <li>
-                          <strong>Fun Facts & Skills</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">FunFactSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Update the <code>funFacts</code> array (numbers and labels) and <code>skills</code> (titles
-                            and percentages) for "About Us" sections.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/funfact-data.png" alt="Fun Fact Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/funfact-show.png" alt="Fun Fact Section Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Newsletter & Forms</strong>
-                          <p>File: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">NewsletterSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Update the <code>newsletter</code> object to change titles, placeholders, and button text
-                            for lead generation sections.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/newsletter-data.png" alt="Newsletter Data" />
-                          </figure>
-                          <figure>
-                            <img class="max-100" src="assets/images/newsletter-show.png"
-                              alt="Newsletter Section Preview" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Process & Methodology</strong>
-                          <p>Files: <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">components</span><span
-                                class="direction_step">sections</span><span
-                                class="direction_step">ProcessSection.tsx</span><span class="direction_step">Open the
-                                file</span></span></p>
-                          <p>Document your project workflow by editing the step titles and descriptions.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/process-step-data.png" alt="Process Steps Data" />
-                          </figure>
-                        </li>
-
-                      </ol>
-                    </div>
-                  </section>
-
-                  <h3>Error Pages</h3>
-                  <p>The 404 Error page is a standalone component. To customize its content, follow these steps:</p>
-                  <div class="steps-panel">
-                    <ol class="ordered-list">
-                      <li>
-                        <strong>Direct Component Access</strong>
-                        <p>Navigate to: <span class="direction_steps"><span class="direction_step">src</span><span
-                              class="direction_step">pages</span><span class="direction_step">NotFound.tsx</span><span
-                              class="direction_step">Open the file</span></span></p>
-                      </li>
-                      <li>
-                        <strong>Text Customization</strong>
-                        <p>Update the following JSX elements to change the page messages:</p>
-                        <ul>
-                          <li><code>&lt;h2 className="error-message"&gt;</code>: Update the main "Page Not Found!"
-                            headline.</li>
-                          <li><code>&lt;p className="error-description"&gt;</code>: Customize the detailed error
-                            description text.</li>
-                          <li><code>&lt;Link&gt;</code>: Update the "Back To Home" button text and the
-                            <code>to="/"</code> path if needed.
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <strong>Visual Customization</strong>
-                        <p>The "4!4" display uses a combination of text and an SVG exclamation mark. You can modify the
-                          SVG code or the surrounding <code>className="number"</code> spans to change the look and feel.
-                        </p>
-                      </li>
-                    </ol>
-                  </div>
-                  <figure>
-                    <img class="max-100" src="assets/images/404.png" alt="404 Page Preview" />
-                    <br />
-                    <br />
-                    <img class="max-100" src="assets/images/404-show.png" alt="404 Page Detailed Preview" />
-                    <figcaption class="text-center mt-3">
-                      The 404 page is fully customizable within the <code>NotFound.tsx</code> component.
-                    </figcaption>
-                  </figure>
                   </section>
                 </article>
 
                 <article id="template_options" class="section-main doc-section">
                   <section id="option_header">
                     <h3>Customize Header</h3>
-                    <p>The header is a dynamic component that manages navigation, branding, and global settings. To
-                      customize it, follow these steps:</p>
+                    <p>
+                      The header is a dynamic component. You can modify the
+                      header and sidebar markup there.
+                    </p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Core Component</strong>
-                          <p>The layout and logic are defined in <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">layout</span><span
-                                class="direction_step">Header.tsx</span><span class="direction_step">Open the
-                                file</span></span>.</p>
+                          From the project folder go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src</span>
+                            <span class="direction_step">layout </span>
+                            <span class="direction_step">header</span>
+                            <span class="direction_step">header.tsx</span>
+                            <span class="direction_step">Open the menu you want to use</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Navigation Menu</strong>
-                          <p>Manage all menu items and submenus by editing: <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">dataJson</span><span
-                                class="direction_step">navItemsList.json</span><span class="direction_step">Open the
-                                file</span></span>. The header automatically renders this list.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/nav-list.png" alt="Navigation Data File" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Logos & Branding</strong>
-                          <p>The header pulls the Dark and White logos from the <code>logos</code> section in <span
-                              class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">dataJson</span><span
-                                class="direction_step">siteSettings.json</span><span class="direction_step">Open the
-                                file</span></span>.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/footer-data.png" alt="Shared Layout Data" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>CTA Button</strong>
-                          <p>To change the "Start Project" button text or its destination link, modify the
-                            <code>&lt;Link&gt;</code> component within <code>Header.tsx</code> (look for the
-                            <code>custom-button</code> class).
-                          </p>
-                          <figure>
-                            <img class="max-100" src="assets/images/cta-startProject.png" alt="CTA Button Structure" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Offcanvas Menu</strong>
-                          <p>The slide-out menu (triggered by the dots icon) displays your description, gallery, contact
-                            info, and socials by pulling data directly from <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">dataJson</span><span
-                                class="direction_step">siteSettings.json</span><span class="direction_step">Open the
-                                file</span></span>.</p>
-                        </li>
+                        <li>Then customize the header and navigation data</li>
                       </ol>
                     </div>
+                    <figure>
+                      <img src="assets/images/header-customize.png" alt="Header Customization" class="max-100" />
+                      <figcaption class="text-center">
+                        Customize the header
+                      </figcaption>
+                    </figure>
                   </section>
 
                   <section id="option_sass">
-                    <h3>SASS Customization</h3>
-                    <p>The project's visual style is architected using SASS for modularity and ease of maintenance. To
-                      customize the styling, follow these steps:</p>
+                    <h3>SASS</h3>
+                    <p>
+                      To change SASS and setting you can change by following
+                      this screenshot here.
+                    </p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>The Style Entry</strong>
-                          <p>The primary bridge between React and SASS is <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">index.scss</span><span
-                                class="direction_step">Open the file</span></span>. This file imports all global plugins
-                            and the main theme stylesheet.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/sass-link.png" alt="SASS Registry" />
-                          </figure>
+                          From the project folder go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src </span>
+                            <span class="direction_step">index.scss</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
                         <li>
-                          <strong>Global Variables (Colors & Typography)</strong>
-                          <p>For quick branding updates, navigate to <span class="direction_steps"><span
-                                class="direction_step">src</span><span class="direction_step">assets</span><span
-                                class="direction_step">sass</span><span class="direction_step">default</span><span
-                                class="direction_step">Open the folder</span></span>:</p>
-                          <ul>
-                            <li><code>_color_variable.scss</code>: Edit this file to update the theme's primary,
-                              secondary, and background colors.</li>
-                            <li><code>_typography.scss</code>: Use this file to manage font families, weights, and
-                              global font sizes.</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/color-variable.png" alt="Color Variables" />
-                          </figure>
+                          From the project folder go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src </span>
+                            <span class="direction_step">assets</span>
+                            <span class="direction_step">sass</span>
+                            <span class="direction_step">Open the folder</span></span>
                         </li>
-                        <li>
-                          <strong>SASS Folder Structure</strong>
-                          <p>The <span class="direction_steps"><span class="direction_step">src</span><span
-                                class="direction_step">assets</span><span class="direction_step">sass</span><span
-                                class="direction_step">Open the folder</span></span> directory is organized into
-                            functional modules:</p>
-                          <ul>
-                            <li><code>common/</code>: Shared utilities and layout basics.</li>
-                            <li><code>components/</code>: Styles for specific UI elements like modals, buttons, and
-                              sections.</li>
-                            <li><code>shortcode/</code>: Advanced template modules and UI blocks.</li>
-                          </ul>
-                          <figure>
-                            <img class="max-100" src="assets/images/sass-structure.png" alt="SASS Module Structure" />
-                          </figure>
-                        </li>
-                        <li>
-                          <strong>Compiling Styles</strong>
-                          <p>The theme uses a pre-compiled <code>style.css</code> for performance, but you should always
-                            modify the <code>.scss</code> files. The build process will automatically handle the
-                            compilation during development.</p>
-                          <figure>
-                            <img class="max-100" src="assets/images/typography.png" alt="Typography Variables" />
-                          </figure>
-                        </li>
+                        <li>Then customize the sass data</li>
                       </ol>
                     </div>
+                    <figure>
+                      <img src="assets/images/sass-link.png" alt="SASS Structure" class="max-100" />
+                      <img src="assets/images/sass-link-two.png" alt="SASS Registry" class="max-100" />
+                      <figcaption class="text-center">
+                        Customize the SASS
+                      </figcaption>
+                    </figure>
                   </section>
-
-
-                  <section id="AppDevelopment">
-                    <h3>App Development Guide</h3>
-                    <p>Basic workflow for extending the template and changing global styles:</p>
+                  <section id="option_color">
+                    <h3>Colors</h3>
+                    <p>
+                      To change color and setting you can change by following
+                      this screenshot here.
+                    </p>
                     <div class="steps-panel">
                       <ol class="ordered-list">
                         <li>
-                          <strong>Adding New Pages</strong>
-                          <p>To add a new page:
-                            <br />1. Create a <code>.tsx</code> file in <code>src/pages/</code>.
-                            <br />2. Import it in <code>src/App.tsx</code>.
-                            <br />3. Add a new
-                            <code>&lt;Route path="/your-path" element={&lt;YourPage /&gt;} /&gt;</code> inside the
-                            <code>&lt;Routes&gt;</code> component.
-                          </p>
+                          From the project folder go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src </span>
+                            <span class="direction_step">assets</span>
+                            <span class="direction_step">sass</span>
+                            <span class="direction_step">default</span>
+                            <span class="direction_step">_color_variable.scss</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
                         </li>
-                        <li>
-                          <strong>Updating Google Fonts</strong>
-                          <p>Navigate to <code>src/assets/sass/default/_typography.scss</code> and replace the
-                            <code>@import</code> URL with your chosen Google Font. Then, update the
-                            <code>font-family</code> variables in the same file.
-                          </p>
-                        </li>
+                        <li>Then customize the color data</li>
                       </ol>
                     </div>
+                    <figure>
+                      <img src="assets/images/color.png" alt="Color Customization" class="max-100" />
+                      <figcaption class="text-center">
+                        Customize the color
+                      </figcaption>
+                    </figure>
                   </section>
+                  <section id="option_typo">
+                    <h3>Typography</h3>
+                    <p>
+                      To change Typography and setting you can change by
+                      following this screenshot here.
+                    </p>
+                    <div class="steps-panel">
+                      <ol class="ordered-list">
+                        <li>
+                          From the project folder go to
+                          <span class="direction_steps">
+                            <span class="direction_step">src </span>
+                            <span class="direction_step">assets</span>
+                            <span class="direction_step">sass</span>
+                            <span class="direction_step">default</span>
+                            <span class="direction_step">_typography.scss</span>
+                            <span class="direction_step">Open the file</span>
+                          </span>
+                        </li>
+                        <li>Then customize the Typography data</li>
+                      </ol>
+                    </div>
+                    <figure>
+                      <img src="assets/images/typo.png" alt="Typography Customization" class="max-100" />
+                      <figcaption class="text-center">
+                        Customize the Typography
+                      </figcaption>
+                    </figure>
+                  </section>
+                  <br><br><br>
 
                   <article id="support" class="section-main doc-section">
                     <section>
