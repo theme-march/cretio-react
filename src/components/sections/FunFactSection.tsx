@@ -142,8 +142,9 @@ const FunFactSection: React.FC<FunFactProps> = ({ variant = "style-1" }) => {
                         snap: { innerText: 1 },
                         ease: "power1.out",
                         scrollTrigger: {
-                            trigger: el,
+                            trigger: sectionRef.current,
                             start: "top center+=200",
+                            toggleActions: "play none none none",
                         }
                     }
                 );

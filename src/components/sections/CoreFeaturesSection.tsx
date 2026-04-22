@@ -95,6 +95,7 @@ interface CoreFeaturesProps {
     sliderType?: "dots" | "navigation";
     fullWidth?: boolean;
     highlightWords?: string[];
+    alternateColors?: boolean;
 }
 
 // --- Extracted reusable card subcomponents ---
@@ -134,6 +135,7 @@ interface CoreFeatureCardProps {
     cardAnimation: string;
     cardDirection?: string;
     fullWidth?: boolean;
+    alternateColors?: boolean;
 }
 
 const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
@@ -143,19 +145,22 @@ const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
     cardAnimation,
     cardDirection,
     fullWidth,
+    alternateColors,
 }) => {
     const cardTypeClass =
         variant === "style-3"
             ? "type-3 theme-border-wrap"
             : variant === "style-2"
-            ? "type-1 style-2"
+            ? (alternateColors ? "style-2" : "type-1 style-2")
             : variant === "style-1"
             ? "style-2"
             : "type-2";
 
+    const colorClass = alternateColors && variant === "style-2" ? (index % 2 === 0 ? "color-2" : "color-3") : "";
+
     return (
         <div
-            className={`core-feature-card ${cardTypeClass} ${cardAnimation}`}
+            className={`core-feature-card ${cardTypeClass} ${colorClass} ${cardAnimation}`}
             style={fullWidth ? { maxWidth: "100%" } : undefined}
             data-delay={cardAnimation === "fade-animation" ? 0.15 + (index % 3) * 0.2 : undefined}
             data-direction={cardDirection}
@@ -200,6 +205,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
     sliderType = "dots",
     fullWidth = false,
     highlightWords = [],
+    alternateColors = false,
 }) => {
     const defaultData = features ? features : (variant === "style-1" && !isSlider ? homeFeaturesData : (isSlider ? coreFeaturesData : coreFeaturesData.slice(0, 3)));
     const featuresToDisplay = defaultData;
@@ -215,7 +221,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                     <SectionHeading
                         title={title}
                         highlightWords={highlightWords}
-                        variant={variant === "style-2" ? "style-2" : "style-1"}
+                        variant={variant === "style-2" && !alternateColors ? "style-2" : "style-1"}
                         className={variant === "style-2" ? "bg-black" : ""}
                         description={description}
                         caption={caption}
@@ -326,6 +332,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                         cardAnimation={cardAnimation}
                                         cardDirection={cardDirection}
                                         fullWidth={fullWidth}
+                                        alternateColors={alternateColors}
                                     />
                                 </SwiperSlide>
                             ))}
@@ -344,6 +351,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                 variant={variant}
                                 cardAnimation={cardAnimation}
                                 cardDirection={cardDirection}
+                                alternateColors={alternateColors}
                             />
                         ))}
                     </div>
@@ -363,6 +371,7 @@ const CoreFeaturesSection: React.FC<CoreFeaturesProps> = ({
                                 cardAnimation={cardAnimation}
                                 cardDirection={cardDirection}
                                 fullWidth={fullWidth}
+                                alternateColors={alternateColors}
                             />
                         ))}
                     </div>

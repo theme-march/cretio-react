@@ -370,6 +370,10 @@
   }
   .ak-munu_dropdown_toggle {
     position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
     height: 30px;
     width: 30px;
     right: 20px;
@@ -402,9 +406,16 @@
       width: 100vw;
       left: -12px;
       padding: 10px 0;
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+      pointer-events: none;
       &.ak-show {
-        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
       }
 
       top: 0%;
@@ -434,6 +445,10 @@
   /*Mobile Menu Button*/
   .ak-munu_toggle {
     display: inline-block;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
     width: 30px;
     height: 27px;
     cursor: pointer;
@@ -449,9 +464,11 @@
       display: block;
     }
     span {
-      margin: 0 auto;
-      position: relative;
-      top: 12px;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
       transition-duration: 0s;
       transition-delay: 0.2s;
       &:before {

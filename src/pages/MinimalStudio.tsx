@@ -21,6 +21,7 @@ const MinimalStudio: React.FC = () => {
             <MinimalAboutSection />
             <CoreFeaturesSection
                 variant="style-2"
+                alternateColors={true}
                 title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
                 titleDirection="textLeft"
                 titleEase="back.out(1.7)"
