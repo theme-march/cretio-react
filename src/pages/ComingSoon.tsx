@@ -3,12 +3,13 @@ import useGsapAnimations from "@hooks/useGsapAnimations";
 import ComingSoonSection from "@components/sections/ComingSoonSection";
 
 const ComingSoon: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
 
     return (
-        <>
+        <div ref={containerRef}>
             <ComingSoonSection />
-        </>
+        </div>
     );
 };
 

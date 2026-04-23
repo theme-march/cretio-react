@@ -12,9 +12,10 @@ import NewsletterSection from "@components/sections/NewsletterSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const MinimalStudio: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <MinimalStudioHeroSection />
             <SlidingTextSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -59,7 +60,7 @@ const MinimalStudio: React.FC = () => {
                 formDelay="0.35"
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

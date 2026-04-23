@@ -157,7 +157,7 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsProps> = ({ detailsData 
                 <div className="p-md-5">
                     <div className="ak-accordion">
                         {detailsData.portfolioDetails.accordion.map((item: PortfolioDetailsItem, index: number) => (
-                            <div className="ak-accordion-item" key={index}>
+                            <div className="ak-accordion-item" key={item.id}>
                                 <div
                                     className={`ak-accordion-title-content ${activeAccordion === index ? "active" : ""}`}
                                     onClick={() => handleAccordionClick(index)}

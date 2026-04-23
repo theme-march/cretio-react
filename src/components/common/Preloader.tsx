@@ -63,8 +63,8 @@ const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
             );
         };
 
-        if (typeof (document as any).fonts !== "undefined") {
-            (document as any).fonts.ready.then(() => {
+        if ("fonts" in document) {
+            (document as unknown as { fonts: { ready: Promise<void> } }).fonts.ready.then(() => {
                 setTimeout(startAnimation, 100);
             });
         } else {

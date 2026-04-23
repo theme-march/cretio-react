@@ -1,10 +1,12 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const NotFound: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className="ak-center">
@@ -90,7 +92,7 @@ const NotFound: React.FC = () => {
                 </div>
             </div>
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

@@ -86,11 +86,11 @@ const ServicesSection: React.FC<ServicesProps> = ({
                             disableDespAnimation={true}
                         />
                     )}
-                    {services.map((service, index) => (
+                    {services.map((service) => (
                         <div
                             className="service-card fade-animation"
                             data-direction="bottom"
-                            key={index}
+                            key={service.id}
                             onMouseEnter={handleMouseEnter}
                             onMouseLeave={handleMouseLeave}
                             onMouseMove={handleMouseMove}
@@ -100,8 +100,8 @@ const ServicesSection: React.FC<ServicesProps> = ({
                                 <div className="service-left-info">
                                     <h4 className="service-title">{service.title}</h4>
                                     <ul className="service-lists">
-                                        {service.features.map((feature, i) => (
-                                            <li className="service-list" key={i}>
+                                        {service.features.map((feature) => (
+                                            <li className="service-list" key={feature}>
                                                 <span><i className="flaticon-star-2"></i></span>
                                                 <span> {feature} </span>
                                             </li>

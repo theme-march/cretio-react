@@ -41,7 +41,7 @@ const MarketingHeroSection: React.FC = () => {
     const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
     useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
+        let ctx = gsap.context((self) => {
             const circleButtons = gsap.utils.toArray<HTMLElement>(".circle-btn-anim");
             circleButtons.forEach((btn) => {
                 const strength = 40;
@@ -76,6 +76,13 @@ const MarketingHeroSection: React.FC = () => {
 
                 btn.addEventListener("mousemove", handleMouseMove as EventListener);
                 btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
+
+                self.add(() => {
+                    return () => {
+                        btn.removeEventListener("mousemove", handleMouseMove as EventListener);
+                        btn.removeEventListener("mouseleave", handleMouseLeave as EventListener);
+                    };
+                });
             });
         }, sectionRef);
 

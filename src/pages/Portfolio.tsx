@@ -4,9 +4,10 @@ import PortfolioGridSection from "@components/sections/PortfolioGridSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Portfolio: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Successful Development Projects"
                 highlightWords={["Exceptional", "Projects"]}
@@ -18,7 +19,7 @@ const Portfolio: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <PortfolioGridSection disableAnimationCount={2} />
             <div className="ak-height-150 ak-height-lg-80"></div> 
-        </>
+        </div>
     );
 };
 

@@ -15,9 +15,10 @@ import MarqueeTextSection from "@components/sections/MarqueeTextSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const MarketingAgency: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <MarketingHeroSection />
             <MarketingAboutSection variant="marketing-agency" />
             <BrandingServicesSection variant="marketing-agency" />
@@ -34,6 +35,7 @@ const MarketingAgency: React.FC = () => {
             <MarketingVideoSection />
             <TestimonialSection fadeAnimation={true} />
             <TeamSection 
+                variant="marketing"
                 titleAnimation="fade-animation"
                 titleDirection="right"
                 titleOffset="55"
@@ -46,7 +48,7 @@ const MarketingAgency: React.FC = () => {
             <ClientLogoSection direction="left"/>
             <NewsletterSection />
             <MarqueeTextSection />
-        </>
+        </div>
     );
 };
 

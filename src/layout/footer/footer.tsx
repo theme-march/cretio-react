@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { getImagePath } from "../../utils/imageLoader";
@@ -6,6 +6,7 @@ import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
 import { splitText } from "../../utils/textSplitter";
 import { SafeText } from "../../utils/safeHtml";
+import useGsapAnimations from "../../hooks/useGsapAnimations";
 
 const logos = {
     footer: "src/assets/img/logo/footer-logo.svg",
@@ -25,7 +26,7 @@ const company = {
 };
 
 const contact = {
-    phone: "(406) 555-012",
+    phone: "(406) 555-0120",
     phoneLink: "tel:(406)555-0120",
     address: "901 N Pitt Str., Suite 170 Alexandria, USA",
 };
@@ -49,6 +50,7 @@ const copyright = "© 2025 <span>Thememarch.</span> All rights reserved.";
 
 const Footer: React.FC = () => {
     const footerRef = useRef<HTMLElement>(null);
+    useGsapAnimations(footerRef);
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {

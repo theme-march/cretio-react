@@ -101,7 +101,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                                     </span>
                                     <span>
                                         {links.map((link, index) => (
-                                            <React.Fragment key={index}>
+                                            <React.Fragment key={link.label}>
                                                 {index > 0 && " / "}
                                                 {link.path ? <Link to={link.path}>{link.label}</Link> : link.label}
                                             </React.Fragment>

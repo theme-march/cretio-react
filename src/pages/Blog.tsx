@@ -4,9 +4,10 @@ import BlogSection from "@components/sections/BlogSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Blog: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Recent News"
                 highlightWords={["Exceptional", "News"]}
@@ -19,7 +20,7 @@ const Blog: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <BlogSection showHeading={false} showLoadMore={true} disableAnimation={true} />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

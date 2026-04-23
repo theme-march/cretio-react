@@ -15,18 +15,18 @@ const ContactFormSection: React.FC = () => {
                 <div className="theme-border-wrap contact-form-border hover-animation">
                     <div className="b-top-left">
                         <div className="horizontal"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-top-right d-flex">
                         <div className="horizontal"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-bottom-right d-flex flex-end">
                         <div className="horizontal flex-end align-self-end"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-bottom-left">
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                         <div className="horizontal"></div>
                     </div>
 

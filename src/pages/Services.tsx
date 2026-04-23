@@ -8,9 +8,10 @@ import NewsletterSection from "@/components/sections/NewsletterSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Services: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Digital Transformation Services"
                 highlightWords={["Exceptional", "Services"]}
@@ -47,7 +48,7 @@ const Services: React.FC = () => {
                 underlineReveal={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

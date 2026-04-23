@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import React, { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "@layout/MainLayout";
 import BlankLayout from "@layout/BlankLayout";

@@ -4,9 +4,10 @@ import TeamGridSection from "@components/sections/TeamGridSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Team: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Team Member"
                 highlightWords={["Exceptional", "Member"]}
@@ -21,7 +22,7 @@ const Team: React.FC = () => {
             />
             <TeamGridSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

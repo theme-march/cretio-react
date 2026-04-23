@@ -17,7 +17,7 @@ const MarqueeTextSection: React.FC<MarqueeTextSectionProps> = ({ variant = "styl
                             Product
                         </span>
                         <span className="text-moving style2">
-                            Digital Design / Product Design / Brand Design / Digital Desig /
+                            Digital Design / Product Design / Brand Design / Digital Design /
                             Product
                         </span>
                     </div>
@@ -30,7 +30,11 @@ const MarqueeTextSection: React.FC<MarqueeTextSectionProps> = ({ variant = "styl
                             Product
                         </span>
                         <span className="text-gradient">
-                            Digital Design / Product Design / Brand Design / Digital Desig /
+                            Digital Design / Product Design / Brand Design / Digital Design /
+                            Product
+                        </span>
+                        <span className="text-gradient">
+                            Digital Design / Product Design / Brand Design / Digital Design /
                             Product
                         </span>
                     </div>

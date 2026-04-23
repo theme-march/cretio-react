@@ -1,3 +1,4 @@
+import React from "react";
 import { getImagePath } from "@/utils/imageLoader";
 
 const BlogDetailsBanner: React.FC = () => {

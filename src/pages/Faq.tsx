@@ -6,9 +6,10 @@ import MarqueeTextSection from "@/components/sections/MarqueeTextSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Faq: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Frequently Asked Every Questions To Know"
                 highlightWords={["Frequently"]}
@@ -25,7 +26,7 @@ const Faq: React.FC = () => {
             <NewsletterSection />
             <MarqueeTextSection variant="style2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

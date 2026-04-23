@@ -32,7 +32,7 @@ const PortfolioSection: React.FC = () => {
                     <div className="ak-height-lg-60"></div>
 
                     <h2 className="portfolio-title-content">
-                        Our <span className="highlight">Exceptional</span> Sucessfull
+                        Our <span className="highlight">Exceptional</span> Successful
                         <br />
                         <span className="highlight style-2">Projects</span>
                     </h2>

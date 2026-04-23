@@ -14,7 +14,7 @@ export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
         const lowerPart = part.toLowerCase();
         
         if (lowerPart.startsWith("<br")) {
-          return <br key={index} />;
+          return <br key={`br-${index}`} />;
         }
         
         if (lowerPart === "<b>" || lowerPart === "</b>" || lowerPart === "<i>" || lowerPart === "</i>") {
@@ -22,7 +22,7 @@ export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
         }
 
         if (lowerPart.startsWith("<span")) {
-            return <React.Fragment key={index} />; 
+            return <React.Fragment key={`span-${index}`} />; 
         }
 
         if (lowerPart === "</span>" || part.startsWith("</")) {
@@ -49,7 +49,7 @@ export const SafeText: React.FC<{ text: string }> = ({ text }) => {
         <>
             {parts.map((part, index) => {
                 const lowerPart = part.toLowerCase();
-                if (lowerPart.startsWith("<br")) return <br key={index} />;
+                if (lowerPart.startsWith("<br")) return <br key={`br-${index}`} />;
                 if (lowerPart.startsWith("<span")) {
                     const classMatch = part.match(/class=["']([^"']*)["']/i);
                     currentClass = classMatch ? classMatch[1] : "highlight";
@@ -62,7 +62,7 @@ export const SafeText: React.FC<{ text: string }> = ({ text }) => {
                 if (part.startsWith("<")) return null;
                 
                 if (currentClass) {
-                    return <span key={index} className={currentClass}>{part}</span>;
+                    return <span key={`sc-${index}`} className={currentClass}>{part}</span>;
                 }
                 return part;
             })}
@@ -80,7 +80,7 @@ export const CretioText: React.FC<{ text: string }> = ({ text }) => {
         <>
             {parts.map((part, index) => {
                 const lowerPart = part.toLowerCase();
-                if (lowerPart.startsWith("<br")) return <br key={index} />;
+                if (lowerPart.startsWith("<br")) return <br key={`br-${index}`} />;
                 if (lowerPart.startsWith("<span")) {
                     const classMatch = part.match(/class=["']([^"']*)["']/i);
                     currentClass = classMatch ? classMatch[1] : "highlight";
@@ -93,7 +93,7 @@ export const CretioText: React.FC<{ text: string }> = ({ text }) => {
                 if (part.startsWith("<")) return null;
                 
                 if (currentClass) {
-                    return <span key={index} className={currentClass}>{part}</span>;
+                    return <span key={`sc-${index}`} className={currentClass}>{part}</span>;
                 }
                 return part;
             })}

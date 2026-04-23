@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -20,7 +19,7 @@ interface TeamSectionProps {
     descriptionOffset?: string;
     captionDirection?: string;
     captionOffset?: string;
-    variant?: "default" | "creative-portfolio";
+    variant?: "default" | "creative-portfolio" | "marketing";
     disableDescriptionAnimation?: boolean;
     disableCaptionAnimation?: boolean;
     title?: string;
@@ -41,8 +40,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
     title = 'Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>',
     highlightWords = [],
 }) => {
-    const location = useLocation();
-    const isMarketingAgency = location.pathname === "/marketing-agency";
+    const isMarketingAgency = variant === "marketing";
     const teamMembers = isMarketingAgency ? marketingTeam : standardTeam;
 
     return (
@@ -80,15 +78,15 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                                 data-offset="55"
                             >
                                 <div className="team-img-top ak-parallax" style={{ width: "100%", aspectRatio: "306 / 372", overflow: "hidden" }}>
-                                    <a href="#"><img src={getImagePath(member.image)} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
+                                    <a href="https://facebook.com/"><img src={getImagePath(member.image)} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} /></a>
                                     <div className="team-social-icon">
-                                        <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
-                                        <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
-                                        <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
+                                        <a href="https://facebook.com/" className="icon"><i className="flaticon-facebook-logo"></i></a>
+                                        <a href="https://instagram.com/" className="icon"><i className="flaticon-instagram-logo"></i></a>
+                                        <a href="https://twitter.com/" className="icon"><i className="flaticon-twitter"></i></a>
                                     </div>
                                 </div>
                                 <div className="team-body" style={{ width: "100%", marginTop: "30px" }}>
-                                    <h6 className="team-title"><a href="#">{member.name}</a></h6>
+                                    <h6 className="team-title"><a href="https://facebook.com/">{member.name}</a></h6>
                                     <p className="team-text text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
                                 </div>
                             </div>
@@ -144,16 +142,16 @@ const TeamSection: React.FC<TeamSectionProps> = ({
                             <SwiperSlide key={member.name} className="ak-team-slide">
                                 <div className="border-0 team-card">
                                     <div className="team-img-top ak-parallax">
-                                        <a href="#"><img src={getImagePath(member.image)} alt={member.name} /></a>
+                                        <a href="https://facebook.com/"><img src={getImagePath(member.image)} alt={member.name} /></a>
                                         <div className="team-social-icon">
-                                            <a href="#" className="icon"><i className="flaticon-facebook-logo"></i></a>
-                                            <a href="#" className="icon"><i className="flaticon-instagram-logo"></i></a>
-                                            <a href="#" className="icon"><i className="flaticon-twitter"></i></a>
-                                            <a href="#" className="icon"><i className="flaticon-linkedin"></i></a>
+                                            <a href="https://facebook.com/" className="icon"><i className="flaticon-facebook-logo"></i></a>
+                                            <a href="https://instagram.com/" className="icon"><i className="flaticon-instagram-logo"></i></a>
+                                            <a href="https://twitter.com/" className="icon"><i className="flaticon-twitter"></i></a>
+                                            <a href="https://linkedin.com/" className="icon"><i className="flaticon-linkedin"></i></a>
                                         </div>
                                     </div>
                                     <div className="team-body team-name-parallax" style={{ marginTop: "30px" }}>
-                                        <h6 className="team-title"><a href="#">{member.name}</a></h6>
+                                        <h6 className="team-title"><a href="https://facebook.com/">{member.name}</a></h6>
                                         <p className="team-text text-capitalize fs-6 fw-normal mb-0 opacity-75">{member.role}</p>
                                     </div>
                                 </div>

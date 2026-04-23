@@ -5,55 +5,26 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const testimonialsData = {
-    "defaultTestimonials": [
-        {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-            "image": "testmonial-1.png",
-            "name": "Mostahid Jackma",
-            "location": "From USA"
-        },
-        {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-            "image": "testmonial-2.png",
-            "name": "Morgan Brown",
-            "location": "From USA"
-        },
-        {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-            "image": "testmonial-1.png",
-            "name": "Mostahid Jackma",
-            "location": "From USA"
-        },
-        {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
-            "image": "testmonial-2.png",
-            "name": "Morgan Brown",
-            "location": "From USA"
-        }
-    ],
-    "marketingTestimonials": [
-        {
-            "id": 1,
-            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
-            "name": "Morgan Brown",
-            "location": "From USA",
-            "img": "testmonial-1.png"
-        },
-        {
-            "id": 2,
-            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
-            "name": "Morgan Brown",
-            "location": "From USA",
-            "img": "testmonial-1.png"
-        }
-    ]
-};
 import { getImagePath } from "@/utils/imageLoader";
 import testimonialBg2 from "@assets/img/bg/testimonial-bg-2.png";
 import testimonialSvg from "@assets/img/shape/testimonial.svg";
 
-const testimonials = testimonialsData.marketingTestimonials;
+const testimonials = [
+    {
+        "id": 1,
+        "text": "The SEO strategies implemented have been an absolute <span class=\"highlight\">game-changer</span> for our growth. Their innovative approach significantly boosted our organic traffic and conversions.",
+        "name": "Morgan Brown",
+        "location": "From USA",
+        "img": "testmonial-1.png"
+    },
+    {
+        "id": 2,
+        "text": "Exceptional attention to detail and <span class=\"highlight\">technical expertise</span>. They delivered a high-performance platform that exceeded our expectations and perfectly represents our brand.",
+        "name": "David Smith",
+        "location": "From Canada",
+        "img": "testmonial-2.png"
+    }
+];
 
 interface MarketingTestimonialSectionProps {
     variant?: string;
@@ -103,18 +74,18 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                 <div className="theme-border-wrap">
                     <div className="b-top-left">
                         <div className="horizontal"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-top-right d-flex">
                         <div className="horizontal"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-bottom-right d-flex flex-end">
                         <div className="horizontal flex-end align-self-end"></div>
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                     </div>
                     <div className="b-bottom-left">
-                        <div className="verticle"></div>
+                        <div className="vertical"></div>
                         <div className="horizontal"></div>
                     </div>
                 </div>

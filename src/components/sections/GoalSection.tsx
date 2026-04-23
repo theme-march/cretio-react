@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import goalCircleOverlay from "@assets/img/bg/goal-circle-overlay.png";
 

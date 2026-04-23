@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 const detailsDataDefault = {
     "portfolioDetails": {

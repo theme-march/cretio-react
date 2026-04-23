@@ -5,11 +5,10 @@ import creativeAgencyVideoBg from "@assets/img/bg/creative-agency-video-bg.png";
 import VideoModal from "@components/common/VideoModal";
 
 interface VideoSectionProps {
-    isAbout?: boolean;
-    variant?: "default" | "creative-portfolio";
+    variant?: "default" | "creative-portfolio" | "about";
 }
 
-const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false, variant = "default" }) => {
+const VideoSection: React.FC<VideoSectionProps> = ({ variant = "default" }) => {
     const [isOpen, setIsOpen] = useState(false);
     const videoUrl = "https://www.youtube.com/watch?v=VcaAVWtP48A";
 
@@ -17,12 +16,12 @@ const VideoSection: React.FC<VideoSectionProps> = ({ isAbout = false, variant = 
         <>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div
-                className={`ak-center ak-video-block ak-style1 ak-video-open ak-parallax ak-bg ${isAbout ? "about-video-block" : ""}`}
+                className={`ak-center ak-video-block ak-style1 ak-video-open ak-parallax ak-bg ${variant === "about" ? "about-video-block" : ""}`}
                 onClick={() => setIsOpen(true)}
                 style={{ cursor: "pointer" }}
             >
                 <img
-                    src={variant === "creative-portfolio" ? creativeAgencyVideoBg : (isAbout ? aboutVideoBg : videoBg)}
+                    src={variant === "creative-portfolio" ? creativeAgencyVideoBg : (variant === "about" ? aboutVideoBg : videoBg)}
                     className="video-img ak-bg"
                     alt="Video thumbnail showing creative studio work"
                 />

@@ -5,9 +5,10 @@ import BlogDetailsContent from "@components/sections/BlogDetailsContent";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const BlogDetails: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Recent News"
                 highlightWords={["Exceptional", "News"]}
@@ -24,7 +25,7 @@ const BlogDetails: React.FC = () => {
             <div className="ak-height-85 ak-height-lg-50"></div>
             <BlogDetailsContent disableParallax={true} />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

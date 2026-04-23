@@ -13,9 +13,10 @@ import NewsletterSection from "@components/sections/NewsletterSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const SeoAgency: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <SeoAgencyHeroSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SeoAgencyAboutSection />
@@ -34,7 +35,7 @@ const SeoAgency: React.FC = () => {
             <NewsSection headingVariant="seo-agency" />
             <NewsletterSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

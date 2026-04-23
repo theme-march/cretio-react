@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/navigation";
@@ -17,15 +17,15 @@ import client3 from "@assets/img/client/client-3.png";
 import client4 from "@assets/img/client/client-4.png";
 
 const HeroSection: React.FC = () => {
-    const swiperRef = useRef<Swiper | null>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const sectionRef = useRef<HTMLElement>(null);
 
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            const digitalElems = document.querySelectorAll(".digital");
-            const agencyElems = document.querySelectorAll(".agency");
+            const q = gsap.utils.selector(sectionRef);
+            const digitalElems = q(".digital");
+            const agencyElems = q(".agency");
 
             let digitalChars: Element[] = [];
             digitalElems.forEach((el) => {
@@ -55,13 +55,13 @@ const HeroSection: React.FC = () => {
                     stagger: 0.05,
                     ease: "bounce.out"
                 }, "0.8")
-                .from(".hero-btn", {
+                .from(q(".hero-btn"), {
                     duration: 1,
                     autoAlpha: 0,
                     y: -100,
                     ease: "bounce.out"
                 }, "0.5")
-                .to(".hero-right-image", {
+                .to(q(".hero-right-image"), {
                     duration: 2,
                     width: "0%",
                     ease: "expo.in",
@@ -71,29 +71,7 @@ const HeroSection: React.FC = () => {
 
         }, sectionRef);
 
-        swiperRef.current = new Swiper(".partners-logos-slider", {
-            modules: [Navigation, Scrollbar, Autoplay],
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 4,
-            spaceBetween: 30,
-            navigation: {
-                nextEl: ".partners-logs-button-next",
-                prevEl: ".partners-logs-button-prev",
-            },
-            scrollbar: {
-                el: ".partners-logs-scrollbar",
-            },
-            breakpoints: {
-                320: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                992: { slidesPerView: 3 },
-                1200: { slidesPerView: 4 },
-            },
-        });
+
 
         if (videoRef.current) {
             videoRef.current.play().catch(() => {
@@ -103,7 +81,6 @@ const HeroSection: React.FC = () => {
 
         return () => {
             ctx.revert();
-            if (swiperRef.current) swiperRef.current.destroy();
         };
     }, []);
 
@@ -135,19 +112,36 @@ const HeroSection: React.FC = () => {
                     <div className="partners-section">
                         <h6 className="partners-title">Our Trusted Partner</h6>
                         <div className="ak-slider partners-logos-slider">
-                            <div className="swiper-wrapper">
+                            <Swiper
+                                modules={[Navigation, Scrollbar, Autoplay]}
+                                loop={true}
+                                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                slidesPerView={4}
+                                spaceBetween={30}
+                                navigation={{
+                                    nextEl: ".partners-logs-button-next",
+                                    prevEl: ".partners-logs-button-prev",
+                                }}
+                                scrollbar={{ el: ".partners-logs-scrollbar" }}
+                                breakpoints={{
+                                    320: { slidesPerView: 1 },
+                                    768: { slidesPerView: 2 },
+                                    992: { slidesPerView: 3 },
+                                    1200: { slidesPerView: 4 },
+                                }}
+                            >
                                 {[client1, client2, client3, client4, client1, client2, client3, client4].map((client, i) => (
-                                    <div className="swiper-slide" key={i}>
+                                    <SwiperSlide key={`partner-${i}`}>
                                         <div className="client-logo style2">
                                             <img src={client} alt={`Partner ${i + 1}`} />
                                             <div className="client-info">
-                                                <h6 className="client-title">Credesign</h6>
-                                                <p className="client-shot-title">Portfolio Template</p>
+                                                <h6 className="client-title">Partner Agency</h6>
+                                                <p className="client-shot-title">Digital Solutions</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </SwiperSlide>
                                 ))}
-                            </div>
+                            </Swiper>
                         </div>
                         <div className="partners-swiper-controller">
                             <div className="partners-logs-scrollbar"></div>

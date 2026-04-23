@@ -16,9 +16,10 @@ import useGsapAnimations from "@hooks/useGsapAnimations";
 import aboutVideo from "@assets/videos/about.mp4";
 
 const About: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="We thrive on creativity & innovation in digital presence"
                 highlightWords={["creativity", "innovation"]}
@@ -26,7 +27,7 @@ const About: React.FC = () => {
                 videoSrc={aboutVideo}
                 variant="style-3"
             />
-            <VideoSection isAbout />
+            <VideoSection variant="about" />
             <SlidingTextSection variant="style-2" />
             <AboutContentSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -62,7 +63,7 @@ const About: React.FC = () => {
                 disableFormAnimation={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

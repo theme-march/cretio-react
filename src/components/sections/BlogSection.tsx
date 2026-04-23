@@ -39,8 +39,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({
             )}
             <div className="container">
                 <div className={`blogs-content ${disableAnimation ? "" : "fade-animation"}`}>
-                    {blogPosts.map((post, index) => (
-                        <Link to="/blog/blog-details" className="blog-card" key={index}>
+                    {blogPosts.map((post) => (
+                        <Link to="/blog/blog-details" className="blog-card" key={post.title}>
                             <div className="blog-image">
                                 <img src={getImagePath(post.image)} alt={post.title} />
                             </div>
@@ -65,13 +65,13 @@ const BlogSection: React.FC<BlogSectionProps> = ({
                     <>
                         <div className="ak-height-100 ak-height-lg-50"></div>
                         <div className="ak-center">
-                            <a href="#" className="circle-btn circle-btn-anim">
+                            <button type="button" className="circle-btn circle-btn-anim border-0 bg-transparent p-0">
                                 <span className="text text-uppercase">
                                     Load More<br />
                                     Articles
                                     <i className="flaticon-up-right-arrow"></i>
                                 </span>
-                            </a>
+                            </button>
                         </div>
                     </>
                 )}

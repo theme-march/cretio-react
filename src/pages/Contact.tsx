@@ -6,9 +6,10 @@ import GoogleMapSection from "@components/sections/GoogleMapSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Contact: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Get In Touch With our <br class='d-none d-lg-block' /> Digital Professional Team"
                 highlightWords={["Get In Touch", "Professional Team"]}
@@ -24,7 +25,7 @@ const Contact: React.FC = () => {
             <ContactCardSection />
             <div className="ak-height-150 ak-height-lg-100"></div>
             <GoogleMapSection />
-        </>
+        </div>
     );
 };
 

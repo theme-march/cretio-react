@@ -4,6 +4,43 @@ import { Link } from "react-router-dom";
 
 const ComingSoonSection: React.FC = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [timeLeft, setTimeLeft] = useState({
+        months: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+    });
+
+    React.useEffect(() => {
+        const targetDate = new Date("2026-08-31T00:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = Date.now();
+            const timeRemaining = targetDate - now;
+
+            if (timeRemaining <= 0) {
+                setTimeLeft({ months: 0, days: 0, hours: 0, minutes: 0 });
+                return;
+            }
+
+            const msPerMinute = 1000 * 60;
+            const msPerHour = msPerMinute * 60;
+            const msPerDay = msPerHour * 24;
+            const msPerMonth = msPerDay * 30.44;
+
+            const months = Math.floor(timeRemaining / msPerMonth);
+            const days = Math.floor((timeRemaining % msPerMonth) / msPerDay);
+            const hours = Math.floor((timeRemaining % msPerDay) / msPerHour);
+            const minutes = Math.floor((timeRemaining % msPerHour) / msPerMinute);
+
+            setTimeLeft({ months, days, hours, minutes });
+        };
+
+        const interval = setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        return () => clearInterval(interval);
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -18,18 +55,18 @@ const ComingSoonSection: React.FC = () => {
                     <div className="theme-border-wrap upcomming-soon-border">
                         <div className="b-top-left type2">
                             <div className="horizontal"></div>
-                            <div className="verticle"></div>
+                            <div className="vertical"></div>
                         </div>
                         <div className="b-top-right type2 d-flex">
                             <div className="horizontal"></div>
-                            <div className="verticle"></div>
+                            <div className="vertical"></div>
                         </div>
                         <div className="b-bottom-right type2 d-flex flex-end">
                             <div className="horizontal flex-end align-self-end"></div>
-                            <div className="verticle"></div>
+                            <div className="vertical"></div>
                         </div>
                         <div className="b-bottom-left type2">
-                            <div className="verticle"></div>
+                            <div className="vertical"></div>
                             <div className="horizontal"></div>
                         </div>
                         <div className="container">
@@ -45,7 +82,7 @@ const ComingSoonSection: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>0</span>
+                                                    <span>{timeLeft.months}</span>
                                                 </div>
                                                 <p className="funfact-text">Months</p>
                                             </div>
@@ -53,7 +90,7 @@ const ComingSoonSection: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>0</span>
+                                                    <span>{timeLeft.days}</span>
                                                 </div>
                                                 <p className="funfact-text">Days</p>
                                             </div>
@@ -61,7 +98,7 @@ const ComingSoonSection: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>0</span>
+                                                    <span>{timeLeft.hours}</span>
                                                 </div>
                                                 <p className="funfact-text">Hours</p>
                                             </div>
@@ -69,7 +106,7 @@ const ComingSoonSection: React.FC = () => {
                                         <div className="funfact style1">
                                             <div className="funfact-card style-1">
                                                 <div className="funfact-number">
-                                                    <span>0</span>
+                                                    <span>{timeLeft.minutes}</span>
                                                 </div>
                                                 <p className="funfact-text">Minutes</p>
                                             </div>

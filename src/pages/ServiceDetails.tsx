@@ -8,9 +8,10 @@ import SlidingTextSection from "@components/sections/SlidingTextSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const ServiceDetails: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Android App Development Services"
                 highlightWords={["Exceptional", "Services"]}
@@ -50,7 +51,7 @@ const ServiceDetails: React.FC = () => {
                 disableFormAnimation={true}
             />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

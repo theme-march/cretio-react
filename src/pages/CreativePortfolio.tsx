@@ -15,9 +15,10 @@ import MarketingTestimonialSection from "@components/sections/MarketingTestimoni
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const CreativePortfolio: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <CreativePortfolioHeroSection />
             <SlidingTextSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
@@ -38,7 +39,7 @@ const CreativePortfolio: React.FC = () => {
             <ClientLogoSection showTitle={true} direction="left" />
             <NewsletterSection variant="style-2" />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

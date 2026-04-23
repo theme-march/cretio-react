@@ -16,9 +16,10 @@ import MarqueeTextSection from "@components/sections/MarqueeTextSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const DesignCompany: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <DesignCompanyHeroSection />
             <MarketingAboutSection variant="design-company" />
             <BrandingServicesSection variant="design-company" />
@@ -33,7 +34,7 @@ const DesignCompany: React.FC = () => {
             <NewsSection headingVariant="design-company" />
             <NewsletterSection />
             <MarqueeTextSection />
-        </>
+        </div>
     );
 };
 

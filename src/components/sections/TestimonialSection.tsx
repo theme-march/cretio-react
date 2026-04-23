@@ -12,22 +12,22 @@ const testimonialsData = {
             "location": "From USA"
         },
         {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "text": "“The level of creativity and technical expertise demonstrated by this team is unmatched. They delivered our project ahead of schedule and the results exceeded our wildest expectations.”",
             "image": "testmonial-2.png",
             "name": "Morgan Brown",
-            "location": "From USA"
+            "location": "From UK"
         },
         {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "text": "“We saw a 150% increase in lead generation within the first quarter of launching the new platform. Highly professional communication and an incredible end product.”",
             "image": "testmonial-1.png",
-            "name": "Mostahid Jackma",
-            "location": "From USA"
+            "name": "David Smith",
+            "location": "From Canada"
         },
         {
-            "text": "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+            "text": "“Exceptional attention to detail. They didn't just build a website; they crafted a comprehensive digital experience that perfectly aligns with our brand identity.”",
             "image": "testmonial-2.png",
-            "name": "Morgan Brown",
-            "location": "From USA"
+            "name": "Sarah Jenkins",
+            "location": "From Australia"
         }
     ],
     "marketingTestimonials": [
@@ -77,7 +77,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ fadeAnimation =
                     className="testmonial-slider ak-slider"
                 >
                     {testimonials.map((test, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={`${test.name}-${index}`}>
                             <div className="testmonial-content style-1">
                                 <div className="testmonial-card">
                                     <div className="ak-height-100 ak-height-lg-50"></div>

@@ -42,8 +42,8 @@ const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({
                 </div>
                 <div className="seo-service-lists">
                     <ul>
-                        {services.map((service, index) => (
-                            <li className="service-list-item fade-animation" data-direction="bottom" key={index}>
+                        {services.map((service) => (
+                            <li className="service-list-item fade-animation" data-direction="bottom" key={service.title}>
                                 <Link to="/services/service-details" className="service-list-title btn-flip-text">
                                     <span data-text={service.title}>{service.title}</span>
                                 </Link>

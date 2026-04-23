@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import navItems from "../../dataJson/navitemslist.json";
@@ -150,14 +150,6 @@ const Header: React.FC = () => {
                                         role="button"
                                         aria-label="Open Sidebar Menu"
                                         tabIndex={0}
-                                        onKeyDown={(e) => {
-                                            if (e.key === "Enter" || e.key === " ") {
-                                                const el = document.getElementById('offcanvasRight');
-                                                if (el) {
-                                                    // This is handled by Bootstrap JS, but for accessibility we can add intent
-                                                }
-                                            }
-                                        }}
                                     >
                                         <i className="flaticon-dots-menu"></i>
                                     </div>

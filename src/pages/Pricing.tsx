@@ -9,9 +9,10 @@ import useGsapAnimations from "@hooks/useGsapAnimations";
 import pricingFields from "@/dataJson/pricingFields.json";
 
 const Pricing: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Get Start With our Digital Affordable Pricing Plan"
                 highlightWords={["Get Start", "Pricing Plan"]}
@@ -45,7 +46,7 @@ const Pricing: React.FC = () => {
             />
             <ClientLogoSection showTitle={true} direction="left" />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

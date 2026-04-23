@@ -6,9 +6,10 @@ import ServiceDetailsCta from "@components/sections/ServiceDetailsCta";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const PortfolioDetails: React.FC = () => {
-    useGsapAnimations();
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    useGsapAnimations(containerRef);
     return (
-        <>
+        <div ref={containerRef}>
             <Breadcrumb
                 title="Our Exceptional Successful Development Project"
                 highlightWords={["Exceptional", "Project"]}
@@ -25,7 +26,7 @@ const PortfolioDetails: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <ServiceDetailsCta />
             <div className="ak-height-150 ak-height-lg-80"></div>
-        </>
+        </div>
     );
 };
 

@@ -3,10 +3,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { splitText } from "../utils/textSplitter";
 
-const useGsapAnimations = () => {
+const useGsapAnimations = (containerRef: React.RefObject<HTMLElement | null>) => {
     useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            const fadeArray = gsap.utils.toArray<HTMLElement>(".fade-animation");
+        if (!containerRef.current) return;
+
+        let ctx = gsap.context((self) => {
+            const q = (selector: string) => self.selector!(selector);
+
+            const fadeArray = gsap.utils.toArray<HTMLElement>(q(".fade-animation"));
             fadeArray.forEach((item) => {
                 let fade_direction = item.getAttribute("data-direction") || "bottom";
                 let fade_offset = Number(item.getAttribute("data-offset")) || 50;
@@ -42,7 +46,7 @@ const useGsapAnimations = () => {
                 gsap.from(item, animationProps);
             });
 
-            const imgAnimArray = gsap.utils.toArray<HTMLElement>(".img-anim-left-show");
+            const imgAnimArray = gsap.utils.toArray<HTMLElement>(q(".img-anim-left-show"));
             imgAnimArray.forEach((imgReveal) => {
                 let $imgReveal = imgReveal;
                 let image = $imgReveal.querySelector("img");
@@ -96,7 +100,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const circleButtons = gsap.utils.toArray<HTMLElement>(".circle-btn-anim");
+            const circleButtons = gsap.utils.toArray<HTMLElement>(q(".circle-btn-anim"));
             circleButtons.forEach((btn) => {
                 const strength = 40;
                 const text = btn.querySelector(".text");
@@ -130,9 +134,16 @@ const useGsapAnimations = () => {
 
                 btn.addEventListener("mousemove", handleMouseMove as EventListener);
                 btn.addEventListener("mouseleave", handleMouseLeave as EventListener);
+
+                self.add(() => {
+                    return () => {
+                        btn.removeEventListener("mousemove", handleMouseMove as EventListener);
+                        btn.removeEventListener("mouseleave", handleMouseLeave as EventListener);
+                    };
+                });
             });
 
-            const parallaxBgContainers = gsap.utils.toArray<HTMLElement>(".ak-parallax");
+            const parallaxBgContainers = gsap.utils.toArray<HTMLElement>(q(".ak-parallax"));
             parallaxBgContainers.forEach((element) => {
                 let img = element.querySelector("img") || element;
                 gsap.set(element, { overflow: 'hidden' });
@@ -143,7 +154,7 @@ const useGsapAnimations = () => {
             });
 
 
-            const teamNameParallax = gsap.utils.toArray<HTMLElement>(".team-name-parallax");
+            const teamNameParallax = gsap.utils.toArray<HTMLElement>(q(".team-name-parallax"));
             teamNameParallax.forEach((element) => {
                 let y_start = Number(element.getAttribute("data-parallax-y-start")) || 0;
                 let y_end = Number(element.getAttribute("data-parallax-y-end")) || -30;
@@ -157,12 +168,12 @@ const useGsapAnimations = () => {
                             scrub: true, 
                             start: "top bottom", 
                             end: "bottom top" 
-                        } 
+                         } 
                     }
                 );
             });
 
-            const blogCards = gsap.utils.toArray<HTMLElement>(".blog-card");
+            const blogCards = gsap.utils.toArray<HTMLElement>(q(".blog-card"));
             blogCards.forEach((element) => {
                 let img = element.querySelector("img");
                 if (img) {
@@ -173,7 +184,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const scrollImages = gsap.utils.toArray<HTMLElement>(".image-scroll");
+            const scrollImages = gsap.utils.toArray<HTMLElement>(q(".image-scroll"));
             scrollImages.forEach((element) => {
                 let data_height = Number(element.getAttribute("data-height")) || 250;
                 gsap.set(element, { height: `${data_height}px` });
@@ -186,7 +197,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const videoBlocks = gsap.utils.toArray<HTMLElement>(".ak-video-block");
+            const videoBlocks = gsap.utils.toArray<HTMLElement>(q(".ak-video-block"));
             videoBlocks.forEach((element) => {
                 let img = element.querySelector(".video-img");
                 if (img) {
@@ -197,7 +208,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const slidingContents = gsap.utils.toArray<HTMLElement>(".slideing-text-content");
+            const slidingContents = gsap.utils.toArray<HTMLElement>(q(".slideing-text-content"));
             slidingContents.forEach((content) => {
                 const texts = content.querySelectorAll(".slideing-text");
                 texts.forEach((text, index) => {
@@ -216,7 +227,7 @@ const useGsapAnimations = () => {
                 });
             });
 
-            const titleAnim2Containers = gsap.utils.toArray<HTMLElement>(".title-animation-content");
+            const titleAnim2Containers = gsap.utils.toArray<HTMLElement>(q(".title-animation-content"));
             titleAnim2Containers.forEach((container) => {
                 const divs = container.querySelectorAll(".anim-title-2 div");
                 if (divs.length > 0) {
@@ -234,7 +245,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const textColorShiptions = gsap.utils.toArray<HTMLElement>(".text-color-shiption");
+            const textColorShiptions = gsap.utils.toArray<HTMLElement>(q(".text-color-shiption"));
             textColorShiptions.forEach((elem) => {
                 const colorText = elem.getAttribute("data-color");
                 const splitRes = splitText(elem, "chars, words");
@@ -267,7 +278,7 @@ const useGsapAnimations = () => {
                 }
             });
 
-            const textAnimations = gsap.utils.toArray<HTMLElement>(".text-animation");
+            const textAnimations = gsap.utils.toArray<HTMLElement>(q(".text-animation"));
             textAnimations.forEach((element) => {
                 let split_text = element.getAttribute("data-split-text") || "chars";
                 let fade_direction = element.getAttribute("data-direction") || "textLeft";
@@ -331,7 +342,7 @@ const useGsapAnimations = () => {
                 gsap.from(elementsToAnimate, animationProps);
             });
 
-            const titleAnims = gsap.utils.toArray<HTMLElement>(".title-anim");
+            const titleAnims = gsap.utils.toArray<HTMLElement>(q(".title-anim"));
             titleAnims.forEach((title) => {
                 const delay_value = Number(title.getAttribute("data-delay")) || 0;
                 const duration_value = Number(title.getAttribute("data-duration")) || 1;
@@ -347,9 +358,9 @@ const useGsapAnimations = () => {
                 });
 
                 anim.call(() => {
-                    const newsletterWrapper = document.querySelectorAll(".newsletter-wapper");
-                    newsletterWrapper.forEach((wrapper) => {
-                        wrapper.classList.add("active");
+                    const newsletterWrapper = q(".newsletter-wapper");
+                    newsletterWrapper.forEach((wrapper: Element) => {
+                        (wrapper as HTMLElement).classList.add("active");
                     });
                 }, [], 0.1);
 
@@ -381,7 +392,7 @@ const useGsapAnimations = () => {
 
 
 
-            const contactStrokeTitles = gsap.utils.toArray<HTMLElement>(".contact-title-stroke");
+            const contactStrokeTitles = gsap.utils.toArray<HTMLElement>(q(".contact-title-stroke"));
             contactStrokeTitles.forEach((title) => {
                 gsap.set(title, { perspective: 600 });
 
@@ -411,7 +422,7 @@ const useGsapAnimations = () => {
                     }
                 );
             });
-        });
+        }, containerRef);
 
         const timer = setTimeout(() => {
             ScrollTrigger.refresh();
