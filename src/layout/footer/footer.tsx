@@ -1,16 +1,14 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
-import { getImagePath } from "../../utils/imageLoader";
 import footerBg from "@assets/img/bg/footer-bg.png";
 import footerBgShape from "@assets/img/bg/footer-bgshape.png";
 import { splitText } from "../../utils/textSplitter";
 import { SafeText } from "../../utils/safeHtml";
 import useGsapAnimations from "../../hooks/useGsapAnimations";
+import footerLogo from "@assets/img/logo/footer-logo.svg";
 
-const logos = {
-    footer: "src/assets/img/logo/footer-logo.svg",
-};
+import commonData from "../../dataJson/commonData.json";
 
 const cta = {
     title: "Let's",
@@ -18,17 +16,10 @@ const cta = {
     btnText: "Start Project",
     btnLink: "/contact",
     emailTitle: "Say hello!",
-    email: "info@email.com",
 };
 
 const company = {
     description: "We thrive on creativity and <span>innovation</span>. Our team is constantly exploring new ideas and approaches to ensure your <span> digital presence </span> is fresh.",
-};
-
-const contact = {
-    phone: "(406) 555-0120",
-    phoneLink: "tel:(406)555-0120",
-    address: "901 N Pitt Str., Suite 170 Alexandria, USA",
 };
 
 const footerMenu = [
@@ -39,13 +30,7 @@ const footerMenu = [
     { title: "Contact Us", href: "/contact" },
 ];
 
-const socials = [
-    { title: "Facebook", icon: "flaticon-facebook", link: "#" },
-    { title: "Video/YouTube", icon: "flaticon-video", link: "#" },
-    { title: "LinkedIn", icon: "flaticon-linkedin", link: "#" },
-];
-
-const copyright = "© 2025 <span>Thememarch.</span> All rights reserved.";
+const copyright = `© ${new Date().getFullYear()} <span>Thememarch.</span> All rights reserved.`;
 
 
 const Footer: React.FC = () => {
@@ -114,7 +99,7 @@ const Footer: React.FC = () => {
                             </div>
                             <div className="footer-email">
                                 <p className="email-short-title">{cta.emailTitle}</p>
-                                <a href={`mailto:${cta.email}`}> {cta.email}</a>
+                                <a href={`mailto:${commonData.contactInfo.email}`}> {commonData.contactInfo.email}</a>
                             </div>
                         </div>
                     </div>
@@ -122,20 +107,20 @@ const Footer: React.FC = () => {
                         <div className="about-company">
                             <img
                                 className="footer-logo"
-                                src={getImagePath(logos.footer)}
+                                src={footerLogo}
                                 alt="Logo"
                             />
                             <p className="about-company-desp"><SafeText text={company.description} /></p>
                         </div>
 
                         <div className="address-phn">
-                            <a href={contact.phoneLink} className="phn">
+                            <a href={commonData.contactInfo.phoneLink} className="phn">
                                 <span>
                                     <i className="flaticon-telephone"> </i> 
                                 </span>
-                                {contact.phone}
+                                {commonData.contactInfo.phone}
                             </a>
-                            <p className="address">{contact.address}</p>
+                            <p className="address">{commonData.contactInfo.address}</p>
                         </div>
 
                         <div className="footer-list-content">
@@ -153,7 +138,7 @@ const Footer: React.FC = () => {
                 <div className="container">
                     <div className="ak-space-between">
                         <div className="social-icon">
-                            {socials.map((social) => (
+                            {commonData.socialLinks.map((social) => (
                                 <a key={social.title} href={social.link} className="icon" target="_blank" rel="noopener noreferrer" aria-label={`Follow us on ${social.title}`}>
                                     <i className={social.icon}></i>
                                 </a>

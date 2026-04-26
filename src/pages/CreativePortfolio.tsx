@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import CreativePortfolioHeroSection from "@components/sections/CreativePortfolioHeroSection";
 import SlidingTextSection from "@components/sections/SlidingTextSection";
 import PortfolioIsotopeSection from "@components/sections/PortfolioIsotopeSection";
@@ -19,6 +20,10 @@ const CreativePortfolio: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Creative Portfolio | Cretio – Digital Agency</title>
+                <meta name="description" content="Showcasing our most creative and innovative digital works." />
+            </Helmet>
             <CreativePortfolioHeroSection />
             <SlidingTextSection />
             <div className="ak-height-150 ak-height-lg-80"></div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import ServiceDetailsContent from "@components/sections/ServiceDetailsContent";
 import ProcessSection from "@components/sections/ProcessSection";
@@ -12,6 +13,10 @@ const ServiceDetails: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Service Details | Cretio – Digital Agency</title>
+                <meta name="description" content="Detailed breakdown of our creative and digital services." />
+            </Helmet>
             <Breadcrumb
                 title="Our Exceptional Android App Development Services"
                 highlightWords={["Exceptional", "Services"]}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import DesignCompanyHeroSection from "@components/sections/DesignCompanyHeroSection";
 import MarketingAboutSection from "@components/sections/MarketingAboutSection";
 import BrandingServicesSection from "@components/sections/BrandingServicesSection";
@@ -20,6 +21,10 @@ const DesignCompany: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Design Company | Cretio – Digital Agency</title>
+                <meta name="description" content="Creative design solutions for modern brands and businesses." />
+            </Helmet>
             <DesignCompanyHeroSection />
             <MarketingAboutSection variant="design-company" />
             <BrandingServicesSection variant="design-company" />

@@ -37,14 +37,14 @@ const PortfolioGridSection: React.FC<PortfolioGridSectionProps> = ({
                 </div>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="ak-center">
-                    <a href="#" className="circle-btn style-1 circle-btn-anim">
+                    <Link to="/portfolio" className="circle-btn style-1 circle-btn-anim">
                         <span className="text text-uppercase">
                             Load More
                             <br />
                             Project
                             <i className="flaticon-up-right-arrow"></i>
                         </span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

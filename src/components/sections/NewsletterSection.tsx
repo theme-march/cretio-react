@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CretioText } from "../../utils/safeHtml";
+import { ParsedText } from "../../utils/safeHtml";
 
 import commonData from "../../dataJson/commonData.json";
 import testimonialBg from "@assets/img/shape/testimonial.svg";
@@ -67,7 +67,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                                 {...(titleAnimation && titleDuration ? { "data-duration": titleDuration } : {})}
                                 {...(titleAnimation && titleEase ? { "data-ease": titleEase } : {})}
                             >
-                                <CretioText text={data.title.replace('text-underlines', `text-underlines ${underlineReveal ? "underline-anim" : ""}`)} />
+                                <ParsedText text={data.title.replace('text-underlines', `text-underlines ${underlineReveal ? "underline-anim" : ""}`)} />
                             </h2>
                         </div>
                         {isSubmitted ? (
@@ -81,7 +81,9 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                                 data-delay={formDelay}
                                 onSubmit={handleSubmit}
                             >
+                                <label htmlFor="newsletter-email-3" className="visually-hidden">Enter your email</label>
                                 <input
+                                    id="newsletter-email-3"
                                     type="email"
                                     className="newsletter-input style-2"
                                     placeholder="Enter your email..."
@@ -126,7 +128,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                     <div className="newsletter-content">
                         <div className="newsletter-anim title-anim">
                             <h2 className="newsletter-title anim-line-words">
-                                <CretioText text={data.title} />
+                                <ParsedText text={data.title} />
                             </h2>
                         </div>
                         {isSubmitted ? (
@@ -135,7 +137,9 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
                             </div>
                         ) : (
                             <form className="newsletter-form fade-animation" onSubmit={handleSubmit}>
+                                <label htmlFor="newsletter-email-default" className="visually-hidden">Enter your email</label>
                                 <input
+                                    id="newsletter-email-default"
                                     type="email"
                                     className="newsletter-input"
                                     placeholder="Enter your email..."

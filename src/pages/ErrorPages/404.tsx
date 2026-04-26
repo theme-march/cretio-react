@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
@@ -7,6 +8,10 @@ const NotFound: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Page Not Found | Cretio – Digital Agency</title>
+                <meta name="description" content="The page you are looking for does not exist." />
+            </Helmet>
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className="ak-center">

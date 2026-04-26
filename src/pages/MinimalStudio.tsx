@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import MinimalStudioHeroSection from "@components/sections/MinimalStudioHeroSection";
 import SlidingTextSection from "@components/sections/SlidingTextSection";
 import MinimalAboutSection from "@components/sections/MinimalAboutSection";
@@ -16,6 +17,10 @@ const MinimalStudio: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Minimal Studio | Cretio – Digital Agency</title>
+                <meta name="description" content="Clean and minimalist digital studio experiences by Cretio." />
+            </Helmet>
             <MinimalStudioHeroSection />
             <SlidingTextSection />
             <div className="ak-height-150 ak-height-lg-80"></div>

@@ -57,10 +57,10 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                 <div className="d-flex gap-3 align-items-center">
                     <p className="ak-black-color">Share:</p>
                     <div className="social-icon">
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-facebook"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-video"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-linkedin"></i></a>
-                        <a href="#" className="icon style-2 dark-mode"><i className="flaticon-twitter"></i></a>
+                        <a href="https://facebook.com/" className="icon style-2 dark-mode" aria-label="Share on Facebook" target="_blank" rel="noopener noreferrer"><i className="flaticon-facebook"></i></a>
+                        <a href="https://youtube.com/" className="icon style-2 dark-mode" aria-label="Share on YouTube" target="_blank" rel="noopener noreferrer"><i className="flaticon-video"></i></a>
+                        <a href="https://linkedin.com/" className="icon style-2 dark-mode" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer"><i className="flaticon-linkedin"></i></a>
+                        <a href="https://twitter.com/" className="icon style-2 dark-mode" aria-label="Share on Twitter" target="_blank" rel="noopener noreferrer"><i className="flaticon-twitter"></i></a>
                     </div>
                 </div>
                 <div className="ak-height-100 ak-height-lg-50"></div>
@@ -88,13 +88,16 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                         <form onSubmit={handleSubmit}>
                             <div className="row g-4">
                                 <div className="col-md-6">
-                                    <input required type="text" className="input-text style-2" placeholder="Name" name="name" />
+                                    <label htmlFor="blog-comment-name" className="visually-hidden">Name</label>
+                                    <input required id="blog-comment-name" type="text" className="input-text style-2" placeholder="Name" name="name" />
                                 </div>
                                 <div className="col-md-6">
-                                    <input required type="email" className="input-text style-2" placeholder="Email" name="email" />
+                                    <label htmlFor="blog-comment-email" className="visually-hidden">Email</label>
+                                    <input required id="blog-comment-email" type="email" className="input-text style-2" placeholder="Email" name="email" />
                                 </div>
                                 <div className="col-md-12">
-                                    <textarea name="massage" className="textarea-text style-2" rows={5} placeholder="What's on your mind..."></textarea>
+                                    <label htmlFor="blog-comment-message" className="visually-hidden">What's on your mind</label>
+                                    <textarea id="blog-comment-message" name="message" className="textarea-text style-2" rows={5} placeholder="What's on your mind..."></textarea>
                                 </div>
                             </div>
                             <div className="ak-height-40 ak-height-lg-30"></div>

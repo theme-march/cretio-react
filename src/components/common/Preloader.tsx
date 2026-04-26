@@ -3,9 +3,10 @@ import gsap from "gsap";
 
 interface PreloaderProps {
     onLoadingComplete?: () => void;
+    brandName?: string;
 }
 
-const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
+const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete, brandName = "cretio" }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const preloaderRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<SVGTextElement>(null);
@@ -70,7 +71,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
         } else {
             setTimeout(startAnimation, 500);
         }
-    }, []);
+    }, [onLoadingComplete]);
 
     if (isLoaded) return null;
 
@@ -83,25 +84,18 @@ const Preloader: React.FC<PreloaderProps> = ({ onLoadingComplete }) => {
                         viewBox="0 0 800 300"
                         className="preloader-text-svg"
                     >
-                        <defs>
-                            <linearGradient
-                                id="textGradient"
-                                x1="0%"
-                                y1="0%"
-                                x2="100%"
-                                y2="0%"
-                            >
-                                <stop offset="0%" stopColor="#000" />
-                                <stop offset="50%" stopColor="#000" />
-                                <stop offset="100%" stopColor="#000" />
-                            </linearGradient>
-                        </defs>
                         <text
                             ref={textRef}
                             className="svg-text"
                             id="svgText"
+                            textAnchor="middle"
+                            x="50%"
+                            y="50%"
+                            dominantBaseline="middle"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         >
-                            cretio
+                            {brandName}
                         </text>
                     </svg>
                 </div>

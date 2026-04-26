@@ -39,8 +39,10 @@ const ContactFormSection: React.FC = () => {
                                     <form onSubmit={handleSubmit}>
                                         <div className="row g-4">
                                             <div className="col-md-6">
+                                                <label htmlFor="firstName" className="visually-hidden">First name</label>
                                                 <input
                                                     type="text"
+                                                    id="firstName"
                                                     className="input-text style-2"
                                                     placeholder="First name"
                                                     name="firstName"
@@ -48,8 +50,10 @@ const ContactFormSection: React.FC = () => {
                                                 />
                                             </div>
                                             <div className="col-md-6">
+                                                <label htmlFor="lastName" className="visually-hidden">Last name</label>
                                                 <input
                                                     type="text"
+                                                    id="lastName"
                                                     className="input-text style-2"
                                                     placeholder="Last name"
                                                     name="lastName"
@@ -57,8 +61,10 @@ const ContactFormSection: React.FC = () => {
                                                 />
                                             </div>
                                             <div className="col-md-6">
+                                                <label htmlFor="email" className="visually-hidden">Email</label>
                                                 <input
                                                     type="email"
+                                                    id="email"
                                                     className="input-text style-2"
                                                     placeholder="Email"
                                                     name="email"
@@ -66,8 +72,10 @@ const ContactFormSection: React.FC = () => {
                                                 />
                                             </div>
                                             <div className="col-md-6">
+                                                <label htmlFor="phone" className="visually-hidden">Phone</label>
                                                 <input
                                                     type="tel"
+                                                    id="phone"
                                                     className="input-text style-2"
                                                     placeholder="Phone"
                                                     name="phone"
@@ -75,8 +83,10 @@ const ContactFormSection: React.FC = () => {
                                                 />
                                             </div>
                                             <div className="col-md-12">
+                                                <label htmlFor="subject" className="visually-hidden">Subject</label>
                                                 <input
                                                     type="text"
+                                                    id="subject"
                                                     className="input-text style-2"
                                                     placeholder="Subject"
                                                     name="subject"
@@ -84,7 +94,9 @@ const ContactFormSection: React.FC = () => {
                                                 />
                                             </div>
                                             <div className="col-md-12">
+                                                <label htmlFor="message" className="visually-hidden">Your Message</label>
                                                 <textarea
+                                                    id="message"
                                                     name="message"
                                                     className="textarea-text style-2"
                                                     rows={5}

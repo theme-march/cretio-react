@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
-import { CretioText } from "../../utils/safeHtml";
+import { ParsedText } from "../../utils/safeHtml";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 const commonData = {
@@ -88,7 +88,7 @@ const AboutContentSection: React.FC = () => {
                     <img src={star2} alt="Rotating star element right" className="star-2" />
                 </div>
                 <div className="about-info">
-                    <h3 className="about-title text-color-shiption"><CretioText text={data.title} /></h3>
+                    <h3 className="about-title text-color-shiption"><ParsedText text={data.title} /></h3>
                     <Link to="/portfolio" className="more-btn">
                         <span className="morebtn-text">{data.btnTextAbout}</span>
                         <span className="primary-icon-anim">

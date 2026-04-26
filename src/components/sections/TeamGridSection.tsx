@@ -13,24 +13,24 @@ const TeamGridSection: React.FC = () => {
                     {teamData.map((member) => (
                         <div key={member.id} className="border-0 team-card">
                             <div className="team-img-top ak-parallax">
-                                <a href="#"><img src={getImagePath(member.image)} alt={member.name} /></a>
+                                <div><img src={getImagePath(member.image)} alt={member.name} /></div>
                                 <div className="team-social-icon">
-                                    <a href="#" className="icon">
+                                    <a href="https://facebook.com/" className="icon" aria-label={`${member.name} on Facebook`} target="_blank" rel="noopener noreferrer">
                                         <i className="flaticon-facebook-logo"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="https://instagram.com/" className="icon" aria-label={`${member.name} on Instagram`} target="_blank" rel="noopener noreferrer">
                                         <i className="flaticon-instagram-logo"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="https://twitter.com/" className="icon" aria-label={`${member.name} on Twitter`} target="_blank" rel="noopener noreferrer">
                                         <i className="flaticon-twitter"></i>
                                     </a>
-                                    <a href="#" className="icon">
+                                    <a href="https://linkedin.com/" className="icon" aria-label={`${member.name} on LinkedIn`} target="_blank" rel="noopener noreferrer">
                                         <i className="flaticon-linkedin"></i>
                                     </a>
                                 </div>
                             </div>
                             <div className="team-body">
-                                <h6 className="team-title"><a href="#">{member.name}</a></h6>
+                                <h6 className="team-title"><span>{member.name}</span></h6>
                                 <p className="team-text">{member.role}</p>
                             </div>
                         </div>

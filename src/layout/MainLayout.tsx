@@ -1,5 +1,6 @@
 import React, { Suspense, useEffect, useRef } from "react";
 import { Outlet, useLocation, useNavigationType } from "react-router-dom";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@layout/header/header";
 import Footer from "@layout/footer/footer";
@@ -16,12 +17,7 @@ const MainLayout: React.FC = () => {
     const lenisRef = useRef<Lenis | null>(null);
     const scrollPosRef = useRef(0);
 
-    // 1. Initial Scroll Restoration Setup
-    useEffect(() => {
-        if ("scrollRestoration" in window.history) {
-            window.history.scrollRestoration = "manual";
-        }
-    }, []);
+
 
     // 2. Track Scroll Position
     useEffect(() => {
@@ -91,35 +87,33 @@ const MainLayout: React.FC = () => {
         if (!THEME_CONFIG.smoothScroll) return;
 
         const lenis = new Lenis({
-            duration: 0.4, // Subtle, nearly native duration
-            easing: (t) => 1 - Math.pow(1 - t, 3), // Smooth but responsive cubic ease
+            duration: 1.2,             // ThemeForest-safe: feels smooth, not sluggish
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo ease — snappy start, smooth end
             gestureOrientation: "vertical",
             smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1, // Native-feel on touch
+            wheelMultiplier: 1,        // 1 = native wheel speed, no hijacking feel
+            touchMultiplier: 1,        // native touch speed
             infinite: false,
         });
 
         lenisRef.current = lenis;
+        (window as any).__lenis = lenis;
 
-        const onScroll = () => {
-            ScrollTrigger.update();
+        // Keep ScrollTrigger in sync with Lenis scroll position
+        lenis.on("scroll", () => ScrollTrigger.update());
+
+        // Use gsap ticker instead of manual RAF — more reliable with GSAP
+        const tickerHandler = (time: number) => {
+            lenis.raf(time * 1000);
         };
-
-        lenis.on("scroll", onScroll);
-
-        let rafId: number;
-        const raf = (time: number) => {
-            lenis.raf(time);
-            rafId = requestAnimationFrame(raf);
-        };
-
-        rafId = requestAnimationFrame(raf);
+        gsap.ticker.add(tickerHandler);
+        gsap.ticker.lagSmoothing(0);
 
         return () => {
-            cancelAnimationFrame(rafId);
+            gsap.ticker.remove(tickerHandler);
             lenis.destroy();
             lenisRef.current = null;
+            (window as any).__lenis = null;
         };
     }, []);
 
