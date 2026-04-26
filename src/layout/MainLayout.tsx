@@ -4,10 +4,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "@layout/header/header";
 import Footer from "@layout/footer/footer";
-import ThemeToggle from "@components/common/ThemeToggle";
-import Preloader from "@components/common/Preloader";
-import ScrollToTop from "@components/common/ScrollToTop";
-import LoadingFallback from "@components/common/LoadingFallback";
+import ThemeToggle from "@components/Common/ThemeToggle";
+import Preloader from "@components/Common/Preloader";
+import ScrollToTop from "@components/Common/ScrollToTop";
+import LoadingFallback from "@components/Common/LoadingFallback";
 import Lenis from "lenis";
 import { THEME_CONFIG } from "@/config/theme.config";
 
@@ -138,3 +138,4 @@ const MainLayout: React.FC = () => {
 };
 
 export default MainLayout;
+

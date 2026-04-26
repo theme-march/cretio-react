@@ -7,7 +7,7 @@ import App from "@/App.tsx";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import ErrorBoundary from "@/components/common/ErrorBoundary";
+import ErrorBoundary from "@/components/Common/ErrorBoundary";
 import { HelmetProvider } from "react-helmet-async";
 
 gsap.registerPlugin(ScrollTrigger);
