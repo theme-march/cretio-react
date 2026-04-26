@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import navItems from "../../dataJson/navitemslist.json";
-import { getImagePath } from "../../utils/imageLoader";
 import OffCanvasSidebar from "./OffCanvasSidebar";
-
-const logos = {
-    dark: "src/assets/img/logo/dark-logo.svg",
-    white: "src/assets/img/logo/white-logo.svg",
-};
+import darkLogo from "@assets/img/logo/dark-logo.svg";
+import whiteLogo from "@assets/img/logo/white-logo.svg";
 
 
 const Header: React.FC = () => {
@@ -71,10 +67,10 @@ const Header: React.FC = () => {
                         <div className="ak-main_header_in">
                              <div className="ak-main-header-left">
                                 <Link className="ak-site_branding dark-logo" to="/">
-                                    <img src={getImagePath(logos.dark)} alt="Logo" />
+                                    <img src={darkLogo} alt="Logo" />
                                 </Link>
                                 <Link className="ak-site_branding white-logo" to="/">
-                                    <img src={getImagePath(logos.white)} alt="Logo" />
+                                    <img src={whiteLogo} alt="Logo" />
                                 </Link>
                             </div>
                             <div className="ak-main-header-center">

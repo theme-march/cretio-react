@@ -10,7 +10,6 @@ interface SeoFeature {
 }
 
 const commonData = {
-    // ... skipping other bits of commonData duplication as requested by user
     "seoFeatures": [
         { 
             "id": "01", 

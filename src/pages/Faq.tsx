@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import FaqSection from "@components/sections/FaqSection";
 import NewsletterSection from "@components/sections/NewsletterSection";
@@ -10,6 +11,10 @@ const Faq: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>FAQ | Cretio – Digital Agency</title>
+                <meta name="description" content="Frequently asked questions about Cretio's services and processes." />
+            </Helmet>
             <Breadcrumb
                 title="Frequently Asked Every Questions To Know"
                 highlightWords={["Frequently"]}

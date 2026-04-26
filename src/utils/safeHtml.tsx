@@ -70,7 +70,7 @@ export const SafeText: React.FC<{ text: string }> = ({ text }) => {
     );
 };
 
-export const CretioText: React.FC<{ text: string }> = ({ text }) => {
+export const ParsedText: React.FC<{ text: string }> = ({ text }) => {
     if (!text) return null;
     
     const parts = text.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/gi);

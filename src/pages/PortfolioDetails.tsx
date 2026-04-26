@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PortfolioMainImage from "@components/sections/PortfolioMainImage";
 import PortfolioDetailsContent from "@components/sections/PortfolioDetailsContent";
@@ -10,6 +11,10 @@ const PortfolioDetails: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Portfolio Details | Cretio – Digital Agency</title>
+                <meta name="description" content="In-depth case study of a featured Cretio project." />
+            </Helmet>
             <Breadcrumb
                 title="Our Exceptional Successful Development Project"
                 highlightWords={["Exceptional", "Project"]}

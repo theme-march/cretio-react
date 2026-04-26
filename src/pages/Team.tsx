@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import TeamGridSection from "@components/sections/TeamGridSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
@@ -8,6 +9,10 @@ const Team: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Our Team | Cretio – Digital Agency</title>
+                <meta name="description" content="Meet the talented individuals behind Cretio." />
+            </Helmet>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Team Member"
                 highlightWords={["Exceptional", "Member"]}

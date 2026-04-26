@@ -1,5 +1,5 @@
 import React from "react";
-import { CretioText } from "../../utils/safeHtml";
+import { ParsedText } from "../../utils/safeHtml";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Parallax, Pagination, Autoplay } from "swiper/modules";
@@ -53,7 +53,7 @@ const CreativePortfolioHeroSection: React.FC = () => {
                                     <h1
                                         className="cp-hero-title"
                                         data-swiper-parallax="700"
-                                    ><CretioText text={slide.title} /></h1>
+                                    ><ParsedText text={slide.title} /></h1>
                                 </div>
                             </div>
                         </div>
@@ -91,10 +91,10 @@ const CreativePortfolioHeroSection: React.FC = () => {
                 </div>
 
                 <ul className="cp-social-links">
-                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Facebook"> Facebook</a></li>
-                    <li className="sa-social-item"><a href="#" aria-label="Follow us on LinkedIn">LinkedIn </a></li>
-                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Github">Github </a></li>
-                    <li className="sa-social-item"><a href="#" aria-label="Follow us on Dribbble">Dribbble </a></li>
+                    <li className="sa-social-item"><a href="https://facebook.com/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"> Facebook</a></li>
+                    <li className="sa-social-item"><a href="https://linkedin.com/" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn </a></li>
+                    <li className="sa-social-item"><a href="https://github.com/" aria-label="Follow us on Github" target="_blank" rel="noopener noreferrer">Github </a></li>
+                    <li className="sa-social-item"><a href="https://dribbble.com/" aria-label="Follow us on Dribbble" target="_blank" rel="noopener noreferrer">Dribbble </a></li>
                 </ul>
             </Swiper>
         </div>

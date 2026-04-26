@@ -49,5 +49,16 @@
         "title": "Join Our <span class=\"highlight text-underlines\">Newsletter</span> for Latest <span class=\"highlight\">Exclusive</span> Content",
         "placeholder": "Enter your email...",
         "btnText": "Newsletter"
-    }
+    },
+    "contactInfo": {
+        "email": "info@email.com",
+        "phone": "(406) 555-0120",
+        "phoneLink": "tel:(406)555-0120",
+        "address": "901 N Pitt Str., Suite 170 Alexandria, USA"
+    },
+    "socialLinks": [
+        { "title": "Facebook", "icon": "flaticon-facebook", "link": "https://facebook.com/" },
+        { "title": "YouTube", "icon": "flaticon-video", "link": "https://youtube.com/" },
+        { "title": "LinkedIn", "icon": "flaticon-linkedin", "link": "https://linkedin.com/" }
+    ]
 }

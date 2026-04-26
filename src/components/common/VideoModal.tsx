@@ -14,11 +14,14 @@ const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoUrl }) =>
         setMounted(true);
         if (isOpen) {
             document.body.style.overflow = "hidden";
+            (window as any).__lenis?.stop();
         } else {
             document.body.style.overflow = "";
+            (window as any).__lenis?.start();
         }
         return () => {
             document.body.style.overflow = "";
+            (window as any).__lenis?.start();
         };
     }, [isOpen]);
 

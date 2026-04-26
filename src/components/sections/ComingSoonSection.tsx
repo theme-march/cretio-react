@@ -134,15 +134,16 @@ const ComingSoonSection: React.FC = () => {
                                 Latest <span className="heghtlight">Exclusive</span> Content
                             </h5>
                             <div className="social-icon">
-                                <a href="#" className="icon style-2"><i className="flaticon-facebook"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-linkedin"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-instagram-logo"></i></a>
-                                <a href="#" className="icon style-2"><i className="flaticon-twitter"></i></a>
+                                <a href="https://facebook.com/" className="icon style-2" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"><i className="flaticon-facebook"></i></a>
+                                <a href="https://linkedin.com/" className="icon style-2" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><i className="flaticon-linkedin"></i></a>
+                                <a href="https://instagram.com/" className="icon style-2" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><i className="flaticon-instagram-logo"></i></a>
+                                <a href="https://twitter.com/" className="icon style-2" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer"><i className="flaticon-twitter"></i></a>
                             </div>
                         </div>
                         <div className="email-send-form">
                             <form onSubmit={handleSubmit}>
-                                <input required type="text" name="email" placeholder="Enter your email..." />
+                                <label htmlFor="coming-soon-email" className="visually-hidden">Enter your email</label>
+                                <input required id="coming-soon-email" type="email" name="email" placeholder="Enter your email..." />
                                  <div className="email-send-btn">
                                     <button type="submit" className="more-btn style3 border-0">
                                         <span className="morebtn-text"> Newsletter </span>

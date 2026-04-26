@@ -1,178 +1,73 @@
-/*--------------------------------------------------------------
-7. Video Popup
-----------------------------------------------------------------*/
-
-.ak-pd-video .ak-video-open,
-.ak-sample-img .ak-video-open {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 68px;
-  transition: all 0.3s ease;
-  line-height: 48px;
-}
-
-.ak-video-popup {
+.ak-video-modal-overlay {
   position: fixed;
-  z-index: 1000;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  left: -100%;
-  transition-delay: 0.3s;
-}
-
-.ak-video-popup.active {
-  left: 0;
-  transition-delay: 0s;
-  left: 0;
-}
-
-.ak-video-popup-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background: $white;
-  transition: all 0.4s ease-out;
-  opacity: 0;
-}
-
-.ak-video-popup.active .ak-video-popup-overlay {
-  opacity: 0.8;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.ak-video-popup-content {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  font-size: 0;
-  text-align: center;
-  transition: all 0.4s ease-out;
-  transform: translateY(100px);
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
   visibility: hidden;
-  padding: 15px;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(5px);
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .ak-video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 8px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+  }
+
+  &.open .ak-video-modal-content {
+    transform: scale(1);
+  }
+
+  .ak-video-modal-close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: var(--primary-color, #ff5e14);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: 2px solid #fff;
+
+    &:hover {
+      background: #000;
+      transform: scale(1.1) rotate(90deg);
+    }
+  }
 }
 
-.ak-video-popup.active .ak-video-popup-content {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-}
-
-.ak-video-popup-content:after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
-.ak-video-popup-container {
-  display: inline-block;
-  position: relative;
-  text-align: left;
-  max-width: 1380px;
-  width: 100%;
-  vertical-align: middle;
-}
-
-.ak-video-popup-container .embed-responsive {
-  width: 100%;
-}
-
-.embed-responsive {
-  position: relative;
-  display: block;
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-}
-
-.embed-responsive-16by9::before {
-  display: block;
-  content: "";
-  padding-top: 56.25%;
-}
-
-.embed-responsive iframe,
-.embed-responsive video {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.ak-video-popup-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  background: var(--primary-color);
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-}
-
-.ak-video-popup iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-.ak-video-popup-close:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 1px;
-  background: $white;
-  margin-left: -10px;
-  transform: rotate(-45deg);
-  transition: all 0.4s ease-in-out;
-}
-
-.ak-video-popup-close:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 1px;
-  background: $white;
-  margin-left: -10px;
-  transform: rotate(45deg);
-  transition: all 0.4s ease-in-out;
-}
-
-.ak-video-popup-close:hover:before,
-.ak-video-popup-close:hover:after {
-  background: $black;
-}
-
-.ak-video-popup-layer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.ak-video-popup-align {
-  overflow: hidden;
-}
 .ak-video-block {
   position: relative;
   height: 800px;
@@ -211,5 +106,12 @@
     &.about-video-block {
       height: 400px;
     }
+  }
+  .ak-video-modal-close {
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
   }
 }

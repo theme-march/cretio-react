@@ -1,27 +1,27 @@
-import React, { lazy } from "react";
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "@layout/MainLayout";
 import BlankLayout from "@layout/BlankLayout";
 
-const Home = lazy(() => import("@pages/Home"));
-const About = lazy(() => import("@pages/About"));
-const Services = lazy(() => import("@pages/Services"));
-const ServiceDetails = lazy(() => import("@pages/ServiceDetails"));
-const Portfolio = lazy(() => import("@pages/Portfolio"));
-const PortfolioDetails = lazy(() => import("@pages/PortfolioDetails"));
-const Blog = lazy(() => import("@pages/Blog"));
-const BlogDetails = lazy(() => import("@pages/BlogDetails"));
-const Contact = lazy(() => import("@pages/Contact"));
-const MarketingAgency = lazy(() => import("@pages/MarketingAgency"));
-const DesignCompany = lazy(() => import("@pages/DesignCompany"));
-const CreativePortfolio = lazy(() => import("@pages/CreativePortfolio"));
-const MinimalStudio = lazy(() => import("@pages/MinimalStudio"));
-const SeoAgency = lazy(() => import("@pages/SeoAgency"));
-const Team = lazy(() => import("@pages/Team"));
-const Pricing = lazy(() => import("@pages/Pricing"));
-const Faq = lazy(() => import("@pages/Faq"));
-const NotFound = lazy(() => import("@pages/ErrorPages/404"));
-const ComingSoon = lazy(() => import("@pages/ComingSoon"));
+const Home = React.lazy(() => import("@pages/Home"));
+const About = React.lazy(() => import("@pages/About"));
+const Services = React.lazy(() => import("@pages/Services"));
+const ServiceDetails = React.lazy(() => import("@pages/ServiceDetails"));
+const Portfolio = React.lazy(() => import("@pages/Portfolio"));
+const PortfolioDetails = React.lazy(() => import("@pages/PortfolioDetails"));
+const Blog = React.lazy(() => import("@pages/Blog"));
+const BlogDetails = React.lazy(() => import("@pages/BlogDetails"));
+const Contact = React.lazy(() => import("@pages/Contact"));
+const MarketingAgency = React.lazy(() => import("@pages/MarketingAgency"));
+const DesignCompany = React.lazy(() => import("@pages/DesignCompany"));
+const CreativePortfolio = React.lazy(() => import("@pages/CreativePortfolio"));
+const MinimalStudio = React.lazy(() => import("@pages/MinimalStudio"));
+const SeoAgency = React.lazy(() => import("@pages/SeoAgency"));
+const Team = React.lazy(() => import("@pages/Team"));
+const Pricing = React.lazy(() => import("@pages/Pricing"));
+const Faq = React.lazy(() => import("@pages/Faq"));
+const NotFound = React.lazy(() => import("@pages/ErrorPages/404"));
+const ComingSoon = React.lazy(() => import("@pages/ComingSoon"));
 
 const router = createBrowserRouter([
   {

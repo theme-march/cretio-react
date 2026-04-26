@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CretioText } from "../../utils/safeHtml";
+import { ParsedText } from "../../utils/safeHtml";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -56,7 +56,7 @@ const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = 
                 <SwiperSlide key={item.id}>
                     <div className={`testmonial-content style-2 ${isType2 ? "type-2" : ""}`}>
                         <div className="testmonial-desp-content">
-                            <p className="desp"><CretioText text={item.text} /></p>
+                            <p className="desp"><ParsedText text={item.text} /></p>
                         </div>
                         <div className="testmonial-person-content">
                             <div className="person-img">

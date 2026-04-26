@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import PricingSection from "@components/sections/PricingSection";
 import GoalSection from "@components/sections/GoalSection";
@@ -13,6 +14,10 @@ const Pricing: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Pricing | Cretio – Digital Agency</title>
+                <meta name="description" content="Flexible and affordable pricing plans for our digital services." />
+            </Helmet>
             <Breadcrumb
                 title="Get Start With our Digital Affordable Pricing Plan"
                 highlightWords={["Get Start", "Pricing Plan"]}

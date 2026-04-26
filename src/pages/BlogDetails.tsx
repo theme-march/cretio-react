@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/common/Breadcrumb";
 import BlogDetailsBanner from "@components/sections/BlogDetailsBanner";
 import BlogDetailsContent from "@components/sections/BlogDetailsContent";
@@ -9,6 +10,10 @@ const BlogDetails: React.FC = () => {
     useGsapAnimations(containerRef);
     return (
         <div ref={containerRef}>
+            <Helmet>
+                <title>Blog Details | Cretio – Digital Agency</title>
+                <meta name="description" content="Full article from the Cretio blog." />
+            </Helmet>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Recent News"
                 highlightWords={["Exceptional", "News"]}
