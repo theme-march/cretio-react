@@ -75,7 +75,6 @@ const HeroSection: React.FC = () => {
 
         if (videoRef.current) {
             videoRef.current.play().catch(() => {
-                // Video auto-play prevented
             });
         }
 

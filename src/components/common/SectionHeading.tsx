@@ -21,11 +21,8 @@ interface SectionHeadingProps {
     captionOffset?: string;
     captionDelay?: string;
     descriptionDelay?: string;
-    /** Renders an h6 instead of h2 for the title */
     titleTag?: "h2" | "h6";
-    /** Array of words to highlight with the .highlight class */
     highlightWords?: string[];
-    /** If true, puts fade-animation and data-direction on the left wrapper div (not the title element) */
     leftAnimation?: string;
     leftDirection?: string;
     leftOffset?: string;

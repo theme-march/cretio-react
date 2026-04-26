@@ -11,8 +11,7 @@ const MarketingContactSection: React.FC<MarketingContactSectionProps> = ({ varia
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitted(true);
-        // Reset form or handle submission logic here
-        setTimeout(() => setIsSubmitted(false), 5000); // Hide after 5s
+        setTimeout(() => setIsSubmitted(false), 5000);
     };
 
     return (
