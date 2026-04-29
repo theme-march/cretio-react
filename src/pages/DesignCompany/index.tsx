@@ -8,9 +8,9 @@ import DesignCompanyFunFactSection from "@components/Counter/DesignCompanyFunFac
 import DesignCompanyAwardsSection from "@components/Awards/DesignCompanyAwardsSection";
 import DesignCompanyPricingSection from "@components/Pricing/DesignCompanyPricingSection";
 import DesignCompanyTestimonialSection from "@components/Testimonial/DesignCompanyTestimonialSection";
-import MarketingVideoSection from "@components/VideoModal/MarketingVideoSection";
+import MarketingVideoSection from "@components/Video/MarketingVideoSection";
 import markagVideo from "@assets/videos/markag-video.mp4";
-import ClientLogoSection from "@components/Testimonial/ClientLogoSection";
+import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import DesignCompanyNewsSection from "@components/News/DesignCompanyNewsSection";
 import DefaultNewsletterSection from "@components/Newsletter/DefaultNewsletterSection";
 import MarqueeTextSection from "@components/Brand/MarqueeTextSection";
@@ -44,5 +44,3 @@ const DesignCompany: React.FC = () => {
 };
 
 export default DesignCompany;
-
-

@@ -4,16 +4,15 @@ import MarketingHeroSection from "@components/HeroBanner/MarketingHeroSection";
 import MarketingAgencyAboutSection from "@components/About/MarketingAgencyAboutSection";
 import MarketingAgencyBrandingSection from "@components/Services/MarketingAgencyBrandingSection";
 import FunFactSection from "@components/Counter/FunFactSection";
-import PortfolioSliderSection from "@components/Project/PortfolioSliderSection";
-import TestimonialSection from "@components/Testimonial/TestimonialSection";
-import MarketingAgencyTeamSection from "@components/Team/MarketingAgencyTeamSection";
-import DefaultNewsletterSection from "@components/Newsletter/DefaultNewsletterSection";
-
+import PortfolioSliderSection from "@components/Portfolio/PortfolioSliderSection";
 import MarketingAwardsSection from "@components/Awards/MarketingAwardsSection";
-import MarketingVideoSection from "@components/VideoModal/MarketingVideoSection";
-import MarketingContactSection from "@components/Contact/MarketingContactSection";
-import ClientLogoSection from "@components/Testimonial/ClientLogoSection";
+import MarketingAgencyTeamSection from "@components/Team/MarketingAgencyTeamSection";
+import MarketingVideoSection from "@components/Video/MarketingVideoSection";
+import MarketingTestimonialSection from "@components/Testimonial/MarketingTestimonialSection";
+import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import MarqueeTextSection from "@components/Brand/MarqueeTextSection";
+import DefaultNewsletterSection from "@components/Newsletter/DefaultNewsletterSection";
+import MarketingContactSection from "@components/Contact/MarketingContactSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const MarketingAgency: React.FC = () => {
@@ -35,7 +34,7 @@ const MarketingAgency: React.FC = () => {
             <MarketingAwardsSection />
 
             <MarketingVideoSection />
-            <TestimonialSection fadeAnimation={true} />
+            <MarketingTestimonialSection />
             <MarketingAgencyTeamSection />
 
             <MarketingContactSection />
@@ -47,5 +46,3 @@ const MarketingAgency: React.FC = () => {
 };
 
 export default MarketingAgency;
-
-

@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/Common/Breadcrumb";
-import PortfolioPageGridSection from "@components/Project/PortfolioPageGridSection";
+import PortfolioPageGridSection from "@components/Portfolio/PortfolioPageGridSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Portfolio: React.FC = () => {

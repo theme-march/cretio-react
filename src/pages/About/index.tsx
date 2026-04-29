@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/Common/Breadcrumb";
 import aboutVideo from "@assets/videos/about.mp4";
-import VideoSection from "@components/VideoModal/VideoSection";
+import VideoSection from "@components/Video/VideoSection";
 import SlidingTextSection from "@components/Brand/SlidingTextSection";
 import AboutContentSection from "@components/About/AboutContentSection";
 import AwardsSection from "@components/Awards/AwardsSection";
@@ -11,7 +11,7 @@ import TestimonialSection from "@components/Testimonial/TestimonialSection";
 import FunFactSection from "@components/Counter/FunFactSection";
 import AboutPageFeaturesSection from "@components/Feature/AboutPageFeaturesSection";
 import AboutTeamSection from "@components/Team/AboutTeamSection";
-import ClientLogoSection from "@components/Testimonial/ClientLogoSection";
+import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import AboutNewsletterSection from "@components/Newsletter/AboutNewsletterSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 

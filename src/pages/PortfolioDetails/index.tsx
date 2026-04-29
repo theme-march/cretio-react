@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/Common/Breadcrumb";
-import PortfolioMainImage from "@components/Project/PortfolioMainImage";
-import PortfolioDetailsContent from "@components/Project/PortfolioDetailsContent";
+import PortfolioMainImage from "@components/Portfolio/PortfolioMainImage";
+import PortfolioDetailsContent from "@components/Portfolio/PortfolioDetailsContent";
 import ServiceDetailsCta from "@components/Services/ServiceDetailsCta";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 

@@ -6,7 +6,7 @@ import MinimalAboutSection from "@components/About/MinimalAboutSection";
 import MinimalStudioFeaturesSection from "@components/Feature/MinimalStudioFeaturesSection";
 import MinimalStudioAwardsSection from "@components/Awards/MinimalStudioAwardsSection";
 import MinimalStudioTestimonialSection from "@components/Testimonial/MinimalStudioTestimonialSection";
-import ClientLogoSection from "@components/Testimonial/ClientLogoSection";
+import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import MinimalStudioNewsSection from "@components/News/MinimalStudioNewsSection";
 import MarketingContactSection from "@components/Contact/MarketingContactSection";
 import MinimalStudioNewsletterSection from "@components/Newsletter/MinimalStudioNewsletterSection";

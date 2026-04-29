@@ -4,7 +4,7 @@ import Breadcrumb from "@components/Common/Breadcrumb";
 import PricingSection from "@components/Pricing/PricingSection";
 import GoalSection from "@components/Goal/GoalSection";
 import PricingFeaturesSection from "@components/Feature/PricingFeaturesSection";
-import ClientLogoSection from "@components/Testimonial/ClientLogoSection";
+import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const Pricing: React.FC = () => {
