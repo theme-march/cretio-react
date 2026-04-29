@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import PortfolioDetailsBreadcrumb from "@components/Common/PortfolioDetailsBreadcrumb";
+import Breadcrumb from "@components/Common/Breadcrumb";
 import PortfolioMainImage from "@components/Project/PortfolioMainImage";
 import PortfolioDetailsContent from "@components/Project/PortfolioDetailsContent";
 import ServiceDetailsCta from "@components/Services/ServiceDetailsCta";
@@ -15,7 +15,17 @@ const PortfolioDetails: React.FC = () => {
                 <title>Portfolio Details | Cretio – Digital Agency</title>
                 <meta name="description" content="In-depth case study of a featured Cretio project." />
             </Helmet>
-            <PortfolioDetailsBreadcrumb />
+            <Breadcrumb
+                title="Our Exceptional Successful Development Project"
+                highlightWords={["Exceptional", "Project"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "Project Details", path: "" },
+                ]}
+                variant="style-2"
+                strokeText="Project"
+                showCircle={false}
+            />
             <PortfolioMainImage />
             <PortfolioDetailsContent />
             <div className="ak-height-150 ak-height-lg-80"></div>

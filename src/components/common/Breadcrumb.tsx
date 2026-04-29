@@ -12,10 +12,6 @@ interface BreadcrumbProps {
     circleText?: string;
     showCircle?: boolean;
     strokeTextClass?: string;
-    titleAnimation?: "text-animation" | "fade-animation" | "anim-title-2" | "";
-    titleDirection?: string;
-    titleSplitText?: string;
-    titleDuration?: number;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -28,17 +24,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     circleText,
     showCircle = true,
     strokeTextClass,
-    titleAnimation = "",
-    titleDirection,
-    titleSplitText,
-    titleDuration,
 }) => {
     const videoRef = React.useRef<HTMLVideoElement>(null);
 
     React.useEffect(() => {
         if (videoRef.current) {
             videoRef.current.play().catch(() => {
-                // Breadcrumb video auto-play was prevented
             });
         }
     }, [videoSrc]);
@@ -84,12 +75,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 <div className={variant === "style-1" || variant === "style-3" ? "container container-customize" : "container"}>
                     <div className={`breadcrumb-wapper ${variant === "style-2" ? "style-2" : ""}`}>
                         <div className="breadcrumb-title-box">
-                            <h1 
-                                className={`breadcrumb-title ${titleAnimation}`}
-                                {...(titleDirection && { "data-direction": titleDirection })}
-                                {...(titleSplitText && { "data-split-text": titleSplitText })}
-                                {...(titleDuration && { "data-duration": titleDuration })}
-                            >
+                            <h1 className="breadcrumb-title">
                                 {renderTitle()}
                             </h1>
                             {links && (

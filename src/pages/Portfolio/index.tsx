@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import PortfolioBreadcrumb from "@components/Common/PortfolioBreadcrumb";
+import Breadcrumb from "@components/Common/Breadcrumb";
 import PortfolioPageGridSection from "@components/Project/PortfolioPageGridSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
@@ -13,7 +13,17 @@ const Portfolio: React.FC = () => {
                 <title>Portfolio | Cretio – Digital Agency</title>
                 <meta name="description" content="Showcasing the successful development projects by Cretio." />
             </Helmet>
-            <PortfolioBreadcrumb />
+            <Breadcrumb
+                title="Our Exceptional Successful Development Projects"
+                highlightWords={["Exceptional", "Projects"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "Portfolio", path: "/portfolio" },
+                ]}
+                variant="style-2"
+                strokeText="PORTFOLIO"
+                showCircle={false}
+            />
             <PortfolioPageGridSection />
         </div>
     );

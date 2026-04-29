@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import ServiceDetailsBreadcrumb from "@components/Common/ServiceDetailsBreadcrumb";
+import Breadcrumb from "@components/Common/Breadcrumb";
 import ServiceDetailsMainContent from "@components/Services/ServiceDetailsMainContent";
 import ServiceDetailsProcessSection from "@components/Process/ServiceDetailsProcessSection";
 import PricingSection from "@components/Pricing/PricingSection";
@@ -16,7 +16,17 @@ const ServiceDetails: React.FC = () => {
                 <title>Service Details | Cretio – Digital Agency</title>
                 <meta name="description" content="Detailed information about the digital services provided by Cretio." />
             </Helmet>
-            <ServiceDetailsBreadcrumb />
+            <Breadcrumb
+                title="Our Exceptional Android App Development Services"
+                highlightWords={["Exceptional", "Services"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "Services", path: "/services" },
+                ]}
+                variant="style-2"
+                strokeText="SERVICE"
+                showCircle={false}
+            />
             <ServiceDetailsMainContent />
             <ServiceDetailsProcessSection />
             <PricingSection />

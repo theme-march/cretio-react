@@ -24,7 +24,7 @@ const coreFeaturesData: CoreFeature[] = [
     }
 ];
 
-const ServicesPageFeaturesSection: React.FC = () => {
+const  ServicesPageFeaturesSection: React.FC = () => {
     return (
         <section className="core-features-area ak-gray-bg">
             <div className="container">

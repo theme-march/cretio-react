@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import AboutBreadcrumb from "@components/Common/AboutBreadcrumb";
+import Breadcrumb from "@components/Common/Breadcrumb";
+import aboutVideo from "@assets/videos/about.mp4";
 import VideoSection from "@components/VideoModal/VideoSection";
 import SlidingTextSection from "@components/Brand/SlidingTextSection";
 import AboutContentSection from "@components/About/AboutContentSection";
@@ -25,7 +26,16 @@ const About: React.FC = () => {
                 <title>About Us | Cretio – Digital Agency</title>
                 <meta name="description" content="Learn about the Cretio team and our approach to creative digital solutions." />
             </Helmet>
-            <AboutBreadcrumb />
+            <Breadcrumb
+                title="We thrive on creativity & innovation in digital presence"
+                highlightWords={["creativity", "innovation"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "About Us", path: "/about" },
+                ]}
+                variant="style-3"
+                videoSrc={aboutVideo}
+            />
             <VideoSection variant="about" />
             <SlidingTextSection variant="style-2" />
             <AboutContentSection />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import BlogBreadcrumb from "@components/Common/BlogBreadcrumb";
+import Breadcrumb from "@components/Common/Breadcrumb";
 import BlogPageMainSection from "@components/Blog/BlogPageMainSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
@@ -13,7 +13,18 @@ const Blog: React.FC = () => {
                 <title>Blog | Cretio – Digital Agency</title>
                 <meta name="description" content="Read the latest articles and insights from the Cretio team." />
             </Helmet>
-            <BlogBreadcrumb />
+            <Breadcrumb
+                title="Our Exceptional Digital Industrial Recent News"
+                highlightWords={["Exceptional", "News"]}
+                links={[
+                    { label: "Home", path: "/" },
+                    { label: "Blog", path: "" },
+                ]}
+                variant="style-2"
+                showCircle={false}
+                strokeText="Articles"
+                strokeTextClass="text-normal"
+            />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <BlogPageMainSection />
             <div className="ak-height-150 ak-height-lg-80"></div>

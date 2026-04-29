@@ -11,17 +11,11 @@ import "swiper/css/scrollbar";
 interface HomeTeamSliderProps {
     title?: string;
     highlightWords?: string[];
-    titleDirection?: string;
-    disableDescriptionAnimation?: boolean;
-    disableCaptionAnimation?: boolean;
 }
 
 const HomeTeamSlider: React.FC<HomeTeamSliderProps> = ({
     title = 'Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>',
     highlightWords = [],
-    titleDirection,
-    disableDescriptionAnimation = false,
-    disableCaptionAnimation = false,
 }) => {
     return (
         <section>
@@ -33,9 +27,6 @@ const HomeTeamSlider: React.FC<HomeTeamSliderProps> = ({
                     description="Meet our team of digital experts committed to delivering excellence through innovation, creative strategy, and technical precision."
                     caption="426+ Team Members"
                     variant="style-1"
-                    titleDirection={titleDirection}
-                    disableDespAnimation={disableDescriptionAnimation}
-                    disableCaptionAnimation={disableCaptionAnimation}
                 />
             </div>
             <div className="ak-height-75 ak-height-lg-50"></div>

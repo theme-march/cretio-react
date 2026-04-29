@@ -14,10 +14,9 @@ const awardsData: Award[] = [
 ];
 
 interface DesignCompanyAwardsSectionProps {
-    titleAnimation?: "text-animation" | "fade-animation";
 }
 
-const DesignCompanyAwardsSection: React.FC<DesignCompanyAwardsSectionProps> = ({ titleAnimation = "text-animation" }) => {
+const DesignCompanyAwardsSection: React.FC<DesignCompanyAwardsSectionProps> = ({}) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
     const [hoverImg, setHoverImg] = useState<string>(getImagePath(awardsData[0].hoverImg));
@@ -62,7 +61,7 @@ const DesignCompanyAwardsSection: React.FC<DesignCompanyAwardsSectionProps> = ({
                 highlightWords={["Awards"]}
                 caption="Awards" 
                 variant="style-2"
-                titleAnimation={titleAnimation}
+                titleAnimation="text-animation"
                 titleDuration={1.5}
                 titleDirection="textLeft"
                 rightAnimation="fade-animation"

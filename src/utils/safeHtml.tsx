@@ -6,7 +6,7 @@ interface SafeHTMLProps {
 export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
   if (!html) return null;
 
-  const parts = html.split(/(<br\s*\/?>|<\/?b>|<\/?i>|<span[^>]*>|<\/span>)/gi);
+  const parts = html.split(/(<br[^>]*>|<\/?b>|<\/?i>|<span[^>]*>|<\/span>)/gi);
 
   return (
     <>
@@ -14,7 +14,9 @@ export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
         const lowerPart = part.toLowerCase();
         
         if (lowerPart.startsWith("<br")) {
-          return <br key={`br-${index}`} />;
+          const classMatch = part.match(/class=["']([^"']*)["']/i);
+          const className = classMatch ? classMatch[1] : undefined;
+          return <br key={`br-${index}`} className={className} />;
         }
         
         if (lowerPart === "<b>" || lowerPart === "</b>" || lowerPart === "<i>" || lowerPart === "</i>") {
@@ -42,14 +44,18 @@ export const SafeHTML: React.FC<SafeHTMLProps> = ({ html }) => {
 export const SafeText: React.FC<{ text: string }> = ({ text }) => {
     if (!text) return null;
     
-    const parts = text.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/gi);
+    const parts = text.split(/(<br[^>]*>|<span[^>]*>|<\/span>)/gi);
     let currentClass = "";
     
     return (
         <>
             {parts.map((part, index) => {
                 const lowerPart = part.toLowerCase();
-                if (lowerPart.startsWith("<br")) return <br key={`br-${index}`} />;
+                if (lowerPart.startsWith("<br")) {
+                    const classMatch = part.match(/class=["']([^"']*)["']/i);
+                    const className = classMatch ? classMatch[1] : undefined;
+                    return <br key={`br-${index}`} className={className} />;
+                }
                 if (lowerPart.startsWith("<span")) {
                     const classMatch = part.match(/class=["']([^"']*)["']/i);
                     currentClass = classMatch ? classMatch[1] : "highlight";
@@ -73,14 +79,18 @@ export const SafeText: React.FC<{ text: string }> = ({ text }) => {
 export const ParsedText: React.FC<{ text: string }> = ({ text }) => {
     if (!text) return null;
     
-    const parts = text.split(/(<br\s*\/?>|<span[^>]*>|<\/span>)/gi);
+    const parts = text.split(/(<br[^>]*>|<span[^>]*>|<\/span>)/gi);
     let currentClass = "";
     
     return (
         <>
             {parts.map((part, index) => {
                 const lowerPart = part.toLowerCase();
-                if (lowerPart.startsWith("<br")) return <br key={`br-${index}`} />;
+                if (lowerPart.startsWith("<br")) {
+                    const classMatch = part.match(/class=["']([^"']*)["']/i);
+                    const className = classMatch ? classMatch[1] : undefined;
+                    return <br key={`br-${index}`} className={className} />;
+                }
                 if (lowerPart.startsWith("<span")) {
                     const classMatch = part.match(/class=["']([^"']*)["']/i);
                     currentClass = classMatch ? classMatch[1] : "highlight";

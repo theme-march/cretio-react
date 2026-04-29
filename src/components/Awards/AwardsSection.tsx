@@ -15,26 +15,10 @@ const awardsData: Award[] = [
 
 interface AwardsSectionProps {
     showTopGap?: boolean;
-    titleAnimation?: "text-animation" | "fade-animation";
-    titleDirection?: string;
-    captionDirection?: string;
-    captionDelay?: string;
-    titleOffset?: string;
-    titleEase?: string;
-    titleDuration?: number;
-    captionOffset?: string;
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
     showTopGap = false,
-    titleAnimation,
-    titleDirection,
-    titleEase,
-    titleDuration,
-    captionDirection,
-    captionDelay,
-    titleOffset,
-    captionOffset,
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
     const hoverRef = useRef<HTMLDivElement>(null);
@@ -81,14 +65,6 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                 highlightWords={["Awards"]}
                 caption="Awards" 
                 variant="style-2"
-                titleAnimation={titleAnimation}
-                titleDuration={titleDuration}
-                titleDirection={titleDirection}
-                titleEase={titleEase}
-                captionDirection={captionDirection}
-                captionDelay={captionDelay}
-                titleOffset={titleOffset}
-                captionOffset={captionOffset}
             />
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="awards-box">
