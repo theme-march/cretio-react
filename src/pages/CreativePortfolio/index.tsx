@@ -9,11 +9,9 @@ import AwardsSection from "@components/Awards/AwardsSection";
 import PricingSection from "@components/Pricing/PricingSection";
 import CreativeTeamSlider from "@components/Team/CreativeTeamSlider";
 import VideoSection from "@components/Video/VideoSection";
-import CreativePortfolioFeaturesSection from "@components/Feature/CreativePortfolioFeaturesSection";
 import CreativeNewsSection from "@components/News/CreativeNewsSection";
 import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import CreativeNewsletterSection from "@components/Newsletter/CreativeNewsletterSection";
-import MarketingTestimonialSection from "@components/Testimonial/MarketingTestimonialSection";
 import TestimonialSection from "@components/Testimonial/TestimonialSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 

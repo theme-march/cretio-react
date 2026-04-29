@@ -34,10 +34,9 @@ const SeoAgency: React.FC = () => {
             <SeoAgencyLeadsSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <SeoAgencyTestimonialSection />
-
             <div className="ak-height-150 ak-height-lg-0"></div>
             <MethodologySection />
-            <ClientLogoSection />
+            <ClientLogoSection limit={5} />
             <SeoAgencyNewsSection />
             <DefaultNewsletterSection />
             <div className="ak-height-150 ak-height-lg-80"></div>

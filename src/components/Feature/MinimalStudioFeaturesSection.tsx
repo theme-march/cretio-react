@@ -7,32 +7,35 @@ const coreFeaturesData: CoreFeature[] = [
     {
         id: "01",
         icon: "flaticon-circle",
-        title: "Web Development",
-        description: "We build fast, scalable, and maintainable web applications tailored to your business goals and user needs.",
+        title: "Strategic Marketing",
+        description: "We define your unique brand identity and market positioning to ensure your vision with your target audience.",
     },
     {
         id: "02",
         icon: "flaticon-folded",
-        title: "UI/UX Design",
-        description: "Our design team crafts intuitive interfaces that balance aesthetics with functionality for a seamless user journey.",
+        title: "Digital Experience",
+        description: "Our team designs interactions focusing on intuitive navigation and minimalist aesthetics for your users.",
     },
     {
         id: "03",
         icon: "flaticon-twirl",
-        title: "Web Design",
-        description: "From landing pages to full websites, we create visually compelling designs that reflect your brand identity.",
+        title: "Creative Solutions",
+        description: "We deliver design concepts that transform complex business challenges into simple, effective visual stories.",
     }
 ];
 
 const MinimalStudioFeaturesSection: React.FC = () => {
     return (
-        <section className="core-features-area">
+        <section className="core-features-area ak-solidblack-bg">
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <SectionHeading
                     title='Our <span class="highlight">Exceptional</span> Digital Transformation <span class="highlight">Services</span>'
-                    description="Our studio is dedicated to crafting minimalist digital experiences that prioritize clarity, aesthetics, and user engagement."
+                    description="Our studio specializes in elevating brands design principles, ensuring every digital touchpoint is highly functional."
                     caption="Top Trio Services"
+                    className="bg-black"
                     variant="style-1"
+                    descriptionClassName="ak-color-c1c1c1"
                     titleDirection="textLeft"
                     titleEase="back.out(1.7)"
                     titleDuration={1}
@@ -41,11 +44,7 @@ const MinimalStudioFeaturesSection: React.FC = () => {
                     captionDirection="right"
                     captionDelay="0.55"
                 />
-            </div>
-
-            <div className="ak-height-75 ak-height-lg-50"></div>
-
-            <div className="container">
+                <div className="ak-height-75 ak-height-lg-50"></div>
                 <div className="core-features">
                     {coreFeaturesData.slice(0, 3).map((feature, index) => (
                         <CoreFeatureCard
@@ -59,6 +58,7 @@ const MinimalStudioFeaturesSection: React.FC = () => {
                     ))}
                 </div>
             </div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </section>
     );
 };

@@ -67,26 +67,26 @@ const MethodologySection: React.FC = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            ScrollTrigger.matchMedia({
-                "(min-width: 1200px)": function () {
-                    const pbmitpanels = panelsRef.current.filter(Boolean) as HTMLDivElement[];
-                    if (pbmitpanels.length === 0 || !wrapperRef.current) return;
+            let mm = gsap.matchMedia();
+            
+            mm.add("(min-width: 1200px)", () => {
+                const pbmitpanels = panelsRef.current.filter(Boolean) as HTMLDivElement[];
+                if (pbmitpanels.length === 0 || !wrapperRef.current) return;
 
-                    const spacer = 0;
-                    let pbmitheight = pbmitpanels[0].offsetHeight + 125;
+                const pbmitheight = pbmitpanels[0].offsetHeight + 125;
 
-                    pbmitpanels.forEach((pbmitpanel, i) => {
-                        gsap.set(pbmitpanel, { left: `${i * 25}%` });
-                        ScrollTrigger.create({
-                            trigger: pbmitpanel,
-                            start: () => "top 125px",
-                            endTrigger: wrapperRef.current,
-                            end: `bottom top+=${pbmitheight + pbmitpanels.length * spacer}`,
-                            pin: true,
-                            pinSpacing: false,
-                        });
+                pbmitpanels.forEach((pbmitpanel, i) => {
+                    gsap.set(pbmitpanel, { left: `${i * 25}%` });
+                    ScrollTrigger.create({
+                        trigger: pbmitpanel,
+                        start: "top 125px",
+                        endTrigger: wrapperRef.current,
+                        end: `bottom top+=${pbmitheight}`,
+                        pin: true,
+                        pinSpacing: false,
+                        markers: false,
                     });
-                },
+                });
             });
         }, wrapperRef);
 
@@ -95,7 +95,6 @@ const MethodologySection: React.FC = () => {
 
     return (
         <div ref={wrapperRef}>
-            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="methodology-wrapper">
                 <div className="container-fluid">
                     <div className="row row-cols-xl-4 row-cols-lg-2 row-cols-1 g-4 flex-row flex-xl-column">

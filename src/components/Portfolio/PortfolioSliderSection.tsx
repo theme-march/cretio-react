@@ -12,6 +12,8 @@ const portfolioItems = projectsData.sliderProjects;
  
 const PortfolioSliderSection: React.FC = () => {
     const swiperContainerRef = useRef<HTMLDivElement>(null);
+    // Duplicate items to ensure smooth looping with few items
+    const loopedPortfolioItems = [...portfolioItems, ...portfolioItems];
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -52,7 +54,7 @@ const PortfolioSliderSection: React.FC = () => {
                     </div>
                     <div className="ak-section-right fade-animation" data-direction="left" data-offset="55" data-delay="0.3">
                         <p className="ak-section-desp">
-                            Explore our curated selection of high-impact digital marketing projects that demonstrate our commitment to excellence and creative innovation.
+                            Explore our curated selection of high-impact digital marketing projects that demonstrate our commitment to excellence.
                         </p>
                         <div className="d-flex justify-content-between align-items-center flex-wrap">
                             <div className="ak-section-caption">
@@ -102,9 +104,12 @@ const PortfolioSliderSection: React.FC = () => {
                     }}
                     className="ak-team-slider"
                     loop={true}
+                    speed={1000}
+                    grabCursor={true}
+                    watchSlidesProgress={true}
                 >
-                    {portfolioItems.map((item) => (
-                        <SwiperSlide key={item.id} style={{ padding: "0 12px" }}>
+                    {loopedPortfolioItems.map((item, index) => (
+                        <SwiperSlide key={`${item.id}-${index}`} style={{ padding: "0 12px" }}>
                             <Link 
                                 to="/portfolio/portfolio-details" 
                                 className="team-card border-0" 

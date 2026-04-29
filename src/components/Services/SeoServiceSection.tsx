@@ -25,7 +25,7 @@ const SeoServiceSection: React.FC<SeoServiceSectionProps> = ({
             <SectionHeading
                 title={title}
                 highlightWords={highlightWords}
-                description="Our comprehensive SEO solutions are designed to improve your search visibility, drive organic traffic, and accelerate business growth."
+                description="Our SEO solutions are designed to improve your search visibility, drive organic traffic, and accelerate business growth."
                 caption="Services"
                 titleAnimation={isSeoAgency ? "" : "text-animation"}
                 titleDirection={isSeoAgency ? "bottom" : "textTop"}

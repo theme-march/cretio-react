@@ -7,19 +7,19 @@ const homeFeaturesData: CoreFeature[] = [
         id: "01",
         icon: "flaticon-circle",
         title: "Strategic Marketing",
-        description: "We develop data-driven marketing strategies that amplify your brand's reach and engage your target audience effectively."
+        description: "We develop marketing strategies that amplify your brand's reach and engage your target audience effectively."
     },
     {
         id: "02",
         icon: "flaticon-folded",
         title: "Brand Identity",
-        description: "Our team crafts unique visual identities and brand stories that resonate with customers and build long-term loyalty."
+        description: "Our team crafts visual identities and brand stories that resonate with customers and build long-term loyalty."
     },
     {
         id: "03",
         icon: "flaticon-twirl",
         title: "Digital Growth",
-        description: "We leverage cutting-edge technology and creative solutions to accelerate your business growth in the digital landscape."
+        description: "We leverage cutting-edge technology to accelerate your business growth in the digital landscape."
     }
 ];
 
@@ -38,6 +38,7 @@ const HomeFeaturesSection: React.FC = () => {
                             variant="style-1"
                             cardAnimation="fade-animation"
                             cardDirection="left"
+                            descriptionClassName="ak-color-c1c1c1"
                         />
                     ))}
                 </div>

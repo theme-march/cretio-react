@@ -15,7 +15,7 @@ const CreativeTeamSlider: React.FC = () => {
             <div className="container">
                 <SectionHeading
                     title='Our <span class="highlight">Exceptional</span> Digital Industrial <span class="highlight">Team Members</span>'
-                    description="Meet our team of digital experts committed to delivering excellence through innovation, creative strategy, and technical precision."
+                    description="Meet our team of digital experts committed to delivering excellence through innovation and technical precision."
                     caption="426+ Team Members"
                     variant="style-1"
                     titleDirection="textLeft"

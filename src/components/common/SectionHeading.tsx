@@ -32,6 +32,7 @@ interface SectionHeadingProps {
     rightDirection?: string;
     rightOffset?: string;
     rightDelay?: string;
+    descriptionClassName?: string;
 }
 
 const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -65,6 +66,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     rightDirection,
     rightOffset,
     rightDelay,
+    descriptionClassName = "",
 }) => {
     const TitleTag = titleTag;
     const leftWrapperClass = leftAnimation ? `ak-section-left ${leftAnimation}` : "ak-section-left";
@@ -135,7 +137,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
                 >
                     {description && (
                         <p
-                            className={`ak-section-desp ${!disableDespAnimation ? (descriptionDirection === "none" ? "text-animation" : "fade-animation") : ""}`}
+                            className={`ak-section-desp ${descriptionClassName} ${!disableDespAnimation ? (descriptionDirection === "none" ? "text-animation" : "fade-animation") : ""}`.trim()}
                             {...(!disableDespAnimation ? {
                                 "data-direction": descriptionDirection,
                                 "data-split-text": descriptionDirection === "none" ? "none" : undefined,

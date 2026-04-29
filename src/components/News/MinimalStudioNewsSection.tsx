@@ -69,7 +69,7 @@ const MinimalStudioNewsSection: React.FC = () => {
                     navigation={{ nextEl: `.${prefix}-button-next`, prevEl: `.${prefix}-button-prev` }}
                     scrollbar={{ el: `.${prefix}-scrollbar` }}
                     breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }}
-                    className="mt-4 ak-slider ak-news-slider"
+                    className="mt-4 ak-slider ak-news-slider ak-news-no-hover"
                 >
                     {newsItems.map((item) => (
                         <SwiperSlide key={item.id} className="p-0">

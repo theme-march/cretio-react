@@ -204,7 +204,7 @@ const MarketingHeroSection: React.FC = () => {
                 <div className="marketing-agency-cta cta-section">
                     <div className="cta-content pb-2">
                         <p className="cta-desp">
-                            Empower your business with innovative marketing strategies that drive real results and create lasting impact in your industry.
+                            Empower your business with innovative marketing strategies that drive real results.
                         </p>
                     </div>
                     <div className="cta-circle">

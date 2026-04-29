@@ -43,13 +43,16 @@ const coreFeaturesData: CoreFeature[] = [
 
 const AboutPageFeaturesSection: React.FC = () => {
     return (
-        <section className="core-features-area">
+        <section className="core-features-area ak-solidblack-bg">
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <SectionHeading
                     title="Our Exceptional Digital Transformation Services"
-                    description="We deliver end-to-end digital solutions that drive growth, enhance user experience, and position your brand at the forefront of innovation."
+                    description="We deliver digital solutions that drive growth, enhance user experience, and position your brand at the forefront of innovation."
                     caption="Services"
                     variant="style-1"
+                    className="bg-black"
+                    descriptionClassName="ak-color-c1c1c1"
                     highlightWords={["Exceptional", "Services"]}
                     disableDespAnimation={true}
                     disableCaptionAnimation={true}
@@ -100,6 +103,7 @@ const AboutPageFeaturesSection: React.FC = () => {
                 </Swiper>
                 <div className="core-features-swiper-pagination"></div>
             </div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </section>
     );
 };

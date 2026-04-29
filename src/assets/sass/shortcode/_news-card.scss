@@ -67,6 +67,17 @@
     }
   }
 }
+.ak-news-no-hover {
+  .news-card {
+    &:hover {
+      .news-img-content {
+        .news-img-top {
+          transform: none;
+        }
+      }
+    }
+  }
+}
 .dark {
   .news-swiper-controller {
     .news-logs-navigation {

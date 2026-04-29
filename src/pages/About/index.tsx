@@ -45,12 +45,9 @@ const About: React.FC = () => {
             <TestimonialSection />
             <FunFactSection />
             <AboutPageFeaturesSection />
-
             <AboutTeamSection />
- 
             <ClientLogoSection variant="about" />
             <AboutNewsletterSection />
-
             <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
     );

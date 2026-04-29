@@ -24,7 +24,7 @@ const HomeTeamSlider: React.FC<HomeTeamSliderProps> = ({
                 <SectionHeading
                     title={title}
                     highlightWords={highlightWords}
-                    description="Meet our team of digital experts committed to delivering excellence through innovation, creative strategy, and technical precision."
+                    description="Meet our team of digital experts committed to delivering excellence through innovation, technical precision."
                     caption="426+ Team Members"
                     variant="style-1"
                 />

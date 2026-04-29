@@ -26,17 +26,14 @@ const MinimalStudio: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <MinimalAboutSection />
             <MinimalStudioFeaturesSection />
-
             <MinimalStudioAwardsSection />
-
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <MinimalStudioTestimonialSection />
-
             <ClientLogoSection direction="left" />
-
             <MinimalStudioNewsSection />
             <MarketingContactSection variant="style-2" />
             <MinimalStudioNewsletterSection />
-<div className="ak-height-150 ak-height-lg-80"></div>
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
     );
 };

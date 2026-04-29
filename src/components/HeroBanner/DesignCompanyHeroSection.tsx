@@ -41,7 +41,7 @@ const DesignCompanyHeroSection: React.FC = () => {
                             <div className="dc-hero-bottom-content">
                                 <div className="dc-hero-desp">
                                     <p className="fade-animation" data-delay="0.6">
-                                        We are a full-service design studio focused on building premium digital experiences that empower brands to connect with their audience in meaningful ways.
+                                        We are a design studio focused on building premium digital experiences that empower brands to connect with their audience in meaningful ways.
                                     </p>
                                 </div>
                                 <h2 className="dc-hero-title text-2 fade-animation" data-direction="right" data-delay="0.8">
@@ -54,7 +54,7 @@ const DesignCompanyHeroSection: React.FC = () => {
                                 <Link to="/contact" className="circle-btn style-2 circle-btn-anim">
                                     <span className="text">
                                         Start
-                                        <i className="flaticon-up-right-arrow"></i>
+                                        <span> <i className="flaticon-up-right-arrow"></i></span>
                                         <br />
                                         Project
                                     </span>

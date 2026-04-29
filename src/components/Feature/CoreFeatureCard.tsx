@@ -43,6 +43,7 @@ interface CoreFeatureCardProps {
     cardDirection?: string;
     fullWidth?: boolean;
     alternateColors?: boolean;
+    descriptionClassName?: string;
 }
 
 const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
@@ -53,6 +54,7 @@ const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
     cardDirection,
     fullWidth,
     alternateColors,
+    descriptionClassName = "",
 }) => {
     const cardTypeClass =
         variant === "style-3"
@@ -77,7 +79,7 @@ const CoreFeatureCard: React.FC<CoreFeatureCardProps> = ({
                 <i className={feature.icon}></i>
             </div>
             <h6 className="core-feature-title">{feature.title}</h6>
-            <p className="core-feature-desp">{feature.description}</p>
+            <p className={`core-feature-desp ${descriptionClassName}`.trim()}>{feature.description}</p>
             <p className="core-feature-number">{feature.id}</p>
         </div>
     );

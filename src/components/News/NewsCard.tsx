@@ -21,7 +21,6 @@ interface NewsCardProps {
 const NewsCard: React.FC<NewsCardProps> = ({ 
     item, 
     isDesignCompany, 
-    isSeoAgency, 
     headingVariant 
 }) => {
     return (
@@ -32,7 +31,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
                 </div>
             ) : (
                 <div className="news-img-content">
-                    <div className={`news-img-top ${!isSeoAgency ? "ak-parallax" : ""}`}>
+                    <div className="news-img-top ak-parallax">
                         <img src={getImagePath(item.image)} alt={item.title} />
                     </div>
                 </div>

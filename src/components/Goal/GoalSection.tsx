@@ -158,7 +158,7 @@ const GoalSection: React.FC = () => {
                                 </span>
                                 <span> Straight Goal </span>
                             </div>
-                            <p className="ak-section-desp">
+                            <p className="ak-section-desp ak-color-c1c1c1">
                                 We are dedicated to delivering measurable results through a combination of creative excellence and advanced analytics, ensuring every campaign is perfectly aligned with your business objectives.
                             </p>
                         </div>

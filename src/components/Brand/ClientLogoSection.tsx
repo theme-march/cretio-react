@@ -21,13 +21,17 @@ interface ClientLogoSectionProps {
     showTitle?: boolean;
     direction?: "left" | "right" | "top" | "bottom";
     variant?: "default" | "about";
+    limit?: number;
 }
 
 const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
     showTitle = false,
     direction = "bottom",
     variant = "default",
+    limit,
 }) => {
+    const displayedClients = limit ? clients.slice(0, limit) : clients;
+
     if (variant === "about") {
         return (
             <>
@@ -54,7 +58,7 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
                                 1200: { slidesPerView: 5 },
                             }}
                         >
-                            {clients.map((client) => (
+                            {displayedClients.map((client) => (
                                 <SwiperSlide key={client.id}>
                                     <div className="client-logo border-0">
                                         <img src={getImagePath(client.img)} alt={client.title} />
@@ -117,7 +121,7 @@ const ClientLogoSection: React.FC<ClientLogoSectionProps> = ({
                     </>
                 )}
                 <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
-                    {clients.map((client) => (
+                    {displayedClients.map((client) => (
                         <div className="col" key={client.id}>
                             <div
                                 className={`client-logo fade-animation`}

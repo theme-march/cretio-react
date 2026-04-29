@@ -26,12 +26,9 @@ const Services: React.FC = () => {
                 ]}
                 variant="style-2"
             />
-
             <MarqueeTextSection />
             <ServicesPageMainSection />
-
             <ServicesPageFeaturesSection />
-
             <TestimonialSection />
             <ServicesNewsletterSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
