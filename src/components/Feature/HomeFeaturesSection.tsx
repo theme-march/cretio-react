@@ -37,6 +37,7 @@ const HomeFeaturesSection: React.FC = () => {
                             index={index}
                             variant="style-1"
                             cardAnimation="fade-animation"
+                            cardDirection="left"
                         />
                     ))}
                 </div>

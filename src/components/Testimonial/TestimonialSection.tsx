@@ -1,4 +1,5 @@
 import React from "react";
+import { ParsedText } from "../../utils/safeHtml";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
@@ -45,6 +46,20 @@ const testimonialsData = {
             "location": "From USA",
             "img": "testmonial-1.png"
         }
+    ],
+    "creativeTestimonials": [
+        {
+            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
+            "image": "testmonial-1.png",
+            "name": "Morgan Brown",
+            "location": "From USA"
+        },
+        {
+            "text": "Working with them has been an absolute <span class=\"highlight\">game-changer</span> for our business. Their innovative strategies, coupled with their deep understanding of our industry, have <span class=\"highlight\">significantly boosted</span> our online presence.",
+            "image": "testmonial-1.png",
+            "name": "Morgan Brown",
+            "location": "From USA"
+        }
     ]
 };
 import { getImagePath } from "../../utils/imageLoader";
@@ -52,10 +67,109 @@ import { getImagePath } from "../../utils/imageLoader";
 const testimonials = testimonialsData.defaultTestimonials;
 
 interface TestimonialSectionProps {
+    variant?: "style-1" | "style-2";
     fadeAnimation?: boolean;
 }
 
-const TestimonialSection: React.FC<TestimonialSectionProps> = ({ fadeAnimation = false }) => {
+const TestimonialSection: React.FC<TestimonialSectionProps> = ({ variant = "style-1", fadeAnimation = false }) => {
+    const currentTestimonials = variant === "style-2" ? testimonialsData.creativeTestimonials : testimonialsData.defaultTestimonials;
+
+    if (variant === "style-2") {
+        return (
+            <section className={`ak-gray-bg ${fadeAnimation ? "fade-animation" : ""}`}>
+                <div className="ak-bg" data-src={getImagePath("shape/testimonial.svg")} style={{ backgroundImage: `url(${getImagePath("shape/testimonial.svg")})` }}>
+                    <div className="testmonial-wrapper">
+                        <div className="container">
+                            <div className="fade-animation">
+                                <Swiper
+                                    modules={[Navigation]}
+                                    loop={true}
+                                    speed={1000}
+                                    spaceBetween={0}
+                                    slidesPerView={1}
+                                    navigation={{
+                                        nextEl: ".ts-next-2",
+                                        prevEl: ".ts-prev-2",
+                                    }}
+                                    className="ak-slider testmonial-slider-2 ak-center"
+                                >
+                                    {currentTestimonials.map((test, index) => (
+                                        <SwiperSlide key={`${test.name}-${index}`}>
+                                            <div className="testmonial-content style-2">
+                                                <div className="testmonial-desp-content">
+                                                    <p className="desp color-2">
+                                                        <ParsedText text={test.text} />
+                                                    </p>
+                                                </div>
+                                                <div className="testmonial-person-content">
+                                                    <div className="person-img">
+                                                        <img
+                                                            src={getImagePath(test.image)}
+                                                            alt={test.name}
+                                                        />
+                                                    </div>
+                                                    <div className="person-info color-2">
+                                                        <h6>{test.name}</h6>
+                                                        <p>{test.location}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                    <div className="theme-border-wrap">
+                                        <div className="b-top-left">
+                                            <div className="horizontal"></div>
+                                            <div className="verticle"></div>
+                                        </div>
+                                        <div className="b-top-right d-flex">
+                                            <div className="horizontal"></div>
+                                            <div className="verticle"></div>
+                                        </div>
+                                        <div className="b-bottom-right d-flex flex-end">
+                                            <div className="horizontal flex-end align-self-end"></div>
+                                            <div className="verticle"></div>
+                                        </div>
+                                        <div className="b-bottom-left">
+                                            <div className="verticle"></div>
+                                            <div className="horizontal"></div>
+                                        </div>
+                                    </div>
+                                </Swiper>
+                            </div>
+                            <div className="testmonial-slider-controller-2">
+                                <div>
+                                    <div
+                                        className="testmonial-slider-btn ts-next-2 fade-animation"
+                                        data-direction="right"
+                                    >
+                                        <div className="more-btn style3 arrow-left-style">
+                                            <span className="svg-icon">
+                                                <i className="flaticon-left-arrow-1"></i>
+                                                <i className="flaticon-left-arrow-1"></i>
+                                            </span>
+                                            <span className="btn-text"> Previous </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        className="testmonial-slider-btn ts-prev-2 fade-animation"
+                                        data-direction="left"
+                                    >
+                                        <div className="more-btn style3">
+                                            <span className="btn-text"> Next </span>
+                                            <span className="svg-icon style-three">
+                                                <i className="flaticon-right-arrow-4"></i>
+                                                <i className="flaticon-right-arrow-4"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
     return (
         <section className={fadeAnimation ? "fade-animation" : ""}>
             <div className="container">

@@ -27,16 +27,13 @@ const MarketingAgency: React.FC = () => {
             <MarketingHeroSection />
             <MarketingAgencyAboutSection />
             <MarketingAgencyBrandingSection />
-
             <FunFactSection />
             <PortfolioSliderSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
             <MarketingAwardsSection />
-
             <MarketingVideoSection />
             <MarketingTestimonialSection />
             <MarketingAgencyTeamSection />
-
             <MarketingContactSection />
             <ClientLogoSection direction="left"/>
             <DefaultNewsletterSection />

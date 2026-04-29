@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
 interface SlidingTextSectionProps {
-    variant?: "style-1" | "style-2" | "seo";
+    variant?: "style-1" | "style-2" | "style-3" | "seo";
 }
 
 const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "style-1" }) => {

@@ -39,9 +39,20 @@ const CreativePortfolioHeroSection: React.FC = () => {
             <Swiper
                 modules={[Parallax, Pagination, Autoplay]}
                 parallax={true}
+                loop={true}
                 speed={1000}
                 autoplay={{ delay: 5000 }}
-                pagination={{ el: ".cp-swiper-pagination", clickable: true }}
+                pagination={{
+                    el: ".cp-swiper-pagination",
+                    type: "fraction",
+                    renderFraction: function (currentClass, totalClass) {
+                        return '<span class="' + currentClass + '"></span>' +
+                               ' / ' +
+                               '<span class="' + totalClass + '"></span>';
+                    },
+                    formatFractionCurrent: (number: number) => number.toString().padStart(2, '0'),
+                    formatFractionTotal: (number: number) => number.toString().padStart(2, '0'),
+                }}
                 className="creactive-portflio-slider ak-slider"
             >
                 {heroSlides.map((slide) => (

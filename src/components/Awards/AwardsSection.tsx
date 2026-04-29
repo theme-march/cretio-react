@@ -14,10 +14,12 @@ const awardsData: Award[] = [
 ];
 
 interface AwardsSectionProps {
+    variant?: "style-1" | "style-2";
     showTopGap?: boolean;
 }
 
 const AwardsSection: React.FC<AwardsSectionProps> = ({ 
+    variant = "style-1",
     showTopGap = false,
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -65,6 +67,25 @@ const AwardsSection: React.FC<AwardsSectionProps> = ({
                 highlightWords={["Awards"]}
                 caption="Awards" 
                 variant="style-2"
+                {...(variant === "style-2" ? {
+                    titleStyle: { perspective: "400px" },
+                    titleDuration: 1.5,
+                    titleDirection: "textLeft",
+                    titleEase: "back.out(1.7)",
+                    rightAnimation: "fade-animation",
+                    rightDirection: "left",
+                    rightOffset: "55",
+                    rightDelay: "0.35"
+                } : {
+                    titleDuration: 0.7,
+                    titleDirection: "textTop",
+                    titleOffset: "100%",
+                    titleSplitText: "chars",
+                    titleEase: "power2.out",
+                    rightAnimation: "fade-animation",
+                    rightDirection: "right",
+                    rightDelay: "0.3"
+                })}
             />
             <div className="ak-height-75 ak-height-lg-50"></div>
             <div className="awards-box">

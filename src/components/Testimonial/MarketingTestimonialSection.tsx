@@ -1,53 +1,100 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import TestimonialItem from "./TestimonialItem";
-import type { Testimonial } from "./TestimonialItem";
-import testimonialBg2 from "@assets/img/bg/testimonial-bg-2.png";
+import { getImagePath } from "@/utils/imageLoader";
 
-const testimonials: Testimonial[] = [
+const testimonials = [
     {
-        "id": 1,
-        "text": "The SEO strategies implemented have been an absolute <span class=\"highlight\">game-changer</span> for our growth. Their innovative approach significantly boosted our organic traffic and conversions.",
-        "name": "Morgan Brown",
-        "location": "From USA",
-        "img": "testmonial-1.png"
+        id: 1,
+        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+        name: "Mostahid Jackma",
+        location: "From USA",
+        img: "testmonial-1.png"
     },
     {
-        "id": 2,
-        "text": "Exceptional attention to detail and <span class=\"highlight\">technical expertise</span>. They delivered a high-performance platform that exceeded our expectations and perfectly represents our brand.",
-        "name": "David Smith",
-        "location": "From Canada",
-        "img": "testmonial-2.png"
+        id: 2,
+        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+        name: "Morgan Brown",
+        location: "From USA",
+        img: "testmonial-2.png"
+    },
+    {
+        id: 3,
+        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+        name: "Mostahid Jackma",
+        location: "From USA",
+        img: "testmonial-1.png"
+    },
+    {
+        id: 4,
+        text: "“Working with them has been an absolute game-changer for our business. Their innovative strategies, coupled with their deep understanding of our industry, have significantly boosted our online presence.”",
+        name: "Morgan Brown",
+        location: "From USA",
+        img: "testmonial-2.png"
     }
 ];
 
-interface MarketingTestimonialSectionProps {
-    bgClass?: string;
-    sectionStyle?: React.CSSProperties;
-}
-
-const MarketingTestimonialSection: React.FC<MarketingTestimonialSectionProps> = ({ bgClass = "ak-black-bg", sectionStyle }) => {
+const MarketingTestimonialSection: React.FC = () => {
     return (
-        <section className={`${bgClass} overflow-hidden`} style={sectionStyle}>
-            <div className="testmonial-area ak-parallax">
-                <img className="testmonial-area-img ak-bg" src={testimonialBg2} alt="Testimonial background shape" />
-                <div className="testmonial-wrapper style-1">
-                    <div className="container">
-                        <div className="fade-animation">
-                            <Swiper
-                                modules={[Autoplay]}
-                                loop={true}
-                                autoplay={{ delay: 5000 }}
-                                className="ak-slider testmonial-slider-1 ak-center"
-                            >
-                                {testimonials.map((item) => (
-                                    <SwiperSlide key={item.id}>
-                                        <TestimonialItem testimonial={item} />
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+        <section className="fade-animation">
+            <div className="container">
+                <div className="testmonial-slider ak-slider">
+                    <Swiper
+                        modules={[Navigation, Autoplay]}
+                        loop={true}
+                        autoplay={{ delay: 5000 }}
+                        slidesPerView={1}
+                        breakpoints={{
+                            991: {
+                                slidesPerView: 2,
+                            },
+                        }}
+                        navigation={{
+                            nextEl: ".testmonial-button-next",
+                            prevEl: ".testmonial-button-prev",
+                        }}
+                    >
+                        {testimonials.map((item) => (
+                            <SwiperSlide key={item.id}>
+                                <div className="testmonial-content style-1">
+                                    <div className="testmonial-card">
+                                        <div className="ak-height-100 ak-height-lg-50"></div>
+                                        <p className="testmonial-desp">{item.text}</p>
+                                        <div className="ak-height-50 ak-height-lg-30"></div>
+                                        <div className="testmonial-info">
+                                            <img
+                                                className="testmonial-img"
+                                                src={getImagePath(item.img)}
+                                                alt={item.name}
+                                            />
+                                            <h6 className="testmonial-title">{item.name}</h6>
+                                            <p className="testmonial-shot-desp">{item.location}</p>
+                                        </div>
+                                        <div className="ak-height-100 ak-height-lg-50"></div>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            </div>
+            <div>
+                <div className="testmonial-swiper-controller">
+                    <div className="testmonial-button-prev">
+                        <div>
+                            <span className="svg-icon">
+                                <i className="flaticon-left-up"></i>
+                            </span>
+                            <span> Previous </span>
+                        </div>
+                    </div>
+                    <div className="testmonial-button-next">
+                        <div>
+                             <span> Next </span>
+                            <span className="svg-icon">
+                                <i className="flaticon-up-right-arrow"></i>
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,7 @@ import CreativeNewsSection from "@components/News/CreativeNewsSection";
 import ClientLogoSection from "@components/Brand/ClientLogoSection";
 import CreativeNewsletterSection from "@components/Newsletter/CreativeNewsletterSection";
 import MarketingTestimonialSection from "@components/Testimonial/MarketingTestimonialSection";
+import TestimonialSection from "@components/Testimonial/TestimonialSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const CreativePortfolio: React.FC = () => {
@@ -26,19 +27,20 @@ const CreativePortfolio: React.FC = () => {
                 <meta name="description" content="Showcasing our most creative and innovative digital works." />
             </Helmet>
             <CreativePortfolioHeroSection />
-            <SlidingTextSection variant="style-2" />
+            <SlidingTextSection variant="style-3" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <PortfolioIsotopeSection />
             <GoalSection />
             <CreativeFunFactSection />
-            <AwardsSection />
+            <AwardsSection variant="style-2" />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <TestimonialSection variant="style-2" fadeAnimation={true} />
             <PricingSection />
             <CreativeTeamSlider />
-            <VideoSection />
-            <CreativePortfolioFeaturesSection />
+            <VideoSection variant="creative-portfolio" />
             <CreativeNewsSection />
-            <ClientLogoSection />
+            <ClientLogoSection showTitle={true} direction="left" />
             <CreativeNewsletterSection />
-            <MarketingTestimonialSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
     );

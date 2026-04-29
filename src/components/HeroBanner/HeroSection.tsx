@@ -134,7 +134,7 @@ const HeroSection: React.FC = () => {
                                         <div className="client-logo style2">
                                             <img src={client} alt={`Partner ${i + 1}`} />
                                             <div className="client-info">
-                                                <h6 className="client-title">Partner Agency</h6>
+                                                <h6 className="client-title">Credesign</h6>
                                                 <p className="client-shot-title">Digital Solutions</p>
                                             </div>
                                         </div>

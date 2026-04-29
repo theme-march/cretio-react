@@ -47,7 +47,7 @@ const About: React.FC = () => {
             <AboutPageFeaturesSection />
 
             <AboutTeamSection />
-
+ 
             <ClientLogoSection variant="about" />
             <AboutNewsletterSection />
 

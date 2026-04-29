@@ -5,7 +5,7 @@
     "author": "Alex Johnson",
     "date": "01/07/2024",
     "title": "Partnering for Success Choosing the Right Digital Agency",
-    "description": "Discover the essential criteria for selecting a digital partner that aligns with your business goals and drives long-term success."
+    "description": "Discover the essential criteria for selecting a digital partner that aligns with your business."
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "author": "Taylor Smith",
     "date": "15/08/2023",
     "title": "Building the Future How Digital Agencies Drive Innovation",
-    "description": "Explore how cutting-edge technologies and creative strategies are revolutionizing the way brands interact with their customers."
+    "description": "Explore how cutting-edge technologies and creative strategies."
   },
   {
     "id": 3,
@@ -21,7 +21,7 @@
     "author": "Jamie Lee",
     "date": "02/04/2024",
     "title": "Digital Mastery How Agencies Turn Ideas into Reality",
-    "description": "From conceptual sketches to high-performance digital products, learn the process behind successful digital transformations."
+    "description": "From conceptual sketches to high-performance digital products, learn the transformations."
   },
   {
     "id": 4,
@@ -29,7 +29,7 @@
     "author": "Casey Miller",
     "date": "09/08/2024",
     "title": "The Art of Digital Marketing Agency Strategies for Growth",
-    "description": "Unlock the secrets of data-driven marketing campaigns that consistently deliver high ROI and brand awareness for global clients."
+    "description": "Unlock the secrets of marketing campaigns that consistently deliver high ROI."
   },
   {
     "id": 5,
@@ -37,22 +37,22 @@
     "author": "Admin",
     "date": "10/10/2024",
     "title": "Partnering for Success Choosing the Right Master Digital Agency.",
-    "description": "A comprehensive guide to finding a strategic partner that can elevate your digital presence and market position."
+    "description": "A comprehensive guide to finding a strategic partner that can elevate your digital presence."
   },
   {
     "id": 6,
     "image": "src/assets/img/news/news-2.png",
     "author": "Admin",
     "date": "12/10/2024",
-    "title": "Digital Mastery How Digital Agencies Turn Ideas into Digital World Reality.",
-    "description": "How modern agencies bridge the gap between complex business requirements and intuitive user experiences."
+    "title": "Digital Mastery Turn Ideas into Digital World Reality.",
+    "description": "How modern agencies bridge the gap between complex business requirements."
   },
   {
     "id": 7,
     "image": "src/assets/img/news/news-3.png",
     "author": "Admin",
     "date": "14/10/2024",
-    "title": "The Art of Digital Agency Strategies for Growth of Client Business.",
-    "description": "Strategic insights into the marketing techniques that are driving significant growth for industry leaders this year."
+    "title": "The Art of Digital Agency for Growth of Client Business.",
+    "description": "Strategic insights into the marketing techniques that are driving significant growth."
   }
 ]

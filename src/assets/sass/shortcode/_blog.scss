@@ -196,7 +196,9 @@
 .news-blog-card {
   background-color: var(--gray-bg);
   padding: 65px 40px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   position: relative;
   overflow: hidden;
   .news-blog-bg-img {
@@ -249,12 +251,27 @@
   .news-blog-desp {
     font-size: 16px;
     margin-bottom: 45px;
+    flex-grow: 1;
   }
   .news-blog-title,
   .news-blog-desp,
   .more-btn {
     position: relative;
     z-index: 2;
+  }
+}
+
+.ak-news-blog-slider {
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+  .swiper-slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    .news-blog-card {
+      flex: 1;
+    }
   }
 }
 
