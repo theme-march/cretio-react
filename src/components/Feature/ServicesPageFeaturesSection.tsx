@@ -7,7 +7,7 @@ const coreFeaturesData: CoreFeature[] = [
     {
         id: "01",
         icon: "flaticon-circle",
-        title: "Web Development",
+        title: "Strategic Marketing",
         description: "We build fast, scalable, and maintainable web applications tailored to your business goals and user needs.",
     },
     {
@@ -27,10 +27,11 @@ const coreFeaturesData: CoreFeature[] = [
 const  ServicesPageFeaturesSection: React.FC = () => {
     return (
         <section className="core-features-area ak-gray-bg">
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <SectionHeading
                     title="Our Exceptional Digital Transformation Services"
-                    description="Explore our wide range of digital marketing and development services designed to help your brand stand out in a competitive market."
+                    description="Explore our digital marketing and development services designed to help your brand stand out in a competitive market."
                     caption="Top Trio Services"
                     variant="style-1"
                     highlightWords={["Exceptional", "Services"]}

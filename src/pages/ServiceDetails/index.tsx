@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet-async";
 import Breadcrumb from "@components/Common/Breadcrumb";
 import ServiceDetailsMainContent from "@components/Services/ServiceDetailsMainContent";
 import ServiceDetailsProcessSection from "@components/Process/ServiceDetailsProcessSection";
-import PricingSection from "@components/Pricing/PricingSection";
-import MarketingContactSection from "@components/Contact/MarketingContactSection";
+import ServiceDetailsCta from "@components/Services/ServiceDetailsCta";
+import SlidingTextSection from "@components/Brand/SlidingTextSection";
+import ServiceDetailsNewsletterSection from "@components/Newsletter/ServiceDetailsNewsletterSection";
 import useGsapAnimations from "@hooks/useGsapAnimations";
 
 const ServiceDetails: React.FC = () => {
@@ -28,9 +29,12 @@ const ServiceDetails: React.FC = () => {
                 showCircle={false}
             />
             <ServiceDetailsMainContent />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <ServiceDetailsProcessSection />
-            <PricingSection />
-            <MarketingContactSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
+            <ServiceDetailsCta />
+            <SlidingTextSection variant="style-2" />
+            <ServiceDetailsNewsletterSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
     );

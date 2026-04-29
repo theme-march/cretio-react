@@ -16,7 +16,7 @@ const BlogDetails: React.FC = () => {
             </Helmet>
             <Breadcrumb
                 title="Our Exceptional Digital Industrial Recent News"
-                highlightWords={["Exceptional", "News"]}
+                highlightWords={["Exceptional", "Recent News"]}
                 links={[
                     { label: "Home", path: "/" },
                     { label: "Blog Details", path: "" },

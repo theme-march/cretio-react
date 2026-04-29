@@ -120,7 +120,7 @@ const PricingFeaturesSection: React.FC = () => {
                                     <i className={feature.icon}></i>
                                 </div>
                                 <h6 className="core-feature-title">{feature.title}</h6>
-                                <p className="core-feature-desp">{feature.description}</p>
+                                <p className="core-feature-desp ak-color-c1c1c1">{feature.description}</p>
                                 <p className="core-feature-number">{feature.id}</p>
                             </div>
                         </SwiperSlide>

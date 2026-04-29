@@ -55,7 +55,7 @@ const ServicesPageMainSection: React.FC = () => {
     };
 
     return (
-        <section className="service-bg style-1" ref={sectionRef}>
+        <section ref={sectionRef}>
             <div className="container">
                 <div className="ak-height-100 ak-height-lg-30"></div>
                 <div className="service-content">

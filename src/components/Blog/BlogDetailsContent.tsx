@@ -78,7 +78,16 @@ const BlogDetailsContent: React.FC<BlogDetailsContentProps> = ({ disableParallax
                             <p className="person-desp">
                                 Such a great insight! Finding an agency that actually listens to your specific business needs rather than just offering cookie-cutter solutions is rare.
                             </p>
-                            <button type="submit" className="comment-reply-btn">Reply Comment</button>
+                            <div className="d-flex gap-1">
+                                <button type="submit" className="comment-reply-btn">
+                                    Reply Comment
+                                </button>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                                        <path d="M11.9995 9.62567H5.80945L8.52945 6.90567C8.81945 6.61567 8.81945 6.13567 8.52945 5.84567C8.23945 5.55567 7.75945 5.55567 7.46945 5.84567L3.46945 9.84567C3.17945 10.1357 3.17945 10.6157 3.46945 10.9057L7.46945 14.9057C7.61945 15.0557 7.80945 15.1257 7.99945 15.1257C8.18945 15.1257 8.37945 15.0557 8.52945 14.9057C8.81945 14.6157 8.81945 14.1357 8.52945 13.8457L5.80945 11.1257H11.9995C14.8995 11.1257 17.2495 13.4857 17.2495 16.3757V18.3757C17.2495 18.7857 17.5895 19.1257 17.9995 19.1257C18.4095 19.1257 18.7495 18.7857 18.7495 18.3757V16.3757C18.7495 12.6557 15.7195 9.62567 11.9995 9.62567Z" fill="#FF4A23"></path>
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div className="ak-height-80 ak-height-lg-50"></div>
