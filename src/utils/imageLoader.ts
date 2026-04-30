@@ -17,7 +17,5 @@ export const getImagePath = (path: string): string => {
   if (match) {
     return (images[match] as { default: string }).default;
   }
-  
-  // Fail gracefully without console warning for production
   return path;
 };

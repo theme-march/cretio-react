@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                         <div className="partners-swiper-controller">
                             <div className="partners-logs-scrollbar"></div>
                             <div className="partners-logs-navigation">
-                                <div className="partners-logs-button-next hover-1">
+                                <div className="partners-logs-button-prev hover-1">
                                     <svg width="28" height="10" viewBox="0 0 28 10" fill="none">
                                         <path
                                             d="M0.716728 5.58228L6.17073 1.58728V5.24028L26.5947 5.58228L6.17073 5.92428V9.57728L0.716728 5.58228Z"
@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
                                         />
                                     </svg>
                                 </div>
-                                <div className="partners-logs-button-prev hover-2">
+                                <div className="partners-logs-button-next hover-2">
                                     <svg width="28" height="10" viewBox="0 0 28 10" fill="none">
                                         <path
                                             d="M27.1934 5.58228L21.7394 1.58728V5.24028L1.31543 5.58228L21.7394 5.92428V9.57728L27.1934 5.58228Z"

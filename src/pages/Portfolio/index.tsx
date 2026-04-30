@@ -24,6 +24,7 @@ const Portfolio: React.FC = () => {
                 strokeText="PORTFOLIO"
                 showCircle={false}
             />
+            <div className="ak-height-150 ak-height-lg-80"></div>
             <PortfolioPageGridSection />
             <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
