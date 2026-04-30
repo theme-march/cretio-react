@@ -5,18 +5,26 @@ import { getImagePath } from "@/utils/imageLoader";
 const detailsDataDefault = {
     "serviceDetails": {
         "title": "Android & IOS App Development",
+        "images": {
+            "main": "services/services-main-img.png",
+            "showcase1": "services/services-details-show-1.png",
+            "showcase2": "services/services-details-show-2.png",
+            "accordion": "services/accordion-1.png"
+        },
         "shortInfo": [
             { "label": "Services:", "text": "Android App Dev" },
             { "label": "Approximate Time:", "text": "3 Months - 1 Year" },
             { "label": "Industry:", "text": "300+ Industry, We are Working" },
             { "label": "Area We Cover:", "text": "Around Globe" }
         ],
-        "description1": "In today's mobile-first world, having a presence on both Android and iOS is crucial for business success. We build seamless mobile experiences that bridge the gap between platforms while maintaining the native feel that users expect from high-quality applications.",
-        "description2": "Our cross-platform solutions allow you to reach a broader audience with lower development costs and faster time-to-market. We use cutting-edge frameworks like Flutter and React Native to deliver apps that perform as well as native applications.",
-        "description3": "We believe that a great app starts with a deep understanding of the user. Our design team conducts extensive research to ensure that every button placement and user flow is optimized for maximum efficiency and aesthetic appeal.",
-        "description4": "Beyond the initial launch, we provide ongoing maintenance and performance monitoring. This ensures your app stays compatible with the latest OS updates and continues to deliver a fast, reliable experience for your growing user base.",
-        "description5": "Integrations are a key part of modern apps. Whether it's payment gateways, social media sharing, or sophisticated cloud-based features, we have the technical expertise to connect your app with the services it needs to thrive.",
-        "description6": "Our commitment to quality is reflected in our rigorous testing phase. We perform extensive QA across multiple devices and screen sizes to ensure your application is bug-free and ready for the global stage.",
+        "descriptions": [
+            "In today's mobile-first world, having a presence on both Android and iOS is crucial for business success. We build seamless mobile experiences that bridge the gap between platforms while maintaining the native feel that users expect from high-quality applications.",
+            "Our cross-platform solutions allow you to reach a broader audience with lower development costs and faster time-to-market. We use cutting-edge frameworks like Flutter and React Native to deliver apps that perform as well as native applications.",
+            "We believe that a great app starts with a deep understanding of the user. Our design team conducts extensive research to ensure that every button placement and user flow is optimized for maximum efficiency and aesthetic appeal.",
+            "Beyond the initial launch, we provide ongoing maintenance and performance monitoring. This ensures your app stays compatible with the latest OS updates and continues to deliver a fast, reliable experience for your growing user base.",
+            "Integrations are a key part of modern apps. Whether it's payment gateways, social media sharing, or sophisticated cloud-based features, we have the technical expertise to connect your app with the services it needs to thrive.",
+            "Our commitment to quality is reflected in our rigorous testing phase. We perform extensive QA across multiple devices and screen sizes to ensure your application is bug-free and ready for the global stage."
+        ],
         "accordion": [
             { "title": "1. What platforms do you develop mobile apps for?", "content": "We specialize in both native Android/iOS development and cross-platform solutions like React Native and Flutter to suit different business needs and budgets." },
             { "title": "2. What is the process for developing a mobile app?", "content": "Phase one is discovery and strategy, followed by UI/UX design, iterative development sprints, comprehensive testing, and finally the App Store and Play Store launch." },
@@ -105,7 +113,7 @@ const ServiceDetailsMainContent: React.FC = () => {
             <div className="ak-height-150 ak-height-lg-80"></div>
             <div className="container">
                 <div className="services-main-img">
-                    <img src={getImagePath("services/services-main-img.png")} className="img-fluid" alt="Main service illustration showing strategic planning" />
+                    <img src={getImagePath(detailsDataDefault.serviceDetails.images.main)} className="img-fluid" alt="Main service illustration" />
                 </div>
             </div>
 
@@ -129,34 +137,34 @@ const ServiceDetailsMainContent: React.FC = () => {
                             {detailsDataDefault.serviceDetails.title}
                         </h3>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description1}
+                            {detailsDataDefault.serviceDetails.descriptions[0]}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description2}
+                            {detailsDataDefault.serviceDetails.descriptions[1]}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
                             <div className="col-md-4 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="Service process step 1 illustration" />
+                                <img src={getImagePath(detailsDataDefault.serviceDetails.images.showcase1)} className="h-100 w-100" alt="Service process step 1 illustration" />
                             </div>
                             <div className="col-md-8 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="Service process step 2 illustration" />
+                                <img src={getImagePath(detailsDataDefault.serviceDetails.images.showcase2)} className="h-100 w-100" alt="Service process step 2 illustration" />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description3}
+                            {detailsDataDefault.serviceDetails.descriptions[2]}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description4}
+                            {detailsDataDefault.serviceDetails.descriptions[3]}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row align-items-center">
                             <div className="col-xl-6 col-12 d-none d-xl-block">
                                 <div className="image-hov-one ak-hover-zoom-pronounced">
-                                    <img src={getImagePath("services/accordion-1.png")} className="img-fluid" alt="Support and maintenance illustration" />
+                                    <img src={getImagePath(detailsDataDefault.serviceDetails.images.accordion)} className="img-fluid" alt="Support and maintenance illustration" />
                                 </div>
                             </div>
                             <div className="col-xl-6 col-12">
@@ -188,20 +196,20 @@ const ServiceDetailsMainContent: React.FC = () => {
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description5}
+                            {detailsDataDefault.serviceDetails.descriptions[4]}
                         </p>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <div className="row gy-4">
                              <div className="col-md-8 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-2.png")} className="h-100 w-100" alt="Service feature showcase card A" />
+                                <img src={getImagePath(detailsDataDefault.serviceDetails.images.showcase2)} className="h-100 w-100" alt="Service feature showcase A" />
                             </div>
                             <div className="col-md-4 ak-parallax">
-                                <img src={getImagePath("services/services-details-show-1.png")} className="h-100 w-100" alt="Service feature showcase card B" />
+                                <img src={getImagePath(detailsDataDefault.serviceDetails.images.showcase1)} className="h-100 w-100" alt="Service feature showcase B" />
                             </div>
                         </div>
                         <div className="ak-height-50 ak-height-lg-50"></div>
                         <p className="services-details-title-description">
-                            {detailsDataDefault.serviceDetails.description6}
+                            {detailsDataDefault.serviceDetails.descriptions[5]}
                         </p>
                     </div>
                 </div>

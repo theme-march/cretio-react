@@ -11,12 +11,19 @@ interface PortfolioDetailsItem {
 const detailsDataDefault = {
     "portfolioDetails": {
         "title": "Android App Development",
-        "description1": "We specialize in creating high-performance Android applications that leverage the latest platform features and design standards. Our development process ensures that your app is not only functional but also provides a superior user experience across all devices.",
-        "description2": "Our team of expert developers works closely with you to transform your vision into a robust digital product. From conceptualization to deployment, we maintain a focus on scalability and performance, ensuring your application can grow alongside your business.",
-        "description3": "The digital landscape is constantly evolving, and staying ahead requires a partner who understands the nuances of mobile technology. We provide comprehensive support and maintenance to ensure your app remains secure and optimized for the best possible user engagement.",
-        "description4": "By integrating advanced analytics and user feedback loops, we continuously refine the mobile experience. This data-driven approach allows us to make informed decisions that improve retention rates and drive meaningful business outcomes for our clients.",
-        "description5": "Security and privacy are at the core of our development philosophy. We implement industry-leading encryption and best practices to protect user data, giving your customers peace of mind while they interact with your brand's digital ecosystem.",
-        "description6": "A successful app is more than just code; it's a bridge between your brand and your audience. We focus on creating intuitive interfaces and smooth transitions that make every interaction feel natural and rewarding for the end-user.",
+        "description": [
+            "We specialize in creating high-performance Android applications that leverage the latest platform features and design standards. Our development process ensures that your app is not only functional but also provides a superior user experience across all devices.",
+            "Our team of expert developers works closely with you to transform your vision into a robust digital product. From conceptualization to deployment, we maintain a focus on scalability and performance, ensuring your application can grow alongside your business.",
+            "The digital landscape is constantly evolving, and staying ahead requires a partner who understands the nuances of mobile technology. We provide comprehensive support and maintenance to ensure your app remains secure and optimized for the best possible user engagement.",
+            "By integrating advanced analytics and user feedback loops, we continuously refine the mobile experience. This data-driven approach allows us to make informed decisions that improve retention rates and drive meaningful business outcomes for our clients.",
+            "Security and privacy are at the core of our development philosophy. We implement industry-leading encryption and best practices to protect user data, giving your customers peace of mind while they interact with your brand's digital ecosystem.",
+            "A successful app is more than just code; it's a bridge between your brand and your audience. We focus on creating intuitive interfaces and smooth transitions that make every interaction feel natural and rewarding for the end-user.",
+            "Our creative approach ensures that every pixel serves a purpose, creating a harmonious balance between brand storytelling and technical performance. We use the latest industry standards to build applications that are as beautiful as they are functional."
+        ],
+        "images": {
+            "showcase1": "portfolio/portfolio-details-1.png",
+            "showcase2": "portfolio/portfolio-details-2.png"
+        },
         "accordion": [
             { "id": 1, "title": "1. What platforms do you develop mobile apps for?", "content": "We develop native and cross-platform applications for both iOS and Android, ensuring your brand reaches the widest possible audience with a consistent experience." },
             { "id": 2, "title": "2. What is the process for developing a mobile app?", "content": "Our process involves discovery, wireframing, UI/UX design, development, rigorous testing, and finally deployment followed by ongoing support and optimization." },
@@ -32,12 +39,11 @@ interface PortfolioDetailsProps {
     detailsData?: {
         portfolioDetails: {
             title: string;
-            description1: string;
-            description2: string;
-            description3: string;
-            description4: string;
-            description5: string;
-            description6: string;
+            description: string[];
+            images: {
+                showcase1: string;
+                showcase2: string;
+            };
             accordion: PortfolioDetailsItem[];
         };
     };
@@ -136,23 +142,21 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsProps> = ({ detailsData 
             <div className="portfolio-details-box">
                 <h3 className="pd-title mb-2">{detailsData.portfolioDetails.title}</h3>
                 <p className="pd-desp">
-                    {detailsData.portfolioDetails.description1}
+                    {detailsData.portfolioDetails.description[0]}
                 </p>
                 <p className="pd-desp">
-                    {detailsData.portfolioDetails.description2}
+                    {detailsData.portfolioDetails.description[1]}
                 </p>
-
                 <div className="pd-img pd-img-parallax" data-height="350">
-                    <img src={getImagePath("portfolio/portfolio-details-1.png")} alt="Portfolio project showcase image 1" />
+                    <img src={getImagePath(detailsData.portfolioDetails.images.showcase1)} alt="Portfolio project showcase" />
                 </div>
                 <div>
                     <p className="pd-desp">
-                        {detailsData.portfolioDetails.description3}
+                        {detailsData.portfolioDetails.description[2]}
                     </p>
                 </div>
-
                 <p className="pd-desp">
-                    Our creative approach ensures that every pixel serves a purpose, creating a harmonious balance between brand storytelling and technical performance. We use the latest industry standards to build applications that are as beautiful as they are functional.
+                    {detailsData.portfolioDetails.description[6]}
                 </p>
                 <div className="p-md-5">
                     <div className="ak-accordion">
@@ -183,13 +187,13 @@ const PortfolioDetailsContent: React.FC<PortfolioDetailsProps> = ({ detailsData 
                     </div>
                 </div>
                 <p className="pd-desp pd-desp-mobile-fix">
-                    {detailsData.portfolioDetails.description5}
+                    {detailsData.portfolioDetails.description[4]}
                 </p>
                 <div className="pd-img pd-img-parallax" data-height="400">
-                    <img src={getImagePath("portfolio/portfolio-details-2.png")} alt="Portfolio project showcase image 2" />
+                    <img src={getImagePath(detailsData.portfolioDetails.images.showcase2)} alt="Portfolio project showcase" />
                 </div>
                 <p className="pd-desp">
-                    {detailsData.portfolioDetails.description6}
+                    {detailsData.portfolioDetails.description[5]}
                 </p>
             </div>
         </div>

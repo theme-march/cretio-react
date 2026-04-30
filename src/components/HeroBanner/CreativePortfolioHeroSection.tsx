@@ -34,6 +34,13 @@ import { getImagePath } from "@/utils/imageLoader";
 const heroSlides = heroData.creativeHero;
 
 const CreativePortfolioHeroSection: React.FC = () => {
+    const socialLinks = [
+        { name: "Facebook", url: "https://facebook.com/" },
+        { name: "LinkedIn", url: "https://linkedin.com/" },
+        { name: "Github", url: "https://github.com/" },
+        { name: "Dribbble", url: "https://dribbble.com/" }
+    ];
+
     return (
         <div className="creactive-portflio-hero-area">
             <Swiper
@@ -102,10 +109,11 @@ const CreativePortfolioHeroSection: React.FC = () => {
                 </div>
 
                 <ul className="cp-social-links">
-                    <li className="sa-social-item"><a href="https://facebook.com/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"> Facebook</a></li>
-                    <li className="sa-social-item"><a href="https://linkedin.com/" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn </a></li>
-                    <li className="sa-social-item"><a href="https://github.com/" aria-label="Follow us on Github" target="_blank" rel="noopener noreferrer">Github </a></li>
-                    <li className="sa-social-item"><a href="https://dribbble.com/" aria-label="Follow us on Dribbble" target="_blank" rel="noopener noreferrer">Dribbble </a></li>
+                    {socialLinks.map((link, index) => (
+                        <li className="sa-social-item" key={index}>
+                            <a href={link.url} aria-label={`Follow us on ${link.name}`} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                        </li>
+                    ))}
                 </ul>
             </Swiper>
         </div>

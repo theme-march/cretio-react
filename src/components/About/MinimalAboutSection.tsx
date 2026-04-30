@@ -2,6 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import aboutCircleBg from "@assets/img/bg/about-circle-bg.png";
 
+const features = [
+    "Transparent Reporting",
+    "Customized Strategies",
+    "Expert Team",
+    "Transparent Reporting",
+    "Customized Strategies",
+    "Expert Team"
+];
+
 const MinimalAboutSection: React.FC = () => {
     return (
         <section className="about-area style-2">
@@ -38,12 +47,9 @@ const MinimalAboutSection: React.FC = () => {
                             We thrive on creativity and innovation. Our team is constantly exploring new ideas and approaches.
                         </p>
                         <ul className="list-text fade-animation">
-                            <li>Transparent Reporting</li>
-                            <li>Customized Strategies</li>
-                            <li>Expert Team</li>
-                            <li>Transparent Reporting</li>
-                            <li>Customized Strategies</li>
-                            <li>Expert Team</li>
+                            {features.map((feature, index) => (
+                                <li key={index}>{feature}</li>
+                            ))}
                         </ul>
                         <div className="fade-animation">
                             <Link to="/about" className="more-btn">

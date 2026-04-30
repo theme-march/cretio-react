@@ -11,6 +11,20 @@ const ComingSoonSection: React.FC = () => {
         minutes: 0,
     });
 
+    const socialLinks = [
+        { name: "Facebook", url: "https://facebook.com/", icon: "flaticon-facebook" },
+        { name: "LinkedIn", url: "https://linkedin.com/", icon: "flaticon-linkedin" },
+        { name: "Instagram", url: "https://instagram.com/", icon: "flaticon-instagram-logo" },
+        { name: "Twitter", url: "https://twitter.com/", icon: "flaticon-twitter" }
+    ];
+
+    const countdownItems = [
+        { label: "Months", value: timeLeft.months },
+        { label: "Days", value: timeLeft.days },
+        { label: "Hours", value: timeLeft.hours },
+        { label: "Minutes", value: timeLeft.minutes }
+    ];
+
     React.useEffect(() => {
         const targetDate = new Date("2026-08-31T00:00:00").getTime();
 
@@ -79,38 +93,16 @@ const ComingSoonSection: React.FC = () => {
                             <div className="upcomming-soon-content">
                                 <div className="time-counter">
                                     <div className="funfact-content">
-                                        <div className="funfact style1">
-                                            <div className="funfact-card style-1">
-                                                <div className="funfact-number">
-                                                    <span>{timeLeft.months}</span>
+                                        {countdownItems.map((item, index) => (
+                                            <div key={index} className="funfact style1">
+                                                <div className="funfact-card style-1">
+                                                    <div className="funfact-number">
+                                                        <span>{item.value}</span>
+                                                    </div>
+                                                    <p className="funfact-text">{item.label}</p>
                                                 </div>
-                                                <p className="funfact-text">Months</p>
                                             </div>
-                                        </div>
-                                        <div className="funfact style1">
-                                            <div className="funfact-card style-1">
-                                                <div className="funfact-number">
-                                                    <span>{timeLeft.days}</span>
-                                                </div>
-                                                <p className="funfact-text">Days</p>
-                                            </div>
-                                        </div>
-                                        <div className="funfact style1">
-                                            <div className="funfact-card style-1">
-                                                <div className="funfact-number">
-                                                    <span>{timeLeft.hours}</span>
-                                                </div>
-                                                <p className="funfact-text">Hours</p>
-                                            </div>
-                                        </div>
-                                        <div className="funfact style1">
-                                            <div className="funfact-card style-1">
-                                                <div className="funfact-number">
-                                                    <span>{timeLeft.minutes}</span>
-                                                </div>
-                                                <p className="funfact-text">Minutes</p>
-                                            </div>
-                                        </div>
+                                        ))}
                                     </div>
                                 </div>
                                 <div className="upcomming-soon-info">
@@ -134,10 +126,11 @@ const ComingSoonSection: React.FC = () => {
                                 Latest <span className="heghtlight">Exclusive</span> Content
                             </h5>
                             <div className="social-icon">
-                                <a href="https://facebook.com/" className="icon style-2" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer"><i className="flaticon-facebook"></i></a>
-                                <a href="https://linkedin.com/" className="icon style-2" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><i className="flaticon-linkedin"></i></a>
-                                <a href="https://instagram.com/" className="icon style-2" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><i className="flaticon-instagram-logo"></i></a>
-                                <a href="https://twitter.com/" className="icon style-2" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer"><i className="flaticon-twitter"></i></a>
+                                {socialLinks.map((social, index) => (
+                                    <a key={index} href={social.url} className="icon style-2" aria-label={`Follow us on ${social.name}`} target="_blank" rel="noopener noreferrer">
+                                        <i className={social.icon}></i>
+                                    </a>
+                                ))}
                             </div>
                         </div>
                         <div className="email-send-form">

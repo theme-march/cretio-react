@@ -4,6 +4,18 @@ import gsap from "gsap";
 import shapeLeft from "@assets/img/shape/cta-start-left.png";
 import shapeRight from "@assets/img/shape/cta-start-right.png";
 
+const ctaData = {
+    title: {
+        text1: "Get in Touch to Bring Your ",
+        highlight: "Project",
+        text2: " to Life!"
+    },
+    btnText: {
+        line1: "Start",
+        line2: "Project"
+    }
+};
+
 const ServiceDetailsCta: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -70,19 +82,19 @@ const ServiceDetailsCta: React.FC = () => {
                 <div className="services-details-cta-wapper">
                     <div className="services-details-cta-content">
                         <h2 className="services-details-cta-title text-animation">
-                            <span>Get in Touch to Bring Your </span>
-                            <span className="highlight text-underlines underline-anim">Project</span>
-                            <span> to Life!</span>
+                            <span>{ctaData.title.text1}</span>
+                            <span className="highlight text-underlines underline-anim">{ctaData.title.highlight}</span>
+                            <span>{ctaData.title.text2}</span>
                         </h2>
                     </div>
                 </div>
                 <div className="services-details-cta-btn">
                     <Link to="/contact" className="circle-btn circle-btn-anim">
                         <span className="text text-uppercase">
-                            Start
+                            {ctaData.btnText.line1}
                             <span> <i className="flaticon-up-right-arrow"></i></span>
                             <br />
-                            Project
+                            {ctaData.btnText.line2}
                         </span>
                     </Link>
                 </div>

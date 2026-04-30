@@ -6,6 +6,8 @@ interface MarketingAboutSectionProps {
     variant?: "marketing-agency" | "design-company";
 }
 
+const aboutText = "We thrive on creativity and innovation. Our team is constantly exploring new ideas and approaches to ensure your digital presence is fresh, engaging, and ahead of the competition.";
+
 const MarketingAboutSection: React.FC<MarketingAboutSectionProps> = ({ variant = "marketing-agency" }) => {
     const isDesignCompany = variant === "design-company";
 
@@ -30,9 +32,7 @@ const MarketingAboutSection: React.FC<MarketingAboutSectionProps> = ({ variant =
                         data-duration="1.2"
                         data-delay="0.3"
                     >
-                        We thrive on creativity and <span className="highlight">innovation</span>. Our team is constantly
-                        exploring new ideas and approaches to ensure your <span className="highlight">digital presence</span> is
-                        fresh, engaging, and ahead of the competition.
+                        {aboutText.split('innovation')[0]} <span className="highlight">innovation</span>. {aboutText.split('innovation')[1].split('digital presence')[0]} <span className="highlight">digital presence</span> {aboutText.split('digital presence')[1]}
                     </h5>
                     <div className="fade-animation" data-direction="right">
                         <Link 

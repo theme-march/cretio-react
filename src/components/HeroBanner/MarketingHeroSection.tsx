@@ -8,6 +8,7 @@ import gsap from "gsap";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { getImagePath } from "@/utils/imageLoader";
 
 const heroData = {
     "marketingHero": [
@@ -32,9 +33,21 @@ const heroData = {
         { "id": 3, "img": "creative-portfolio-3.jpg", "title": "Captivating <span class=\"highlight-text\">Portfolio</span> Designs to Inspire" }
     ]
 };
-import { getImagePath } from "@/utils/imageLoader";
+
 
 const heroSlides = heroData.marketingHero;
+
+const socialLinks = [
+    { name: "Facebook", url: "https://facebook.com/" },
+    { name: "Twitter", url: "https://twitter.com/" },
+    { name: "LinkedIn", url: "https://linkedin.com/" },
+    { name: "Instagram", url: "https://instagram.com/" }
+];
+
+const contactInfo = {
+    email: "info@email.com",
+    phone: "(406) 555-0120"
+};
 
 const MarketingHeroSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -193,10 +206,11 @@ const MarketingHeroSection: React.FC = () => {
 
                 <div className="social-links">
                     <ul>
-                        <li><a href="https://facebook.com/" className="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://twitter.com/" className="social-link" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                        <li><a href="https://linkedin.com/" className="social-link" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                        <li><a href="https://instagram.com/" className="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        {socialLinks.map((link, index) => (
+                            <li key={index}>
+                                <a href={link.url} className="social-link" aria-label={`Follow us on ${link.name}`} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
@@ -220,16 +234,16 @@ const MarketingHeroSection: React.FC = () => {
                         </Link>
                     </div>
 
-                    <div className="contact-info py-4">
-                        <div className="email-info">
-                            <p>Say hello!</p>
-                            <a href="mailto:info@email.com">info@email.com</a>
-                        </div>
-                        <div className="phone-info">
-                            <p>Say hello!</p>
-                            <a href="tel:+14065550120">(406) 555-0120</a>
-                        </div>
+                    <div className="contact-info">
+                    <div className="email">
+                        <p>Say hello!</p>
+                        <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                     </div>
+                    <div className="phone">
+                        <p>Say hello!</p>
+                        <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}>{contactInfo.phone}</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>

@@ -1,7 +1,18 @@
 import React from "react";
 import seoHeroImg from "@assets/img/hero/seo-agency.png";
+const contactInfo = {
+    email: "info@email.com",
+    phone: "(406) 555-0120"
+};
 
 const SeoAgencyHeroSection: React.FC = () => {
+    const socialLinks = [
+        { name: "FACEBOOK", url: "https://facebook.com/" },
+        { name: "INSTAGRAM", url: "https://instagram.com/" },
+        { name: "LINKEDIN", url: "https://linkedin.com/" },
+        { name: "TWITTER", url: "https://twitter.com/" }
+    ];
+
     return (
         <section className="seo-agency-hero-area ak-parallax">
             <img src={seoHeroImg} className="ak-bg seo-agency-hero-area-bg" alt="SEO Agency Hero Background" />
@@ -39,11 +50,11 @@ const SeoAgencyHeroSection: React.FC = () => {
                     <div className="sa-contact-info fade-animation" data-delay="1.2">
                         <div className="sa-email">
                             <p>Say hello!</p>
-                            <a href="mailto:info@email.com">info@email.com</a>
+                            <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                         </div>
                         <div className="sa-phone">
                             <p>Say hello!</p>
-                            <a href="tel:+14065550120">(406) 555-0120</a>
+                            <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}>{contactInfo.phone}</a>
                         </div>
                     </div>
                 </div>
@@ -52,10 +63,11 @@ const SeoAgencyHeroSection: React.FC = () => {
                 <p className="sa-left-text">901 N Pitt Str., Suite 170 Alexandria, USA</p>
             </div>
             <ul className="sa-social-links">
-                <li className="sa-social-item"><a href="https://facebook.com/" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">FACEBOOK </a></li>
-                <li className="sa-social-item"><a href="https://instagram.com/" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">INSTAGRAM </a></li>
-                <li className="sa-social-item"><a href="https://linkedin.com/" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer">LINKEDIN </a></li>
-                <li className="sa-social-item"><a href="https://twitter.com/" aria-label="Follow us on Twitter" target="_blank" rel="noopener noreferrer">TWITTER </a></li>
+                {socialLinks.map((link, index) => (
+                    <li className="sa-social-item" key={index}>
+                        <a href={link.url} aria-label={`Follow us on ${link.name}`} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                    </li>
+                ))}
             </ul>
         </section>
     );

@@ -4,6 +4,11 @@ import heroVideo from "@assets/videos/design-company.mp4";
 import heroBg from "@assets/img/bg/design-company-hero-bg.png";
 import heroBgDark from "@assets/img/bg/design-company-hero-dark-bg.png";
 
+const contactInfo = {
+    email: "info@email.com",
+    phone: "(406) 555-0120"
+};
+
 const DesignCompanyHeroSection: React.FC = () => {
     const [isDark, setIsDark] = useState<boolean>(() => {
         if (typeof document === "undefined") return false;
@@ -63,11 +68,11 @@ const DesignCompanyHeroSection: React.FC = () => {
                             <div className="dc-hero-info-right">
                                 <div className="dc-hero-email">
                                     <p>Say hello!</p>
-                                    <a href="mailto:info@email.com">info@email.com</a>
+                                    <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                                 </div>
                                 <div className="dc-hero-phone">
                                     <p>Say hello!</p>
-                                    <a href="tel:(406)555-0120">(406) 555-0120</a>
+                                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}>{contactInfo.phone}</a>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,17 @@ interface SlidingTextSectionProps {
     variant?: "style-1" | "style-2" | "style-3" | "seo";
 }
 
+const slidingData = {
+    seo: [
+        ["SEO Strategy", "On-Page SEO", "Link Building"],
+        ["Content", "Keyword Research", "Local SEO"]
+    ],
+    design: [
+        ["Design", "Product Development", "Brand Design"],
+        ["Digital Design", "Product Design", "Brand Design"]
+    ]
+};
+
 const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "style-1" }) => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const isSeo = variant === "seo";
@@ -59,8 +70,8 @@ const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "styl
             <div ref={sectionRef}>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="slideing-text-content">
-                    <p className="slideing-text text-color-one">SEO Strategy / On-Page SEO / Link Building</p>
-                    <p className="slideing-text text-color-two">Content / Keyword Research / Local SEO</p>
+                    <p className="slideing-text text-color-one">{slidingData.seo[0].join(" / ")}</p>
+                    <p className="slideing-text text-color-two">{slidingData.seo[1].join(" / ")}</p>
                 </div>
             </div>
         );
@@ -71,8 +82,8 @@ const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "styl
             <div ref={sectionRef}>
                 <div className="ak-height-150 ak-height-lg-80"></div>
                 <div className="slideing-text-content style2">
-                    <p className="slideing-text text-color-three">Design / Product Development / Brand Design</p>
-                    <p className="slideing-text text-color-two">Digital Design / Product Design / Brand Design</p>
+                    <p className="slideing-text text-color-three">{slidingData.design[0].join(" / ")}</p>
+                    <p className="slideing-text text-color-two">{slidingData.design[1].join(" / ")}</p>
                 </div>
             </div>
         );
@@ -81,8 +92,8 @@ const SlidingTextSection: React.FC<SlidingTextSectionProps> = ({ variant = "styl
         <div ref={sectionRef}>
             <div className="ak-height-150 ak-height-lg-40"></div>
             <div className="slideing-text-content">
-                <p className="slideing-text text-color-one">Design / Product Development / Brand Design</p>
-                <p className="slideing-text text-color-two">Digital Design / Product Design / Brand Design</p>
+                <p className="slideing-text text-color-one">{slidingData.design[0].join(" / ")}</p>
+                <p className="slideing-text text-color-two">{slidingData.design[1].join(" / ")}</p>
             </div>
         </div>
     );

@@ -10,6 +10,12 @@ interface SeoAgencyAboutSectionProps {
     circleDuration?: number;
 }
 
+const stats = [
+    { number: 8, suffix: "k", label: "Happy Customers", position: "top-left" },
+    { number: 13, suffix: "", label: "Award Achievement", position: "center-right" },
+    { number: 32, suffix: "+", label: "Years of Experience", position: "bottom" }
+];
+
 const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
     animateCircles = true,
     circleDelay = 0,
@@ -77,24 +83,14 @@ const SeoAgencyAboutSection: React.FC<SeoAgencyAboutSectionProps> = ({
                         </div>
                     </div>
                     <div className="number-circle-content">
-                        <div className="number-circle number-circle-top-left funfact style1">
-                            <div className="img-clip-text ak-bg d-inline" style={{ backgroundImage: `url(${funfactBg})` }}>
-                                <span className="amin_auto_count">8</span>k
+                        {stats.map((stat, index) => (
+                            <div key={index} className={`number-circle number-circle-${stat.position} funfact style1`}>
+                                <div className="img-clip-text ak-bg d-inline" style={{ backgroundImage: `url(${funfactBg})` }}>
+                                    <span className="amin_auto_count">{stat.number}</span>{stat.suffix}
+                                </div>
+                                <p className="achievement-text">{stat.label}</p>
                             </div>
-                            <p className="achievement-text">Happy Customers</p>
-                        </div>
-                        <div className="number-circle number-circle-center-right funfact style1">
-                            <div className="img-clip-text ak-bg d-inline" style={{ backgroundImage: `url(${funfactBg})` }}>
-                                <span className="amin_auto_count">13</span>
-                            </div>
-                            <p className="achievement-text">Award Achievement</p>
-                        </div>
-                        <div className="number-circle number-circle-bottom funfact style1">
-                            <div className="img-clip-text ak-bg d-inline" style={{ backgroundImage: `url(${funfactBg})` }}>
-                                <span className="amin_auto_count">32</span>+
-                            </div>
-                            <p className="achievement-text">Years of Experience</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

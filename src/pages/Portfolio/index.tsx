@@ -25,6 +25,7 @@ const Portfolio: React.FC = () => {
                 showCircle={false}
             />
             <PortfolioPageGridSection />
+            <div className="ak-height-150 ak-height-lg-80"></div>
         </div>
     );
 };

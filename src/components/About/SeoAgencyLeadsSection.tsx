@@ -1,6 +1,13 @@
 import React from "react";
 import aboutCircleBg from "@assets/img/bg/about-circle-bg.png";
 
+const leads = [
+    "1. Proven Results",
+    "2. Transparent Reporting",
+    "3. Customized Strategies",
+    "4. Expert Team"
+];
+
 const SeoAgencyLeadsSection: React.FC = () => {
     return (
         <section className="about-area style-2">
@@ -31,18 +38,11 @@ const SeoAgencyLeadsSection: React.FC = () => {
                             Revenue with Effective SEO Strategies
                         </p>
                         <ul className="leads-list">
-                            <li className="fade-animation">
-                                <a href="/about">1. Proven Results</a>
-                            </li>
-                            <li className="fade-animation">
-                                <a href="/about"> 2. Transparent Reporting</a>
-                            </li>
-                            <li className="fade-animation">
-                                <a href="/about">3. Customized Strategies</a>
-                            </li>
-                            <li className="fade-animation">
-                                <a href="/about">4. Expert Team</a>
-                            </li>
+                            {leads.map((lead, index) => (
+                                <li className="fade-animation" key={index}>
+                                    <a href="/about">{lead}</a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                     <div className="fade-animation" data-direction="left">
